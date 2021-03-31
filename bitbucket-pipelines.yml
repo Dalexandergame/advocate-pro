@@ -12,6 +12,7 @@ pipelines:
         - step:
             name: Test
             script:
+              - mv .env.example .env
               - composer install
               - ./vendor/bin/phpunit
             caches:
@@ -26,6 +27,7 @@ pipelines:
               - composer
         - step:
             name: Deploy
+            deployment: Staging
             script:
               - pipe: atlassian/ftp-deploy:0.3.5
                 variables:
