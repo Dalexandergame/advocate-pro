@@ -24,7 +24,7 @@ pipelines:
             script:
               - pipe: atlassian/ftp-deploy:0.3.5
                 variables:
-                  USER: $USER
-                  PASSWORD: $PASS
-                  SERVER: $HOST
-                  REMOTE_PATH: $PATH
+                  USER: "$USER"
+                  PASSWORD: "$PASS"
+                  SERVER: "$HOST"
+                  REMOTE_PATH: "$PATH"
