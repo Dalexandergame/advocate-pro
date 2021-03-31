@@ -11,6 +11,7 @@ pipelines:
     - parallel:
         - step:
             name: Test
+            trigger: manual
             script:
               - mv .env.example .env
               - composer install
