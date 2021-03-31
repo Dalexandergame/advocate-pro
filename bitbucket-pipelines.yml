@@ -1,0 +1,39 @@
+# Template PHP Build
+
+# This template allows you to validate your PHP application.
+# The workflow allows running tests and code linting on the default branch.
+
+image: composer:2.0
+
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Test
+            script:
+              - composer install
+              -  ./vendor/bin/phpunit test
+            caches:
+              - composer
+        - step:
+            name: Lint
+            trigger: manual
+            script:
+              - composer install
+              - ./vendor/bin/phplint . --exclude=vendor
+            caches:
+              - composer
+        - step:
+            name: Deploy
+            script:
+              - pipe: atlassian/ftp-deploy:0.3.5
+                variables:
+                  USER: '<string>'
+                  PASSWORD: '<string>'
+                  SERVER: '<string>'
+                  REMOTE_PATH: '<string>'
+                  # LOCAL_PATH: '<string>' # Optional
+                  # DEBUG: '<boolean>' # Optional
+                  # EXTRA_ARGS: '<string>' # Optional.
+                  # DELETE_FLAG: '<boolean>' # Optional.
