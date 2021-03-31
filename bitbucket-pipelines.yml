@@ -24,7 +24,9 @@ pipelines:
             script:
               - pipe: atlassian/ftp-deploy:0.3.5
                 variables:
-                  USER: "$FTP_USER"
-                  PASSWORD: "$FTP_PASS"
-                  SERVER: "$FTP_HOST"
-                  REMOTE_PATH: "$FTP_PATH"
+                  USER: $FTP_USER
+                  PASSWORD: $FTP_PASS
+                  SERVER: $FTP_HOST
+                  REMOTE_PATH: $FTP_PATH
+                  DELETE_FLAG: 'false' # Don't delete existing files
+                  EXTRA_ARGS: "--exclude=.bitbucket/ --exclude=.git/ --exclude=bitbucket-pipelines.yml --exclude=.gitignore" # Ignore these
