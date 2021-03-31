@@ -29,4 +29,4 @@ pipelines:
                   SERVER: $FTP_HOST
                   REMOTE_PATH: $FTP_PATH
                   DELETE_FLAG: 'false' # Don't delete existing files
-                  EXTRA_ARGS: "--exclude=.bitbucket/ --exclude=.git/ --exclude=bitbucket-pipelines.yml --exclude=.gitignore" # Ignore these
+                  EXTRA_ARGS: "--exclude=.bitbucket/ --exclude=bitbucket-pipelines.yml --exclude=.git/ --exclude=.gitignore --exclude=vendor/" # Ignore these
