@@ -19,14 +19,6 @@ pipelines:
             caches:
               - composer
         - step:
-            name: Lint
-            trigger: manual
-            script:
-              - composer install
-              - ./vendor/bin/phplint . --exclude=vendor
-            caches:
-              - composer
-        - step:
             name: Deploy
             deployment: Staging
             script:
