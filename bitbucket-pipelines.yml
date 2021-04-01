@@ -41,7 +41,7 @@ pipelines:
         deployment: staging
         script:
           # whatever .env file is referenced in the ENV
-          - cp $ENV_FILE .env
+          - echo $ENV_FILE | base64 --decode --ignore-garbage > .env
           - pipe: atlassian/rsync-deploy:0.4.4
             variables:
               USER: $REMOTE_USER
