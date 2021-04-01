@@ -10,7 +10,6 @@ pipelines:
   default: # runs on all branches
     - step:
         name: Test
-        image: phpunit/phpunit:6.5.3
         caches:
           - composer
         script: # Modify the commands below to build your repository.
