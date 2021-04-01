@@ -26,7 +26,7 @@ pipelines:
 #        caches:
 #          - node
 #        script:
-#          - cp .env.dev .env
+#          - mv .env.example .env
 #          - npm install
 #          - npm run dev
 #        artifacts: # defining the artifacts to be passed to each future step.
