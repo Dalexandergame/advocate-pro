@@ -40,4 +40,4 @@ pipelines:
                 REMOTE_PATH: $REMOTE_PATH
                 LOCAL_PATH: '.'
                 # dont show file list and exclude (bitbucket, git, node_modules) files
-                EXTRA_ARGS: '-arvz --delete --quiet --exclude=.bitbucket --exclude=bitbucket-pipelines.yml --exclude=.git --exclude=.gitignore --exclude=node_modules'
+                EXTRA_ARGS: '-arvz --delete --quiet --exclude=.git* --exclude=.bitbucket --exclude=bitbucket-pipelines.yml --exclude=node_modules'
