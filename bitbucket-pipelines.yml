@@ -19,18 +19,18 @@ pipelines:
           - ./vendor/bin/phpunit
         artifacts: # defining the artifacts to be passed to each future step.
           - vendor/**
-    - step:
-        name: NPM
-        trigger: manual
-        image: node:11.14
-        caches:
-          - node
-        script:
-          - cp .env.dev .env
-          - npm install
-          - npm run dev
-        artifacts: # defining the artifacts to be passed to each future step.
-          - public/**
+#    - step:
+#        name: NPM
+#        trigger: manual
+#        image: node:11.14
+#        caches:
+#          - node
+#        script:
+#          - cp .env.dev .env
+#          - npm install
+#          - npm run dev
+#        artifacts: # defining the artifacts to be passed to each future step.
+#          - public/**
     - step:
         name: Deploy
         trigger: manual
