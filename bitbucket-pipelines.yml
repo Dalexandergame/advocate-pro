@@ -18,7 +18,7 @@ pipelines:
             - vendor/**
       - step:
           name: Compile
-          image: node:11.14
+          image: node:lts
           caches:
             - node
           script:
