@@ -7,26 +7,46 @@ image: composer:2.0
 
 
 pipelines:
-  default:
-    - parallel:
-        - step:
-            name: Test
-            trigger: manual
-            script:
-              - mv .env.example .env
-              - composer install
-              - ./vendor/bin/phpunit
-            caches:
-              - composer
-        - step:
-            name: Deploy
-            deployment: Staging
-            script:
-              - pipe: atlassian/ftp-deploy:0.3.5
-                variables:
-                  USER: $FTP_USER
-                  PASSWORD: $FTP_PASS
-                  SERVER: $FTP_HOST
-                  REMOTE_PATH: $FTP_PATH
-                  DELETE_FLAG: 'false' # Don't delete existing files
-                  EXTRA_ARGS: "--exclude=.bitbucket/ --exclude=bitbucket-pipelines.yml --exclude=.git/ --exclude=.gitignore --exclude=vendor/" # Ignore these
+  default: # runs on all branches
+    - step:
+        name: Test
+        trigger: manual
+        image: phpunit/phpunit:6.5.3
+        caches:
+          - composer
+        script: # Modify the commands below to build your repository.
+          - apk --no-cache add php7-gd php7-posix php7-iconv
+          - php -r "file_exists('.env') || copy('.env.testing', '.env');"
+          - composer install
+          - php artisan key:generate
+          - composer run lint
+          - composer run test
+        artifacts: # defining the artifacts to be passed to each future step.
+          - vendor/**
+    - step:
+        name: NPM
+        trigger: manual
+        image: node:11.14
+        caches:
+          - node
+        script:
+          - cp .env.dev .env
+          - npm install
+          - npm run dev
+        artifacts: # defining the artifacts to be passed to each future step.
+          - public/**
+    - step:
+        name: Deploy
+        trigger: manual
+        deployment: staging
+        script:
+          # whatever .env file is referenced in the ENV
+          - cp $ENV_FILE .env
+          - pipe: atlassian/rsync-deploy:0.4.4
+            variables:
+              USER: $REMOTE_USER
+              SERVER: $REMOTE_SERVER
+              REMOTE_PATH: $REMOTE_PATH
+              LOCAL_PATH: '.'
+              # dont show file list and exclude (bitbucket, git, node_modules) files
+              EXTRA_ARGS: '-arvz --delete --quiet --exclude=.bitbucket/** --exclude=bitbucket-pipelines.yml --exclude=.git/** --exclude=.gitignore --exclude=node_modules/**'
