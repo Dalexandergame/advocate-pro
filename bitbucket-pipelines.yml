@@ -10,17 +10,14 @@ pipelines:
   default: # runs on all branches
     - step:
         name: Test
-        trigger: manual
         image: phpunit/phpunit:6.5.3
         caches:
           - composer
         script: # Modify the commands below to build your repository.
-          - apk --no-cache add php7-gd php7-posix php7-iconv
-          - php -r "file_exists('.env') || copy('.env.testing', '.env');"
+          - mv .env.example .env
           - composer install
           - php artisan key:generate
-          - composer run lint
-          - composer run test
+          - ./vendor/bin/phpunit
         artifacts: # defining the artifacts to be passed to each future step.
           - vendor/**
     - step:
