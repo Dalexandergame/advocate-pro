@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Authentification', function () {
-    return view('Authentification');
+Route::get('/authentication', function () {
+    return view('authentication');
 });
