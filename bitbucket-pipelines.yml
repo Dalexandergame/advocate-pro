@@ -10,7 +10,7 @@ pipelines:
           caches:
             - composer
           script: # Modify the commands below to build your repository.
-            - mv .env.example .env
+            - mv .env .env
             - composer install
             - php artisan key:generate
             - ./vendor/bin/phpunit
@@ -22,7 +22,7 @@ pipelines:
           caches:
             - node
           script:
-            - mv .env.example .env
+            - mv .env .env
             - npm install
             - npm run dev
           artifacts: # defining the artifacts to be passed to each future step.
