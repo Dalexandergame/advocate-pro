@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/authentication', function () {
     return view('authentication');
 });
+
+Route::get('/side-menu',function () {
+    return view('side-menu');
+});
+
