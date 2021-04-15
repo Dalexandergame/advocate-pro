@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/authentication', function () {
+    return view('authentication');
+});
+
 Route::get('/side-menu',function (){
     return view('side-menu');
 });

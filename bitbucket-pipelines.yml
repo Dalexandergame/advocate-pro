@@ -10,7 +10,7 @@ pipelines:
           caches:
             - composer
           script: # Modify the commands below to build your repository.
-            - mv .env .env
+            - mv .env.exemple.exemple .env.exemple
             - composer install
             - php artisan key:generate
             - ./vendor/bin/phpunit
@@ -22,7 +22,7 @@ pipelines:
           caches:
             - node
           script:
-            - mv .env .env
+            - mv .env.exemple.exemple .env.exemple
             - npm install
             - npm run dev
           artifacts: # defining the artifacts to be passed to each future step.
@@ -31,8 +31,8 @@ pipelines:
           name: Deploy
           deployment: staging
           script:
-            # whatever .env file is referenced in the ENV
-            - echo $ENV_FILE | base64 --decode --ignore-garbage > .env
+            # whatever .env.exemple file is referenced in the ENV
+            - echo $ENV_FILE | base64 --decode --ignore-garbage > .env.exemple
             - pipe: atlassian/rsync-deploy:0.4.4
               variables:
                 USER: $REMOTE_USER
