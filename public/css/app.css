@@ -46,6 +46,7 @@
 }
 
 html {
+  height: 100%;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -66,6 +67,7 @@ section {
 }
 
 body {
+  height: 100%;
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
@@ -10816,8 +10818,10 @@ a.text-dark:focus {
 }
 
 .text-hide {
-  font: 0/0 a;
-  color: transparent;
+    line-height: 0;
+    font-size: 0;
+    font-family: a;
+    color: transparent;
   text-shadow: none;
   background-color: transparent;
   border: 0;
@@ -10941,6 +10945,16 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+.side-menu {
+    min-height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    overflow-x: hidden;
+}
 .logo-container {
     padding-top: 3rem;
     padding-bottom: 2rem;
@@ -10976,7 +10990,7 @@ a.text-dark:focus {
 }
 @media only screen and (max-width: 700px) {
     .logo-container {
-        padding: 0.5rem;
+        padding-bottom: 1rem;
     }
     .list{
         padding-left: 25%;
@@ -10984,4 +10998,7 @@ a.text-dark:focus {
     .list span {
         display: none;
     }
+}
+.navigation{
+    margin-left: 20%;
 }

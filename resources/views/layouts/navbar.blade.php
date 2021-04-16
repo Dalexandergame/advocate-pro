@@ -7,14 +7,14 @@
           <a href="" style="">Fr.</a>
           <a href=""style="">Ar.</a>
         </i>
-      </li> 
+      </li>
     </ul>
   </div>
 </nav>
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <div class="container-fluid justify-content-between">
-     
+
     <!-- Left elements -->
     <div class="d-flex">
       <!-- Search form -->
@@ -51,8 +51,8 @@
           <img src="img/profile.svg"/>
         </a>
       </li>
-    
-    
+
+
     </ul>
     <!-- Right elements -->
   </div>
@@ -80,5 +80,17 @@ nav> div{
 }
 #search {
   width: 400px;
+}
+ @media only screen and (max-width: 1036px) {
+    .container-fluid{
+        display: block;
+    }
+     #search {
+         width: 193px;
+     }
+    li> a {
+        width: 60px;
+    }
+
 }
 </style>

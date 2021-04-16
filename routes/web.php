@@ -17,11 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 Route::get('/authentication', function () {
     return view('authentication');
 });
-
-Route::get('/side-menu',function () {
-    return view('side-menu');
-});
-
