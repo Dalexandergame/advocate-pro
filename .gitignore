@@ -18,8 +18,11 @@ TEST*.xml
 Thumbs.db
 
 # Laravel artifact
+/public/css
+/public/js
 /public/hot
 /public/storage
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 
