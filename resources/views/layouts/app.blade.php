@@ -24,6 +24,8 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+
+    @yield('styles')
 </head>
 <body>
     <div class="sidebar">
@@ -35,5 +37,7 @@
             @yield('content')
         </main>
     </div>
+
+    @yield('scripts')
 </body>
 </html>
