@@ -15,6 +15,11 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ])
+    .postCss('resources/css/app.css', 'public/css')
+    .postCss('resources/css/welcome.css', 'public/css')
+    .postCss('resources/css/userview.css', 'public/css')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sourceMaps()
     .postCss('resources/css/sidebar.css', 'public/css/app.css')
     .postCss('resources/css/dashboard.css', 'public/css/app.css')
 ;
