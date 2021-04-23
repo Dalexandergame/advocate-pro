@@ -24,3 +24,7 @@ Route::get('/dashboard', function () {
 Route::get('/authentication', function () {
     return view('authentication');
 });
+
+Route::get('/userview', function () {
+    return view('userview');
+});
