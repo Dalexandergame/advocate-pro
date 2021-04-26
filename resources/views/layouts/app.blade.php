@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 
     <style>
         body {
@@ -33,10 +34,12 @@
         @include('layouts.sidebar')
     </div>
     <div class="navigation">
-        @include('layouts.navbar')
         <main class="py-4">
-            @yield('content')
+            @include('layouts.navbar')
         </main>
+    </div>
+    <div class="content">
+        @yield('content')
     </div>
 
     @yield('scripts')
