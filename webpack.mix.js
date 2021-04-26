@@ -18,5 +18,6 @@ mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/sidebar.css", "public/css")
     .postCss("resources/css/navbar.css", "public/css")
     .postCss("resources/css/auth.css", "public/css")
+    .postCss("resources/css/personalprofilview.css", "public/css")
     .sass("resources/sass/app.scss", "public/css")
     .sourceMaps();
