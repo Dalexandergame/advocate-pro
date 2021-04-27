@@ -28,3 +28,8 @@ Route::get('/authentication', function () {
 Route::get('/userview', function () {
     return view('userview');
 });
+
+Route::get('/ordre', function () {
+        return view('ordremission');
+});
+        
