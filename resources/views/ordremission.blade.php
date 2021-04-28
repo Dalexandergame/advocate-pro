@@ -26,7 +26,7 @@
                       <th><h4>Titre d&#180;ordre de mission</h4></th> 
                     </tr>
                     <tr>
-                        <th>Description</th>   <br>
+                        <th>Description</th>   
 
                         <th>Destination</th>
 
@@ -48,14 +48,18 @@
 
                           <br>
 
-                           <p class="cout">Co&#251;t de mission</p>
-                           <p class="prix">1000 Dhs</p>
-
+                           <p class="cout">Co&#251;t de mission<br>
+                           <span class="prix">1000 Dhs</span>
+                           </p>
+                           
+                           <p class="text-center pai">Reference de paiements</p>
+                           
                          </td>
                       
 
                         <td><p class="infos">Zone industrielle, Sidi Ghanem Num 292, bureau 1 et 2, 400000 Marrakech</p>
 
+                          <br>
                           <br>
                           <br>
                           <br>
@@ -67,6 +71,7 @@
 
                         <td><img class="img-circle" src="img/profile.svg">
 
+                          <br>
                           <br>
                           <br>
                           <br>
