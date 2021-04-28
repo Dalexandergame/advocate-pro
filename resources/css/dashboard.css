@@ -1,0 +1,54 @@
+.navigation{
+    margin-left: 20%;
+}
+
+.container {
+    margin: 0;
+    padding-left: 2rem ;
+}
+
+.progress {
+    height: 1.75rem;
+    width: 90%;
+    margin: auto;
+    border: #1b1e21 1px solid;
+    border-radius: 5%;
+}
+
+.index {
+    padding-top: 5.125rem;
+    padding-right: 3.125rem;
+    padding-left: 5.125rem;
+    padding-bottom: 3.125rem;
+}
+
+
+.circle {
+    background: gray;
+    border-radius: 50%;
+    width: 14.5rem;
+    height: 14.5rem;
+    margin: 3.125rem;
+}
+
+.sm-circle {
+    border-radius: 50%;
+    width:1.5rem;
+    height:1.5rem;
+    background-color: #2a9055;
+}
+.user-task {
+    box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
+    padding-bottom: 1.75rem;
+}
+
+.dossjur {
+    box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
+}
+.folder {
+    box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
+    border-left: #EC1E24 3px solid;
+}
+.info {
+    font-size: x-small;
+}
