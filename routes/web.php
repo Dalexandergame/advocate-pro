@@ -28,3 +28,7 @@ Route::get('/authentication', function () {
 Route::get('/userview', function () {
     return view('userview');
 });
+
+Route::get('/inventaire', function () {
+   return view('inventaire');
+});

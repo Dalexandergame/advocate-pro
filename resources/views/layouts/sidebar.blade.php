@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="list item-1">
-            <a href="#" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
+            <a href="{{__('dashboard')}}" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
         </div>
         <div class="list item-2">
             <a href="#" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
@@ -30,7 +30,7 @@
             <a href="#" class="flex"><x-tasks-icon></x-tasks-icon><span>Tâches</span></a>
         </div>
         <div class="list item-9">
-            <a href="#" class="flex"><x-invent-icon></x-invent-icon><span>Inventaire</span></a>
+            <a href="{{__('inventaire')}}" class="flex"><x-invent-icon></x-invent-icon><span>Inventaire</span></a>
         </div>
         <div class="list item-10">
             <a href="#" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
