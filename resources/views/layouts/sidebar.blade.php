@@ -33,7 +33,7 @@
             <a href="#" class="flex"><x-invent-icon></x-invent-icon><span>Inventaire</span></a>
         </div>
         <div class="list item-10">
-            <a href="#" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
+            <a href="./ordre" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
         </div>
         <div class="list item-11">
             <a href="#" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>
