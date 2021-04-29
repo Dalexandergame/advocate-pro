@@ -39,7 +39,7 @@
             <a href="#" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>
         </div>
         <div class="list item-12">
-            <a href="#" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
+            <a href="tribunalcourts" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
         </div>
         <div class="list item-13">
             <a href="#" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
