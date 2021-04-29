@@ -9,7 +9,7 @@
             <a href="#" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
         </div>
         <div class="list item-2">
-            <a href="#" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
+            <a href="clientview" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
         </div>
         <div class="list item-3">
             <a href="#" class="flex"><x-juris-icon></x-juris-icon><span>Jurisprudence</span></a>
