@@ -29,7 +29,10 @@ Route::get('/userview', function () {
     return view('userview');
 });
 
+Route::get('/clientview', function () {
+    return view('clientview');
+});
+
 Route::get('/ordre', function () {
         return view('ordremission');
 });
-        
