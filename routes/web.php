@@ -44,3 +44,7 @@ Route::get('/ordre', function () {
 Route::get('/inventaire', function () {
    return view('inventaire');
 });
+
+Route::get('/lois', function () {
+        return view('loisarticle');
+});
