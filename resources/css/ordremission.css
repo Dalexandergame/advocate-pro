@@ -10,8 +10,15 @@
   margin-top: 20px; 
   background-color: none;}
 
+.block1 {
+  height:115px;
+  display:block;}
 
-th> h4{
+.block2 {
+  height:100px;
+  display:block;}
+
+.titlem{
     font-family: Gotham;
     font-style: normal;
     font-weight: bold;
@@ -130,7 +137,7 @@ text-align: left;
 
 .button6 {
   margin-right: 10px;
-  background-color: none;
+  background-color: #E6E6E6;;
   border: solid 2px;
   padding: 6px 51px;
   font-size: 11px;
