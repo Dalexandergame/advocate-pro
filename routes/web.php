@@ -28,3 +28,7 @@ Route::get('/authentication', function () {
 Route::get('/userview', function () {
     return view('userview');
 });
+
+Route::get('/clientview', function () {
+    return view('clientview');
+});
