@@ -6,7 +6,7 @@
     <div class="profile">
             <div class="pic">
                 <img src="/img/Profile.png" height="175px" width="175px" />
-            </div> 
+            </div>
         <div class="form-group">
             <label for="usr">Nom</label>
             <input type="text" class="form-control" id="usr" placeholder="Nom">
@@ -27,7 +27,7 @@
             <label for="usr">E-mail</label>
             <input type="text" class="form-control" id="usr" placeholder="nom&prenom@gmail.com">
         </div>
-    </div>  
+    </div>
     <div class="sec"><H3>Sécurité</H3></div>
     <div class="securite">
         <div class="form-group">
@@ -50,5 +50,9 @@
     </div>
     <div class="htac"><H3>historique des tâches</H3></div>
     <div class="historique"></div>
-</div> 
+</div>
+@endsection
+
+@section('styles')
+    <link href="{{ asset('css/personalprofilview.css') }}" rel="stylesheet">
 @endsection
