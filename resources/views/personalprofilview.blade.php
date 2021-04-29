@@ -52,11 +52,3 @@
     <div class="historique"></div>
 </div> 
 @endsection
-
-@section('styles')
-
-@endsection
-@section('scripts')
-
-@endsection
- 
