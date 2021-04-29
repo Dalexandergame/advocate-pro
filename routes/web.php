@@ -36,3 +36,7 @@ Route::get('/clientview', function () {
 Route::get('/profile', function () {
     return view('personalprofilview');
 });
+
+Route::get('/ordre', function () {
+        return view('ordremission');
+});
