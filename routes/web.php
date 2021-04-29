@@ -32,3 +32,7 @@ Route::get('/userview', function () {
 Route::get('/clientview', function () {
     return view('clientview');
 });
+
+Route::get('/profile', function () {
+    return view('personalprofilview');
+});

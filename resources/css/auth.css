@@ -1,5 +1,5 @@
 body {
-    background-image: url(ImageAvocat2.jpg);
+    /* background-image: url(public\img\ImageAvocat2.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -7,7 +7,7 @@ body {
     height: 210px;
 }
 #logo {
-    background-image: url(Logo-Blanc-AdvocatPro.png);
+    /* background-image: url(img\Logo-Blanc-AdvocatPro.png); */
     background-repeat: no-repeat;
     margin-left: 20px;
     margin-top: 5px;
