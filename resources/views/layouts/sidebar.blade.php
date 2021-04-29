@@ -45,7 +45,7 @@
             <a href="#" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
         </div>
         <div class="list item-14">
-            <a href="#" class="flex"><x-corres-icon></x-corres-icon><span>Correspondence</span></a>
+            <a href="{{__('corres')}}" class="flex"><x-corres-icon></x-corres-icon><span>Correspondence</span></a>
         </div>
         <div class="list item-15">
             <a href="#" class="flex"><x-aide-icon></x-aide-icon><span>Centre d’aide</span></a>
