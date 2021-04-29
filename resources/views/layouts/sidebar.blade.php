@@ -9,7 +9,7 @@
             <a href="{{__('dashboard')}}" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
         </div>
         <div class="list item-2">
-            <a href="#" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
+            <a href="clientview" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
         </div>
         <div class="list item-3">
             <a href="#" class="flex"><x-juris-icon></x-juris-icon><span>Jurisprudence</span></a>
@@ -33,7 +33,7 @@
             <a href="{{__('inventaire')}}" class="flex"><x-invent-icon></x-invent-icon><span>Inventaire</span></a>
         </div>
         <div class="list item-10">
-            <a href="#" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
+            <a href="./ordre" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
         </div>
         <div class="list item-11">
             <a href="#" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>

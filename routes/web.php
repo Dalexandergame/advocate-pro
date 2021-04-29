@@ -29,8 +29,16 @@ Route::get('/userview', function () {
     return view('userview');
 });
 
-Route::get('/userview', function () {
-    return view('userview');
+Route::get('/clientview', function () {
+    return view('clientview');
+});
+
+Route::get('/profile', function () {
+    return view('personalprofilview');
+});
+
+Route::get('/ordre', function () {
+        return view('ordremission');
 });
 
 Route::get('/inventaire', function () {
