@@ -19,5 +19,7 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/navbar.css', 'public/css')
     .postCss('resources/css/dashboard.css', 'public/css')
     .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/menuselector.js', 'public/js')
+    .postCss('resources/css/clientview.css', 'public/css')
     .sourceMaps()
 ;
