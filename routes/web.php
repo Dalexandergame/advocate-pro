@@ -44,7 +44,3 @@ Route::get('/ordre', function () {
 Route::get('/inventaire', function () {
    return view('inventaire');
 });
-
-Route::get('/corres', function () {
-    return view('corres');
-});

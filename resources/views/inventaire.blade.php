@@ -121,3 +121,7 @@
         </li>
     </ul>
 @endsection
+
+@section('styles')
+    <link href="{{ asset('css/inventaire.css') }}" rel="stylesheet">
+@endsection
