@@ -10,8 +10,15 @@
   margin-top: 20px; 
   background-color: none;}
 
+.block1 {
+  height:115px;
+  display:block;}
 
-th> h4{
+.block2 {
+  height:100px;
+  display:block;}
+
+.titlem{
     font-family: Gotham;
     font-style: normal;
     font-weight: bold;

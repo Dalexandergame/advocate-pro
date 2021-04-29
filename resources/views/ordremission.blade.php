@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-xl">
-<button class="button button3" class="btn btn-default btn-lg"><span class="fa fa-plus"></span>Ajouter nouveau</button>
-<button class="button button2"> <span class="fa fa-edit"></span> Editer</button>
-<button class="button button1"><i class="fa fa-trash"></i> Supprimer en selection</button>
+<button class="button button3" class="btn btn-default btn-lg"> <img src="img/plus.svg"> Ajouter nouveau</button>
+<button class="button button2"> <img src="img/edit.svg"> Editer</button>
+<button class="button button1"> <img src="img/trash.svg"> Supprimer en selection</button>
 <br>
 
 <select class="form-select filordre" aria-label="Default select example">
@@ -22,9 +22,8 @@
             <table class="table table-striped table-hover">
 
                 <thead>
-                    <tr>
-                      <th><h4>Titre d&#180;ordre de mission</h4></th>
-                    </tr>
+                      <p class="titlem">Titre d&#180;ordre de mission</p>
+                      
                     <tr>
                         <th>Description</th>
 
@@ -59,10 +58,7 @@
 
                         <td><p class="infos">Zone industrielle, Sidi Ghanem Num 292, bureau 1 et 2, 400000 Marrakech</p>
 
-                          <br>
-                          <br>
-                          <br>
-                          <br>
+                          <div class="block1"> </div>
 
                           <button class="button0 button4" class="btn btn-default btn-lg">Accepter</button>
                           <button class="button0 button5">Refuser</button>
@@ -71,10 +67,7 @@
 
                         <td><img class="img-circle" src="img/profile.svg">
 
-                          <br>
-                          <br>
-                          <br>
-                          <br>
+                          <div class="block2"> </div>
 
                           <button class="button0 button6">Mettre en attente</button>
 
