@@ -53,10 +53,8 @@
                     <div class="d-flex justify-content-between">
                         <div>18072954 (Numero du dossier)</div>
                         <div>
-                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.5995 11.9091C12.9477 11.0993 12.5724 10.0919 12.5724 9.04505V7.03036C12.5724 4.64038 10.8935 2.62568 8.64178 2.13188V1.18379C8.64178 0.591234 8.16773 0.117188 7.57517 0.117188C6.98261 0.117188 6.50857 0.591234 6.50857 1.18379V2.13188C4.25685 2.62568 2.57794 4.62063 2.57794 7.03036V9.04505C2.57794 10.0919 2.2224 11.0993 1.55084 11.9091L0.662001 12.9954C0.0496911 13.746 0.582993 14.8916 1.55084 14.8916H13.5798C14.5476 14.8916 15.1007 13.7658 14.4686 12.9954L13.5995 11.9091Z" fill="#EC1E24"/>
-                            </svg>
-                            <img src="/img/Prof.png" height="28px" width="28px"/>
+                            <img src="img/notific.svg" class="pr-2">
+                            <img src="img/Prof.png" height="28px" width="28px"/>
                         </div>
                     </div>
                     <div class="font-weight-bold">Nom du dossier où du client</div>
@@ -66,7 +64,7 @@
                             <span>Déc 19 (Date d’ouverture du dossier)</span>
                         </div>
                         <div>
-                            <img src="/img/alarm.png"/>
+                            <img src="img/alarm.png"/>
                             <span>Reste 2 jours avant la fermeture</span>
                         </div>
                     </div>
@@ -79,15 +77,15 @@
                         <div class="col-5">
                             <h6 class="pb-2 font-weight-bold">Utilisateur</h6>
                             <div>
-                                <img src="/img/Prof.png" height="22" width="22">
+                                <img src="img/Prof.png" height="22" width="22"/>
                                 <span class="pl-2">Nom d’utilisateur</span><hr>
                             </div>
                             <div>
-                                <img src="/img/Prof.png" height="22" width="22">
+                                <img src="img/Prof.png" height="22" width="22"/>
                                 <span class="pl-2">Nom d’utilisateur</span><hr>
                             </div>
                             <div>
-                                <img src="/img/Prof.png" height="22" width="22">
+                                <img src="img/Prof.png" height="22" width="22"/>
                                 <span class="pl-2">Nom d’utilisateur</span><hr>
                             </div>
                         </div>
@@ -109,6 +107,6 @@
         </div>
     </div>
     <div class="taches">
-        <img class="w-auto p-5" src="/img/taskspermonth.png"/>
+        <img class="w-auto p-5" src="img/taskspermonth.png"/>
     </div>
 @endsection

@@ -40,3 +40,7 @@ Route::get('/profile', function () {
 Route::get('/ordre', function () {
         return view('ordremission');
 });
+
+Route::get('/inventaire', function () {
+   return view('inventaire');
+});
