@@ -21,11 +21,11 @@ Route::get('/authentication', function () {
     return view('authentication');
 });
 
-Route::get('/userview', function () {
+Route::get('/utilisateurs', function () {
     return view('userview');
 });
 
-Route::get('/clientview', function () {
+Route::get('/clients', function () {
     return view('clientview');
 });
 
@@ -33,7 +33,7 @@ Route::get('/profile', function () {
     return view('personalprofilview');
 });
 
-Route::get('/ordre', function () {
+Route::get('/ordre-de-mission', function () {
         return view('ordremission');
 });
 
@@ -41,10 +41,10 @@ Route::get('/inventaire', function () {
    return view('inventaire');
 });
 
-Route::get('/tribunalcourts', function () {
+Route::get('/tribunal', function () {
    return view('tribunalcourts');
 });
 
-Route::get('/lois', function () {
+Route::get('/lois-et-articles', function () {
         return view('loisarticle');
 });
