@@ -1,1 +1,1 @@
-require('./bootstrap');
+// todo: Default scripts

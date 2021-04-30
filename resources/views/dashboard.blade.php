@@ -110,3 +110,7 @@
         <img class="w-auto p-5" src="img/taskspermonth.png"/>
     </div>
 @endsection
+
+@section('styles')
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+@endsection

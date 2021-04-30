@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
@@ -43,6 +39,10 @@ Route::get('/ordre', function () {
 
 Route::get('/inventaire', function () {
    return view('inventaire');
+});
+
+Route::get('/tribunalcourts', function () {
+   return view('tribunalcourts');
 });
 
 Route::get('/lois', function () {
