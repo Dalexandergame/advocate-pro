@@ -10,7 +10,7 @@
             <div class="templates p-4 col col-md-offset-4">
                 <h5 class="py-1 pr-3 font-weight-bold">Ajouter template</h5>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ..."">
+                    <input type="text" class="form-control" placeholder="Tapez votre texte ici ...">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="#Tags">

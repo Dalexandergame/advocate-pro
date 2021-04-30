@@ -48,3 +48,8 @@ Route::get('/tribunal', function () {
 Route::get('/lois-et-articles', function () {
         return view('loisarticle');
 });
+
+Route::get('/correspondence', function () {
+    return view('correspondence');
+});
+
