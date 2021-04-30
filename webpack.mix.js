@@ -11,20 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/menuselector.js', 'public/js')
-   .postCss('resources/css/app.css', 'public/css')
-   .postCss('resources/css/welcome.css', 'public/css')
-   .postCss('resources/css/userview.css', 'public/css')
-   .postCss('resources/css/sidebar.css', 'public/css')
-   .postCss('resources/css/navbar.css', 'public/css')
-   .postCss('resources/css/dashboard.css', 'public/css')
-   .postCss('resources/css/clientview.css', 'public/css')
-   .postCss('resources/css/auth.css', 'public/css')
-   .postCss('resources/css/personalprofilview.css', 'public/css')
-   .postCss('resources/css/ordremission.css', 'public/css')
-   .postCss('resources/css/inventaire.css', 'public/css')
-   .postCss('resources/css/tribunalcourts.css', 'public/css')
+mix.copyDirectory('resources/css', 'public/css')
+   .copyDirectory('resources/js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .sourceMaps()
 ;
