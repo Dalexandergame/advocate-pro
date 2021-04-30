@@ -44,3 +44,7 @@ Route::get('/inventaire', function () {
 Route::get('/tribunalcourts', function () {
    return view('tribunalcourts');
 });
+
+Route::get('/lois', function () {
+        return view('loisarticle');
+});

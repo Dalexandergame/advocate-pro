@@ -36,7 +36,7 @@
             <a href="./ordre" class="flex"><x-missionorder-icon></x-missionorder-icon><span>Ordre de mission</span></a>
         </div>
         <div class="list item-11">
-            <a href="#" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>
+            <a href="./lois" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>
         </div>
         <div class="list item-12">
             <a href="tribunalcourts" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
