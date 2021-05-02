@@ -12,22 +12,22 @@
             <a href="/clients" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
         </div>
         <div class="list item-3">
-            <a href="#" class="flex"><x-juris-icon></x-juris-icon><span>Jurisprudence</span></a>
+            <a href="/jurisprudence" class="flex"><x-juris-icon></x-juris-icon><span>Jurisprudence</span></a>
         </div>
         <div class="list item-4">
-            <a href="#" class="flex"><x-doc-icon></x-doc-icon><span>Doccuments</span></a>
+            <a href="/documents" class="flex"><x-doc-icon></x-doc-icon><span>Doccuments</span></a>
         </div>
         <div class="list item-5">
             <a href="/utilisateurs" class="flex"><x-user-icon></x-user-icon><span>Utilisateurs</span></a>
         </div>
         <div class="list item-6">
-            <a href="#" class="flex"><x-jurifolder-icon></x-jurifolder-icon><span>Dossiers juridiques</span></a>
+            <a href="/dossier-juridiques" class="flex"><x-jurifolder-icon></x-jurifolder-icon><span>Dossiers juridiques</span></a>
         </div>
         <div class="list item-7">
-            <a href="#" class="flex"><x-calendar-icon></x-calendar-icon><span>Calendrier</span></a>
+            <a href="/calendrier" class="flex"><x-calendar-icon></x-calendar-icon><span>Calendrier</span></a>
         </div>
         <div class="list item-8">
-            <a href="#" class="flex"><x-tasks-icon></x-tasks-icon><span>Tâches</span></a>
+            <a href="/taches" class="flex"><x-tasks-icon></x-tasks-icon><span>Tâches</span></a>
         </div>
         <div class="list item-9">
             <a href="/inventaire" class="flex"><x-invent-icon></x-invent-icon><span>Inventaire</span></a>
@@ -42,13 +42,13 @@
             <a href="/tribunal" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
         </div>
         <div class="list item-13">
-            <a href="#" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
+            <a href="/paiements" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
         </div>
         <div class="list item-14">
-            <a href="#" class="flex"><x-corres-icon></x-corres-icon><span>Correspondence</span></a>
+            <a href="/correspondence" class="flex"><x-corres-icon></x-corres-icon><span>Correspondence</span></a>
         </div>
         <div class="list item-15">
-            <a href="#" class="flex"><x-aide-icon></x-aide-icon><span>Centre d’aide</span></a>
+            <a href="/centre-aide" class="flex"><x-aide-icon></x-aide-icon><span>Centre d’aide</span></a>
         </div>
     </div>
 </body>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="{ margin: 0;padding-left: 2rem ;}">
         <div class="row">
             <div class="col-5">
                 <h5 class="pb-3 font-weight-bold">Utilisateurs</h5>
