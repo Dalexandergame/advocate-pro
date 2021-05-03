@@ -53,3 +53,7 @@ Route::get('/correspondence', function () {
     return view('correspondence');
 });
 
+Route::get('/dossier-juridique', function () {
+    return view('dossierjuridique');
+});
+
