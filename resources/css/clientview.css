@@ -1,81 +1,84 @@
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
 }
 
 li {
-  float: left;
-  margin-left: 30px;
+    float: left;
+    margin-left: 30px;
 }
 
-li a {
-  display: block;
-  color: #A9A9A9;
-  font-size: 18px;
-  text-align: center;
-  padding: 14px 16px;
-  font-family: system-ui;
+.client-menu li a {
+    display: block;
+    color: #A9A9A9;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: system-ui;
 }
 
 
 a:focus {
-   font-size: 20xp;
-   font-weight: bold;
-   color: black;
-text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
 }
 
 li a:hover{
-  color: black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 li a:link, a:active{
-text-decoration: none;
+    text-decoration: none;
 }
 
 .button {
-  color: white;
-  margin-top: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border: none;
-  font-family: system-ui;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
 }
+
 .button5 {
-  margin-left: 35px;
-  padding: 7px 85px;
-  font-size: 13px;
-  background-color: #000000;} /* Black */
+    margin-left: 35px;
+    padding: 7px 85px;
+    font-size: 13px;
+    background-color: #000000;
+} /* Black */
 
 .buttonx {
-  
-  color: white;
-  margin-top: 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border: none;
-  font-family: system-ui;
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
 }
+
 .buttony {
-  margin-left: 10px;
-  padding: 5px 32px;
-  font-size: 12px;
-  background-color: #868383;}
+    margin-left: 10px;
+    padding: 5px 32px;
+    font-size: 12px;
+    background-color: #868383;
+}
 
 .shadowrow{
-  background-color: white;
-  box-shadow: 6px 6px 10px 1px #e0e0e0;
-  height: 90px;
+    background-color: white;
+    box-shadow: 6px 6px 10px 1px #e0e0e0;
+    height: 90px;
 }
 td, th {
-  text-align: center;
+    text-align: center;
 }
 
 
