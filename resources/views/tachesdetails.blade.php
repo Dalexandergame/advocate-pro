@@ -17,7 +17,7 @@
 <div class="container-xl">
   <div class="row">
     <div class="col-md-8">
-    <button class="button0 button4" onclick="window.location.href='./taches'">ouverte</button>
+    <button class="button0 button4">ouverte</button>
                 <p class="tdate">Debut de la tache 20/02/2020
                     <br>
                 <span style="color: #EC1E24;">Fin de tache 27/02/2020</span>
