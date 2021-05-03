@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<ul>
-	<li><a href="#">Contact</a></li>
-	<li><a href="#">Compte</a></li> 
-</ul>
+<div class="client-menu">
+    <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Compte</a></li>
+    </ul>
+</div>
 <br>
 
 <form style="margin-left: 35px">

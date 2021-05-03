@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<ul>
-  <li><a href="#">Privilèges</a></li>
-  <li><a href="#">Rôles</a></li>
-  <li><a href="#">Utilisateurs</a></li>  
-</ul>
+<div class="usr-menu">
+    <ul>
+        <li><a href="#">Privilèges</a></li>
+        <li><a href="#">Rôles</a></li>
+        <li><a href="#">Utilisateurs</a></li>
+    </ul>
+</div>
 
 <button class="button button5" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"></span>Ajouter nouveau</button>
 <button class="button button4"> <span class="glyphicon glyphicon-edit"></span> Editer</button>
@@ -18,7 +20,7 @@
                 <thead>
                     <tr>
                         <th> </th>
-                        <th>Utilisateurs</th>                       
+                        <th>Utilisateurs</th>
                         <th>Rôle</th>
                         <th>E-mail</th>
                         <th> </th>
@@ -30,8 +32,8 @@
                     <tr>
                         <td>  <input type="checkbox" name="brand"> </td>
                         <td><a href="#"><img class="img-circle" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=42"> Nom et Prenom</a></td>
-                        <td style="padding-top:20px">Rôle 1</td>                        
-                        <td style="padding-top:20px">Nom.Prenom@gmail.com <br> 
+                        <td style="padding-top:20px">Rôle 1</td>
+                        <td style="padding-top:20px">Nom.Prenom@gmail.com <br>
                         <button class="buttonx buttony" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-eye-open
                             "></span>  Vue</button>
                         </td>
@@ -47,9 +49,9 @@
             </table>
         </div>
     </div>
-</div>     
+</div>
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/userview.css') }}"> 
+<link rel="stylesheet" href="{{ asset('css/userview.css') }}">
 @endsection
