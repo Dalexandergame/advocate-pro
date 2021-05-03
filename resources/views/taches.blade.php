@@ -45,7 +45,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
@@ -60,7 +60,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button5">En cours</button>
@@ -75,7 +75,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button6">Finis</button>
@@ -90,7 +90,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
@@ -99,9 +99,9 @@
        </div>
 
 
-       <div class="tasks-wrapper row pl-2">
+       <div class="task-wrapper row pl-2">
            <div class="col tasks">
-             <div>
+              <div>
                 <img class="tprof" src="img/profile.svg"/>
                 <p class="tdate">Debut de la tache 20/02/2020
                     <br>
@@ -109,14 +109,14 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
-                <button class="button0 button4">ouverte</button>
+                <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
               </div>
            </div>
            <div class="col tasks">
-             <div>
+              <div>
                 <img class="tprof" src="img/profile.svg"/>
                 <p class="tdate">Debut de la tache 20/02/2020
                     <br>
@@ -124,17 +124,17 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button5">En cours</button>
-              </div>
+              </div> 
            </div>
-           <div class="col align-self-end">
+           <div class="col align-self-end tasks">
                
            </div>
            <div class="col tasks">
-              <div>
+               <div>
                 <img class="tprof" src="img/profile.svg"/>
                 <p class="tdate">Debut de la tache 20/02/2020
                     <br>
@@ -142,7 +142,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
@@ -150,9 +150,9 @@
            </div>
        </div>
 
-       <div class="tasks-wrapper row pl-2">
+       <div class="task-wrapper row pl-2">
            <div class="col tasks">
-            <div>
+              <div>
                 <img class="tprof" src="img/profile.svg"/>
                 <p class="tdate">Debut de la tache 20/02/2020
                     <br>
@@ -160,13 +160,13 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
-                <button class="button0 button4">ouverte</button>
+                <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
               </div>
            </div>
-           <div class="col align-self-end">
+          <div class="col align-self-end">
                
            </div>
            <div class="col align-self-end">
@@ -181,7 +181,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tÃ¢che</h5>
+                <h5>Titre de la tâche</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
