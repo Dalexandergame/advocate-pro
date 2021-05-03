@@ -45,7 +45,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
@@ -60,7 +60,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button5">En cours</button>
@@ -75,7 +75,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button6">Finis</button>
@@ -90,7 +90,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
@@ -109,7 +109,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
@@ -124,7 +124,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button5">En cours</button>
@@ -142,7 +142,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
@@ -160,7 +160,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button4" onclick="window.location.href='./taches-details'">ouverte</button>
@@ -181,7 +181,7 @@
                 </p>
                 <br>
                 <br>
-                <h5>Titre de la tâche</h5>
+                <h5>Titre de la tache</h5>
                 <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <br>
                 <button class="button0 button7">En attente</button>
