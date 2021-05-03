@@ -59,3 +59,6 @@ Route::get('/taches-details', function () {
             return view('tachesdetails');
 });
 
+Route::get('/dossier-juridiques', function () {
+    return view('dossierjuridique');
+});
