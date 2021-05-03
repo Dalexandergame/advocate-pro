@@ -52,4 +52,10 @@ Route::get('/lois-et-articles', function () {
 Route::get('/correspondence', function () {
     return view('correspondence');
 });
+Route::get('/taches', function () {
+        return view('taches');
+});
+Route::get('/taches-details', function () {
+            return view('tachesdetails');
+});
 
