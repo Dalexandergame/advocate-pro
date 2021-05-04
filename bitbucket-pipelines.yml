@@ -29,6 +29,7 @@ pipelines:
             - public/**
       - step:
           name: Deploy
+          trigger: manual
           deployment: staging
           script:
             # whatever .env file is referenced in the ENV
