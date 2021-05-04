@@ -1,0 +1,84 @@
+.full {
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 25px;
+}
+.menu {
+    margin-bottom: 25px;
+}
+
+.box1 {
+    width: 15%;
+    margin-left: 15px;
+}
+.box2 {
+    width: 15%;
+    margin-left: 15px;
+}
+.box3 {
+    width: 15%;
+    margin-left: 15px;
+}
+.box4 {
+    width: 15%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#impo {
+    background-color: black;
+    padding: 15px 10px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 1em;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 300px;
+}
+
+#expo {
+    background-color: white;
+    padding: 15px 10px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 1em;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+
+#del {
+    background-color: red;
+    padding: 15px 10px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 1em;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+}
+#file {
+    margin-top: 50px;
+}
+
+#vue {
+    background-color: black;
+    padding: 5px 5px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    width: 120px;
+}
+#tele {
+    background-color: gray;
+    padding: 5px 5px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    width: 120px;
+    margin-left: 20px;
+}

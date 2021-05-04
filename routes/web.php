@@ -60,10 +60,15 @@ Route::get('/documents', function () {
 Route::get('/taches', function () {
     return view('taches');
 });
+
 Route::get('/taches-details', function () {
     return view('tachesdetails');
 });
 
 Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
+});
+
+Route::get('/jurisprudence', function () {
+    return view('jurisprudence');
 });
