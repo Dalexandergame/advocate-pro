@@ -47,7 +47,7 @@
       </li>
 
      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
           <img src="img/profile.svg"/>
         </a>
       </li>

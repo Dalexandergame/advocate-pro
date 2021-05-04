@@ -14,7 +14,7 @@ li {
 li a {
   display: block;
   color: #A9A9A9;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   padding: 14px 16px;
   font-family: system-ui;
@@ -36,10 +36,7 @@ li a:link, a:active{
 text-decoration: none;
 }
 
-
-
 .button {
-  
   color: white;
   margin-top: 20px;
   text-align: center;
@@ -49,26 +46,23 @@ text-decoration: none;
   border: none;
   font-family: system-ui;
 }
-
-.button3 {
-	margin-left: 15px;
-	 padding: 7px 45px;
-   font-size: 13px;
-	background-color: #FF0000;} /* Red */ 
-.button4 {
-	margin-left: 15px;
-	background-color: none;
-border: solid 2px;
- padding: 5.5px 85px;
- font-size: 13px;
-
-color: black;} /* Gray */ 
-.button5 {
-	margin-left: 46px;
-	 padding: 7px 45px;
-   font-size: 13px;
-	background-color: #000000;} /* Black */
-
+.button1 {
+  margin-left: 35px;
+  padding: 8px 57px;
+  font-size: 13px;
+  background-color: black;} /* Black */
+  .button2 {
+    color: black;
+  margin-left: 35px;
+  padding: 7px 85px;
+  font-size: 13px;
+  border: solid 1px;
+  background-color: transparent;} /* gray */
+  .button3 {
+  margin-left: 35px;
+  padding: 8px 40px;
+  font-size: 13px;
+  background-color: red;} /* red */
 
 .buttonx {
   
@@ -81,46 +75,37 @@ color: black;} /* Gray */
   border: none;
   font-family: system-ui;
 }
-.buttony {
-  margin-left: 80px;
-   padding: 6px 55px;
-   font-size: 11px;
-  background-color: #000000;}
+  .button-vue {
+  padding: 5px 28px;
+  font-size: 12px;
+  background-color: black;}
+  .button-editer {
+    color: black;
+    border: solid 1px black;
+  padding: 4.5px 25px;
+  font-size: 12px;
+  background-color: transparent;}
+  .button-supprimer {
+  padding: 5px 15px;
+  font-size: 12px;
+  background-color: red;}
 
-.buttonz {
-  margin-right: 10px;
-  background-color: none;
-border: solid 2px;
- padding: 6px 51px;
- font-size: 11px;
-padding-bottom: 3px;
-color: black;}
-
-
-.buttonw {
-  margin-left: 0px;
-   padding: 6px 40px;
-   font-size: 11px;
-  background-color: #FF0000;} /* Red */ 
-
-
-body {
-    color: #566787;
-    background: #f5f5f5;
-    font-family: system-ui;
-    font-size: 13px;
+.shadowrow1{
+  background-color: white;
+  box-shadow: 10px 7px 10px 1px #e0e0e0;
+  height: 90px;
+}  
+.shadowrow2{
+  background-color: white;
+  box-shadow: 10px 7px 10px 1px #e0e0e0;
+  height: 50px;
+  margin-top: -20px;
 }
-.table-responsive {
-    margin: 30px 0;
+td, th {
+  text-align: center;
 }
-.table-wrapper {
-    min-width: 1000px;
-    background: #fff;
-    padding: 20px 25px;
-    border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+.text-right{
+  margin-left: 20px;
+  text-align: center;
+
 }
-
-
-
-

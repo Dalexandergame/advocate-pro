@@ -1,0 +1,67 @@
+.container {
+    display: grid;
+    grid-gap: 1em;
+    grid-auto-rows: minmax(40px, auto);
+    grid-template-columns: 1fr 2fr;
+    column-gap: 50px;
+}
+.container > div {
+    padding: 1em;
+}
+.pro {
+    justify-self: start;
+}
+.sec {
+    justify-self: start;
+}
+.tac {
+    grid-column: 2;
+    grid-row: 4;
+    justify-self: start;
+}
+.htac {
+    grid-column: 2;
+    grid-row: 7;
+    justify-self: start;
+}
+
+.profile {
+    grid-column: 1/2;
+    grid-row: 2/10;
+    border-style: solid;
+    border-color: #d3d3d3;
+}
+.securite {
+    grid-column: 2/4;
+    grid-row: 2/4;
+    border-style: solid;
+    border-color: #d3d3d3;
+}
+.taches {
+    grid-column: 2/4;
+    grid-row: 5/7;
+    border-style: solid;
+    border-color: #d3d3d3;
+}
+.historique {
+    grid-column: 2/4;
+    grid-row: 8/10;
+    border-style: solid;
+    border-color: #d3d3d3;
+}
+.pic {
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+#but {
+    text-align: right;
+    float: right;
+    margin-top: 20px;
+}
+#mod {
+    margin-top: 10px;
+}
+
+H3 {
+    margin: 2px;
+}

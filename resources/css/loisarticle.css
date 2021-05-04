@@ -1,0 +1,72 @@
+.filois{
+  width :298px;
+  height:35px;
+  border: 1px solid #989898;
+  box-sizing: border-box;
+  margin-left: 5px;
+  padding: 7px 45px;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+  background-color: none;
+  font-family: system-ui;
+  font-weight: bold;}
+
+title{
+font-family: system-ui;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+
+color: #000000;
+}
+.fich1{
+  background-color: white;
+  box-shadow: 19px 13px 10px 1px #e0e0e0;
+  height: 90px;
+}
+
+td , th {  text-align: center; }
+
+.vue {
+  color: white;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  font-family: system-ui;
+  padding: 6px 34px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-size: 12px;
+  background-color: black;
+  height: 34px;
+}
+
+.date {
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-family: Gotham;
+  padding: 6px 34px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-size: 16px;
+}
+
+.load {
+  color: black;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px black;
+  font-family: system-ui;
+  padding: 4px 32px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  background-color: #C4C4C4;
+  height: 34px;}
