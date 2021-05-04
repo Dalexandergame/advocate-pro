@@ -1,57 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="usr-menu">
-    <ul>
-        <li><a href="#">Privilèges</a></li>
-        <li><a href="#">Rôles</a></li>
-        <li><a href="#">Utilisateurs</a></li>
-    </ul>
+<ul>
+    <li><a href="#">Priviléges</a></li>
+    <li><a href="#">Rôles</a></li>
+    <li><a href="#">Utilisateurs</a></li>
+</ul>
+
+<button class="button button1" class="btn btn-default btn-lg"><img src="/img/plus.png" height="12px" width="12px" style="margin-top: -5px"> Ajouter nouveau</button>
+<button class="button button2" class="btn btn-default btn-lg"><img src="/img/edit.png" height="12px" width="12px" style="margin-top: -5px"> Editer</button>
+<button class="button button3" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
+
+
+<br><br><br>
+<div class="container">
+
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Utilisateurs</th>
+                <th scope="col">Rôle</th>
+                <th scope="col" class="text-right" style="  padding-right: 65px;">E-mail</th>
+                <th scope="col"></th>
+                <th scope="col"  style="padding-right: 65px;">Tél</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="shadowrow1">
+                <td><input type="checkbox" name="checkbox" style="margin-right: 20px" /><img src="/img/profile.png" height="70px" width="70px"/></td>
+                <td><br>Nom et prénom</td>
+                <td><br>Role 1</td>
+                <td style="text-align: right;"><br>Nom.Prenom@gmail.com<br> <button class="buttonx button-vue" class="btn btn-default btn-lg">  <img src="/img/eye2.png" height="15px" width="15px" style="margin-top: -3px"/> Vue</button></td>
+                <td><br><br> <button class="buttonx button-editer" class="btn btn-default btn-lg">  <img src="/img/edit.png" height="15px" width="15px" style="margin-top: -3px"/> Editer</button></td>
+                <td style="text-align: left;"><br>+212 665 887 444<br> <button class="buttonx button-supprimer" class="btn btn-default btn-lg">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button></td>
+            </tr>
+            <tr>
+                <td height="20" colspan="2"></td>
+            </tr>
+            <tr class="shadowrow1">
+                <td><input type="checkbox" name="checkbox" style="margin-right: 20px" /><img src="/img/profile.png" height="70px" width="70px"/></td>
+                <td><br>Nom et prénom</td>
+                <td><br>Role 2</td>
+                <td style="text-align: right;"><br>Nom.Prenom@gmail.com<br> <button class="buttonx button-vue" class="btn btn-default btn-lg">  <img src="/img/eye2.png" height="15px" width="15px" style="margin-top: -3px"/> Vue</button></td>
+                <td><br><br> <button class="buttonx button-editer" class="btn btn-default btn-lg">  <img src="/img/edit.png" height="15px" width="15px" style="margin-top: -3px"/> Editer</button></td>
+                <td style="text-align: left;"><br>+212 665 887 444<br> <button class="buttonx button-supprimer" class="btn btn-default btn-lg">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button></td>
+            </tr>
+            <tr>
+                <td height="20" colspan="2"></td>
+            </tr>
+        </tbody>
+
+    </table>
 </div>
 
-<button class="button button5" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"></span>Ajouter nouveau</button>
-<button class="button button4"> <span class="glyphicon glyphicon-edit"></span> Editer</button>
-<button class="button button3"><span class="glyphicon glyphicon-trash"></span> Supprimer en selection</button>
-
-<div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th> </th>
-                        <th>Utilisateurs</th>
-                        <th>Rôle</th>
-                        <th>E-mail</th>
-                        <th> </th>
-                        <th>Tél</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>  <input type="checkbox" name="brand"> </td>
-                        <td><a href="#"><img class="img-circle" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=42"> Nom et Prenom</a></td>
-                        <td style="padding-top:20px">Rôle 1</td>
-                        <td style="padding-top:20px">Nom.Prenom@gmail.com <br>
-                        <button class="buttonx buttony" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-eye-open
-                            "></span>  Vue</button>
-                        </td>
-                        <td style="padding-top:20px"><br>
-                            <button class="buttonx buttonz"> <span class="glyphicon glyphicon-edit"></span> Editer</button>
-                        </td>
-                        <td style="padding-top:20px">+21260000000 <br>
-                            <button class="buttonx buttonw"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/userview.css') }}">
+@endsection
+
+@section('scripts')
 @endsection
