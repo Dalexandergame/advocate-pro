@@ -52,11 +52,16 @@ Route::get('/lois-et-articles', function () {
 Route::get('/correspondence', function () {
     return view('correspondence');
 });
+
+Route::get('/documents', function () {
+    return view('documents');
+});
+
 Route::get('/taches', function () {
-        return view('taches');
+    return view('taches');
 });
 Route::get('/taches-details', function () {
-            return view('tachesdetails');
+    return view('tachesdetails');
 });
 
 Route::get('/dossier-juridiques', function () {

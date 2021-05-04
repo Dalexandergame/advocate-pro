@@ -1,0 +1,47 @@
+.box {
+    box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-wrapper {
+    margin-left: 1.5rem;
+}
+.btn-wrapper button {
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    margin-left: 1rem;
+}
+.move-btn {
+    padding-left:1.75rem ;
+    padding-right: 3rem;
+    background-color: #C4C4C4;
+}
+
+.download-btn {
+    padding-left:1rem ;
+    padding-right: 1rem;
+    border: 1.5px solid #000000;
+    box-sizing: border-box;
+}
+
+.download-btn:hover {
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.plus-btn {
+    padding-left:2rem ;
+    padding-right: 2.5rem;
+}
+
+.trash-btn {
+    padding-left: 1rem ;
+    padding-right: 1rem;
+}
+
+.detail {
+    font-size: small;
+    color: #737171;
+}
+.player {
+    background: #333333;
+    margin-bottom: 1.5rem;
+}
