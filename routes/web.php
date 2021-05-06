@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\TemplatesController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +72,7 @@ Route::get('/dossier-juridiques', function () {
 Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
+
+Route::get('/correspondence', [TemplatesController::class , 'create']);
+
+Route::post('/correspondence', [TemplatesController::class , 'store']);
