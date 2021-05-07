@@ -76,3 +76,7 @@ Route::get('/jurisprudence', function () {
 Route::get('/correspondence', [TemplatesController::class , 'create']);
 
 Route::post('/correspondence', [TemplatesController::class , 'store']);
+
+Route::get('/dossier-juridiques-vue', function () {
+    return view('dossierjuridiquevue');
+});
