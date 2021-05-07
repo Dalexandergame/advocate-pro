@@ -73,6 +73,10 @@ Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
 
+Route::get('/payment', function () {
+    return view('payment');
+});
+
 Route::get('/correspondence', [TemplatesController::class , 'create']);
 
 Route::post('/correspondence', [TemplatesController::class , 'store']);
