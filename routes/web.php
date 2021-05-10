@@ -72,7 +72,10 @@ Route::get('/dossier-juridiques', function () {
 Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
-
+Route::get('/messages', function () {
+        return view('messages');
+});
+        
 Route::get('/correspondence', [TemplatesController::class , 'create']);
 
 Route::post('/correspondence', [TemplatesController::class , 'store']);
