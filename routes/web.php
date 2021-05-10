@@ -69,12 +69,12 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
-Route::get('/jurisprudence', function () {
-    return view('jurisprudence');
-});
-
 Route::get('/payment', function () {
     return view('payment');
+});
+
+Route::get('/jurisprudence', function () {
+    return view('jurisprudence');
 });
 
 Route::get('/correspondence', [TemplatesController::class , 'create']);
