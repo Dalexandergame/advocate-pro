@@ -62,7 +62,7 @@
 		<div class="row">
 			<div><img src="/img/qr-code.png" height="70px" width="70px" style="margin-left: 35px"></div>
 			<div class="buttons-position"> 
-				<button class="buttonx" class="btn btn-default btn-lg"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
+				<button class="buttonx" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques-vue') }}'"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
 
 				<button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
 			</div>

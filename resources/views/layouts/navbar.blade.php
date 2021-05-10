@@ -29,7 +29,7 @@
     <ul class="navbar-nav flex-row ml-auto ">
 
       <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="./messages">
           <img src="img/mail.svg"/>
         </a>
       </li>
