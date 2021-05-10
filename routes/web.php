@@ -69,6 +69,8 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
+Route::resource('templates', TemplatesController::class)->except(['index']);
+
 Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
