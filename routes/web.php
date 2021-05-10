@@ -65,8 +65,6 @@ Route::get('/taches-details', function () {
     return view('tachesdetails');
 });
 
-Route::resource('templates', TemplatesController::class)->except(['index']);
-
 Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
@@ -78,14 +76,13 @@ Route::get('/payment', function () {
 Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
+
 Route::get('/messages', function () {
         return view('messages');
 });
 
-Route::get('/correspondence', [TemplatesController::class , 'create']);
-
-Route::post('/correspondence', [TemplatesController::class , 'store']);
-
 Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
+
+Route::resource('templates', TemplatesController::class)->except(['index']);
