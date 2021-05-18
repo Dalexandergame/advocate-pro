@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id()->autoIncrement();
             $table->string('nom');
             $table->string('pdf');
-            $table->timestamps();
+            $table->date('date');
         });
     }
 
