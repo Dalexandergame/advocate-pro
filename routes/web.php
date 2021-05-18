@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,7 @@ Route::get('/tribunal', function () {
    return view('tribunalcourts');
 });
 
-Route::get('/lois-et-articles', function () {
-        return view('loisarticle');
-});
+Route::get('/lois-et-articles', [ArticleController::class,'show']);
 
 Route::get('/correspondence', function () {
     return view('correspondence');
