@@ -12,7 +12,7 @@
                 <span>Sous catégorie</span>
                 <img src="img/dropdown.svg" width="13" height="6.5"/>
             </div>
-            <button class="col config-btn btn-dark">
+            <button onclick="window.location.href='/gestion-des-categories'" class="col config-btn btn-dark">
                 <img src="img/config.svg"/>
                 <span class="pl-1">Gestion des catégorie</span>
             </button>
@@ -22,9 +22,9 @@
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F2F2F2">
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
-                        <a class="nav-link px-md-5" href="#">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="#">Sortie</a>
-                        <a class="nav-link px-md-5" href="#">Demandes</a>
+                        <a class="nav-link px-md-5" href="/inv-entre">Entre</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="/inv-sortie">Sortie</a>
+                        <a class="nav-link px-md-5" href="/inv-demandes">Demandes</a>
                     </div>
                 </div>
             </nav>

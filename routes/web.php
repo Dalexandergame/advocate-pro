@@ -86,3 +86,23 @@ Route::get('/dossier-juridiques-vue', function () {
 });
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
+
+Route::get('/inv-entre', function () {
+    return view('inv-entre');
+});
+Route::get('/inv-sortie', function () {
+    return view('inv-sortie');
+});
+Route::get('/inv-demandes', function () {
+    return view('inv-demandes');
+});
+Route::get('/gestion-des-categories', function () {
+    return view('gestion-des-categories');
+});
+
+Route::get('/cat-produit', function () {
+    return view('cat-produit');
+});
+Route::get('/ajouter-cat-produit', function () {
+    return view('ajouter-cat-produit');
+});
