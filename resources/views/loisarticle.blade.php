@@ -25,10 +25,12 @@
 
 		<tbody>
 
+			@foreach($articles as $article)
+
 			<tr class="fich1">
 
-				<td><img src="img/fichier.svg"> Nom du fichier</td>
-				<td class="date">05/03/2020</td>
+				<td><img src="img/fichier.svg">{{$article['nom']}}</td>
+				<td class="date">{{$article['date']}}</td>
 				<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg"><img src="img/vue.svg"/> Vue</button></td>
 				<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg"><img src="img/load.svg"/> Telecharger</button></td>
 
@@ -37,19 +39,8 @@
 			<tr>
 				<td height="20" colspan="2"></td>
 			</tr>
-			
-			<tr class="fich1">
 
-				<td><img src="img/fichier.svg"> Nom du fichier</td>
-				<td class="date">05/03/2020</td>
-				<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg"><img src="img/vue.svg"/> Vue</button></td>
-				<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg"><img src="img/load.svg"/> Telecharger</button></td>
-
-			</tr>
-			
-			<tr>
-				<td height="20" colspan="2"></td>
-			</tr>
+			@endforeach
 
 		</tbody>
 
