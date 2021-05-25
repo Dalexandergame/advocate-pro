@@ -4,15 +4,18 @@
     <div class="container">
         <!--catégories-->
         <div class="row align-items-center ml-1 w-75">
-            <div class=" col categorie d-flex justify-content-between align-items-center">
-                <span>Catégorie</span>
-                <img src="img/dropdown.svg" width="13" height="6.5"/>
+            <div class=" col d-flex justify-content-between align-items-center">
+                <select id="categoryList" class="category" name="category_id" required>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            <div class="col d-flex justify-content-between align-items-center">
+                <select id="subcategoryList" class="category" name="subcategory_id" required>
+                        <option value=""></option>
+                </select>
             </div>
-            <div class="col categorie d-flex justify-content-between align-items-center">
-                <span>Sous catégorie</span>
-                <img src="img/dropdown.svg" width="13" height="6.5"/>
-            </div>
-            <button onclick="window.location.href='/gestion-des-categories'" class="col config-btn btn-dark">
+            <button onclick="window.location.href='/categories.edit'" class="col config-btn btn-dark">
                 <img src="img/config.svg"/>
                 <span class="pl-1">Gestion des catégorie</span>
             </button>
@@ -124,4 +127,27 @@
 
 @section('styles')
     <link href="{{ asset('css/inventaire.css') }}" rel="stylesheet">
+@endsection
+
+@section('scripts')
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $('#categoryList').on('change',function(e){
+                console.log(e);
+                var cat_id = e.target.value;
+                //console.log(cat_id);
+                //ajax
+                $.get('/ajax-subcat?cat_id='+ cat_id,function(data){
+                    //success data
+                    //console.log(data);
+                    var subcat = $('#subcategoryList').empty();
+                    $.each(data,function(create,subcatObj) {
+                        subcat.append('<option value ="'+subcatObj.id+'">'+subcatObj.name+'</option>');
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

@@ -63,8 +63,8 @@
                 <div class="row mt-3">
                     <div class="col font-weight-bold">Numéro de série</div>
                     <div class="col">
-                        <div class="d-flex align-items-baseline mb-2"><span class="pr-2">Du</span><input type="text" name="n-serie" class="form-control" placeholder="N° de série"></div>
-                        <div class="d-flex align-items-baseline"><span class="pr-2">Au</span><input type="text" name="n-serie" class="form-control" placeholder="N° de série"></div>
+                        <div class="d-flex align-items-baseline mb-2"><span class="pr-2">Du</span><input type="text" name="serial-number" class="form-control" placeholder="N° de série"></div>
+                        <div class="d-flex align-items-baseline"><span class="pr-2">Au</span><input type="text" name="serial-number" class="form-control" placeholder="N° de série"></div>
                     </div>
                 </div>
                 <div class="row mt-3">

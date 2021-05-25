@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TemplatesController;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +43,7 @@ Route::get('/ordre-de-mission', function () {
         return view('ordremission');
 });
 
-Route::get('/inventaire', function () {
-   return view('inventaire');
-});
+Route::get('/inventaire', [InventoryController::class, 'index']);
 
 Route::get('/tribunal', function () {
    return view('tribunalcourts');
@@ -96,8 +100,8 @@ Route::get('/inv-sortie', function () {
 Route::get('/inv-demandes', function () {
     return view('inv-demandes');
 });
-Route::get('/gestion-des-categories', function () {
-    return view('gestion-des-categories');
+Route::get('/categories.edit', function () {
+    return view('categories.edit');
 });
 
 Route::get('/cat-produit', function () {
@@ -105,4 +109,11 @@ Route::get('/cat-produit', function () {
 });
 Route::get('/ajouter-cat-produit', function () {
     return view('ajouter-cat-produit');
+});
+
+Route::get('/ajax-subcat',function () {
+    $cat_id = request()->input('cat_id');
+        //return $cat_id;
+    $subcategories = DB::table('categories')->where('parent_id','=',$cat_id)->get();
+    return response()->json($subcategories);
 });

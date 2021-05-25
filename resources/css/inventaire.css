@@ -2,7 +2,6 @@
     padding-top: 0.43rem;
     padding-bottom: 0.68rem;
     margin-right: 1.5rem;
-    border: 1px solid #989898;
     box-sizing: border-box;
     font-weight: bold;
 }
@@ -52,3 +51,49 @@
     color: #1b1e21;
 }
 
+.catg-container {
+    display: grid;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.add-catg {
+    max-height: 3rem;
+    padding: 0.75rem;
+    color: #989898;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+.add-catg:hover {
+    text-decoration: none;
+    background-color: rgba(195, 201, 213, 0.5);
+    color: #5e6c84;
+}
+
+.stock-alert {
+    border: none;
+}
+.stock-alert:focus {
+    outline: none;
+    background-color: rgba(195, 201, 213, 0.3);
+}
+
+.Enr-button{
+    margin-top: 2rem;
+    padding: 0.40rem 3rem;
+    background-color: white;
+    font-size: medium;
+}
+
+.produit:hover {
+    background-color: rgba(195, 201, 213, 0.3);
+}
+
+.txt-small {
+    font-size: small;
+}
+
+.txt-xx-small {
+    font-size: xx-small;
+}
