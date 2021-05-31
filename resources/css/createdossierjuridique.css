@@ -170,8 +170,7 @@
    text-align: center;
 }
 
-
-a.button {
+a.buttonAjouter {
  color: white;
  margin-top: 20px;
  text-align: center;
@@ -186,3 +185,69 @@ a.button5 {
  padding: 7px 85px;
  font-size: 13px;
  background-color: #000000;} /* Black */
+
+.type-move{
+  position: relative;
+  margin-left: 300px;
+  margin-top: -110px;
+}
+.type-move2{
+  position: absolute;
+  margin-left: 600px;
+  margin-top: -80px;
+}
+.type-move3{
+  position: absolute;
+  margin-left: 600px;
+}
+.text-area-move{
+  position: relative;
+  margin-left: 250px;
+  margin-top: 100px;
+  margin-right: -500px;
+}
+.type-move4{
+   position: relative;
+   margin-top: 35px;
+   margin-left: 245px;
+   margin-right: -50px;
+}
+.buttonw {
+ color: black;
+ margin-top: 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ border: solid 1px black;
+ font-family: system-ui;
+ padding: 4px 32px;
+ padding-top: 2.5px;
+ padding-bottom: 5.5px;
+ font-size: 12px;
+ background-color: white;
+position: absolute;
+margin-left: 1000px;
+}
+
+a.button {
+  color: white;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  font-family: system-ui;
+}
+a.button3 {
+  margin-left: 300px;
+  padding: 5.5px 25px;
+  font-size: 13px;
+  background-color: red;
+  display: inline-table;
+  margin-top: 401px;} /* red */
+
+.type-move0 {
+  position: relative;
+  margin-top: 20px;
+}
