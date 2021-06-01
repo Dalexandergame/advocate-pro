@@ -3,7 +3,7 @@
 @section('content')
 
 <br>
-
+<br>
 <form style="margin-left: 34px">
 	<div class="form-row align-items-center">
 		<div class="col-2.7">
@@ -38,45 +38,45 @@
 <a class="button button5" href="{{ url('/dossierjuridiques/create') }}"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
 
 <div style="margin-top: 40px;"></div>
+@foreach($dossierjuridiques as $dossierjuridique)
 <div class="container">
 	<div class="big-grid" style="margin-right: -20px">
 		<div class="row" style="margin-top: 20px">
-			<div class="col-2.5" id="red-writing">Dossier N 37538</div>
+			<div class="col-2.5" id="red-writing">Dossier N {{ $dossierjuridique->file_number }}</div>
 			<div class="col gray-bold1">Sous dossiers(05)</div>
 			<div class="col titre col3-marg">Type</div>
 			<div class="col-3 titre">Pour</div>
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
-			<div class="col-2.5 marg-c1 bold-description1">Marrakech le(07/02/2019)</div>
+			<div class="col-2.5 marg-c1 bold-description1">Marrakech le({{ $dossierjuridique->date_creation }})</div>
 			<div class="col marg"></div>
-			<div class="col marg-c2">Type 1<br>Type 2<br>Type 3<br>Type 4<br>Type 5</div>
-			<div class="col-3 marg-c3"><div class=" bold-description1">Atelier IKS</div><br><div class=" bold-description1">Tel </div> +212 600 137 224<br><div class=" bold-description1">Mail </div> nom&prenom@gmail.com</div>
-			<div class="col-3 marg-c4"> <div class=" bold-description2">Babanou Oumaima</div> <br><div class=" bold-description2">Tel </div> +212 600 137 224<br><div class=" bold-description2">Mail </div> nom&prenom@gmail.com</div>
+			<div class="col marg-c2">{{ $dossierjuridique->type_dossier }}</div>
+			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for }}</div><br><div class=" bold-description1">Tel </div> +212 600 137 224<br><div class=" bold-description1">Mail </div> nom&prenom@gmail.com</div>
+			<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossierjuridique->against }}</div> <br><div class=" bold-description2">Tel </div> +212 600 137 224<br><div class=" bold-description2">Mail </div> nom&prenom@gmail.com</div>
 		</div>
 		<div class="row">
-			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat.</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#IKS #Outhman</div></div>
+			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossierjuridique->comments }}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossierjuridique->tagwords }}</div></div>
 		</div>
 		<div class="row">
 			<div><img src="/img/qr-code.png" height="70px" width="70px" style="margin-left: 35px"></div>
 			<div class="buttons-position"> 
 				<button class="buttonx" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques-vue') }}'"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
 
-				<button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
+				<button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossierjuridiques/'.$dossierjuridique->id.'/edit') }}'"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
 			</div>
 		</div>
+		
 		<br>
 	</div>
 </div>
-<br><br>
+@endforeach
+<br>
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/dossierjuridique.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/dossierjuridique.css') }}">
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/menuselector.js') }}"></script>
+<script src="{{ asset('../js/menuselector.js') }}"></script>
 @endsection

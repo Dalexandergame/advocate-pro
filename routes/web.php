@@ -85,3 +85,9 @@ Route::get('/dossier-juridiques-vue', function () {
 });
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
+
+Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
+Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
+Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
+Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
+Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
