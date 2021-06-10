@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -13,7 +16,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::with('products')->get();
+
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -54,9 +59,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+
     }
 
     /**

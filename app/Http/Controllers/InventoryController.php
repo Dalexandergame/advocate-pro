@@ -25,9 +25,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::whereNull('parent_id')->get();
+        $categories = Category::all();
 
-        $products = Product::paginate(12)->get();
+        $products = Product::take(12)->get();
 
         return view('inventaire', compact('categories','products'));
     }

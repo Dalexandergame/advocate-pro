@@ -7,11 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function subcategory()
+    protected $guarded = [];
+    
+    use HasFactory;
+
+    public function category()
     {
-        return $this->belongsTo(Category::class,'category_id','id');
+        return $this->belongsTo(Category::class);
     }
 
+    public function stock()
+    {
+        return $this->belongsTo(Stock::class);
+    }
 
-    use HasFactory;
+    public function demands()
+    {
+        return $this->belongsToMany(Demand::class);
+    }
 }

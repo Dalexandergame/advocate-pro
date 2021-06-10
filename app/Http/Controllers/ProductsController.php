@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -13,7 +16,12 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $cat_id = request()->input('cat_id');
+        //return $cat_id;
+        $products = DB::table('products')->where('category_id','=',$cat_id)->get();
+        response()->json($products);
+
+        return view('inventaire',compact('products'));
     }
 
     /**
@@ -45,7 +53,9 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('products.show', compact('product'));
     }
 
     /**

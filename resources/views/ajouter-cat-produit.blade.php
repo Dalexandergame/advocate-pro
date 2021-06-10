@@ -55,7 +55,7 @@
                         <div class="mt-1">
                             <a href="#" class="add-catg pl-1 py-1" style="">
                                 <img class="pr-1" src="img/grey-plus.svg"/>
-                                <span class="">Ajouter produit</span>
+                                <span class="">Ajouter la facture</span>
                             </a>
                         </div>
                     </div>

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Demand extends Model
 {
-
     use HasFactory;
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot('quantity');
+    }
 }

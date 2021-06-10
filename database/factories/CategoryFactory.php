@@ -22,7 +22,6 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'parent_id' => Category::factory(),
             'name' => $this->faker->word(),
             'description' => $this->faker->text()
         ];

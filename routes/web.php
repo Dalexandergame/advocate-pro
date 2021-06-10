@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TemplatesController;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 
@@ -89,31 +90,17 @@ Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
 
-Route::resource('templates', TemplatesController::class)->except(['index']);
-
-Route::get('/inv-entre', function () {
-    return view('inv-entre');
-});
-Route::get('/inv-sortie', function () {
-    return view('inv-sortie');
-});
-Route::get('/inv-demandes', function () {
-    return view('inv-demandes');
-});
-Route::get('/categories.edit', function () {
-    return view('categories.edit');
-});
-
-Route::get('/cat-produit', function () {
-    return view('cat-produit');
-});
 Route::get('/ajouter-cat-produit', function () {
     return view('ajouter-cat-produit');
 });
 
-Route::get('/ajax-subcat',function () {
-    $cat_id = request()->input('cat_id');
-        //return $cat_id;
-    $subcategories = DB::table('categories')->where('parent_id','=',$cat_id)->get();
-    return response()->json($subcategories);
-});
+Route::resource('templates', TemplatesController::class)->except('index');
+
+Route::resource('categories',CategoriesController::class);
+Route::resource('categories.products',ProductsController::class)->shallow();
+Route::resource('demands',DemandsController::class);
+Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
+Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
+Route::resource('stocks',StocksController::class);
+
+
