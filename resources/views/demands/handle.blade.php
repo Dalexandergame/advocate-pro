@@ -9,8 +9,8 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.store')}}">Sortie</a>
-                        <a class="nav-link px-md-5" href="{{route('demands.index')}}">Demandes</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
             </nav>
@@ -31,7 +31,7 @@
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault"></label>
             </div>
-            <div class="col"><img class="pl-4" src="img/produit-default.svg"/></div>
+            <div class="col"><img class="pl-4" src="{{{url('img/produit-default.svg')}}}"/></div>
             <div class="col text-center">Nom de produit</div>
             <div class="col text-center">2</div>
             <div class="col text-center">Nom de personne</div>

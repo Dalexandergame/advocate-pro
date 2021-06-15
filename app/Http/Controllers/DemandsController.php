@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Demand;
+use App\Models\DemandProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DemandsController extends Controller
 {
@@ -14,7 +17,13 @@ class DemandsController extends Controller
      */
     public function index()
     {
-        return view('demands.index');
+        foreach (DemandProduct::all() as $item)
+        {
+            $products[$item->demand_id][$item->product_id] = Product::where('id', '=', $item->product_id)->get();
+            $quantities[$item->demand_id][$item->product_id] = $item->quantity ;
+        }
+
+        return view('demands.index',compact('products','quantities'));
     }
 
     /**
@@ -35,8 +44,45 @@ class DemandsController extends Controller
      */
     public function store(Request $request)
     {
-        return view('demands.store');
+        $products = [];
+        $quantities = [];
+
+        $data = request()->validate([
+            'details' => 'required'
+        ]);
+
+        $demandedProducts = $request->session()->get('demand');
+
+        if ($demandedProducts != null){
+            //Inseret the demands table
+            $demand = Demand::create($data);
+
+            //Inseret the demand_product table
+            foreach ($demandedProducts as $id=>$quantity)
+            {
+                DemandProduct::create([
+                    'demand_id' => $demand->id,
+                    'product_id' => $id,
+                    'quantity' => $quantity
+                ]);
+                foreach (DemandProduct::all() as $item)
+                {
+                    $products[$item->demand_id][$item->product_id] = Product::where('id', '=', $item->product_id)->get();
+                    $quantities[$item->demand_id][$item->product_id] = $item->quantity ;
+                }
+            }
+            //dd($products, $quantities);
+        }
+        $request->session()->forget('demand');
+
+        return view('demands.index',compact('products','quantities'));
     }
+
+    public function handle()
+    {
+        return view('demands.handle');
+    }
+
 
     /**
      * Display the specified resource.
@@ -92,12 +138,15 @@ class DemandsController extends Controller
     public function StoreDemandProducts()
     {
         $inputs = request()->input('quantity');
+        $products = [] ;
         foreach ($inputs as $id=>$quantity){
             $quantity=(int)$quantity;
             if($quantity > 0){
                 $newInputs[$id] = $quantity;
+                $products[$id] = Product::where('id', '=', $id)->get();
             }
         }
-        return view('demands.create',compact('products'));
+        request()->session()->put('demand',$newInputs);
+        return view('demands.create',compact('newInputs','products'));
     }
 }

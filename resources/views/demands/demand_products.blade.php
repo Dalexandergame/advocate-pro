@@ -12,7 +12,7 @@
                 @foreach(array_chunk($products->toArray(),4,true) as $chunk)
                     <div class="pr-wrapper row pl-2 pb-4">
                         @foreach($chunk as $item)
-                            <div class="col products">
+                            <div class="col products p-0">
                                 <a href="#">
                                     <img src="{{ url('img/produit-default.svg')}}" alt="products" class="mx-auto"/>
                                     <div class="text-center mb-4">{{$item['name']}}</div>

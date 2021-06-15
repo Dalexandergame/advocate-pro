@@ -28,47 +28,53 @@
 
 </head>
 <body>
-<div class="container bg-white p-4">
-    <div class="row">
-        <div class="col-4">
-            <h5 class="font-weight-bold">Utilisateur</h5>
-            <div>Nom d’étulisateur</div>
-            <div>Tel<span>+212 600 137 224</span></div>
-            <div>Mail<span>nom&prénom@gmail.com</span></div>
-        </div>
-        <div class="col-8">
+    <div class="container bg-white p-4">
+        <form action="{{ route('demands.store') }}" enctype="multipart/form-data" method="post">
+            @csrf
+
             <div class="row">
-                <h5 class="col font-weight-bold">Listes des produits</h5>
-                <h5 class="col-3 font-weight-bold">Quantité</h5>
+                <div class="col-4">
+                    <h5 class="font-weight-bold">Utilisateur</h5>
+                    <div>Nom d’étulisateur</div>
+                    <div>Tel<span>+212 600 137 224</span></div>
+                    <div>Mail<span>nom&prénom@gmail.com</span></div>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <h5 class="col font-weight-bold">Listes des produits</h5>
+                        <h5 class="col-3 font-weight-bold text-center">Quantité</h5>
+                    </div>
+                    @if( @isset($newInputs) )
+                        @foreach($newInputs as $id=>$quantity)
+                            <div class="row mb-2">
+                                <span class="col">{{$products[$id][0]->name}}</span>
+                                <span class="col-3 text-center">{{$quantity}}</span>
+                            </div>
+                        @endforeach
+                    @endif
+                    <a href="{{ route('AddDemandProducts') }}" class="add-catg pl-1 py-1" style="">
+                        <img class="pr-1" src={{url('img/grey-plus.svg')}}>
+                        <span class="">Ajouter produit</span>
+                    </a>
+                </div>
             </div>
-            @foreach()
-                <div class="row mb-3">
-                    <span class="col">{{$products->name}}</span>
-                    <span class="col-3">{{$quantity}}</span>
-                </div>
-            @endforeach
-            <a href="{{ route('AddDemandProducts') }}" class="add-catg pl-1 py-1" style="">
-                <img class="pr-1" src={{url('img/grey-plus.svg')}}>
-                <span class="">Ajouter produit</span>
-            </a>
-        </div>
-    </div>
-    <div class="row mt-5 mx-4">
-        <div class="container">
-                <div class="row mt-3">
-                    <div class="col-4">
-                        <h5 class="font-weight-bold">Date</h5>
-                        <div>JJ.MM.AAAA</div>
+            <div class="row mt-5 mx-4">
+                <div class="container">
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <h5 class="font-weight-bold">Date</h5>
+                            <div>{{ Carbon\Carbon::now()->format('d.m.Y') }}</div>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="font-weight-bold">Détails de la demande</h5>
+                            <form action="">
+                                <textarea id="details" name="details" rows="4" cols="50" placeholder="Raison de la demande ici ..."></textarea>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <h5 class="font-weight-bold">Détails de la demande</h5>
-                        <form action="">
-                            <textarea id="details" name="details" rows="4" cols="50" placeholder="Raison de la demande ici ..."></textarea>
-                        </form>
-                    </div>
+                    <button type="submit" id="submit" class="col-md-4 offset-8 Enr-button">Enregistrer</button>
                 </div>
-                <button class="col-md-5 offset-7 Enr-button" id="submit">Enregistrer</button>
-        </div>
+            </div>
+        </form>
     </div>
-</div>
 </body>

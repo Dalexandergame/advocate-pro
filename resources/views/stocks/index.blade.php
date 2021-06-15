@@ -9,8 +9,8 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.store')}}">Sortie</a>
-                        <a class="nav-link px-md-5" href="{{route('demands.index')}}">Demandes</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
             </nav>

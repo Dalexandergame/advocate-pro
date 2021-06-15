@@ -98,6 +98,7 @@ Route::resource('templates', TemplatesController::class)->except('index');
 
 Route::resource('categories',CategoriesController::class);
 Route::resource('categories.products',ProductsController::class)->shallow();
+Route::get('demands/handle',[DemandsController::class, 'handle'])->name('demands.handle');
 Route::resource('demands',DemandsController::class);
 Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
 Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');

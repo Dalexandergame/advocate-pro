@@ -9,8 +9,8 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.store')}}">Sortie</a>
-                        <a class="nav-link px-md-5" href="{{route('demands.index')}}">Demandes</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
             </nav>
@@ -25,18 +25,31 @@
             <div class="col-3 text-center font-weight-bold">État de la demande</div>
 
         </div>
-        <div class="row bg-white products mt-2 py-5">
-            <div class="col-1 pl-5 pt4">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"></label>
+        @foreach(\App\Models\Demand::all() as $demand )
+            <div class="row bg-white products mt-2 py-5">
+                <div class="col-1 pl-5 pt4">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"></label>
+                </div>
+                <div class="col"><img class="pl-4" src="{{url('img/produit-default.svg')}}"/></div>
+                <div class="col text-center">
+                    @if( @isset($products) )
+                        @foreach(\App\Models\DemandProduct::where('demand_id', '=', $demand->id)->get() as $item)
+                            <span>{{$products[$item->demand_id][$item->product_id][0]->name}}</span> <br>
+                        @endforeach
+                    @endif
+                </div>
+                <div class="col text-center">
+                    @if( isset($quantities) )
+                        @foreach(\App\Models\DemandProduct::where('demand_id', '=', $demand->id)->get() as $item)
+                            <span>{{$quantities[$item->demand_id][$item->product_id]}}</span> <br>
+                        @endforeach
+                    @endif
+                </div>
+                <div class="col text-center">Nom de personne</div>
+                <div class="col-3 text-center font-weight-bold text-success">{{$demand->state}}</div>
             </div>
-            <div class="col"><img class="pl-4" src="img/produit-default.svg"/></div>
-            <div class="col text-center">Nom de produit</div>
-            <div class="col text-center">2</div>
-            <div class="col text-center">Nom de personne</div>
-            <div class="col-3 text-center font-weight-bold text-success">Aprouver</div>
-        </div>
-
+        @endforeach
         <a href="#" class="btn-danger float-lg-right p-2 px-5 mt-4 ml-3">liste des produits</a>
         <a href="{{route('demands.create')}}" class="btn-dark float-lg-right p-2 px-5 mt-4">Nouvelle demande</a>
     </div>
