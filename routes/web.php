@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +54,6 @@ Route::get('/correspondence', function () {
     return view('correspondence');
 });
 
-Route::get('/documents', function () {
-    return view('documents');
-});
 
 Route::get('/taches', function () {
     return view('taches');
@@ -76,3 +74,10 @@ Route::get('/jurisprudence', function () {
 Route::get('/correspondence', [TemplatesController::class , 'create']);
 
 Route::post('/correspondence', [TemplatesController::class , 'store']);
+
+Route::get('/documents', function () {
+    return view('documents');
+});
+Route::post('/uploaddocument',[DocumentController::class,'store']);
+Route::get('/documents',[DocumentController::class,'show']);
+
