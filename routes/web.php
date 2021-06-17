@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,7 @@ Route::get('/tribunal', function () {
    return view('tribunalcourts');
 });
 
-Route::get('/lois-et-articles', function () {
-        return view('loisarticle');
-});
+Route::get('/lois-et-articles', [ArticleController::class,'show']);
 
 Route::get('/correspondence', function () {
     return view('correspondence');
@@ -67,11 +66,23 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
+Route::get('/payment', function () {
+    return view('payment');
+});
+
 Route::get('/jurisprudence', function () {
     return view('jurisprudence');
 });
 
-Route::get('/correspondence', [TemplatesController::class , 'create']);
+Route::get('/messages', function () {
+        return view('messages');
+});
+
+Route::get('/dossier-juridiques-vue', function () {
+    return view('dossierjuridiquevue');
+});
+
+Route::resource('templates', TemplatesController::class)->except(['index']);
 
 Route::post('/correspondence', [TemplatesController::class , 'store']);
 
@@ -82,3 +93,8 @@ Route::post('/uploaddocument',[DocumentController::class,'store']);
 
 Route::get('/documents',[DocumentController::class,'show']);
 
+Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
+Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
+Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
+Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
+Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
