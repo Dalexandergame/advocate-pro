@@ -15,7 +15,6 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
         return view('loisarticle');
     }
     
@@ -26,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        
     }
     
     /**
@@ -37,7 +36,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $this->validate($request,[
             'fname' => 'required',
             'lname' => 'required',
@@ -91,7 +90,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
     
     /**
@@ -103,7 +102,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
     
     /**
@@ -114,6 +113,6 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
