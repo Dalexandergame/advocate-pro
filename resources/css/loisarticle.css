@@ -74,7 +74,7 @@ td , th {  text-align: center; }
 .button0{
   color: #827E7E;
   background-color: white;
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -126,7 +126,7 @@ margin-top: 50px;
 .form-back{
  background-color:#F5F5F5;
  width: 450px;
- height: 250px;
+ height: 320px;
  
 }
 .user-label{

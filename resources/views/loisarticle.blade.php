@@ -30,9 +30,9 @@
 			<tr class="fich1">
 
 				<td><img src="img/fichier.svg">{{$article['nom']}}</td>
-				<td class="date">{{$article['date']}}</td>
-				<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg" onclick="window.location='{{ url('./view', $article->id) }}'" ><img src="img/vue.svg"/> Vue</button></td>
-				<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg"><img src="img/load.svg"/> Telecharger</button></td>
+				<td class="date">{{$article->updated_at->todatestring()}}</td>
+				<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/view', $article->id) }}'" ><img src="img/vue.svg"/> Vue</button></td>
+				<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/download', $article->file) }}'"><img src="img/load.svg"/> Telecharger</button></td>
 
 			</tr>
 			
@@ -47,10 +47,13 @@
 
 	</table>
 
-	<button class="vue" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#exampleModal"><img src="img/plus.svg"/>  Ajouter nouveau</button>
 
+<!-- Button trigger modal -->
+	<button class="vue" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modal"><img src="img/plus.svg"/>  Ajouter nouveau</button>
+
+	
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">	 
     <div class="modal-content" style="width: 796px; height: 500px;">
 	      <div class="modal-body">
@@ -66,26 +69,28 @@
 			  <br>
 			  <br>
 			  <br>
-			  <div>Marrakech le (19/05/2021)</div>
+			  <div> Marrakech le: {{date('Y/m/d h:i A')}}</div>
 			  </div>
 			  
 			  <div class="add-form">
-				  <form action="./action_page.php">
+				  <form action="{{ url('lois-et-articles') }}" method="POST" enctype="multipart/form-data">
+				  	{{ csrf_field() }}
 				  <div class="form-back">
 					  <label class="f-label" for="fname">Nom du fichier:</label>
 					  <br>
-					  <input class="f-input" type="text" id="fname" name="fname" placeholder="Nom du fichier...">
+					  <input class="f-input" type="text" id="fname" name="fname" placeholder="">
 					  <br><br>
 					  <label  class="f-label" for="lname">Type de lois:</label>
 					  <br>
 					  <select class="form-select f-input" type="text" id="lname" name="lname" aria-label="Default select example">
-					  <option selected></option>
-					  <option value="1"></option>
-					  <option value="2"></option>
+					  <option value="lois1" selected>lois1</option>
+					  <option value="lois2">lois2</option>
+					  <option value="lois3">lois3</option>
 					  </select>
 					  <br><br>
-					  <input type="file" name="file" id="file" class="inputfile" />
-					  <label for="file">+ Ajouter piece jointe</label>
+					  <input type="file" name="file" id="file" class="inputfile" multiple onchange="javascript:updateList()"  />
+					  <label for="file" id="fileList">+ Ajouter piece jointe</label>
+					  <div id="fileList"></div>
 				  </div>
 				  <br><br>
 				  <button class="button0" class="btn btn-default btn-lg"> Enregister</button>
@@ -96,6 +101,7 @@
     </div>
   </div>
 </div>
+
 
 	<div style="height: 100px;"></div>
 </div>
@@ -109,4 +115,21 @@
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+// 	$('#file').change(function() {
+//   var i = $(this).prev('label').clone();
+//   var file = $('#file')[0].files[0].name;
+//   $(this).next('label').text(file);
+// });
+	updateList = function() {
+  var input = document.getElementById('file');
+  var output = document.getElementById('fileList');
+
+  output.innerHTML = '<ul>';
+  for (var i = 0; i < input.files.length; ++i) {
+    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+  }
+  output.innerHTML += '</ul>';
+}
+</script>
 @endsection

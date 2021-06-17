@@ -47,6 +47,9 @@ Route::get('/tribunal', function () {
 });
 
 Route::get('/lois-et-articles', [ArticleController::class,'show']);
+Route::post('/lois-et-articles', [ArticleController::class,'store']);
+Route::get('/lois-et-articles/view/{id}', [ArticleController::class,'view']);
+Route::get('/lois-et-articles/download/{file}', [ArticleController::class,'download']);
 
 Route::get('/correspondence', function () {
     return view('correspondence');
