@@ -92,3 +92,8 @@ Route::get('/documents', function () {
 Route::post('/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
 
+Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
+Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
+Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
+Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
+Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
