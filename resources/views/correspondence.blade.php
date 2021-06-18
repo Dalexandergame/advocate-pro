@@ -8,7 +8,7 @@
     <div class="container">
         <div class="temp row">
             <div class="templates p-4 col col-md-offset-4">
-                <form action="/correspondence" enctype="multipart/form-data" method="post">
+                <form action="{{route('templates.store')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <h5 class="py-1 pr-3 font-weight-bold">Ajouter template</h5>
                     <div class="form-group">
@@ -48,7 +48,7 @@
                             <div class="col-1"><span>{{$template->id}}</span></div>
                             <div class="col-6"><span class="font-weight-bold">{{$template->title}}</span></div>
                             <div class="col-3"><span>{{$template->updated_at->format('d.m.Y')}}</span></div>
-                            <div class="col-2"><a href="#" class="text-danger">Editer</a></div>
+                            <div class="col-2"><a href="{{route('templates.edit' , $template->id)}}" class="text-danger">Editer</a></div>
                         </div>
                     @endforeach
                 </div>

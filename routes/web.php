@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\TemplatesController;
-use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,9 @@ Route::get('/tribunal', function () {
 });
 
 Route::get('/lois-et-articles', [ArticleController::class,'show']);
+Route::post('/lois-et-articles', [ArticleController::class,'store']);
+Route::get('/lois-et-articles/view/{id}', [ArticleController::class,'view']);
+Route::get('/lois-et-articles/download/{file}', [ArticleController::class,'download']);
 
 Route::get('/correspondence', function () {
     return view('correspondence');
@@ -83,8 +86,6 @@ Route::get('/dossier-juridiques-vue', function () {
 });
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
-
-Route::post('/correspondence', [TemplatesController::class , 'store']);
 
 Route::get('/documents', function () {
     return view('documents');
