@@ -91,7 +91,6 @@ Route::get('/documents', function () {
     return view('documents');
 });
 Route::post('/uploaddocument',[DocumentController::class,'store']);
-
 Route::get('/documents',[DocumentController::class,'show']);
 
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
