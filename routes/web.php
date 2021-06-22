@@ -1,9 +1,16 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DemandsController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,9 +46,7 @@ Route::get('/ordre-de-mission', function () {
         return view('ordremission');
 });
 
-Route::get('/inventaire', function () {
-   return view('inventaire');
-});
+Route::get('/inventaire', [InventoryController::class, 'index']);
 
 Route::get('/tribunal', function () {
    return view('tribunalcourts');
@@ -84,6 +89,19 @@ Route::get('/messages', function () {
 Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
+
+Route::resource('templates', TemplatesController::class)->except('index');
+
+Route::resource('categories',CategoriesController::class);
+Route::resource('categories.products',ProductsController::class)->shallow();
+Route::post('demands/{demand}',[DemandsController::class, 'handle'])->name('demands.handle');
+Route::get('demands/approvedDemands',[DemandsController::class, 'approved'])->name('demands.approved');
+Route::resource('demands',DemandsController::class);
+Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
+Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
+Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
+Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
+Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
 

@@ -4,17 +4,16 @@
     <div class="container">
         <!--catégories-->
         <div class="row align-items-center ml-1 w-75">
-            <div class=" col categorie d-flex justify-content-between align-items-center">
-                <span>Catégorie</span>
-                <img src="img/dropdown.svg" width="13" height="6.5"/>
-            </div>
-            <div class="col categorie d-flex justify-content-between align-items-center">
-                <span>Sous catégorie</span>
-                <img src="img/dropdown.svg" width="13" height="6.5"/>
-            </div>
-            <button class="col config-btn btn-dark">
+            <div class=" col d-flex align-items-center">
+                <select id="categoryList" class="category" name="category_id" required>
+                    <option hidden disabled selected value>Choisissez une catégorie</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            <button onclick="window.location.href='{{route('categories.index')}}'" class="px-4 config-btn btn-dark">
                 <img src="img/config.svg"/>
-                <span class="pl-1">Gestion des catégorie</span>
+                <span class="pl-2">Gestion des catégories</span>
             </button>
         </div>
         <!--menu-->
@@ -22,9 +21,9 @@
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F2F2F2">
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
-                        <a class="nav-link px-md-5" href="#">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="#">Sortie</a>
-                        <a class="nav-link px-md-5" href="#">Demandes</a>
+                        <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.approved')}}">Sortie</a>
+                        <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
             </nav>
@@ -32,84 +31,19 @@
     </div>
     <h5 class="font-weight-bold ml-5 pt-4">Liste des produit</h5>
     <div class="pr-container pt-1">
-       <div class="pr-wrapper row pl-2">
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-       </div>
-       <div class="pr-wrapper row pl-2">
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products bg-danger">
-               <a href="#" class="w-100">
-                   <img src="img/vignette.svg"/>
-                   <div style="color: white">Vignettes</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/timbre.svg"/>
-                   <div>Timbres</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-       </div>
-       <div class="pr-wrapper row pl-2">
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-           <div class="col products">
-               <a href="#" class="w-100">
-                   <img src="img/produit-default.svg"/>
-                   <div>Nom du produit</div>
-               </a>
-           </div>
-       </div>
+        @foreach(array_chunk($products->toArray(),4,true) as $chunk)
+            <div class="pr-wrapper row pl-2">
+                @foreach($chunk as $item)
+                   <div class="col products">
+                       <a href="#">
+                           <img src="/storage/{{ $item['photo'] }}" alt="products" class="w-100 h-50"/>
+                           <div class="text-center">{{$item['name']}}</div>
+                       </a>
+                   </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div>
     </div>
     <ul class="pagination d-flex justify-content-center pt-3">
         <li class="pl-3">
@@ -124,4 +58,21 @@
 
 @section('styles')
     <link href="{{ asset('css/inventaire.css') }}" rel="stylesheet">
+@endsection
+
+@section('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#categoryList').on('change',function(e){
+                console.log(e);
+                var cat_id = e.target.value;
+                //console.log(subcat_id);
+                //ajax
+
+
+            });
+        })
+
+    </script>
 @endsection

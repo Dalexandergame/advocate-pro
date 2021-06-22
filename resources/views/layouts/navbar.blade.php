@@ -20,7 +20,7 @@
       <!-- Search form -->
       <form class="form-inline">
         <input class="form-control mr-sm-2" id="search" type="text" placeholder="Chercher" aria-label="Search">
-      <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit"><img src="img/search.svg"></button>
+      <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit"><img src="{{url('img/search.svg')}}"></button>
     </form>
     </div>
     <!-- Left elements -->
@@ -30,25 +30,25 @@
 
       <li class="nav-item me-3 me-lg-1">
         <a class="nav-link d-sm-flex align-items-sm-center" href="./messages">
-          <img src="img/mail.svg"/>
+          <img src="{{url('img/mail.svg')}}"/>
         </a>
       </li>
 
       <li class="nav-item me-3 me-lg-1">
         <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-          <img src="img/calendrier.svg"/>
+          <img src="{{url('img/calendrier.svg')}}"/>
         </a>
       </li>
 
       <li class="nav-item me-3 me-lg-1">
         <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-          <img src="img/notification.svg"/>
+          <img src="{{url('img/notification.svg')}}"/>
         </a>
       </li>
 
      <li class="nav-item me-3 me-lg-1">
         <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
-          <img src="img/profile.svg"/>
+          <img src="{{url('img/profile.svg')}}"/>
         </a>
       </li>
 
