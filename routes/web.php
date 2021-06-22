@@ -92,10 +92,6 @@ Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
 
-Route::get('/ajouter-cat-produit', function () {
-    return view('ajouter-cat-produit');
-});
-
 Route::resource('templates', TemplatesController::class)->except('index');
 
 Route::resource('categories',CategoriesController::class);
@@ -108,8 +104,6 @@ Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])-
 Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
 Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
 Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
-
-
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
 
