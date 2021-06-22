@@ -70,3 +70,89 @@ td , th {  text-align: center; }
   font-size: 12px;
   background-color: #C4C4C4;
   height: 34px;}
+
+.button0{
+  color: #827E7E;
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px #827E7E;
+  font-family: system-ui;
+  padding: 4px 32px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  height: 34px;
+  width: 200px;
+  float: right;
+}
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 13px;
+line-height: 13px;
+color: #827E7E;
+margin-left: 30px;
+margin-top: 10px;
+}
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+width: 380px;
+height: 35px;
+margin-left: 30px;
+background-color:#F5F5F5;
+}
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
+}
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+}
+.add-form{
+float: right;
+margin-top: 50px;
+}
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 320px;
+ 
+}
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
+}
+.user-label span{
+font-weight: normal;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.inputfile + label {
+    font-size: 12px;
+    font-weight: normal;
+    color:#827E7E;
+    background-color:#F5F5F5;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    margin-left:30px; 
+}

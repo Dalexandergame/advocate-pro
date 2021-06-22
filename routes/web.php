@@ -6,6 +6,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -50,9 +51,10 @@ Route::get('/tribunal', function () {
    return view('tribunalcourts');
 });
 
-Route::get('/lois-et-articles', function () {
-        return view('loisarticle');
-});
+Route::get('/lois-et-articles', [ArticleController::class,'show']);
+Route::post('/lois-et-articles', [ArticleController::class,'store']);
+Route::get('/lois-et-articles/view/{id}', [ArticleController::class,'view']);
+Route::get('/lois-et-articles/download/{file}', [ArticleController::class,'download']);
 
 Route::get('/correspondence', function () {
     return view('correspondence');
@@ -109,3 +111,10 @@ Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
 
 
 
+Route::resource('templates', TemplatesController::class)->except(['index']);
+
+Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
+Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
+Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
+Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
+Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
