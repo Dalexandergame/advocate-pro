@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProductsController extends Controller
 {
@@ -16,12 +18,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $cat_id = request()->input('cat_id');
-        //return $cat_id;
-        $products = DB::table('products')->where('category_id','=',$cat_id)->get();
-        response()->json($products);
-
-        return view('inventaire',compact('products'));
+      //  
     }
 
     /**
@@ -29,9 +26,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        
+        return view('products.create',compact('category'));
     }
 
     /**
@@ -40,9 +39,32 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required|unique:products',
+            'price' => 'required|numeric|between:0.00,99999.99',
+            'alert_en_stock' => 'required|integer|between:20,250',
+            'photo' => 'required|image',
+            'description' => 'required',    
+        ]);
+
+        $imagePath = request('photo')->store('uploads', 'public');
+        //dd($imagePath);
+
+        Product::create([
+            'category_id' => $id,
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'alert_en_stock' => $data['alert_en_stock'],
+            'photo' => $imagePath,
+            'description' => $data['description'],
+        ]);
+
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(640, 480);
+        $image->save();
+
+        return redirect('/categories');
     }
 
     /**
@@ -53,7 +75,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with('stock')->findOrFail($id);
 
         return view('products.show', compact('product'));
     }

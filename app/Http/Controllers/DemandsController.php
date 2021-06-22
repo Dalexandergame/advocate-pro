@@ -17,15 +17,16 @@ class DemandsController extends Controller
      */
     public function index()
     {
-        foreach (DemandProduct::all() as $item)
+        $demandedproducts = DemandProduct::all();
+
+        foreach ($demandedproducts as $item)
         {
             $products[$item->demand_id][$item->product_id] = Product::where('id', '=', $item->product_id)->get();
             $quantities[$item->demand_id][$item->product_id] = $item->quantity ;
         }
-
+        
         return view('demands.index',compact('products','quantities'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -78,9 +79,33 @@ class DemandsController extends Controller
         return view('demands.index',compact('products','quantities'));
     }
 
-    public function handle()
+
+    public function handle($id)
     {
-        return view('demands.handle');
+        $demand = Demand::findOrFail($id);
+        
+        if ( request()->input('handle') == 'accept')
+        {
+            $demand->update(['state'=>'Aprouver']);
+        }
+        else $demand->update(['state'=>'Refuser']);
+
+        return redirect('/demands');
+    }
+
+    public function approved()
+    {
+        $aprouveddemands = Demand::where('state', '=', 'Aprouver')->get();
+        
+        $demandedproducts = DemandProduct::all();
+
+        foreach ($demandedproducts as $item)
+        {
+            $products[$item->demand_id][$item->product_id] = Product::where('id', '=', $item->product_id)->get();
+            $quantities[$item->demand_id][$item->product_id] = $item->quantity ;
+        }
+        
+        return view('demands.approved',compact('aprouveddemands','products','quantities'));
     }
 
 
@@ -92,7 +117,16 @@ class DemandsController extends Controller
      */
     public function show($id)
     {
-        //
+        $demand = Demand::findOrFail($id);
+        $products = [];
+        $quantities =[];
+        foreach (DemandProduct::where('demand_id', '=', $demand->id)->get() as $demandedproduct)
+        {
+            $products[$demandedproduct->product_id] = Product::where('id', '=', $demandedproduct->product_id)->get();
+            $quantities[$demandedproduct->product_id] = $demandedproduct->quantity ;
+        }
+
+        return view('demands.show', compact('demand','products','quantities'));
     }
 
     /**

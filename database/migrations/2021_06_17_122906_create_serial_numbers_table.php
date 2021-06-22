@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStocksTable extends Migration
+class CreateSerialNumbersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stocks', function (Blueprint $table) {
-            $table->id();
-            $table->ForeignId('product_id')
-                ->constrained('products')
-                ->onDelete('cascade');
-            $table->integer('quantity');
+        Schema::create('serial_numbers', function (Blueprint $table) {
+            $table->unsignedBigInteger('serial_number')->unique()->nullable()->primary();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stocks');
+        Schema::dropIfExists('serial_numbers');
     }
 }

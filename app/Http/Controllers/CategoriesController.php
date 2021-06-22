@@ -28,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -39,7 +39,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'name'=> 'required|unique:categories|max:255',
+            'description'=> 'required'
+        ]);
+
+        Category::create($data);
+
+        return redirect('/categories');
     }
 
     /**

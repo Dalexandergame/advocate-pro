@@ -13,10 +13,10 @@
                     <div class="pr-wrapper row pl-2 pb-4">
                         @foreach($chunk as $item)
                             <div class="col products p-0">
-                                <a href="#">
-                                    <img src="{{ url('img/produit-default.svg')}}" alt="products" class="mx-auto"/>
-                                    <div class="text-center mb-4">{{$item['name']}}</div>
-                                </a>
+                                <div class="m-3">
+                                    <img src="/storage/{{ $item['photo'] }}" alt="products" class="w-100"/>
+                                    <div class="text-center">{{$item['name']}}</div>
+                                </div>
                                 <div class="d-flex justify-content-center py-2 px-3" style="background-color:#EC1E24">
                                     <span id="{{$item['id']}}" class="mx-4 text-decoration-none addProduct"><img src="{{url('img/plus.svg')}}"/></span>
                                     <input class="text-center input-quantity" id="input_quantity_{{$item['id']}}" name="quantity[{!! $item['id'] !!}]" value="0"  style="width:2rem"></input>

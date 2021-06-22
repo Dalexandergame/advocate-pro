@@ -25,10 +25,9 @@ class ProductFactory extends Factory
         return [
             'category_id' => $this->faker->numberBetween(1,4),
             'name' => $this->faker->unique()->word(),
-            'serial_number' => $this->faker->unique()->numberBetween(999999,9999999),
             'price' => $this->faker->randomFloat(2, 0, 10000),
-            'photo' => $this->faker->image(storage_path('images'),640,480,false),
-            'payment_method'=> $this->faker->randomElement(['Card', 'Chèque', 'Espèce']),
+            'photo' => $this->faker->image(public_path('uploads'),640,480,false),
+            'description'=> $this->faker->text(200),
             'alert_en_stock' => $this->faker->numberBetween(1,200)
         ];
     }

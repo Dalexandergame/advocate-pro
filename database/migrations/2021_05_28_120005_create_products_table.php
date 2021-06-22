@@ -19,8 +19,7 @@ class CreateProductsTable extends Migration
                   ->constrained('categories')
                   ->onDelete('cascade');
             $table->string('name');
-            $table->bigInteger('serial_number')->unique()->nullable();
-            $table->string('payment_method');
+            $table->text('description');
             $table->string('photo');
             $table->integer('alert_en_stock');
             $table->integer('price');

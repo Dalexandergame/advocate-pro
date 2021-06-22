@@ -9,7 +9,7 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.approved')}}">Sortie</a>
                         <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
@@ -23,21 +23,25 @@
             <div class="col text-center font-weight-bold">Nom du produit</div>
             <div class="col text-center font-weight-bold">Prix d’achat unitaire</div>
             <div class="col text-center font-weight-bold">Quantité</div>
-            <div class="col-3 text-center font-weight-bold">Méthode de paiement</div>
+            <div class="col-3 text-center font-weight-bold">Description</div>
 
         </div>
-        <div class="row products mt-2 py-5">
+        @foreach ( $stocks as $stock )
+        <div class="row products mt-2 py-4 align-content-center">
             <div class="col-1 pl-5 pt4">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault"></label>
             </div>
-            <div class="col"><img class="pl-4" src="img/produit-default.svg"/></div>
-            <div class="col text-center">Nom de produit</div>
-            <div class="col text-center">60 DH</div>
-            <div class="col text-center">200</div>
-            <div class="col-3 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, repudiandae.</div>
+            <div class="col">
+                <img  class="w-100" src="/storage/{{ $stock->product->photo }}" />
+            </div>
+            <div class="col text-center">{{$stock->product->name}}</div>
+            <div class="col text-center">{{$stock->product->price}}</div>
+            <div class="col text-center">{{$stock->quantity}}</div>
+            <div class="col-3 text-center">{{$stock->product->description}}.</div>
         </div>
-        <button class="btn-danger float-lg-right p-2 px-5 mt-4">liste des produits</button>
+        @endforeach
+        <a href="/inventaire" class="btn-danger float-lg-right p-2 px-5 mt-4 mb-3">liste des produits</a>
     </div>
     </div>
 @endsection

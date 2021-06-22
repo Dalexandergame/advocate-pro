@@ -22,7 +22,7 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.approved')}}">Sortie</a>
                         <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 @foreach($chunk as $item)
                    <div class="col products">
                        <a href="#">
-                           <img src="{{ url('img/produit-default.svg')}}" alt="products" class="mx-auto"/>
+                           <img src="/storage/{{ $item['photo'] }}" alt="products" class="w-100 h-50"/>
                            <div class="text-center">{{$item['name']}}</div>
                        </a>
                    </div>

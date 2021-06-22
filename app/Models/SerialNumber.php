@@ -5,14 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class SerialNumber extends Model
 {
+    protected $table = 'serial_numbers';
+
     protected $guarded = [];
+    
     use HasFactory;
-    
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
-    
 }

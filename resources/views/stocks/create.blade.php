@@ -47,14 +47,24 @@
     </div>
     <div class="row mt-5 mx-4">
         <div class="container offset-4 p-3" style="background-color: #FAFAFA">
-            <form action="">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="{{ route('products.stocks.store', $product->id) }}" method="POST">
+                @csrf
                 <div class="row">
-                    <div class="col font-weight-bold">Vignettes</div>
+                    <div class="col font-weight-bold">{{$product->name}}</div>
                     <div class="col pl-5">
-                        <span class="pl-1">Reste en stock 784</span><br>
+                        <span class="pl-1">Reste en stock<span class="ml-2 font-weight-bold">{{$product->stock->quantity ?? 0}}</span></span><br>
                         <div class="mt-1">
                             <a href="#" class="add-catg pl-1 py-1" style="">
-                                <img class="pr-1" src="img/grey-plus.svg"/>
+                                <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
                                 <span class="">Ajouter la facture</span>
                             </a>
                         </div>
@@ -63,22 +73,19 @@
                 <div class="row mt-3">
                     <div class="col font-weight-bold">Numéro de série</div>
                     <div class="col">
-                        <div class="d-flex align-items-baseline mb-2"><span class="pr-2">Du</span><input type="text" name="serial-number" class="form-control" placeholder="N° de série"></div>
-                        <div class="d-flex align-items-baseline"><span class="pr-2">Au</span><input type="text" name="serial-number" class="form-control" placeholder="N° de série"></div>
+                        <div class="d-flex align-items-baseline mb-2"><span class="pr-2">Du</span><input type="number" name="serial_number1" class="form-control" placeholder="N° de série"></div>
+                        <div class="d-flex align-items-baseline"><span class="pr-2">Au</span><input type="number" name="serial_number2" class="form-control" placeholder="N° de série"></div>
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col font-weight-bold">Alerte du stock</div>
+                    <div class="col font-weight-bold">Quantité</div>
                     <div class="col">
-                        <div class="d-flex">
-                            <div><img class="mr-3" src="img/alarm.png"/></div>
-                            <input type="text" name="quantity" class="stock-alert" placeholder="100">
-                        </div>
+                        <input type="number" name="quantity" class="stock-alert" placeholder="100">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col font-weight-bold">Date</div>
-                    <div class="col">JJ.MM.AAAA</div>
+                    <div class="col">{{Carbon\Carbon::now()->format('d.m.Y')}}</div>
                 </div>
                 <button class="col-md-5 offset-7 Enr-button" id="submit">Enregistrer</button>
             </form>
@@ -88,7 +95,7 @@
         <div class="col-md offset-md-8">
             <div class="mt-4 ml-2">
                 <a href="#" class="bg-secondary p-2 px-4">
-                    <img class="mr-1" src="img/edit.svg"/>
+                    <img class="mr-1" src="{{ url('img/edit.svg') }}"/>
                     <span>Bon de commande</span>
                 </a>
             </div>

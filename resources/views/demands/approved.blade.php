@@ -9,7 +9,7 @@
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{route('stocks.index')}}">Entre</a>
-                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.handle')}}">Sortie</a>
+                        <a class="nav-link px-md-5 active" aria-current="page" href="{{route('demands.approved')}}">Sortie</a>
                         <a class="nav-link px-md-5" href="{{route('demands.store')}}">Demandes</a>
                     </div>
                 </div>
@@ -26,17 +26,31 @@
             <div class="col-3 text-center font-weight-bold">Raison</div>
 
         </div>
+        @foreach ($aprouveddemands as $demand)
         <div class="row bg-white products mt-2 py-5">
             <div class="col-1 pl-5 pt4">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault"></label>
             </div>
             <div class="col"><img class="pl-4" src="{{{url('img/produit-default.svg')}}}"/></div>
-            <div class="col text-center">Nom de produit</div>
-            <div class="col text-center">2</div>
+            <div class="col text-center">
+                @if( @isset($products) )
+                    @foreach(\App\Models\DemandProduct::where('demand_id', '=', $demand->id)->get() as $item)
+                        <span>{{$products[$item->demand_id][$item->product_id][0]->name}}</span> <br>
+                    @endforeach
+                @endif
+            </div>
+            <div class="col text-center">
+                @if( isset($quantities) )
+                    @foreach(\App\Models\DemandProduct::where('demand_id', '=', $demand->id)->get() as $item)
+                        <span>{{$quantities[$item->demand_id][$item->product_id]}}</span> <br>
+                    @endforeach
+                @endif
+            </div>
             <div class="col text-center">Nom de personne</div>
-            <div class="col-3 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, repudiandae.</div>
+            <div class="col-3 text-center">{{ $demand->details }}</div>
         </div>
+        @endforeach
         <button class="btn-danger float-lg-right p-2 px-5 mt-4">liste des produits</button>
     </div>
 

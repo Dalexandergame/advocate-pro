@@ -48,13 +48,16 @@
         </div>
     </div>
     <div class="row mt-4 mx-4">
-        <div class="col-md offset-md-4" style="background-color: #FAFAFA ; padding: 2.5rem">
+        <div class="col-3">
+            <img src="/storage/{{ $product->photo }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="col-md offset-md-1" style="background-color: #FAFAFA ; padding: 2.5rem">
             <span class="font-wright-bold mr-5">{{$product->name}}</span><br>
             <span class="font-wright-bold mr-5">Alerte du stock</span><br>
             <span class="font-wright-bold mr-5">Date</span><br>
         </div>
         <div class="col-md" style="background-color: #FAFAFA ; padding: 2.5rem">
-            <span class="">Reste en stock 784</span><br>
+            <span class="">Reste en stock {{$product->stock->quantity ?? 0}}</span><br>
             <span class="text-danger"><img class="mr-1" src="{{ url('img/alarm.png') }}"/>{{$product->alert_en_stock}}</span><br>
             <span class="">{{$product->updated_at->format('d.m.Y')}}</span>
         </div>
@@ -62,7 +65,7 @@
     <div class="row mt-4">
         <div class="col-md offset-8">
             <div>
-                <a href="/ajouter-cat-produit" class="btn btn-dark px-4">
+                <a href="{{ route('products.stocks.create',$product->id) }}" class="btn btn-dark px-4">
                     <img class="mr-1" src="{{ url('img/stock.svg') }}"/>
                     <span>Gestion du stock</span>
                 </a>

@@ -1,10 +1,18 @@
-.categorie {
-    padding-top: 0.43rem;
-    padding-bottom: 0.68rem;
+.category {
+    appearance: none;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 0.5rem;
+    width: 15rem;
+    background: url('/img/dropdown.svg') no-repeat 13rem ;
     margin-right: 1.5rem;
-    box-sizing: border-box;
     font-weight: bold;
 }
+
+.category:focus {
+    outline: none;
+}
+
 .config-btn {
     padding-top: 0.43rem;
     padding-bottom: 0.68rem;
@@ -32,25 +40,24 @@
     background: white;
     column-gap: 1rem;
     box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
-
 }
+.products >a {
+    display: block;
+    width: 100%;
+}
+
 .products >a >img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -75%);
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    width: 35%;
 }
 
 .products >a >div {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, 120%);
     text-decoration: none;
     font-weight: bold;
     color: #1b1e21;
 }
-
 .catg-container {
     display: grid;
     margin-left: 1rem;
@@ -59,7 +66,7 @@
 
 .add-catg {
     max-height: 3rem;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     color: #989898;
     background-color: #FFFFFF;
     font-weight: bold;
@@ -96,4 +103,9 @@
 
 .txt-xx-small {
     font-size: xx-small;
+}
+
+.addProduct, .removeProduct {
+    cursor: pointer;
+
 }

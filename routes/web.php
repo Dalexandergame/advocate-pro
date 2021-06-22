@@ -98,10 +98,14 @@ Route::resource('templates', TemplatesController::class)->except('index');
 
 Route::resource('categories',CategoriesController::class);
 Route::resource('categories.products',ProductsController::class)->shallow();
-Route::get('demands/handle',[DemandsController::class, 'handle'])->name('demands.handle');
+Route::post('demands/{demand}',[DemandsController::class, 'handle'])->name('demands.handle');
+Route::get('demands/approvedDemands',[DemandsController::class, 'approved'])->name('demands.approved');
 Route::resource('demands',DemandsController::class);
 Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
 Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
-Route::resource('stocks',StocksController::class);
+Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
+Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
+Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
+
 
 
