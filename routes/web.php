@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +56,6 @@ Route::get('/correspondence', function () {
     return view('correspondence');
 });
 
-Route::get('/documents', function () {
-    return view('documents');
-});
 
 Route::get('/taches', function () {
     return view('taches');
@@ -88,6 +86,12 @@ Route::get('/dossier-juridiques-vue', function () {
 });
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
+
+Route::get('/documents', function () {
+    return view('documents');
+});
+Route::post('/uploaddocument',[DocumentController::class,'store']);
+Route::get('/documents',[DocumentController::class,'show']);
 
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
 Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
