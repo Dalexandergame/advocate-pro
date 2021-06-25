@@ -4,19 +4,19 @@
 
 <br>
 <br>
-<form style="margin-left: 34px">
+<form style="margin-left: 34px" action="/search" method="get">
 	<div class="form-row align-items-center">
 		<div class="col-2.7">
 			<label class="sr-only" for="inlineFormInput">Numero du dossier</label>
-			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Numero du dossier">
+			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Numero du dossier" name="file_number">
 		</div>
 		<div class="col-2.7" style="margin-left: 18px">
 			<label class="sr-only" for="inlineFormInput">Client</label>
-			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Client">
+			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Client" name="for">
 		</div>
 		<div class="col-2.9" style="margin-left: 18px">
 			<label class="sr-only" for="inlineFormInput">#recherch par tagwords</label>
-			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="#recherch par tagwords">
+			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="#recherch par tagwords" name="tagwords">
 		</div>
 
 		<div class="customSelect" style="width:220px; height: 45px; margin-left: 30px; margin-right: -7px;" >
@@ -57,15 +57,21 @@
 		<div class="row">
 			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossierjuridique->comments }}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossierjuridique->tagwords }}</div></div>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-bottom: -20px">
 			<div><img src="/img/qr-code.png" height="70px" width="70px" style="margin-left: 35px"></div>
 			<div class="buttons-position"> 
-				<button class="buttonx" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques-vue') }}'"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
+				<form action="{{ url('dossierjuridiques/'.$dossierjuridique->id) }}" method="post" style="margin-top: -80px">
+
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+					<button class="buttonx button-supprimer" class="btn btn-default btn-lg" type="submit">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button>
+
+					<button class="buttonx buttonview" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques-vue') }}'"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
 
 				<button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossierjuridiques/'.$dossierjuridique->id.'/edit') }}'"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
+				</form>
 			</div>
-		</div>
-		
+		</div>		
 		<br>
 	</div>
 </div>
