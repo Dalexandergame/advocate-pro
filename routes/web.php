@@ -110,6 +110,9 @@ Route::get('/documents', function () {
 });
 Route::post('/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
+Route::get('/download/{file}',[DocumentController::class,'download']);
+Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
+Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
 
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
 Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Document;
 
@@ -27,5 +28,24 @@ class DocumentController extends Controller
     {
         $data=document::all();
         return view('documents',compact('data'));
+    }
+
+    public function download(Request $request,$file)
+    {
+        return response()->download(public_path('assets/'.$file));
+    }
+
+    public function destroy(Request $request,$id)
+    {
+        $data=document::find($id);
+        $data->delete();
+        return redirect('documents');
+    }
+
+    public function deleteCheckedStudents(Request $request)
+    {
+        $ids = $request->ids;
+        Document::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"docs have been deleted"]);
     }
 }
