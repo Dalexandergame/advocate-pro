@@ -21,38 +21,43 @@
         <button class="trash-btn btn-danger">
             <img src="img/trash.svg"/>
             <span class="pl-2" id="deleteAllSelectedRecord">Supprimer la selection</span>
-            <!-- <button type="button" class="btn btn-danger" id="deleteAllSelectedRecord"><img src="img/trash.svg"/> Supprimer la selection</button> -->
         </button>
         
     </div>
-    <div class="container mt-3 px-5 py-4" style="background-color: #F5F5F5;">
-            <table border="1px">
-            <tr>
-                <th><input type="checkbox" id="chkCheckAll" /></th>
-                <th>title</th>
-                <th>desc</th>
-                <th>file</th>
-                <th>view</th>
-                <th>down<th>
-            </tr>
-            @foreach ($data as $data)
-            <tr id="sid{{$data->id}}">
-                 <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$data->id}}" /></td>
-                 <td>{{$data->title}}</td>
-                 <td>{{$data->desc}}</td>
-                 <td>{{$data->file}}</td>
-                 <td><a href="">view</td>
-                 <td><a class="btn btn-primary" href="{{url('/download',$data->file)}}" role="button">telecharger</a></td>
-                 <form action="{{url('documents/'.$data->id)}}" method="post">
+    <div class="listall">
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col"><input type="checkbox" id="chkCheckAll"/></th>
+          <th scope="col">petit format de document</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Date d'ajout</th>
+          <th scope="col">Date dernière modification</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+      @foreach ($data as $data)
+        <tr id="sid{{$data->id}}">
+          <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$data->id}}" /></td>
+          <td><iframe height="150"  width="300" src="/assets/{{$data->file}}"></iframe></td>
+          <td>{{$data->title}}</td>
+          <td>{{$data->created_at}}</td>
+          <td>{{$data->updated_at}}</td>
+          <form action="{{url('documents/'.$data->id)}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <td><button type="submit" class="btn btn-danger">supprimer</button></td>
-                 </form>   
-            </tr>
-            @endforeach
-            </table>
+                    <td><a class="btn btn-info" href="{{url('/documentview',$data->id)}}" role="button">Afficher details</a>
+                    <a class="btn btn-primary" href="{{url('/download',$data->file)}}" role="button">telecharger</a>
+                    <button type="submit" class="btn btn-danger">supprimer</button></td>
+           </form> 
+        </tr>  
+      @endforeach       
+      </tbody>
+ </table> 
+           
     </div>
-<!-- Modal -->
+<!-- Modal add-->
 <div class="modal" id="adddocument" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -81,6 +86,8 @@
     </div>
   </div>
 </div> 
+
+
 @endsection
 
 @section('scripts')

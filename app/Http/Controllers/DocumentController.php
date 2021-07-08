@@ -48,4 +48,10 @@ class DocumentController extends Controller
         Document::whereIn('id',$ids)->delete();
         return response()->json(['success'=>"docs have been deleted"]);
     }
+
+    public function view($id)
+    {
+        $data=document::find($id);
+        return view('documentview',compact('data'));
+    }
 }
