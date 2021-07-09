@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\TemplatesController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,12 @@ Route::get('/profile', function () {
     return view('personalprofilview');
 });
 
-Route::get('/ordre-de-mission', function () {
-        return view('ordremission');
-});
+Route::put('/ordre-de-mission/update/{id}', [MissionController::class,'update']);
+Route::get('/ordre-de-mission', [MissionController::class,'show']);
+Route::post('/ordre-de-mission', [MissionController::class,'store']);
+Route::get('/ordre-de-mission/{id}/edit', [MissionController::class,'edit']);
+Route::delete('/ordre-de-mission/delete/{id}', [MissionController::class,'delete']);
+Route::delete('/ordre-de-mission/deleteAll', [MissionController::class,'deleteCheckedMissions']);
 
 Route::get('/inventaire', function () {
    return view('inventaire');

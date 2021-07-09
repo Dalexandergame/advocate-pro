@@ -16,8 +16,9 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('nom');
-            $table->string('pdf');
-            $table->date('date');
+            $table->string('type');
+            $table->string('file');
+            $table->timestamps();
         });
     }
 
