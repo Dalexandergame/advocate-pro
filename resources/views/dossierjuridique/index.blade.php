@@ -4,7 +4,7 @@
 
 <br>
 <br>
-<form style="margin-left: 34px" action="/search" method="get">
+<form style="margin-left: 34px" action="/dossierjuridiques/search" method="get">
 	<div class="form-row align-items-center">
 		<div class="col-2.7">
 			<label class="sr-only" for="inlineFormInput">Numero du dossier</label>

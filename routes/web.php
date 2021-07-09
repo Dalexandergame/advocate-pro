@@ -117,4 +117,4 @@ Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
 Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
 Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
 Route::delete('dossierjuridiques/{id}', 'DossierjuridiqueController@destroy');
-Route::get('/search','DossierjuridiqueController@search');
+Route::get('/dossierjuridiques/search','DossierjuridiqueController@search');
