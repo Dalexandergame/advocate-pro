@@ -48,7 +48,7 @@
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
                     <td><a class="btn btn-info" href="{{url('/documentview',$data->id)}}" role="button">Afficher details</a>
-                    <a class="btn btn-primary" href="{{url('/download',$data->file)}}" role="button">telecharger</a>
+                    <a class="btn btn-primary" href="{{url('/document/download',$data->file)}}" role="button">telecharger</a>
                     <button type="submit" class="btn btn-danger">supprimer</button></td>
            </form> 
         </tr>  
@@ -68,7 +68,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="{{url('uploaddocument')}}" method="post" enctype="multipart/form-data">
+      <form action="{{url('/documents/uploaddocument')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
         <label for="title">Titre du document :</label><br>

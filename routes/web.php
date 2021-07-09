@@ -108,13 +108,13 @@ Route::resource('templates', TemplatesController::class)->except(['index']);
 Route::get('/documents', function () {
     return view('documents');
 });
-Route::post('/uploaddocument',[DocumentController::class,'store']);
+Route::post('/documents/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
-Route::get('/download/{file}',[DocumentController::class,'download']);
+Route::get('/document/download/{file}',[DocumentController::class,'download']);
 Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
 Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
 Route::get('/documentview/{id}',[DocumentController::class,'view']);
-Route::get('/search',[DocumentController::class,'search']);
+Route::get('/documents/search',[DocumentController::class,'search']);
 
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
 Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
