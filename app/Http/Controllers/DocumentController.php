@@ -54,4 +54,11 @@ class DocumentController extends Controller
         $data=document::find($id);
         return view('documentview',compact('data'));
     }
+
+    public function search()
+    {
+        $search_text = $_GET['query'];
+        $data = document::where('title','LIKE','%'.$search_text.'%')->get();
+        return view('documentsearch',compact('data'));
+    }
 }
