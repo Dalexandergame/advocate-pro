@@ -45,3 +45,48 @@
     background: #333333;
     margin-bottom: 1.5rem;
 }
+
+.listall{
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.viewdoc{
+    background-color: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: auto;
+    border-style: solid;
+    border-color: silver;
+    border-radius: 20px;
+    box-shadow: 0 0 11px rgb(102, 102, 102); }
+
+h4{
+    color: black;
+    margin-top: 20px;
+    margin-left: 80px;
+    font-style: oblique 50deg; 
+    font-family: Trebuchet MS;
+    padding-top: 20px;
+}
+h5{
+    color: black;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-family: Candara;
+    padding-bottom: 20px;
+}
+
+.doccontent{
+    margin: 30px;
+}
+.sorttab{
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-shadow: 0 5px 15px rgb(105, 105, 105);
+    border-radius: 10px;
+    
+}
