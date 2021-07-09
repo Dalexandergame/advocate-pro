@@ -110,10 +110,10 @@ Route::get('/documents', function () {
 });
 Route::post('/documents/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
-Route::get('/document/download/{file}',[DocumentController::class,'download']);
+Route::get('/documents/download/{file}',[DocumentController::class,'download']);
 Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
 Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
-Route::get('/documentview/{id}',[DocumentController::class,'view']);
+Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
 
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');

@@ -47,8 +47,8 @@
           <form action="{{url('documents/'.$data->id)}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <td><a class="btn btn-info" href="{{url('/documentview',$data->id)}}" role="button">Afficher details</a>
-                    <a class="btn btn-primary" href="{{url('/document/download',$data->file)}}" role="button">telecharger</a>
+                    <td><a class="btn btn-info" href="{{url('/documents/documentview',$data->id)}}" role="button">Afficher details</a>
+                    <a class="btn btn-primary" href="{{url('/documents/download',$data->file)}}" role="button">telecharger</a>
                     <button type="submit" class="btn btn-danger">supprimer</button></td>
            </form> 
         </tr>  
