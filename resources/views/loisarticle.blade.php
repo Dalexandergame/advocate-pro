@@ -37,27 +37,24 @@
 		</thead>
 
 		<tbody>
-			@if(isset($articles))
-				@foreach($articles as $article)
+			@foreach($articles as $article)
 
-				<tr class="fich1">
+			<tr class="fich1">
 
-					<td><img src="img/fichier.svg">{{$article['nom']}}</td>
-					<td class="date">{{$article->updated_at->todatestring()}}</td>
-					<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/view', $article->id) }}'" ><img src="img/vue.svg"/> Vue</button></td>
-					<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/download', $article->file) }}'"><img src="img/load.svg"/> Telecharger</button></td>
+				<td><img src="img/fichier.svg">{{$article['nom']}}</td>
+				<td class="date">{{$article->updated_at->todatestring()}}</td>
+				<td style="text-align:right;"><button class="vue" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/view', $article->id) }}'" ><img src="img/vue.svg"/> Vue</button></td>
+				<td style="text-align:left;"><button class="load" class="btn btn-default btn-lg" onclick="window.location='{{ url('./lois-et-articles/download', $article->file) }}'"><img src="img/load.svg"/> Telecharger</button></td>
 
-				</tr>
-				
-				<tr>
-					<td height="20" colspan="2"></td>
-				</tr>
+			</tr>
+			
+			<tr>
+				<td height="20" colspan="2"></td>
+			</tr>
 
-				@endforeach
-			@endif
+			@endforeach
 		</tbody>
-
-
+		
 	</table>
 
 
