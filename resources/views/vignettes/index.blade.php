@@ -31,8 +31,8 @@
 <div class="container bg-white p-4">
     <div class="row">
         <div class="col">
-            <h5 class="font-weight-bold">{{$product->category->name}}</h5>
-            <span>{{$product->name}}</span>
+            <h5 class="font-weight-bold">{{$vignette->category->name}}</h5>
+            <span>vignettes</span>
         </div>
         <div class="col">
             <h5 class="font-weight-bold">Responsable du stock</h5>
@@ -47,28 +47,36 @@
             <div>Mail<span>nom&prénom@gmail.com</span></div>
         </div>
     </div>
-    <div class="row mt-4 mx-4">
-        <div class="col-3">
-            <img src="/storage/{{ $product->photo }}" class="w-100 h-100" alt="">
+    <div class="row mt-4 mx-2">
+        <div class="col-md">
+            <img src="/storage/{{$vignette->photo}}" class="w-100 h-100" alt="">
         </div>
-        <div class="col-md offset-md-1" style="background-color: #FAFAFA ; padding: 2.5rem">
-            <span class="font-wright-bold mr-5">{{$product->name}}</span><br>
+        <div class="col-md ml-4" style="background-color: #FAFAFA ; padding: 2.5rem">
+            <span class="font-wright-bold mr-5">Vignettes</span><br>
             <span class="font-wright-bold mr-5">Alerte du stock</span><br>
             <span class="font-wright-bold mr-5">Date</span><br>
-            <span class="font-wright-bold mr-5">Facture</span><br>
         </div>
-        <div class="col-md" style="background-color: #FAFAFA ; padding: 2.5rem">
-            <span class="">Reste en stock {{$product->stock->quantity ?? 0}}</span><br>
-            <span class="text-danger"><img class="mr-1" src="{{ url('img/alarm.png') }}"/>{{$product->alert_en_stock}}</span><br>
-            <span class="">{{$product->updated_at->format('d.m.Y')}}</span><br>
-            <span class="">facture № {{$invoice->id ??'no record exist'}}</span><br>
+        <div class="col-md mr-3" style="background-color: #FAFAFA ; padding: 2.5rem">
+            <span class="">Reste en stock {{$vignette->stock->quantity ?? 0}} </span><br>
+            <span class="text-danger"><img class="mr-1" src="{{ url('img/alarm.png') }}"/> {{$vignette->alert_en_stock}} </span><br>
+            <span class="">{{Carbon\Carbon::now()->format('d.m.Y')}}</span>
             <button id="showInvoice" class="btn btn-link text-danger font-weight-bold {{isset($invoice->invoice_number) ? '': 'collapse'}}">Visualiser la facture</button>
         </div>
+        <div id="panel" class="mt-4 offset-4" style="background-color: #FAFAFA; display:none">
+            <span class="float-right p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
+            <img src="/storage/{{$invoice->invoice_number }}" class="ml-5 mt-2"/><br>
+            <button class="btn btn-secondary">Imprimer</button>
+        </div>
     </div>
-    <div id="panel" class="mt-4 offset-4" style="background-color: #FAFAFA; display:none">
-        <span class="float-right p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
-        <img src="/storage/{{$invoice->invoice_number }}" class="ml-5 mt-2"/><br>
-        <button class="btn btn-secondary">Imprimer</button>
+    <div class="row mt-4">
+        <div class="col-md offset-8">
+            <div>
+                <a href="{{ route('vignettes.create') }}" class="btn btn-dark px-4">
+                    <img class="mr-1" src="{{ url('img/stock.svg') }}"/>
+                    <span>Gestion du stock</span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

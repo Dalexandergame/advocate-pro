@@ -15,4 +15,8 @@ class Stock extends Model
         return $this->belongsTo(Product::class);
     }
     
+    public function invoices()
+    {
+        return $this->belongsToMany(Invoice::class);
+    }
 }

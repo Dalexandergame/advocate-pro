@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="mx-5">
+        <button onclick="window.location.href='{{route('productstock.index')}}'" class="px-4 config-btn btn-dark">
+            <img src="img/config.svg"/>
+            <span class="pl-2">Gestion de stock</span>
+        </button>
+    </div>
     <div class="mx-3">
         <div class="d-flex justify-content-between align-items-baseline mb-2">
             <h5 class="ml-4 font-weight-bold pt-4">Gestion des catégorie</h5>

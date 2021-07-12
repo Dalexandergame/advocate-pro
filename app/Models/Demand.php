@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Demand extends Model
 {
-    protected $guarded = [];
-    protected $fillable = ['state'];
+    protected $fillable = ['state','details'];
 
     use HasFactory;
 

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Invoice;
+use App\Models\InvoiceStock;
 use App\Models\Product;
-use App\Models\Stock;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use phpDocumentor\Reflection\Types\Null_;
 
 class ProductsController extends Controller
 {
@@ -76,8 +77,15 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::with('stock')->findOrFail($id);
-
-        return view('products.show', compact('product'));
+        //dd($product->stock);
+        if($product->stock != Null)
+        {
+            $stockInvoice = InvoiceStock::where('stock_id', $product->stock->id)->latest()->first();
+            if($stockInvoice != Null) $invoice = Invoice::where('id', $stockInvoice->invoice_id)->latest()->first();
+            else $invoice = Null;
+        }
+        else {$invoice = Null; $stockInvoice = Null; }
+        return view('products.show', compact('product','invoice','stockInvoice'));
     }
 
     /**

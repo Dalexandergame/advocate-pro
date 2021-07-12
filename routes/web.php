@@ -9,6 +9,19 @@ use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StocksController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DemandsController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\VignettesController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\DossierjuridiqueController;
+use App\Http\Controllers\DropdownController;
+use App\Models\Product;
 
 
 /*
@@ -74,6 +87,13 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
+<<<<<<< Updated upstream
+=======
+Route::get('/dossier-juridiques', function () {
+    return view('dossierjuridique');
+});
+
+>>>>>>> Stashed changes
 Route::get('/payment', function () {
     return view('payment');
 });
@@ -90,6 +110,7 @@ Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
 
+<<<<<<< Updated upstream
 Route::resource('templates', TemplatesController::class)->except('index');
 
 Route::resource('categories',CategoriesController::class);
@@ -102,6 +123,25 @@ Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])-
 Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
 Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
 Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
+=======
+Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
+Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
+
+Route::resource('templates', TemplatesController::class)->except('index');
+
+Route::resource('categories', CategoriesController::class);
+Route::resource('categories.products', ProductsController::class)->shallow();
+Route::post('demands/{demand}/approve', [DemandsController::class, 'handle'])->name('demands.handle');
+Route::get('demands/approvedDemands',[DemandsController::class, 'approved'])->name('demands.approved');
+Route::resource('demands', DemandsController::class);
+Route::get('demands/create/add-demand-products', [DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
+Route::post('demands/create', [DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
+Route::resource('stocks', StocksController::class);
+Route::resource('vignettes', VignettesController::class);
+
+Route::get('/getCatProducts', [DropdownController::class, 'selectCategory']);
+Route::get('/getProduct', [DropdownController::class, 'selectProduct']);
+>>>>>>> Stashed changes
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
 
@@ -111,8 +151,16 @@ Route::get('/documents', function () {
 Route::post('/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
 
+<<<<<<< Updated upstream
 Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
 Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
 Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
 Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
 Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
+=======
+Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+>>>>>>> Stashed changes
