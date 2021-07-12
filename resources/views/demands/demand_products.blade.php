@@ -7,7 +7,7 @@
             <span class="text-danger font-weight-bold totalItems"></span>
         </div>
         <div class="pr-container pt-1">
-            <form action="{{route('StoreDemandProducts')}}" enctype="multipart/form-data" method="post">
+            <form action="{{route('StoreDemandProducts')}}" enctype="multipart/form-data" method="Post">
                 @csrf
                 @foreach(array_chunk($products->toArray(),4,true) as $chunk)
                     <div class="pr-wrapper row pl-2 pb-4">

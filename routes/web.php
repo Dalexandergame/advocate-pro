@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\DemandsController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\ProductsController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StocksController;
-use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\DocumentController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\VignettesController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\DossierjuridiqueController;
+use App\Http\Controllers\DropdownController;
 
 
 /*
@@ -78,6 +82,10 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
+Route::get('/dossier-juridiques', function () {
+    return view('dossierjuridique');
+});
+
 Route::get('/payment', function () {
     return view('payment');
 });
@@ -94,18 +102,23 @@ Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
 
+Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
+Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
+
 Route::resource('templates', TemplatesController::class)->except('index');
 
-Route::resource('categories',CategoriesController::class);
-Route::resource('categories.products',ProductsController::class)->shallow();
-Route::post('demands/{demand}',[DemandsController::class, 'handle'])->name('demands.handle');
+Route::resource('categories', CategoriesController::class);
+Route::resource('categories.products', ProductsController::class)->shallow();
+Route::post('demands/{demand}/approve', [DemandsController::class, 'handle'])->name('demands.handle');
 Route::get('demands/approvedDemands',[DemandsController::class, 'approved'])->name('demands.approved');
-Route::resource('demands',DemandsController::class);
-Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
-Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
-Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
-Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
-Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
+Route::resource('demands', DemandsController::class);
+Route::get('demands/create/add-demand-products', [DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
+Route::post('demands/create', [DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
+Route::resource('stocks', StocksController::class);
+Route::resource('vignettes', VignettesController::class);
+
+Route::get('/getCatProducts', [DropdownController::class, 'selectCategory']);
+Route::get('/getProduct', [DropdownController::class, 'selectProduct']);
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
 
@@ -120,10 +133,10 @@ Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
 
-Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
-Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
-Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
-Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
-Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
-Route::delete('dossierjuridiques/{id}', 'DossierjuridiqueController@destroy');
-Route::get('/dossierjuridiques/search','DossierjuridiqueController@search');
+Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);

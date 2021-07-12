@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\SerialNumber;
-use App\Models\ProductSerialNumber;
+use App\Models\Category;
+use App\Models\Invoice;
+use App\Models\InvoiceStock;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -26,10 +26,11 @@ class StocksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $product = Product::findOrFail($id);
-        return view('stocks.create',compact('product'));
+        $categories = Category::with('products')->get();
+
+        return view('stocks.create',compact('categories'));
     }
 
     /**
@@ -38,53 +39,39 @@ class StocksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store()
     {
+        $id = request()->product;        
+
         $data = request()->validate([
-            'quantity' => ['Nullable', 'integer'],
-            'serial_number1' => ['Nullable', 'integer' , 'between:1000000,9999999'],
-            'serial_number2' => ['Nullable','integer' , 'between:1000000,9999999','gt:serial_number1']
+            'quantity' => ['required', 'integer'],
+            'invoice'  => ['required', 'image']
         ]);
 
         $quantity = (int)request()->input('quantity');
-        $first = (int)request()->input('serial_number1');
-        $last = (int)request()->input('serial_number2');
+        $invoicePath = request('invoice')->store('uploads/invoices','public');
+        //dd($invoicePath);
 
-        if( $first != 0  && $last != 0  )
-        {
-            //dd($first,$last);
-            for ($i = $first ; $i<= $last ; $i++)
-            {
-                SerialNumber::create([
-                    'serial_number' => $i
-                ]);
 
-                ProductSerialNumber::create([
-                    'product_id' => $id,
-                    'serial_number' => $i,
-                ]);
-            }
-            if( Stock::where('product_id','=',$id)->exists() )
-            {
-                Stock::where('product_id','=',$id)->increment('quantity', $last-$first+1);
-            }
-            else Stock::create([
-                'product_id' => $id,
-                'quantity' => $last-$first+1
-            ]);
-        }
-        else
+        if( Stock::where('product_id','=',$id)->exists() )
         {
-            if( Stock::where('product_id','=',$id)->exists() )
-            {
-                Stock::where('product_id','=',$id)->increment('quantity', $quantity);
-            }
-            else Stock::create([
-                'product_id' => $id,
-                'quantity' => $quantity,
-            ]);
+            $stock = Stock::where('product_id','=',$id)->increment('quantity', $quantity);
         }
-        return redirect()->route('products.show', $id)->with('status','Stock has been updated');
+        else $stock = Stock::create([
+            'product_id' => $id,
+            'quantity' => $quantity,
+        ]);
+
+        $invoice = Invoice::create([
+            'invoice_number' => $invoicePath
+        ]);
+
+        InvoiceStock::create([
+            'stock_id' => $stock->id,
+            'invoice_id' => $invoice->id
+        ]);
+
+        return redirect()->route('products.show', $id)->with('status','Stock has been updated',['invoice' => $invoice]);
     }
 
     /**
