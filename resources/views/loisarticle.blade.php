@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-xl">
+<!--   @if($errors->any())
+    <div class="alert alert-danger">
+		@foreach($errors->all() as $error)
+			<p>{{ $error }}</p>
+		 @endforeach
+	</div>
+@endif
+@if(Session::has('flash_message'))
+    <div class="alert alert-success">
+        {{ Session::get('flash_message') }}
+    </div>
+@endif					  
+ -->
 <select class="form-select filois" aria-label="Default select example">
   <option selected>Lois de travaille</option>
   <option value="1"></option>
@@ -83,7 +96,8 @@
 					  <label  class="f-label" for="lname">Type de lois:</label>
 					  <br>
 					  <select class="form-select f-input" type="text" id="lname" name="lname" aria-label="Default select example">
-					  <option value="lois1" selected>lois1</option>
+					  <option value="unknown"></option>
+					  <option value="lois1">lois1</option>
 					  <option value="lois2">lois2</option>
 					  <option value="lois3">lois3</option>
 					  </select>

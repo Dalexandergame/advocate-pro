@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DemandsController;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\InventoryController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
-use App\Models\Product;
 
 
 /*
@@ -47,9 +47,12 @@ Route::get('/profile', function () {
     return view('personalprofilview');
 });
 
-Route::get('/ordre-de-mission', function () {
-        return view('ordremission');
-});
+Route::put('/ordre-de-mission/update/{id}', [MissionController::class,'update']);
+Route::get('/ordre-de-mission', [MissionController::class,'show']);
+Route::post('/ordre-de-mission', [MissionController::class,'store']);
+Route::get('/ordre-de-mission/{id}/edit', [MissionController::class,'edit']);
+Route::delete('/ordre-de-mission/delete/{id}', [MissionController::class,'delete']);
+Route::delete('/ordre-de-mission/deleteAll', [MissionController::class,'deleteCheckedMissions']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -122,11 +125,18 @@ Route::resource('templates', TemplatesController::class)->except(['index']);
 Route::get('/documents', function () {
     return view('documents');
 });
-Route::post('/uploaddocument',[DocumentController::class,'store']);
+Route::post('/documents/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
+Route::get('/documents/download/{file}',[DocumentController::class,'download']);
+Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
+Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
+Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
+Route::get('/documents/search',[DocumentController::class,'search']);
 
 Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
 Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
 Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
 Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
