@@ -125,16 +125,8 @@ Route::get('/documents', function () {
 Route::post('/uploaddocument',[DocumentController::class,'store']);
 Route::get('/documents',[DocumentController::class,'show']);
 
-<<<<<<< Updated upstream
-Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
-Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
-Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
-Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
-Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
-=======
 Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
 Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
 Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
 Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
->>>>>>> Stashed changes
