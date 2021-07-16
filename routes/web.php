@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\UserAuthController;
 
 
 /*
@@ -27,12 +28,11 @@ use App\Http\Controllers\DropdownController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/',[UserAuthController::class, 'login']);
+Route::post('/check',[UserAuthController::class, 'check'])->name('auth/check');
 
-Route::get('/authentication', function () {
-    return view('authentication');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/utilisateurs', function () {

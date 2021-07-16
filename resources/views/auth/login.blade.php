@@ -36,16 +36,26 @@
             </div>
             <div id="login" class="col-md-6">
                 <h4>Authentification</h4>
-                <form>
+                <form action="{{ route('auth/check') }}" method="post">
+                @csrf      
+                <div class="results">
+                    @if(Session::get('fail'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('fail') }}
+                        </div>
+                    @endif
+                </div>       
                     <div class="mb-4">
                         <input
-                            type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"
+                            type="text" name="email" class="form-control" placeholder="Email" value="{{old('email')}}"
                         />
+                        <span class="text-danger">@error('email') {{$message}} @enderror</span>
                     </div>
                     <div class="mb-4">
                         <input
-                            type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe"
+                            type="password" name="password" class="form-control"  placeholder="Mot de passe"
                         />
+                        <span class="text-danger">@error('password') {{$message}} @enderror</span>
                         <p>Mot de passe oublier ?</p>
                     </div>
                     <div class="mb-4 form-check">
@@ -57,7 +67,7 @@
                             >Me souvenir de moi</label
                         >
                     </div>
-                    <button type="button" class="btn btn-dark">
+                    <button type="submit" class="btn btn-dark">
                         Connecter
                     </button>
                 </form>
