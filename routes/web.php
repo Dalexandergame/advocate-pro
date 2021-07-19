@@ -28,8 +28,16 @@ use App\Http\Controllers\UserAuthController;
 |
 */
 
-Route::get('/',[UserAuthController::class, 'login']);
-Route::post('/check',[UserAuthController::class, 'check'])->name('auth/check');
+/*Route::get('/new-login', function () {
+    return view('auth/newLogin');
+});
+Route::get('/new-forget', function () {
+    return view('auth/newForget');
+});*/
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -140,3 +148,4 @@ Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'ed
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+
