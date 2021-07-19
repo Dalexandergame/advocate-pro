@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="list item-1">
-            <a href="/" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
+            <a href="/dashboard" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
         </div>
         <div class="list item-2">
             <a href="/clients" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>

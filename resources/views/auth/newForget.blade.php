@@ -18,6 +18,7 @@
         </style>
     </head>
     <body>
+    <div class="container">
         <div id="menu" class="row no-gutters">
             <div id="logo" class="col-md-2"></div>
             <div class="col-md-7"></div>
@@ -35,33 +36,26 @@
                 <h3>Honoré de Balzac</h3>
             </div>
             <div id="login" class="col-md-6">
-                <h4>Authentification</h4>
-                <form>
+                <h4>Récupérer mon mot de passe</h4>
+                <form method="POST" action="{{ route('password.email') }}">
+                        @csrf      
                     <div class="mb-4">
-                        <input
-                            type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"
-                        />
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
-                    <div class="mb-4">
-                        <input
-                            type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe"
-                        />
-                        <p>Mot de passe oublier ?</p>
-                    </div>
+            
                     <div class="mb-4 form-check">
-                        <input
-                            type="checkbox" class="form-check-input" id="exampleCheck1"
-                        />
-                        <label
-                            class="form-check-label" for="exampleCheck1" id="rem"
-                            >Me souvenir de moi</label
-                        >
                     </div>
-                    <button type="button" class="btn btn-dark">
-                        Connecter
+                    <button type="submit" class="btn btn-dark">
+                    envoyer le lien de réinitialisation
                     </button>
                 </form>
             </div>
         </div>
+    </div>
     </body>
 </html>

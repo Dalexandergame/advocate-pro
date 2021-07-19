@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\UserAuthController;
 
 
 /*
@@ -27,12 +28,19 @@ use App\Http\Controllers\DropdownController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+/*Route::get('/new-login', function () {
+    return view('auth/newLogin');
 });
+Route::get('/new-forget', function () {
+    return view('auth/newForget');
+});*/
 
-Route::get('/authentication', function () {
-    return view('authentication');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/utilisateurs', function () {
@@ -140,3 +148,4 @@ Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'ed
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+

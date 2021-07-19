@@ -1,7 +1,6 @@
-body {
-    /* background-image: url(public\img\ImageAvocat2.jpg); */
-    background-repeat: no-repeat;
-    background-size: cover;
+.container{
+    height: auto;
+    width: auto;
 }
 #menu {
     height: 210px;
@@ -50,3 +49,4 @@ H1 {
 H4 {
     margin-bottom: 10px;
 }
+
