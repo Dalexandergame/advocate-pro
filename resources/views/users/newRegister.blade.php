@@ -49,7 +49,7 @@
   </div>
   
   <button type="submit" class="btn btn-primary">
-       {{ __('Enregistrer') }}
+       {{ __('Enregistrer et envoyer') }}
   </button>
 </form>
 </div>

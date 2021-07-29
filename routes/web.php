@@ -16,6 +16,8 @@ use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactFormController;
+
 
 
 /*
@@ -45,9 +47,6 @@ Route::get('/utilisateurs', function () {
     return view('users/userview');
 });
 Route::get('/utilisateurs',[UserController::class,'show']);
-
-
-
 
 Auth::routes();
 
