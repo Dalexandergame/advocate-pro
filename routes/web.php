@@ -15,6 +15,7 @@ use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -28,12 +29,25 @@ use App\Http\Controllers\UserAuthController;
 |
 */
 
-/*Route::get('/new-login', function () {
+Route::get('/new-login', function () {
     return view('auth/newLogin');
 });
+
 Route::get('/new-forget', function () {
     return view('auth/newForget');
-});*/
+});
+
+Route::get('/new-register', function () {
+    return view('users/newRegister');
+});
+
+Route::get('/utilisateurs', function () {
+    return view('users/userview');
+});
+Route::get('/utilisateurs',[UserController::class,'show']);
+
+
+
 
 Auth::routes();
 
@@ -41,10 +55,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
-
-Route::get('/utilisateurs', function () {
-    return view('userview');
 });
 
 Route::get('/clients', function () {
