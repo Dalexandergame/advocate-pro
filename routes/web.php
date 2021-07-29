@@ -158,3 +158,9 @@ Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update'
 Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
 
+Route::get('clientcomptes', 'ClientcompteController@index');
+Route::get('clientcomptes/create', 'ClientcompteController@create');
+Route::post('clientcomptes', 'ClientcompteController@store');
+Route::get('clientcomptes/{id}/edit', 'ClientcompteController@edit');
+Route::put('clientcomptes/{id}', 'ClientcompteController@update');
+Route::delete('clientcomptes/{id}', 'ClientcompteController@destroy');
