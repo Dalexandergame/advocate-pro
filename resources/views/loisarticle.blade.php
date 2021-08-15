@@ -44,7 +44,6 @@
 		</thead>
 
 		<tbody>
-
 			@foreach($articles as $article)
 
 			<tr class="fich1">
@@ -61,10 +60,8 @@
 			</tr>
 
 			@endforeach
-
 		</tbody>
-
-
+		
 	</table>
 
 

@@ -26,9 +26,9 @@ class ProductFactory extends Factory
             'category_id' => $this->faker->numberBetween(1,4),
             'name' => $this->faker->unique()->word(),
             'price' => $this->faker->randomFloat(2, 0, 10000),
-            'photo' => $this->faker->image(public_path('uploads'),640,480,false),
+            'photo' => $this->faker->image(storage_path('app\public\uploads'),640,480,false),
             'description'=> $this->faker->text(200),
-            'alert_en_stock' => $this->faker->numberBetween(1,200)
+            'alert_en_stock' => $this->faker->numberBetween(50,200)
         ];
     }
 }

@@ -55,28 +55,32 @@
             <span class="font-wright-bold mr-5">{{$product->name}}</span><br>
             <span class="font-wright-bold mr-5">Alerte du stock</span><br>
             <span class="font-wright-bold mr-5">Date</span><br>
+            <span class="font-wright-bold mr-5">Facture</span><br>
         </div>
         <div class="col-md" style="background-color: #FAFAFA ; padding: 2.5rem">
             <span class="">Reste en stock {{$product->stock->quantity ?? 0}}</span><br>
             <span class="text-danger"><img class="mr-1" src="{{ url('img/alarm.png') }}"/>{{$product->alert_en_stock}}</span><br>
-            <span class="">{{$product->updated_at->format('d.m.Y')}}</span>
+            <span class="">{{$product->updated_at->format('d.m.Y')}}</span><br>
+            <span class="">facture № {{$invoice->id ??'no record exist'}}</span><br>
+            <button id="showInvoice" class="btn btn-link text-danger font-weight-bold {{isset($invoice->invoice_number) ? '': 'collapse'}}">Visualiser la facture</button>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-md offset-8">
-            <div>
-                <a href="{{ route('products.stocks.create',$product->id) }}" class="btn btn-dark px-4">
-                    <img class="mr-1" src="{{ url('img/stock.svg') }}"/>
-                    <span>Gestion du stock</span>
-                </a>
-            </div>
-            <div class="mt-3">
-                <a href="#" class="bg-secondary p-2 px-4">
-                    <img class="mr-1" src="{{url('img/edit.svg') }}"/>
-                    <span>Bon de commande</span>
-                </a>
-            </div>
-        </div>
+    <div id="panel" class="mt-4 offset-4" style="background-color: #FAFAFA; display:none">
+        <span class="float-right p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
+        <img src="/storage/{{$invoice->invoice_number ?? ''}}" class="ml-5 mt-2"/><br>
+        <button class="btn btn-secondary">Imprimer</button>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#showInvoice").click(function(){
+            $("#panel").slideDown("slow");
+        });
+        $("#hide").click(function(){
+            $("#panel").slideUp("slow");
+        });
+    });
+</script>
 </body>

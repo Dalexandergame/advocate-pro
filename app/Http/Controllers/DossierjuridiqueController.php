@@ -63,4 +63,24 @@ class DossierjuridiqueController extends Controller
         return redirect('dossierjuridiques');
 
     }
+    public function destroy(Request $request, $id){
+
+        $dossierjuridique = Dossierjuridique::find($id);
+
+        $dossierjuridique->delete();
+
+        return redirect('dossierjuridiques');
+    }
+
+    public function search(Request $request){
+
+        $search = $request->get('file_number');
+        $searchT = $request->get('tagwords');
+        $searchCD = $request->get('for');
+
+        $dossierjuridiques = DB::table('dossierjuridiques')->where('file_number', 'like', '%'.$search.'%')->where('tagwords', 'like', '%'.$searchT.'%')->where('for', 'like', '%'.$searchCD.'%')->paginate(5);   
+       
+        return view('dossierjuridique.index', ['dossierjuridiques' => $dossierjuridiques]);
+      
+    }
 }

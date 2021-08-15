@@ -1,17 +1,25 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\DemandsController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\ProductsController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StocksController;
-use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\CommentController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\TemplatesController;
+use App\Http\Controllers\VignettesController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\DossierjuridiqueController;
+use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactFormController;
+
 
 
 /*
@@ -25,16 +33,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+Route::get('/new-login', function () {
+    return view('auth/newLogin');
 });
 
-Route::get('/authentication', function () {
-    return view('authentication');
+Route::get('/new-forget', function () {
+    return view('auth/newForget');
+});
+
+Route::get('/new-register', function () {
+    return view('users/newRegister');
 });
 
 Route::get('/utilisateurs', function () {
-    return view('userview');
+    return view('users/userview');
+});
+Route::get('/utilisateurs',[UserController::class,'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/clients', function () {
@@ -97,6 +118,10 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
+Route::get('/dossier-juridiques', function () {
+    return view('dossierjuridique');
+});
+
 Route::get('/payment', function () {
     return view('payment');
 });
@@ -113,18 +138,23 @@ Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
 
+Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
+Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
+
 Route::resource('templates', TemplatesController::class)->except('index');
 
-Route::resource('categories',CategoriesController::class);
-Route::resource('categories.products',ProductsController::class)->shallow();
-Route::post('demands/{demand}',[DemandsController::class, 'handle'])->name('demands.handle');
+Route::resource('categories', CategoriesController::class);
+Route::resource('categories.products', ProductsController::class)->shallow();
+Route::post('demands/{demand}/approve', [DemandsController::class, 'handle'])->name('demands.handle');
 Route::get('demands/approvedDemands',[DemandsController::class, 'approved'])->name('demands.approved');
-Route::resource('demands',DemandsController::class);
-Route::get('demands/create/add-demand-products',[DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
-Route::post('demands/create',[DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
-Route::get('products/{product}/stocks/create',[StocksController::class, 'create'])->name('products.stocks.create');
-Route::post('products/{product}/stocks',[StocksController::class, 'store'])->name('products.stocks.store');
-Route::get('/stocks',[StocksController::class, 'index'])->name('stocks.index');
+Route::resource('demands', DemandsController::class);
+Route::get('demands/create/add-demand-products', [DemandsController::class, 'AddDemandProducts'])->name('AddDemandProducts');
+Route::post('demands/create', [DemandsController::class, 'StoreDemandProducts'])->name('StoreDemandProducts');
+Route::resource('stocks', StocksController::class);
+Route::resource('vignettes', VignettesController::class);
+
+Route::get('/getCatProducts', [DropdownController::class, 'selectCategory']);
+Route::get('/getProduct', [DropdownController::class, 'selectProduct']);
 
 Route::resource('templates', TemplatesController::class)->except(['index']);
 
@@ -139,8 +169,17 @@ Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
 
-Route::get('dossierjuridiques', 'DossierjuridiqueController@index');
-Route::get('dossierjuridiques/create', 'DossierjuridiqueController@create');
-Route::post('dossierjuridiques', 'DossierjuridiqueController@store');
-Route::get('dossierjuridiques/{id}/edit', 'DossierjuridiqueController@edit');
-Route::put('dossierjuridiques/{id}', 'DossierjuridiqueController@update');
+Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+
+Route::get('clientcomptes', 'ClientcompteController@index');
+Route::get('clientcomptes/create', 'ClientcompteController@create');
+Route::post('clientcomptes', 'ClientcompteController@store');
+Route::get('clientcomptes/{id}/edit', 'ClientcompteController@edit');
+Route::put('clientcomptes/{id}', 'ClientcompteController@update');
+Route::delete('clientcomptes/{id}', 'ClientcompteController@destroy');

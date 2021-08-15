@@ -25,7 +25,8 @@ class DemandsController extends Controller
             $quantities[$item->demand_id][$item->product_id] = $item->quantity ;
         }
         
-        return view('demands.index',compact('products','quantities'));
+        if(isset($products) && isset($quantities) ) return view('demands.index',compact('products','quantities'));
+        else return view('demands.index');
     }
     /**
      * Show the form for creating a new resource.
