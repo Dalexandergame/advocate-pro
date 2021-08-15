@@ -14,12 +14,19 @@
     </div>
 @endif					  
  -->
-<select class="form-select filois" aria-label="Default select example">
-  <option selected>Lois de travaille</option>
-  <option value="1"></option>
-  <option value="2"></option>
-</select>
 
+ <form action="{{ url('/lois-et-articles/search') }}" method="GET">
+      {{csrf_field()}}
+<select class="filois select2" name="search" aria-label="Default select example">
+  <option value="" disabled selected>Type de Lois de travaille</option>
+                      @foreach($articles as $article)
+                           <option value = "{{$article->type}}">{{$article->type}}</option>
+                      @endforeach
+</select>
+<button type="submit" class="btn btn-default-sm">
+            <img src="{{url('img/search.svg')}}">
+          </button>
+</form>
 <br>
 <br>
 
@@ -123,10 +130,12 @@
 
 @section('styles')
 <link href="{{ asset('css/loisarticle.css') }}" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -145,5 +154,10 @@
   }
   output.innerHTML += '</ul>';
 }
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('.select2').select2();
+});
 </script>
 @endsection

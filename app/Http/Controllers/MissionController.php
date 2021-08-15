@@ -65,9 +65,28 @@ class MissionController extends Controller
      */
     public function show()
     {
-          $data= Mission::all();
+          $data= Mission::where('status','=','none')->get();
         return view('ordremission',['missions'=>$data]);
     }
+
+     public function approved()
+    {
+          $data= Mission::where('status','=','Aprouver')->get();
+        return view('ordremission.approved',['missions'=>$data]);
+    }
+
+    public function declined()
+    {
+          $data= Mission::where('status','=','Refuser')->get();
+        return view('ordremission.declined',['missions'=>$data]);
+    }
+
+    public function attente()
+    {
+          $data= Mission::where('status','=','En attente')->get();
+        return view('ordremission.attente',['missions'=>$data]);
+    }
+
     // public function view($id)
     
     // {
@@ -86,7 +105,7 @@ class MissionController extends Controller
     {
          $mission = Mission::find($id);
 
-        return view('ordremission', ['ordremission' => $mission]);
+        return view('ordremission.editmission', ['mission' => $mission]);
     }
 
     /**
@@ -130,4 +149,30 @@ class MissionController extends Controller
       Mission::whereIn('id',$ids)->delete();
       return response()->json(['success'=>'all deleted']);
     }
+
+
+    public function status($id)
+    {
+        $mission = Mission::findOrFail($id);
+        
+        if ( request()->input('status') == 'accepter')
+            {
+             $mission->update(['status'=>'Aprouver']);
+             return  redirect('/ordre-de-mission/approved');
+            }
+        elseif ( request()->input('status') == 'refuser')
+            {
+             $mission->update(['status'=>'Refuser']);
+             return  redirect('/ordre-de-mission/declined');
+            }
+        elseif ( request()->input('status') == 'enattente')
+            {
+             $mission->update(['status'=>'En attente']);
+             return  redirect('/ordre-de-mission/attente');
+            }
+
+        
+    }
+
+
 }

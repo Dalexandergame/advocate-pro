@@ -10,6 +10,18 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    
+    public function taches()
+    {
+        return $this->hasMany('App\Models\Tache');
+    }
+
+     public function missions()
+    {
+        return $this->hasMany('App\Models\Mission');
+    }
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

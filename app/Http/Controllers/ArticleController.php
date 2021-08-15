@@ -17,6 +17,15 @@ class ArticleController extends Controller
     {
         return view('loisarticle');
     }
+
+     public function search()
+    {
+       $search_text = $_GET['search'];
+       $articles = Article::where('type', 'LIKE', $search_text)
+                            ->get();
+
+       return view('loisarticle.searcharticle',compact('articles')); 
+    }
     
     /**
      * Show the form for creating a new resource.
@@ -44,7 +53,7 @@ class ArticleController extends Controller
         
         $art = new Article;
         $file=$request->file;
-        $filename=time().'.'.$file->getClientOriginalExtension();
+        $filename=$file->getClientOriginalName();
         $request->file->move('assets',$filename);
         $art->file=$filename;
         
@@ -67,6 +76,7 @@ class ArticleController extends Controller
         return view('loisarticle',['articles'=>$data]);
     }
     
+
     public function view($id)
     
     {
