@@ -29,6 +29,12 @@ class Mission extends Model
         'description',
         'destination',
         'cout',
+        'status',
+        'user_id',
     ];
-
+    
+    public function getUsers()
+    {
+        return $this->belongsTo('App\Models\User' , 'user_id');
+    }
 }

@@ -6,6 +6,8 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\TacheController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TemplatesController;
@@ -67,9 +69,19 @@ Route::get('/profile', function () {
 Route::put('/ordre-de-mission/update/{id}', [MissionController::class,'update']);
 Route::get('/ordre-de-mission', [MissionController::class,'show']);
 Route::post('/ordre-de-mission', [MissionController::class,'store']);
-Route::get('/ordre-de-mission/{id}/edit', [MissionController::class,'edit']);
+Route::get('/ordre-de-mission/edit/{id}', [MissionController::class,'edit']);
 Route::delete('/ordre-de-mission/delete/{id}', [MissionController::class,'delete']);
 Route::delete('/ordre-de-mission/deleteAll', [MissionController::class,'deleteCheckedMissions']);
+Route::post('/ordre-de-mission/{mission}',[MissionController::class, 'status']);
+Route::get('/ordre-de-mission/approved', [MissionController::class,'approved']);
+Route::get('/ordre-de-mission/declined', [MissionController::class,'declined']);
+Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
+
+
+Route::get('/calendrier/search',  [TacheController::class,'search']);
+Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
+//Route::get('/calendrier',  [TacheController::class,'indexCal']);
+Route::get('/calendrier',  [TacheController::class,'showcal']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -78,6 +90,7 @@ Route::get('/tribunal', function () {
 });
 
 Route::get('/lois-et-articles', [ArticleController::class,'show']);
+Route::get('/lois-et-articles/search', [ArticleController::class,'search']);
 Route::post('/lois-et-articles', [ArticleController::class,'store']);
 Route::get('/lois-et-articles/view/{id}', [ArticleController::class,'view']);
 Route::get('/lois-et-articles/download/{file}', [ArticleController::class,'download']);
@@ -87,13 +100,19 @@ Route::get('/correspondence', function () {
 });
 
 
-Route::get('/taches', function () {
-    return view('taches');
-});
+//Route::get('/taches', [TacheController::class,'index']);
+Route::get('/taches', [TacheController::class,'show']);
+Route::post('/taches', [TacheController::class,'store']);
+Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
+Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
 
-Route::get('/taches-details', function () {
-    return view('tachesdetails');
-});
+Route::post('/comment/store', [CommentController::class,'store'])->name('comment.add');
+Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
+Route::get('/comment/download/{file}', [CommentController::class,'download']);
+
+// Route::get('/taches-details', function () {
+//     return view('tachesdetails');
+// });
 
 Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');

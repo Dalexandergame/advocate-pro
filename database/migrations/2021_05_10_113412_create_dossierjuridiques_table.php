@@ -16,7 +16,7 @@ class CreateDossierjuridiquesTable extends Migration
         Schema::create('dossierjuridiques', function (Blueprint $table) {
             $table->id();
             $table->integer('file_number');
-            $table->string('date_creation');
+            $table->dateTime('date_creation');
             $table->string('tagwords');
             $table->string('type_dossier');
             $table->string('for');
@@ -24,7 +24,7 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('client_direct');
             $table->string('client_indirect');
             $table->string('comments');
-            $table->integer('tribunal_number');
+            $table->integer('tribunal_number'); 
             $table->timestamps();
         });
     }

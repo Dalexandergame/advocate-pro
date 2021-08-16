@@ -21,6 +21,13 @@ class CreateMissionsTable extends Migration
             $table->date('datecreation');
             $table->date('dateecheance');
             $table->string('cout');
+            $table->string('status')->default('none');
+
+            $table->ForeignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
