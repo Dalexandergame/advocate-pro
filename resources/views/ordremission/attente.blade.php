@@ -14,7 +14,7 @@
                     <div class="navbar-nav sm-menu">
                         <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/approved')}}">Accepter</a>
                         <a class="nav-link px-md-5"  href="{{url('/ordre-de-mission/declined')}}">Refuser</a>
-                        <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/attente')}}">En attente</a>
+                        <a class="nav-link px-md-5 active" href="{{url('/ordre-de-mission/attente')}}">En attente</a>
                         <a class="nav-link px-md-5" href="{{url('/ordre-de-mission')}}">Voir tout</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <td><p class="infos">{{$mission['description']}}</p></td>
                         <td><p class="infos">{{$mission['destination']}}</p></td>
                         <td></td>
-                        <td><img class="img-circle" src="{{ url('img/profile.svg') }}"></td>
+                        <td><img class="img-circle" src="{{ url('img/profile.svg') }}"><p class="username"> {{$mission->getUsers['name']}}</p></td>
                     </tr>
 
                          <tr>
@@ -73,7 +73,7 @@
                            <p class="cout">Co&#251;t de mission<br>
                            <span class="prix">{{$mission['cout']}} Dhs</span>
                            </p>
-                            <p class="text-center pai">Reference de paiements</p>
+                            <p class="text-center"><a class="pai" href="#">Reference de paiements</a></p>
 
                          </td>
 

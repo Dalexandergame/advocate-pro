@@ -72,7 +72,7 @@ class ArticleController extends Controller
      */
     public function show()
     {
-        $data= Article::all();
+        $data= Article::orderBy('created_at', 'DESC')->get();
         return view('loisarticle',['articles'=>$data]);
     }
     

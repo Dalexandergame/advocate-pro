@@ -37,22 +37,41 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location.href='{{ url('./ordre-de-mission') }}'">
          <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
         </button>
+
             <div class="user-infos">
               <h5>Utilisateur en charge</h5>
               <br>
-            <div class="user-label">Nom d'utilisateur</div>
-            <div class="user-label">Tel <span> +212 600 137 564</span> </div>
-            <div class="user-label">Mail <span> nom&prenom@gmail.com</span> </div>
+
+              <button class="buttonu" id="btnx" style="color:red;"><div style="width:160px;display: inline-block;"></div>x</button>
+              <div id="infosuser">
+            <div class="user-label">Nom d'utilisateur: {{$mission->getUsers['name']}}</div>
+            <div class="user-label">Tel: <span>{{$mission->getUsers['phone']}}</span> </div>
+            <div class="user-label">Mail: <span>{{$mission->getUsers['email']}}</span> </div>
+              </div>
+
             <br>
+            <form action="{{ url('./ordre-de-mission/update', $mission->id) }}" method="POST" enctype="multipart/form-data" id="editForm">
+            {{ csrf_field() }}
+            {{ method_field('PUT') }}
+
+            <button class="buttonu" type="button" id="formButton"><img class="tprof" src="{{ url('img/roundplus.svg') }}"/> Désigner autre utilisateur</button>
+            <br><br>
+            <label  class="f-label" for="user_id" style="display:none;margin-left:0px;" id="userlab">Désigner un utilisateur</label>
             <br>
-            <br>
-            <div style="font-family: Gotham;font-style: normal;font-weight: normal;font-size: 12px;line-height: 14px;color: #333333;"> Marrakech le: {{date('Y/m/d h:i A')}}</div>
+            <select class="f-input" style="display:none;height: 25px;width: 200px;margin-left:0px;" id="selectUser" type="text" name="user_id" aria-label="Default select example"  required>
+                           <option value = "{{$mission->getUsers['id']}}">{{$mission->getUsers['name']}}</option>
+                      @foreach($users as $user)
+                           <option value = "{{$user->id}}">{{$user->name}}</option>
+                      @endforeach
+            </select>
+
+
+            <br><br><br>
+            <div style="font-family: Gotham;font-style: normal;font-weight: normal;font-size: 12px;line-height: 14px;color: #333333;"> date de modification ({{date('d/m/Y')}})</div>
             </div>
             
         <div class="add-form">
-          <form action="{{ url('./ordre-de-mission/update', $mission->id) }}" method="POST" enctype="multipart/form-data" id="editForm">
-            {{ csrf_field() }}
-            {{ method_field('PUT') }}
+         
 
           <div class="form-back">
             <label class="f-label" for="titre">Titre de mission</label>
@@ -79,9 +98,9 @@
           </div>
           <br><br>
           <button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
-          </form> 
+           
         </div>
-
+</form>
         </div>
   
    </div>
@@ -90,6 +109,25 @@
  <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $("#formButton").click(function() {
+    $("#selectUser").toggle();
+    $("#userlab").toggle();
+    $("#formButton").toggle();
+    $("#infosuser").toggle();
+    $("#btnx").toggle();
+  });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $("#btnx").click(function() {
+    $("#infosuser").toggle();
+    $("#btnx").toggle();
+  });
+});
+</script>
     </div>
 </body>

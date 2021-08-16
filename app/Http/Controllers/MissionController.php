@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mission;
+use App\Models\User;
+use App\Http\Controllers\UserAuthController;
+use Auth;
 
 class MissionController extends Controller
 {
@@ -52,6 +55,7 @@ class MissionController extends Controller
         $mission->datecreation = date('d-m-Y', strtotime($request->input('datecreation')));
         $mission->dateecheance = date('d-m-Y', strtotime($request->input('dateecheance')));
         $mission->cout = $request->input('cout');
+        $mission->user_id = Auth::user()->id;
         
         $mission->save();
         return redirect('/ordre-de-mission'); 
@@ -87,6 +91,7 @@ class MissionController extends Controller
         return view('ordremission.attente',['missions'=>$data]);
     }
 
+
     // public function view($id)
     
     // {
@@ -104,8 +109,8 @@ class MissionController extends Controller
     public function edit($id)
     {
          $mission = Mission::find($id);
-
-        return view('ordremission.editmission', ['mission' => $mission]);
+         $users = User::all();
+        return view('ordremission.editmission',compact('mission','users'));
     }
 
     /**
@@ -124,6 +129,7 @@ class MissionController extends Controller
         $mission->destination = $request->input('destination');
         $mission->dateecheance = date('d-m-Y', strtotime($request->input('dateecheance')));
         $mission->cout = $request->input('cout');
+        $mission->user_id = $request->input('user_id');
         
         $mission->save();
 

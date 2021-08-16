@@ -7,7 +7,7 @@
 <button class="button button1" id="deleteAllSelectedMissions"> <img src="img/trash.svg"> Supprimer en selection</button>
 
 <!-- Add Modal -->
-<div class="modal fade" id="Modaladdmission" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true">
+<div class="modal fade" id="Modaladdmission" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="false" data-backdrop="static">
   <div class="modal-dialog" role="document">   
     <div class="modal-content" style="width: 796px; height: 800px;">
         <div class="modal-body">
@@ -125,7 +125,7 @@
                         <td><p class="infos">{{$mission['description']}}</p></td>
                         <td><p class="infos">{{$mission['destination']}}</p></td>
                         <td></td>
-                        <td><img class="img-circle" src="img/profile.svg"></td>
+                        <td><img class="img-circle" src="{{ url('img/profile.svg') }}"><p class="username"> {{$mission->getUsers['name']}}</p></td>
                     </tr>
 
                          <tr>
@@ -140,7 +140,7 @@
                            <p class="cout">Co&#251;t de mission<br>
                            <span class="prix">{{$mission['cout']}} Dhs</span>
                            </p>
-                            <p class="text-center pai">Reference de paiements</p>
+                            <p class="text-center"><a class="pai" href="#">Reference de paiements</a></p>
 
                          </td>
 

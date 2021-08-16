@@ -13,7 +13,7 @@
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F2F2F2">
                 <div class="container-fluid p-0">
                     <div class="navbar-nav sm-menu">
-                        <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/approved')}}">Accepter</a>
+                        <a class="nav-link px-md-5 active" href="{{url('/ordre-de-mission/approved')}}">Accepter</a>
                         <a class="nav-link px-md-5"  href="{{url('/ordre-de-mission/declined')}}">Refuser</a>
                         <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/attente')}}">En attente</a>
                         <a class="nav-link px-md-5" href="{{url('/ordre-de-mission')}}">Voir tout</a>
@@ -60,7 +60,7 @@
                         <td><p class="infos">{{$mission['description']}}</p></td>
                         <td><p class="infos">{{$mission['destination']}}</p></td>
                         <td></td>
-                        <td><img class="img-circle" src="{{url ('img/profile.svg') }}"></td>
+                        <td><img class="img-circle" src="{{ url('img/profile.svg') }}"><p class="username"> {{$mission->getUsers['name']}}</p></td>
                     </tr>
 
                          <tr>
@@ -72,12 +72,12 @@
 
                          </td>
 
-                         <td><br><p class="text-center pai">Reference de paiements</p></td>
+                         <td><br><p class="text-center"><a class="pai" href="#">Reference de paiements</a></p></td>
 
                          <td></td>
 
                          <td><p class="cout">Co&#251;t de mission<br>
-                           <span class="prix">{{$mission['cout']}} Dhs</span>
+                           <span class="prix">{{$mission['cout']}}Dhs</span>
                            </p>
                          </td>
 
