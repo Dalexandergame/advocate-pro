@@ -19,6 +19,9 @@ use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\TribunalController;
+use App\Http\Controllers\ClientcontactController;
+use App\Http\Controllers\ClientcompteController;
 
 
 
@@ -176,10 +179,29 @@ Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'ed
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
+Route::get('/dossier-juridiques-vue', function () {
+    return view('dossierjuridiquevue');
+});
 
-Route::get('clientcomptes', 'ClientcompteController@index');
-Route::get('clientcomptes/create', 'ClientcompteController@create');
-Route::post('clientcomptes', 'ClientcompteController@store');
-Route::get('clientcomptes/{id}/edit', 'ClientcompteController@edit');
-Route::put('clientcomptes/{id}', 'ClientcompteController@update');
-Route::delete('clientcomptes/{id}', 'ClientcompteController@destroy');
+Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
+Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);
+Route::post('/clientcomptes', [ClientcompteController::class, 'store']);
+Route::get('/clientcomptes/{id}/edit', [ClientcompteController::class, 'edit']);
+Route::put('/clientcomptes/{id}', [ClientcompteController::class, 'update']);
+Route::delete('/clientcomptes/{id}', [ClientcompteController::class, 'destroy']);
+
+Route::get('/clientcontacts', [ClientcontactController::class, 'index']);
+Route::get('/clientcontacts/create', [ClientcontactController::class, 'create']);
+Route::post('/clientcontacts', [ClientcontactController::class, 'store']);
+Route::get('/clientcontacts/{id}/edit', [ClientcontactController::class, 'edit']);
+Route::put('/clientcontacts/{id}', [ClientcontactController::class, 'update']);
+Route::delete('/clientcontacts/{id}', [ClientcontactController::class, 'destroy']);
+
+
+Route::get('/tribunals', [TribunalController::class, 'index']);
+Route::get('/tribunals/create', [TribunalController::class, 'create']);
+Route::post('/tribunals', [TribunalController::class, 'store']);
+Route::get('/tribunals/{id}/edit', [TribunalController::class, 'edit']);
+Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
+Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);

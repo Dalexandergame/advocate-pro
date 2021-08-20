@@ -4,8 +4,8 @@
 
 <div class="client-menu">
     <ul class="ulclient">
-        <li class="licontact"><a class="acontact" href="{{url('../clientcontacts')}}">Contact</a></li>
-        <li class="licompte"><a class="acontact" href="#">Compte</a></li>
+     <li class="licompte"><a class="acontact" href="#">Contact</a></li>
+        <li class="licontact"><a class="acontact" href="{{url('../clientcomptes')}}">Compte</a></li>
     </ul>
 </div>
 <br>
@@ -39,7 +39,7 @@
 	</div>
 </form>
 <br>
-<button class="buttona button55" href="{{ url('/clientcomptes/create') }}" class="btn btn-default btn-lg"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</button>
+<button class="buttona button55" href="{{ url('/clientcontacts/create') }}" class="btn btn-default btn-lg"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</button>
 <a class="buttonx1 button-supprimer1" href=""><img src="/img/trash.png" height="13px" width="13px" style="margin-top: -5px;margin-right: 5px">supprimer la selection</a>
 <div style="margin-top: 40px;"></div>
 
@@ -59,15 +59,15 @@
 	<div class="big-grid" style="margin-right: -20px; height: 420px">
 		<div class="row" style="margin-top: 20px">
 			
-			<form action="{{ url('clientcomptes')}}" method="post">
+			<form action="{{ url('clientcontacts')}}" method="post">
 
 				{{ csrf_field()}}
 
 				<div class="form-column col-md-8 type-move0">
 					<div class="col">
 						<input type="checkbox" name="checkbox"/>
-						<div class="dot"><img src="/img/briefcase1.png" style="margin-top: 18px; margin-left: 15px; margin-bottom: 20px; "></div>
-						<input type="text" class="form-control" placeholder="Entreprise Nom" name="nom_entreprise" style="margin-top: -50px;margin-left: 120px; width: 250px"> 
+						<div><img src="/img/profile.png" style="margin-top: 18px; margin-left: 15px; margin-bottom: 20px; "></div>
+						<input type="text" class="form-control" placeholder="Contact Nom" name="nom_contact" style="margin-top: -80px;margin-left: 120px; width: 250px"> 
 						<div style="margin-top: 5px"></div>
 						<div class="nbrdossier"> Nombre de dossier </div>
 					</div><div style="margin-top: 5px"></div>
@@ -81,40 +81,33 @@
 				</div>
 				
 				<div class="form-column type-move21">
-					<div class="col" >
-						<input type="text" class="form-control" placeholder="Nom de contact 01" name="nom_contact" style="border: none; border-color: transparent; outline: none; font-weight: bold;">
-					</div>
+					
+					
 					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Tél</label>
-						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
+						
+						<span class="span1"><input type="text" class="form-control" placeholder="E-mail 1" name="mail" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
 						
 					</div>
 					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Mail</label>
-						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
+						
+						<span class="span1"><input type="text" class="form-control" placeholder="Ville" name="ville" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
 						
 					</div>
 				</div>
 
                 <div class="form-column type-move22">
 					<div class="col" >
-						<input type="text" class="form-control" placeholder="contact principal" name="nom_contact_principal" style="border: none; border-color: transparent; outline: none; font-weight: bold;">
+						<label class="">Tél</label>
 					</div>
 					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Tél</label>
-						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact_principal" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
+						<span class="span1"><input type="text" class="form-control" placeholder="numero de telephone" name="tel" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>	
 					</div>
-					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Mail</label>
-						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact_principal" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
-					</div>
+					
 				</div>
 
 				<div class="form-column type-move23">
 					<div class="col" >
-						<input type="text" class="form-control" placeholder="Dossier lier" name="Nomdossier" style="border: none; border-color: transparent; outline: none; font-weight: bold;">
+						<label class="">Dossier lier</label>
 					</div>
 					<div class="col">
 						<span class="span1"><input type="text" class="form-control" placeholder="numero du dossier" name="dossier_lier" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>	
@@ -135,7 +128,7 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('../css/createclientcompte.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/createclientcontact.css') }}">
 @endsection
 
 @section('scripts')

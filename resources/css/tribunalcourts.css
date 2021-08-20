@@ -71,4 +71,36 @@ td, th {
   text-align: center;
 }
 
+  .button-supprimer1 {
+  padding: 6px 30px;
+  background-color: red;
+margin-right: 40px;}
 
+.buttonx1 {
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border: none;
+    font-family: system-ui;
+}
+
+a.buttona {
+    color: white;
+ margin-top: 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ border: none;
+ font-family: system-ui;
+}
+
+a.button55 {
+   margin-left: 35px;
+ padding: 6px 45px;
+ font-size: 12px;
+ background-color: #000000;
+} /* Black */

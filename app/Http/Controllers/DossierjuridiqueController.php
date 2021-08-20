@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Dossierjuridique;
+use Illuminate\Support\Facades\DB;
 
 class DossierjuridiqueController extends Controller
 {
@@ -21,21 +22,21 @@ class DossierjuridiqueController extends Controller
     }
 
     public function store(Request $request){
-    	
-    	$dossierjuridique = new Dossierjuridique();
+        
+        $dossierjuridique = new Dossierjuridique();
 
-    	$dossierjuridique->file_number = $request->input('file_number');
-    	$dossierjuridique->date_creation = $request->input('date_creation');
-    	$dossierjuridique->tagwords = $request->input('tagwords');
-    	$dossierjuridique->type_dossier = $request->input('type_dossier');
-    	$dossierjuridique->for = $request->input('for');
-    	$dossierjuridique->against = $request->input('against');
-    	$dossierjuridique->client_direct = $request->input('client_direct');
-    	$dossierjuridique->client_indirect = $request->input('client_indirect');
-    	$dossierjuridique->comments = $request->input('comments');
-    	$dossierjuridique->tribunal_number = $request->input('tribunal_number');
+        $dossierjuridique->file_number = $request->input('file_number');
+        $dossierjuridique->date_creation = $request->input('date_creation');
+        $dossierjuridique->tagwords = $request->input('tagwords');
+        $dossierjuridique->type_dossier = $request->input('type_dossier');
+        $dossierjuridique->for = $request->input('for');
+        $dossierjuridique->against = $request->input('against');
+        $dossierjuridique->client_direct = $request->input('client_direct');
+        $dossierjuridique->client_indirect = $request->input('client_indirect');
+        $dossierjuridique->comments = $request->input('comments');
+        $dossierjuridique->tribunal_number = $request->input('tribunal_number');
 
-    	$dossierjuridique->save();
+        $dossierjuridique->save();
 
         return redirect('dossierjuridiques');
 
@@ -63,6 +64,7 @@ class DossierjuridiqueController extends Controller
         return redirect('dossierjuridiques');
 
     }
+
     public function destroy(Request $request, $id){
 
         $dossierjuridique = Dossierjuridique::find($id);
@@ -82,5 +84,20 @@ class DossierjuridiqueController extends Controller
        
         return view('dossierjuridique.index', ['dossierjuridiques' => $dossierjuridiques]);
       
+    }
+    public function vue(Request $request){
+$listdossierjuridique = Dossierjuridique::all(); 
+$id = $request->route('id');
+foreach ($listdossierjuridique as $dossierjuridique) {
+    if($dossierjuridique->id == $id) {
+               return view('dossierjuridique.vue', ['dossierjuridiques' => $listdossierjuridique]);
+
+            }
+}
+        
+           }
+
+            public function getid(id $id){
+        return $id;
     }
 }

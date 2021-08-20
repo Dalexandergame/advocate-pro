@@ -4,7 +4,7 @@
 
 <div class="client-menu">
     <ul class="ulclient">
-        <li class="licontact"><a class="acontact" href="#">Contact</a></li>
+        <li class="licontact"><a class="acontact" href="{{url('../clientcontacts')}}">Contact</a></li>
         <li class="licompte"><a class="acontact" href="#">Compte</a></li>
     </ul>
 </div>

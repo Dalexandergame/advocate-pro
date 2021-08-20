@@ -3,8 +3,8 @@
 @section('content')
 <div class="client-menu">
     <ul class="ulclient">
-        <li class="licontact"><a class="acontact" href="{{url('../clientcontacts')}}">Contact</a></li>
-        <li class="licompte"><a class="acontact" href="#">Compte</a></li>
+           <li class="licompte"><a class="acontact" href="#">Contact</a></li>
+        <li class="licontact"><a class="acontact" href="{{url('../clientcomptes')}}">Compte</a></li>
     </ul>
 </div>
 <br>
@@ -38,59 +38,58 @@
 	</div>
 </form>
 <br>
-<a class="button button5" href="{{ url('/clientcomptes/create') }}"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
+<a class="button button5" href="{{ url('/clientcontacts/create') }}"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
 <button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
 
 <br><br><br>
 <div class="container">
-
-
-
-	<table class="table table-borderless" style="border-collapse:collapse;">
+	<table class="table table-borderless">
 		<thead>
 			<tr>
 				<th scope="col"></th>
-				<th scope="col">Nom du compte</th>
-				<th scope="col">Liste des contacts</th>
-				<th scope="col">Contact principal</th>
-				<th scope="col">Dossier</th>
+				<th scope="col">Nom & Prénom</th>
+				<th scope="col">Ville</th>
+				<th scope="col">Tél</th>
+				<th scope="col">Mail</th>
+				<th scope="col">Nombre de dossier</th>
 			</tr>
 		</thead>
 		<tbody>
-@foreach($clientcomptes as $clientcompte)
+@foreach($clientcontacts as $clientcontact)
 			<tr>
 				<td height="20" colspan="2"></td>
 			</tr>
 
-			<tr class="shadowrow" >
+			<tr class="shadowrow">
 				<td><input type="checkbox" name="checkbox"/></td>
-				<td>{{$clientcompte->nom_entreprise}}</td>
-				<td>{{$clientcompte->nom_contact}}</td>
-				<td style="width: 400px">{{$clientcompte->nom_contact_principal}}<br> <button onclick="showMessage()" class="buttonx button-vue" class="btn btn-default btn-lg">  <img src="/img/eye2.png" height="15px" width="15px" style="margin-top: -3px"/> Vue</button>
-				<button class="buttonx button-editer" onclick="window.location='{{ url('clientcomptes/'.$clientcompte->id.'/edit') }}'" class="btn btn-default btn-lg">  <img src="/img/edit.png" height="15px" width="15px" style="margin-top: -3px"/> Editer</button></td>
-				<td style="width: 200px">{{$clientcompte->dossier_lier}}<br>
+				<td>{{$clientcontact->nom_contact}}</td>
+				<td>{{$clientcontact->ville}}</td>
+				<td>{{$clientcontact->tel}}</td>
+				<td style="width: 400px">{{$clientcontact->mail}}<br> <button onclick="showMessage()" class="buttonx button-vue" class="btn btn-default btn-lg">  <img src="/img/eye2.png" height="15px" width="15px" style="margin-top: -3px"/> Vue</button>
+				<button class="buttonx button-editer" onclick="window.location='{{ url('clientcontacts/'.$clientcontact->id.'/edit') }}'" class="btn btn-default btn-lg">  <img src="/img/edit.png" height="15px" width="15px" style="margin-top: -3px"/> Editer</button></td>
+				<td style="width: 200px">{{$clientcontact->dossier_lier}}<br>
 
-				<form action="{{ url('clientcomptes/'.$clientcompte->id) }}" method="post">
+				<form action="{{ url('clientcontacts/'.$clientcontact->id) }}" method="post">
 
 					{{ csrf_field() }}
 					{{ method_field('DELETE') }}
 
-					  <button type="submit" class="buttonx button-supprimer" class="btn btn-default btn-lg">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button> </form></td>
-  
+					  <button type="submit" class="buttonx button-supprimer" class="btn btn-default btn-lg">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button></td>
+					
+</form>
+               
 			</tr>
-			
 @endforeach
 		</tbody>
 
 	</table>
 </div>
 
-
 <br>
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('../css/clientcompteview.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/clientcontactview.css') }}">
 @endsection
 
 @section('scripts')
