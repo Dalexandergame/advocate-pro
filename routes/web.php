@@ -15,6 +15,7 @@ use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactFormController;
 
@@ -43,10 +44,11 @@ Route::get('/new-register', function () {
     return view('users/newRegister');
 });
 
-Route::get('/utilisateurs', function () {
-    return view('users/userview');
-});
-Route::get('/utilisateurs',[UserController::class,'show']);
+
+Route::resource('/users', UsersController::class);
+Route::get('/users/delete/{id}',[UsersController::class,'destroy']);
+
+
 
 Auth::routes();
 
