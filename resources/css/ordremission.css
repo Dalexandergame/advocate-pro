@@ -69,6 +69,11 @@ text-align: left;
 color: #989898;	
 }
 
+a:hover {
+  text-decoration: none;
+  color: #989898;
+}
+
 .tmpMission {
 font-family: Gotham;
 font-size: 10px;
@@ -240,10 +245,10 @@ margin-top: 10px;
 .f-input{
 border: 0.5px solid #C4C4C4;
 box-sizing: border-box;
+background-color:#F5F5F5;
 width: 380px;
 height: 45px;
 margin-left: 30px;
-background-color:#F5F5F5;
 }
 .user-infos{
 float: left; 
@@ -319,4 +324,35 @@ opacity: 0.3;
   border: none;
   height: 30px;
   background-color: #FF0000;
+}
+.username{
+  font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 15px;
+color: #827E7E;
+text-align: center;
+}
+.img-circle{
+width: 43px;
+height: 45px;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
 }

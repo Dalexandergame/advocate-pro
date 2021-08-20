@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mission;
+use App\Models\User;
+use App\Http\Controllers\UserAuthController;
+use Auth;
 
 class MissionController extends Controller
 {
@@ -52,6 +55,7 @@ class MissionController extends Controller
         $mission->datecreation = date('d-m-Y', strtotime($request->input('datecreation')));
         $mission->dateecheance = date('d-m-Y', strtotime($request->input('dateecheance')));
         $mission->cout = $request->input('cout');
+        $mission->user_id = Auth::user()->id;
         
         $mission->save();
         return redirect('/ordre-de-mission'); 
@@ -65,9 +69,29 @@ class MissionController extends Controller
      */
     public function show()
     {
-          $data= Mission::all();
+          $data= Mission::where('status','=','none')->get();
         return view('ordremission',['missions'=>$data]);
     }
+
+     public function approved()
+    {
+          $data= Mission::where('status','=','Aprouver')->get();
+        return view('ordremission.approved',['missions'=>$data]);
+    }
+
+    public function declined()
+    {
+          $data= Mission::where('status','=','Refuser')->get();
+        return view('ordremission.declined',['missions'=>$data]);
+    }
+
+    public function attente()
+    {
+          $data= Mission::where('status','=','En attente')->get();
+        return view('ordremission.attente',['missions'=>$data]);
+    }
+
+
     // public function view($id)
     
     // {
@@ -85,8 +109,8 @@ class MissionController extends Controller
     public function edit($id)
     {
          $mission = Mission::find($id);
-
-        return view('ordremission', ['ordremission' => $mission]);
+         $users = User::all();
+        return view('ordremission.editmission',compact('mission','users'));
     }
 
     /**
@@ -105,6 +129,7 @@ class MissionController extends Controller
         $mission->destination = $request->input('destination');
         $mission->dateecheance = date('d-m-Y', strtotime($request->input('dateecheance')));
         $mission->cout = $request->input('cout');
+        $mission->user_id = $request->input('user_id');
         
         $mission->save();
 
@@ -130,4 +155,30 @@ class MissionController extends Controller
       Mission::whereIn('id',$ids)->delete();
       return response()->json(['success'=>'all deleted']);
     }
+
+
+    public function status($id)
+    {
+        $mission = Mission::findOrFail($id);
+        
+        if ( request()->input('status') == 'accepter')
+            {
+             $mission->update(['status'=>'Aprouver']);
+             return  redirect('/ordre-de-mission/approved');
+            }
+        elseif ( request()->input('status') == 'refuser')
+            {
+             $mission->update(['status'=>'Refuser']);
+             return  redirect('/ordre-de-mission/declined');
+            }
+        elseif ( request()->input('status') == 'enattente')
+            {
+             $mission->update(['status'=>'En attente']);
+             return  redirect('/ordre-de-mission/attente');
+            }
+
+        
+    }
+
+
 }

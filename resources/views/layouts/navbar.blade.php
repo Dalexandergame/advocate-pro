@@ -18,7 +18,7 @@
     <!-- Left elements -->
     <div class="d-flex">
       <!-- Search form -->
-      <form class="form-inline" type="get" action="{{ url('/documents/search') }}">
+      <form class="form-inline" type="get" action="{{ url('./documents/search') }}">
         <input class="form-control mr-sm-2" id="search" name="query" type="search" placeholder="Chercher" aria-label="Search">
         <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit"><img src="{{url('img/search.svg')}}"></button>
     </form>
@@ -35,7 +35,7 @@
       </li>
 
       <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="./calendrier">
           <img src="{{url('img/calendrier.svg')}}"/>
         </a>
       </li>
@@ -47,7 +47,7 @@
       </li>
 
      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="./profile">
           <img src="{{url('img/profile.svg')}}"/>
         </a>
       </li>
