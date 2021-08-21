@@ -1,7 +1,6 @@
 @component('mail::message')
 
 # Bonjour dans AdvocatePRO
-<strong>bonjour votre nom est: </strong> {{ $user['name'] }}
-<strong>votre email est: </strong> {{ $user['email'] }}
-<strong>votre mot de passe est: </strong> {{ $user['pass'] }}
+<strong>Lonjour : </strong> {{ $user['name'] }}
+<strong>Voici le lien pour réinitialiser votre mot de passe:  </strong>
 @endcomponent
