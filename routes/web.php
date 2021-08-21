@@ -80,7 +80,6 @@ Route::get('/ordre-de-mission/approved', [MissionController::class,'approved']);
 Route::get('/ordre-de-mission/declined', [MissionController::class,'declined']);
 Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
 
-
 Route::get('/calendrier/search',  [TacheController::class,'search']);
 Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
 //Route::get('/calendrier',  [TacheController::class,'indexCal']);
