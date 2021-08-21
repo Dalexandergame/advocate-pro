@@ -53,7 +53,7 @@
 						<input type="text" class="form-control" placeholder="numero dossier" name="file_number">
 					</div><div style="margin-top: 5px"></div>
 					<div class="col">
-						<input type="text" class="form-control" placeholder="date creation" name="date_creation">
+						<input type="date" class="form-control" placeholder="date creation" name="date_creation">
 					</div><div style="margin-top: 5px"></div>
 					<div class="col">
 						<input type="text" class="form-control" placeholder="tagwords" name="tagwords">

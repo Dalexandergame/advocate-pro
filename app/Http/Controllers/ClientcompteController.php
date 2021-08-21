@@ -26,17 +26,17 @@ class ClientcompteController extends Controller
       $clientcompte = new Clientcompte();
 
         $clientcompte->nom_entreprise = $request->input('nom_entreprise');
-    	$clientcompte->adresse = $request->input('adresse');
-    	$clientcompte->tagwords = $request->input('tagwords');
-    	$clientcompte->nom_contact = $request->input('nom_contact');
-    	$clientcompte->tel_contact = $request->input('tel_contact');
-    	$clientcompte->mail_contact = $request->input('mail_contact');
-    	$clientcompte->nom_contact_principal = $request->input('nom_contact_principal');
-    	$clientcompte->tel_contact_principal = $request->input('tel_contact_principal');
-    	$clientcompte->mail_contact_principal = $request->input('mail_contact_principal');
-    	$clientcompte->dossier_lier = $request->input('dossier_lier');
+        $clientcompte->adresse = $request->input('adresse');
+        $clientcompte->tagwords = $request->input('tagwords');
+        $clientcompte->nom_contact = $request->input('nom_contact');
+        $clientcompte->tel_contact = $request->input('tel_contact');
+        $clientcompte->mail_contact = $request->input('mail_contact');
+        $clientcompte->nom_contact_principal = $request->input('nom_contact_principal');
+        $clientcompte->tel_contact_principal = $request->input('tel_contact_principal');
+        $clientcompte->mail_contact_principal = $request->input('mail_contact_principal');
+        $clientcompte->dossier_lier = $request->input('dossier_lier');
 
-    	$clientcompte->save();
+        $clientcompte->save();
 
         return redirect('clientcomptes');
 
@@ -52,15 +52,15 @@ class ClientcompteController extends Controller
         $clientcompte = Clientcompte::find($id);
 
         $clientcompte->nom_entreprise = $request->input('nom_entreprise');
-    	$clientcompte->adresse = $request->input('adresse');
-    	$clientcompte->tagwords = $request->input('tagwords');
-    	$clientcompte->nom_contact = $request->input('nom_contact');
-    	$clientcompte->tel_contact = $request->input('tel_contact');
-    	$clientcompte->mail_contact = $request->input('mail_contact');
-    	$clientcompte->nom_contact_principal = $request->input('nom_contact_principal');
-    	$clientcompte->tel_contact_principal = $request->input('tel_contact_principal');
-    	$clientcompte->mail_contact_principal = $request->input('mail_contact_principal');
-    	$clientcompte->dossier_lier = $request->input('dossier_lier');
+        $clientcompte->adresse = $request->input('adresse');
+        $clientcompte->tagwords = $request->input('tagwords');
+        $clientcompte->nom_contact = $request->input('nom_contact');
+        $clientcompte->tel_contact = $request->input('tel_contact');
+        $clientcompte->mail_contact = $request->input('mail_contact');
+        $clientcompte->nom_contact_principal = $request->input('nom_contact_principal');
+        $clientcompte->tel_contact_principal = $request->input('tel_contact_principal');
+        $clientcompte->mail_contact_principal = $request->input('mail_contact_principal');
+        $clientcompte->dossier_lier = $request->input('dossier_lier');
 
         $clientcompte->save();
 
@@ -70,8 +70,8 @@ class ClientcompteController extends Controller
     public function destroy(Request $request, $id){
 
 
-    	$clientcompte = Clientcompte::find($id);
-    	$clientcompte-> delete();
-    	return redirect('clientcomptes');
+        $clientcompte = Clientcompte::find($id);
+        $clientcompte-> delete();
+        return redirect('clientcomptes');
     }
 }
