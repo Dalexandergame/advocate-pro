@@ -17,15 +17,15 @@
 
  <form action="{{ url('/lois-et-articles/search') }}" method="GET">
       {{csrf_field()}}
-<select class="filois select2" name="search" aria-label="Default select example">
+<select class="filois select2" name="search" aria-label="Default select example" onchange="this.form.submit()">
   <option value="" disabled selected>Type de Lois de travaille</option>
                       @foreach($articles as $article)
                            <option value = "{{$article->type}}">{{$article->type}}</option>
                       @endforeach
 </select>
-<button type="submit" class="btn btn-default-sm">
+{{-- <button type="submit" class="btn btn-default-sm">
             <img src="{{url('img/search.svg')}}">
-          </button>
+          </button> --}}
 </form>
 <br>
 <br>
