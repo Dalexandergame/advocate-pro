@@ -76,7 +76,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        Mail::to('test@test.com')->send(new ContactFormMail($user));
+        
+        $url = "http://127.0.0.1:8000/password/reset/".$data['_token'];
+        Mail::to('test@test.com')->send(new ContactFormMail($user,$url));
 
         return $user;
     }

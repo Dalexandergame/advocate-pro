@@ -85,7 +85,7 @@ class CustomResetPassword extends Notification
     {
         return (new MailMessage)
             ->subject(Lang::get('Notification de réinitialisation de mot de passe'))
-            ->line(Lang::get('Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.'))
+            ->line(Lang::get('Voici votre e-mail de réinitialisation de mot de passe pour votre compte.'))
             ->action(Lang::get('réinitialiser le mot de passe'), $url)
             ->line(Lang::get('Ce lien de réinitialisation de mot de passe expirera dans :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('Si vous navez pas demandé de réinitialisation de mot de passe, aucune autre action nest requise.'));
