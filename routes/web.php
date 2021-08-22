@@ -1,24 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StocksController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DemandsController;
-use App\Http\Controllers\MissionController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\TacheController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\TemplatesController;
-use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\DemandsController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\StocksController;
+use App\Http\Controllers\TacheController;
+use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\VignettesController;
+use App\Http\Controllers\CalendrierController;
+use Illuminate\Support\Facades\Route;
 
 
 
@@ -78,10 +79,11 @@ Route::get('/ordre-de-mission/declined', [MissionController::class,'declined']);
 Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
 
 
-Route::get('/calendrier/search',  [TacheController::class,'search']);
-Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
-//Route::get('/calendrier',  [TacheController::class,'indexCal']);
-Route::get('/calendrier',  [TacheController::class,'showcal']);
+Route::get('/calendrier/search',  [CalendrierController::class,'search']);
+Route::get('/calendrier/view/{id}',  [CalendrierController::class,'view']);
+//Route::get('/calendrier',  [CalendrierController::class,'indexCal']);
+Route::get('/calendrier',  [CalendrierController::class,'showcal']);
+Route::put('/calendrier/audiances/recap/{id}', [CalendrierController::class,'recap']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -100,11 +102,17 @@ Route::get('/correspondence', function () {
 });
 
 
-//Route::get('/taches', [TacheController::class,'index']);
+Route::post('/taches/{etat}', [TacheController::class,'etat']);
 Route::get('/taches', [TacheController::class,'show']);
+Route::get('/taches/rendez-vous', [TacheController::class,'rendezvous']);
+Route::get('/taches/audiances', [TacheController::class,'audiances']);
+Route::put('/taches/audiances/recap/{id}', [TacheController::class,'recap']);
 Route::post('/taches', [TacheController::class,'store']);
 Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
+Route::get('/audiance-details/{id}', [TacheController::class,'viewaudiance']);
 Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
+Route::get('/taches-details/edit/{id}', [TacheController::class,'edit']);
+Route::put('/taches-details/update/{id}', [TacheController::class,'update']);
 
 Route::post('/comment/store', [CommentController::class,'store'])->name('comment.add');
 Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');

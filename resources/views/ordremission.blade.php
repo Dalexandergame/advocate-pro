@@ -17,9 +17,9 @@
         <div class="user-infos">
           <h5>Utilisateur en charge</h5>
           <br>
-        <div class="user-label">Nom d'utilisateur</div>
-        <div class="user-label">Tel <span> +212 600 137 564</span> </div>
-        <div class="user-label">Mail <span> nom&prenom@gmail.com</span> </div>
+        <div class="user-label">Nom d'utilisateur: {{ auth()->user()->name }}</div>
+              <div class="user-label">Tel: <span> {{ auth()->user()->phone }}</span> </div>
+              <div class="user-label">Mail: <span> {{ auth()->user()->email }}</span> </div>
         <br>
         <br>
         <br>
