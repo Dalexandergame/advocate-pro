@@ -4,7 +4,7 @@
 <ul>
     <li><a href="#">Priviléges</a></li>
     <li><a href="#">Rôles</a></li>
-    <li><a href="{{ url('/utilisateurs') }}">Utilisateurs</a></li>
+    <li><a href="{{ url('/users') }}">Utilisateurs</a></li>
 </ul>
 
 <br><br><br>

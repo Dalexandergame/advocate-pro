@@ -9,7 +9,7 @@
             <a href="./dashboard" class="flex"><x-dashboard-icon></x-dashboard-icon><span>Dashboard</span></a>
         </div>
         <div class="list item-2">
-            <a href="./clients" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
+            <a href="./clientcontacts" class="flex"><x-clients-icon></x-clients-icon><span>Clients</span></a>
         </div>
         <div class="list item-3">
             <a href="./jurisprudence" class="flex"><x-juris-icon></x-juris-icon><span>Jurisprudence</span></a>
@@ -18,10 +18,10 @@
             <a href="./documents" class="flex"><x-doc-icon></x-doc-icon><span>Doccuments</span></a>
         </div>
         <div class="list item-5">
-            <a href="./utilisateurs" class="flex"><x-user-icon></x-user-icon><span>Utilisateurs</span></a>
+            <a href="/users" class="flex"><x-user-icon></x-user-icon><span>Utilisateurs</span></a>
         </div>
         <div class="list item-6">
-            <a href="./dossier-juridiques" class="flex"><x-jurifolder-icon></x-jurifolder-icon><span>Dossiers juridiques</span></a>
+            <a href="./dossierjuridiques" class="flex"><x-jurifolder-icon></x-jurifolder-icon><span>Dossiers juridiques</span></a>
         </div>
         <div class="list item-7">
             <a href="./calendrier" class="flex"><x-calendar-icon></x-calendar-icon><span>Calendrier</span></a>
@@ -39,7 +39,7 @@
             <a href="./lois-et-articles" class="flex"><x-lois-icon></x-lois-icon><span>Lois et articles</span></a>
         </div>
         <div class="list item-12">
-            <a href="./tribunal" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
+            <a href="./tribunals" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
         </div>
         <div class="list item-13">
             <a href="./paiements" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>

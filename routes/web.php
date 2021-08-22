@@ -16,10 +16,15 @@ use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CalendrierController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\TribunalController;
+use App\Http\Controllers\ClientcontactController;
+use App\Http\Controllers\ClientcompteController;
 
 
 
@@ -46,10 +51,11 @@ Route::get('/new-register', function () {
     return view('users/newRegister');
 });
 
-Route::get('/utilisateurs', function () {
-    return view('users/userview');
-});
-Route::get('/utilisateurs',[UserController::class,'show']);
+
+Route::resource('/users', UsersController::class);
+Route::get('/users/delete/{id}',[UsersController::class,'destroy']);
+
+
 
 Auth::routes();
 
@@ -84,6 +90,12 @@ Route::get('/calendrier/view/{id}',  [CalendrierController::class,'view']);
 //Route::get('/calendrier',  [CalendrierController::class,'indexCal']);
 Route::get('/calendrier',  [CalendrierController::class,'showcal']);
 Route::put('/calendrier/audiances/recap/{id}', [CalendrierController::class,'recap']);
+
+
+Route::get('/calendrier/search',  [TacheController::class,'search']);
+Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
+//Route::get('/calendrier',  [TacheController::class,'indexCal']);
+Route::get('/calendrier',  [TacheController::class,'showcal']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -184,10 +196,29 @@ Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'ed
 Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
+Route::get('/dossier-juridiques-vue', function () {
+    return view('dossierjuridiquevue');
+});
 
-Route::get('clientcomptes', 'ClientcompteController@index');
-Route::get('clientcomptes/create', 'ClientcompteController@create');
-Route::post('clientcomptes', 'ClientcompteController@store');
-Route::get('clientcomptes/{id}/edit', 'ClientcompteController@edit');
-Route::put('clientcomptes/{id}', 'ClientcompteController@update');
-Route::delete('clientcomptes/{id}', 'ClientcompteController@destroy');
+Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
+Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);
+Route::post('/clientcomptes', [ClientcompteController::class, 'store']);
+Route::get('/clientcomptes/{id}/edit', [ClientcompteController::class, 'edit']);
+Route::put('/clientcomptes/{id}', [ClientcompteController::class, 'update']);
+Route::delete('/clientcomptes/{id}', [ClientcompteController::class, 'destroy']);
+
+Route::get('/clientcontacts', [ClientcontactController::class, 'index']);
+Route::get('/clientcontacts/create', [ClientcontactController::class, 'create']);
+Route::post('/clientcontacts', [ClientcontactController::class, 'store']);
+Route::get('/clientcontacts/{id}/edit', [ClientcontactController::class, 'edit']);
+Route::put('/clientcontacts/{id}', [ClientcontactController::class, 'update']);
+Route::delete('/clientcontacts/{id}', [ClientcontactController::class, 'destroy']);
+
+
+Route::get('/tribunals', [TribunalController::class, 'index']);
+Route::get('/tribunals/create', [TribunalController::class, 'create']);
+Route::post('/tribunals', [TribunalController::class, 'store']);
+Route::get('/tribunals/{id}/edit', [TribunalController::class, 'edit']);
+Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
+Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);

@@ -39,6 +39,7 @@
 
 <div style="margin-top: 40px;"></div>
 @foreach($dossierjuridiques as $dossierjuridique)
+
 <div class="container">
 	<div class="big-grid" style="margin-right: -20px">
 		<div class="row" style="margin-top: 20px">
@@ -64,19 +65,25 @@
 
 					{{ csrf_field() }}
 					{{ method_field('DELETE') }}
-					<button class="buttonx button-supprimer" class="btn btn-default btn-lg" type="submit">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button>
+					<button class="buttonxx button-supprimer" class="btn btn-default btn-lg" type="submit">  <img src="/img/trash.png" height="15px" width="15px" style="margin-top: -3px"/> Supprimer</button>
+</form>
+					<button class="buttonx buttonview" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossierjuridiques/'.$dossierjuridique->id.'/vue') }}'"><img src="/img/eye2.png" height="15px" width="15px" /> Vue</button>
 
-					<button class="buttonx buttonview" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques-vue') }}'"><img src="/img/eye2.png" height="15px" width="15px"/> Vue</button>
+				    <button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossierjuridiques/'.$dossierjuridique->id.'/edit') }}'"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
+				
+				
 
-				<button style="margin-left: 20px" class="buttonw" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossierjuridiques/'.$dossierjuridique->id.'/edit') }}'"><img src="/img/edit.png" height="13px" width="13px"/> Editer</button>
-				</form>
+				
 			</div>
-		</div>		
+		</div>
+		
 		<br>
 	</div>
 </div>
 @endforeach
 <br>
+
+
 @endsection
 
 @section('styles')
