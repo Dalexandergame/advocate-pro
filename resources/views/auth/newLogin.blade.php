@@ -41,21 +41,28 @@
                         @csrf     
                     <div class="mb-4">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
-                        @error('email')
+                        <!-- @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                        @enderror -->
                     </div>
-
+                    
                     <div class="mb-4">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Mot de passe" required autocomplete="current-password">
-                        @error('password')
+                        <input id="password" type="password" class="form-control @error('email') is-invalid @enderror" name="password" placeholder="Mot de passe" required autocomplete="current-password">
+                        <!-- @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror -->
                     </div>  
+                    @if($errors->any())
+                        @foreach($errors->all() as $error)
+                        <div class="alert alert-danger" role="alert">
+                            {{$error}}
+                        </div>
+                        @endforeach
+                    @endif
 
                     <div class="mb-3">
                     @if (Route::has('password.request'))
@@ -77,6 +84,7 @@
                                     {{ __('Se connecter') }}
                         </button>
                     </div>
+                    
                 </form>
             </div>
         </div>
