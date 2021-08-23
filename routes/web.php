@@ -23,6 +23,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\TribunalController;
 use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\JurisprudenceController;
 use App\Http\Controllers\ProfilController;
 
 
@@ -133,9 +134,7 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
-Route::get('/jurisprudence', function () {
-    return view('jurisprudence');
-});
+
 
 Route::get('/messages', function () {
         return view('messages');
@@ -175,6 +174,13 @@ Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
 Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
+
+Route::get('/jurisprudence',[JurisprudenceController::class,'show']);
+Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);
+Route::get('/jurisprudence/download/{file}',[JurisprudenceController::class,'download']); 
+Route::get('/jurisprudence/jurisprudenceview/{id}',[JurisprudenceController::class,'view']);
+Route::delete('/selected-jurisprudence',[JurisprudenceController::class,'deleteCheckedStudents'])->name('jurisprudence.deleteSelected');
+
 
 Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
 Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);

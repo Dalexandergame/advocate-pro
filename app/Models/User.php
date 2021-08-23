@@ -57,6 +57,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $guarded = ['id'];
+
+    public function Jurisprudences()
+    {
+        return $this->hasMany(Jurisprudence::class);
+
+    }
     /**
      * Send the password reset notification.
      *
@@ -65,6 +72,6 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new CustomResetPassword($token));
+      $this->notify(new CustomResetPassword($token));
     }
 }
