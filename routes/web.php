@@ -23,6 +23,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\TribunalController;
 use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\ProfilController;
 
 
 
@@ -48,7 +49,9 @@ Route::get('/new-forget', function () {
 Route::get('/new-register', function () {
     return view('users/newRegister');
 });
-
+Route::get('/', function () {
+    return view('auth/newLogin');
+});
 
 Route::resource('/users', UsersController::class);
 Route::get('/users/delete/{id}',[UsersController::class,'destroy']);
@@ -67,9 +70,9 @@ Route::get('/clients', function () {
     return view('clientview');
 });
 
-Route::get('/profile', function () {
-    return view('personalprofilview');
-});
+Route::get('/profile',[ProfilController::class,'show']);
+Route::put('/profile/update/{id}',[ProfilController::class,'update']);
+Route::put('/profile/updatepass/{id}',[ProfilController::class,'updatepass']);
 
 Route::put('/ordre-de-mission/update/{id}', [MissionController::class,'update']);
 Route::get('/ordre-de-mission', [MissionController::class,'show']);
