@@ -1,30 +1,33 @@
 <?php
 
+use App\Models\Mission;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TacheController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\TacheController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TribunalController;
+use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\ClientcontactController;
+use App\Http\Controllers\JurisprudenceController;
 use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\DossierjuridiqueController;
-use App\Http\Controllers\DropdownController;
-use App\Http\Controllers\UserAuthController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ContactFormController;
-use App\Http\Controllers\TribunalController;
-use App\Http\Controllers\ClientcontactController;
-use App\Http\Controllers\ClientcompteController;
-use App\Http\Controllers\JurisprudenceController;
-use App\Http\Controllers\ProfilController;
 
 
 
@@ -130,8 +133,8 @@ Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
 });
 
-Route::get('/payment', function () {
-    return view('payment');
+Route::get('/payments', function () {
+    return view('payments.paymentIndex');
 });
 
 
@@ -215,3 +218,16 @@ Route::post('/tribunals', [TribunalController::class, 'store']);
 Route::get('/tribunals/{id}/edit', [TribunalController::class, 'edit']);
 Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
 Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);
+
+Route::get('/payments/paymission', function () {
+    $missions= Mission::where('status','=','Aprouver')->get();
+    return view('payments.paymission', compact('missions'));
+})->name('paymission');
+Route::get('/payments/paydossier', function () {
+    return view('payments.paydossier');
+})->name('paydossier');
+Route::get('/payments/refund', function () {
+    return view('payments.refund');
+})->name('refund');
+Route::get('/payments/paymission/view-payment-details/{id}', [PaymentController::class,'viewMission'])->name('paymentDetails');
+
