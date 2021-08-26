@@ -29,13 +29,13 @@
  <br>
  <br>    
 </div>
-@include('tache.replies', ['comments' => $comment->replies])
+   <div style="margin-left:30px;"> @include('tache.replies', ['comments' => $comment->replies])</div>
 @endforeach
 <style type="text/css">
 .comment{
 border: none;
 border-color: transparent;
-width: 300px;
+width: 250px;
  }
 input::placeholder{
   font-family: Gotham;

@@ -37,12 +37,14 @@
        @foreach($data as $data)
       <tr>
         <td class="tab-input">{{ $data->getDossierjuridique['tribunal_number'] }}</td>
-        <td rowspan="2" class="tab-input">{{ $data->getDossierjuridique['for'] }}<br><span style="font-weight: bold;">Contre</span><br>{{ $data->getDossierjuridique['against'] }}</td>
-         <form action="{{ url('./calendrier/audiances/recap', $data->id) }}" method="POST" style="display:inline-block;">
+                        <td rowspan="2" class="tab-input">{{ $data->getDossierjuridique->for->nom_entreprise }}<br>{{ $data->getDossierjuridique->for->nom_contact_principal }}<br><span style="font-weight: bold;">Contre</span><br>{{ $data->getDossierjuridique->against->nom_entreprise }}<br>{{ $data->getDossierjuridique->against->nom_contact_principal }}</td>
+
+         <form action="{{ url('/calendrier/audiances/recap') }}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
-                        <td rowspan="2" class="tab-input"><textarea name="mesures" placeholder="..." style="border: none; height:120px;width: 250px;"><?php echo htmlspecialchars($data->mesures); ?></textarea></td>
-                        <td rowspan="2" class="tab-input"><textarea name="remarque" placeholder="..." style="border: none; height:120px;width: 250px;"><?php echo htmlspecialchars($data->remarque); ?></textarea></td>
+                        <input type="text" name="data[{{$loop->index}}][id]" hidden="form-control" value="{{ $data->id }}">
+                        <td rowspan="2" class="tab-input"><textarea name="data[{{$loop->index}}][mesures]" placeholder="..." style="border: none; height:120px;width: 250px;"><?php echo htmlspecialchars($data->mesures); ?></textarea></td>
+                        <td rowspan="2" class="tab-input"><textarea name="data[{{$loop->index}}][remarque]" placeholder="..." style="border: none; height:120px;width: 250px;"><?php echo htmlspecialchars($data->remarque); ?></textarea></td>
       </tr>
       <tr>
         <td class="tab-input">{{ $data['dossier_num'] }}</td>

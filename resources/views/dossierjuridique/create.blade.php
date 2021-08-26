@@ -110,9 +110,9 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('../css/createdossierjuridique.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/createdossierjuridique.css') }}">
 @endsection
 
 @section('scripts')
-<script src="{{ asset('../js/menuselector.js') }}"></script>
+<script src="{{ asset('/js/menuselector.js') }}"></script>
 @endsection

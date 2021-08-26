@@ -27,7 +27,7 @@
                 <ul class="nav navbar-nav ml-auto">
                   <li class="nav-item me-3 me-lg-1">
                     <i class="nav-link" style="text-align:right;">
-                     <a href="{{ url('./taches') }}"><img src="{{ url('/img/arrow.svg') }}">Retour</a>
+                     <a href="{{  url()->previous()}}"><img src="{{ url('/img/arrow.svg') }}">Retour</a>
                     </i>
                   </li>
                 </ul>

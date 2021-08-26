@@ -140,7 +140,7 @@
                            <p class="cout">Co&#251;t de mission<br>
                            <span class="prix">{{$mission['cout']}} Dhs</span>
                            </p>
-                            <p class="text-center"><a class="pai" href="#">Reference de paiements</a></p>
+                            {{-- <p class="text-center"><a class="pai" href="#">Reference de paiements</a></p> --}}
 
                          </td>
 

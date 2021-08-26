@@ -3,11 +3,16 @@
 
 <!-- menu -->
 <div class="container-xl">
-<select class="form-select filordre" aria-label="Default select example">
-  <option selected>Selection filtre</option>
-  <option value="1">Utilisateur</option>
-  <option value="2">Cabinet</option>
+
+ <div style="width:320px; display: inline-block;"><form action="{{ url('calendrier/filteradmin') }}" method="GET">
+      {{csrf_field()}}
+<select  type="search" name="search" class="form-select filordre" aria-label="Default select example"  onchange="this.form.submit()">
+  <option disabled selected>Selection filtre cabinet</option>
+  <option value="admin">Utilisateur</option>
+  <option value="all">Cabinet</option>
 </select>
+   </form>
+ </div>
 
 <select class="form-select filordre" aria-label="Default select example">
   <option selected>Selection filtre</option>
@@ -102,7 +107,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="{{ asset('js/fullcalendar.js') }}"></script>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
   $(document).ready(function(){
     var calendar =$('#calendar').fullCalendar({
       selectable: true,
@@ -117,6 +122,60 @@
          left: 'title',
          center: 'year,month,basicWeek,basicDay',
       },
+    })
+  });
+</script> --}}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var calendar =$('#calendar').fullCalendar({
+        buttonText:{
+            prev: '<',
+            next: '>',
+            today: "Aujourd'hui",
+            year: 'Année',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour',
+            list: 'Planification',
+            // weekNumberTitle: 'Sem.',
+            // allDayText: 'Toute la journée',
+            // moreLinkText: 'en plus',
+            // noEventsText: 'Aucun événement à afficher'
+        },
+        firstDay: '1',
+        weekNumbers: true,
+        weekNumberTitle: 'Week',
+        selectable: true,
+        aspectRatio: 2,
+        height:650,
+        showNonCurrentDates:false,
+        navLinks   : true,
+        editable   : false,
+        // eventLimit : true,
+        eventRender: function(event, element) {
+            $(element).tooltip({title: event.description});
+        },
+        defaultView: 'month',
+        yearColumns:3,
+        eventColor: 'rgba(0, 0, 0, 0.2)',
+        eventTextColor: 'black',
+        header:{
+           right: 'prev today next',
+           left: 'title',
+           center: 'year,month,basicWeek,basicDay,list',
+        },
+        events : [
+                @foreach($taches as $task)
+                {
+                    title : '{{ $task->titre }}',
+                    description: '@include('calendrier.file'){{ $task->description }}',
+                    start : '{{ $task->dateaudiance }}',
+                    url : '{{ url('/audiance-details', $task->id) }}'
+                    // color: 'red'
+                },
+                @endforeach
+            ]
     })
   });
 </script>

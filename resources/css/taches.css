@@ -268,3 +268,13 @@ color: #827E7E;
 .user-label span{
 font-weight: normal;
 }
+.numberd{
+    border: none transparent;
+    outline: none;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    color: #EC1E24;
+  }

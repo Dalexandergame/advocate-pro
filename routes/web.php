@@ -21,7 +21,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CalendrierController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\TribunalController;
 use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
@@ -87,15 +86,10 @@ Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
 
 Route::get('/calendrier/search',  [CalendrierController::class,'search']);
 Route::get('/calendrier/view/{id}',  [CalendrierController::class,'view']);
-//Route::get('/calendrier',  [CalendrierController::class,'indexCal']);
+Route::get('/calendrier/filteradmin',  [CalendrierController::class,'filteradmin']);
 Route::get('/calendrier',  [CalendrierController::class,'showcal']);
-Route::put('/calendrier/audiances/recap/{id}', [CalendrierController::class,'recap']);
+Route::put('/calendrier/audiances/recap', [CalendrierController::class,'recap']);
 
-
-Route::get('/calendrier/search',  [TacheController::class,'search']);
-Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
-//Route::get('/calendrier',  [TacheController::class,'indexCal']);
-Route::get('/calendrier',  [TacheController::class,'showcal']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -134,14 +128,6 @@ Route::get('/comment/download/{file}', [CommentController::class,'download']);
 //     return view('tachesdetails');
 // });
 
-Route::get('/dossier-juridiques', function () {
-    return view('dossierjuridique');
-});
-
-Route::get('/dossier-juridiques', function () {
-    return view('dossierjuridique');
-});
-
 Route::get('/payment', function () {
     return view('payment');
 });
@@ -154,9 +140,6 @@ Route::get('/messages', function () {
         return view('messages');
 });
 
-Route::get('/dossier-juridiques-vue', function () {
-    return view('dossierjuridiquevue');
-});
 
 Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
 Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
@@ -189,17 +172,35 @@ Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
 
-Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
-Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
-Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
-Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
-Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
-Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
-Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
-Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
-Route::get('/dossier-juridiques-vue', function () {
-    return view('dossierjuridiquevue');
-});
+
+// Route::get('/dossier-juridiques', function () {
+//     return view('dossierjuridique');
+// });
+
+// Route::get('/dossier-juridiques-vue', function () {
+//     return view('dossierjuridiquevue');
+// });
+
+Route::get('dossier-juridiques', [DossierjuridiqueController::class,'show']);
+Route::get('dossier-juridiques/vue/{id}', [DossierjuridiqueController::class,'vue']);
+Route::post('dossier-juridiques', [DossierjuridiqueController::class,'store']);
+Route::get('dossier-juridiques/edit/{id}', [DossierjuridiqueController::class,'edit']);
+Route::put('dossier-juridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'search']);
+Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
+
+
+// Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+// Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+// Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+// Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+// Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+// Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+// Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+// Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
+// Route::get('/dossierjuridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
+
 
 Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
 Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);

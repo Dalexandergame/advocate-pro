@@ -71,7 +71,7 @@
 
                          </td>
 
-                         <td><br><p class="text-center"><a class="pai" href="#">Reference de paiements</a></p></td>
+                         {{-- <td><br><p class="text-center"><a class="pai" href="#">Reference de paiements</a></p></td> --}}
 
                          <td></td>
 

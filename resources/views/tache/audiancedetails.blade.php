@@ -80,7 +80,7 @@
                     <tbody> 
                       <tr>
                         <td class="tab-input">{{ $data->getDossierjuridique['tribunal_number'] }}</td>
-                        <td rowspan="2" class="tab-input">{{ $data->getDossierjuridique['for'] }}<br><span style="font-weight: bold;">Contre</span><br>{{ $data->getDossierjuridique['against'] }}</td>
+                        <td rowspan="2" class="tab-input">{{ $data->getDossierjuridique->for->nom_entreprise }}<br>{{ $data->getDossierjuridique->for->nom_contact_principal }}<br><span style="font-weight: bold;">Contre</span><br>{{ $data->getDossierjuridique->against->nom_entreprise }}<br>{{ $data->getDossierjuridique->against->nom_contact_principal }}</td>
                         <form action="{{ url('./taches/audiances/recap', $data->id) }}" method="POST" style="display:inline-block;">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}

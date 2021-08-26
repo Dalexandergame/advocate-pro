@@ -151,6 +151,8 @@ class TacheController extends Controller
 
     public function audiances()
     {
+        $today = Carbon::now()->format('Y-m-d').'%'; 
+
         $data1= Tache::where('etat','=','ouvert')->where('type','=','audiance')->count();
         $data2= Tache::where('etat','=','en cours')->where('type','=','audiance')->count();
         $data3= Tache::where('etat','=','finis')->where('type','=','audiance')->count();
@@ -167,6 +169,7 @@ class TacheController extends Controller
                           ->get();
         $finis = Tache::where('etat','=','finis')
                          ->where('type','=','audiance')
+                         ->where('dateaudiance','=', $today)
                          ->get();
         $attente = Tache::where('etat','=','en attente')
                           ->where('type','=','audiance')
@@ -240,7 +243,7 @@ class TacheController extends Controller
 
             $task->save();
            
-            return view("tache.audiancedetails")->with("data", $task);
+            return Redirect::back()->with("data", $task);
                 
         }
 
@@ -278,5 +281,9 @@ class TacheController extends Controller
             }
         return  Redirect::back();
         
+    }
+
+      public function getid(id $id){
+        return $id;
     }
 }

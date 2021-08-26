@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use App\Http\Controllers\UserAuthController;
 use Auth;
 use Redirect;
+use Request as requestid;
+
 
 class CalendrierController extends Controller 
 {
@@ -29,16 +31,42 @@ class CalendrierController extends Controller
                             ->where('type','!=','audiance')
                             ->where('etat','!=','finis')
                             ->whereDate('dateecheance', 'like', $today)
-                            ->join('users', 'taches.user_id', '=', 'users.id')
+                            ->join('users', 'taches.assigned_user_id', '=', 'users.id')
                             ->count();
 
         $audiance = Tache::where('users.name', 'LIKE', $search_text)
                             ->where('type','=','audiance')
                             ->whereDate('dateaudiance', 'like', $today)
-                            ->join('users', 'taches.user_id', '=', 'users.id')
+                            ->join('users', 'taches.assigned_user_id', '=', 'users.id')
                             ->count();
+        $taches= Tache::where('type','=','audiance')->get();
 
-       return view('calendrier.calendriersearch',compact('users','users1','tache','audiance')); 
+       return view('calendrier.calendriersearch',compact('users','users1','tache','audiance','taches')); 
+    }
+
+    public function filteradmin()
+    {
+
+       $users = User::all();
+
+       $user = Auth::id();
+
+       $search_text = $_GET['search'];
+
+        if ( $search_text == 'admin')
+                        {
+                            $taches = Tache::where('user_id', 'LIKE', $user )
+                            ->where('type','=','audiance')
+                            ->get();
+
+                         return view('calendrier',compact('users','taches')); 
+                        }
+
+                        else {
+                            
+                           $taches= Tache::where('type','=','audiance')->get();
+                         return view('calendrier',compact('taches','users'));
+                        }
     }
 
      public function view($id)
@@ -48,7 +76,6 @@ class CalendrierController extends Controller
         $today = Carbon::now()->format('Y-m-d').'%';
         $data= Tache::where('assigned_user_id', $id)
                             ->where('type','=','audiance')
-                            ->where('etat','!=','finis')
                             ->whereDate('dateaudiance', 'like', $today)
                             ->get();
 
@@ -62,28 +89,35 @@ class CalendrierController extends Controller
         return view('calendrier',compact('taches','users')); 
     }
 
-    public function recap(Request $request, $id)
+    public function recap(Request $request)
         {
 
-            $task = Tache::find($id);
-            
-            $task->remarque = $request->input('remarque');
-            $task->mesures = $request->input('mesures');
+                $tasks = $request->input('data');  //here tasks is the input array param 
 
-            if ( request()->input('remarque') == null || request()->input('mesures') == null)
-            {
-                 $task->update(['etat'=>'en attente']);
-             
-            }
-            else {
-                
-                $task->update(['etat'=>'finis']);
-            }
+                foreach($tasks as $row){
+                    $task = Tache::find($row['id']); 
+                    $task->mesures = $row['mesures']; 
+                    $task->remarque = $row['remarque']; 
 
-            $task->save();
-           
-            return $task;
+                    if ( $row['remarque'] == null || $row['mesures'] == null)
+                        {
+                             $task->update(['etat'=>'en attente']);
+                        }
+                        else {
+                            
+                            $task->update(['etat'=>'finis']);
+                        }
+
+                    $task->save(); 
+                    
+                }
+                return Redirect::back();
                 
-        }
+    }
+
+
+     public function getid(id $id){
+        return $id;
+    }
 
 }
