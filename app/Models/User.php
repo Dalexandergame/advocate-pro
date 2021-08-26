@@ -22,6 +22,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Mission');
     }
 
+    public function missionspayments()
+    {
+        return $this->hasMany(MissionPayment::class);
+    }
+
+    public function cheques()
+    {
+        return $this->hasMany(Cheque::class);
+    }
+
     protected $table = 'users';
 
     /**

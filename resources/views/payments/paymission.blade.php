@@ -13,12 +13,9 @@
 <div class="container-xl">
 @foreach($missions as $mission)
     <div class="table-responsive">
-        <input type="checkbox" name="ids" class="checBoxClass" value="{{$mission['id']}}">
         <div class="table-wrapper">
-
             <table class="table table-striped table-borderless" id="dataTable">
                 <thead>
-                      
                       <div class="titlem">{{$mission['titre']}}</div>
                       
                     <tr>
@@ -81,80 +78,76 @@
     <div class="modal-content" style="width: 796px; height: 800px;">
         <div class="modal-body">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
-        </button>
-        <div class="user-infos">
-          <h5>Utilisateur en charge</h5>
-          <br>
-        <div id="mission_user_name" class="user-label">Nom d'utilisateur</div>
-        <div class="user-label">Tel <span id="mission_user_tel"> +212 600 137 564</span> </div>
-        <div class="user-label">Mail <span id="mission_user_mail"> nom&prenom@gmail.com</span> </div>
-        <br>
-        <br>
-        <br>
-        <div style="font-family: Gotham;font-style: normal;font-weight: normal;font-size: 12px;line-height: 14px;color: #333333;"> Marrakech le: {{date('Y/m/d h:i A')}}</div>
-        </div>
-        
-        <div class="add-form">
-          <form action="{{ url('ordre-de-mission') }}" method="POST">
-            @csrf
-          <div class="form-back">
-            <br>
-            <div id="mission_title" class="f-label"></div>
-          
-            <br>
-            <div class="f-label">Description de la mission</div>
-            <div id="mission_description" class="pl-5 mt-2"></div>
-
-            <br>
-            <div class="d-flex d-flex justify-content-between">
-              <div>
-                <div class="f-label">Destination</div>
-                <div id="mission_destination" class="pl-5 mt-2"></div>
-              </div>
-              <div class="f-label mr-5"><span>Cout de mission</span><br><span id="mission_price" class="prix text-danger">1000</span><span>DH</span></div>
-            </div>
-
-            <div class="f-label">Date de création de la mission</div>
-            <div id="mission_DC" class="pl-5 mt-2"></div>
-
-            <div class="f-label">Date d’échéance</div>
-            <div id="mission_DE" class="pl-5 mt-2"></div>
-            <br>
-            <br>
-            <div class="d-flex justify-content-between">
-              <div class="f-label">Mode de paiement</div>
-              <div class="py-2" style="margin-right: 6.5rem">
-                <input type="radio" name="paymentMethod" value="Cheque" checked>Chèque</input><br><br>
-                <input type="radio" name="paymentMethod" value="Virement banquaire">Virement banquaire</input><br><br>
-                <input type="radio" name="paymentMethod" value="Espèce">Espèce</input>
-              </div>
-            </div>
-            <br>
-
-            <div id="chequeLabel" class="d-flex justify-content-between" style="display: none">
-              <div class="f-label">Chèque</div>
-              <div class="py-1 mr-4">
-                <input type="number" name="cheque" placeholder="N° de série"style="height: 2rem; width:13rem" required /><br>
-                <label for="cheque-input" class="add-catg pl-5 py-1 mt-1">
-                  <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
-                  <span class="">Ajouter une capture</span>
-                </label>
-                <input id="cheque-input" name="cheque" type="file" style="position: absolute;z-index: -1;" />
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between mt-1">
-              <div class="f-label">État</div>
-              <div class="p-2" style="margin-right: 10rem">En attente</div>
-            </div>
-            <br>
-
+            <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+          </button>
+          <div class="user-infos">
+            <h5>Utilisateur en charge</h5>
+              <br>
+            <div id="mission_user_name" class="user-label">Nom d'utilisateur</div>
+            <div class="user-label">Tel <span id="mission_user_tel"> +212 600 137 564</span> </div>
+            <div class="user-label">Mail <span id="mission_user_mail"> nom&prenom@gmail.com</span></div><br><br><br>
+            <div style="font-family: Gotham;font-style: normal;font-weight: normal;font-size: 12px;line-height: 14px;color: #333333;"> Marrakech le: {{date('Y/m/d h:i A')}}</div>
           </div>
-          <br><br>
-          <button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
-          </form> 
-        </div>
+
+          <div class="add-form">  
+            <form action="{{ route('Payments.choosePaymentMethod') }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <div class="form-back">
+                <br>
+                <div id="mission_title" class="f-label"></div>
+              
+                <br>
+                <div class="f-label">Description de la mission</div>
+                <div id="mission_description" class="pl-5 mt-2"></div>
+
+                <br>
+                <div class="d-flex d-flex justify-content-between">
+                  <div>
+                    <div class="f-label">Destination</div>
+                    <div id="mission_destination" class="pl-5 mt-2"></div>
+                  </div>
+                  <div class="f-label mr-5"><span>Cout de mission</span><br><span id="mission_price" class="prix text-danger">1000</span><span>DH</span></div>
+                </div>
+
+                <div class="f-label">Date de création de la mission</div>
+                <div id="mission_DC" class="pl-5 mt-2"></div>
+
+                <div class="f-label">Date d’échéance</div>
+                <div id="mission_DE" class="pl-5 mt-2"></div><br>
+
+                <div class="d-flex justify-content-between">
+                  <div class="f-label">Mode de paiement</div>
+                  <div class="py-2" style="margin-right: 6.5rem">
+                    <input type="radio" name="paymentMethod" value="Cheque" checked>Chèque</input><br><br>
+                    <input type="radio" name="paymentMethod" value="Card">Virement banquaire</input><br><br>
+                    <input type="radio" name="paymentMethod" value="Cash">Espèce</input>
+                  </div>
+                </div>
+                <br>
+
+                <div id="chequeLabel" class="d-flex justify-content-between" style="display: none">
+                  <div class="f-label">Chèque</div>
+                  <div class="py-1 mr-4">
+                    <input type="number" name="cheque" placeholder="N° de série"style="height: 2rem; width:13rem"/><br>
+                    <label for="cheque-input" class="add-catg py-1 mt-1">
+                      <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
+                      <span class="">Ajouter une capture</span>
+                    </label>
+                    <input id="cheque-input" name="cheque" type="file" style="position: absolute;z-index: -10;" />
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-1">
+                  <div class="f-label">État</div>
+                  <div class="p-2" style="margin-right: 10rem">En attente</div>
+                </div>
+                <br>
+
+              </div>
+              <br><br>
+              <button class="buttone" id="submit" type="submit" class="btn btn-default btn-lg"> Enregister</button>
+            </form> 
+          </div>
         
         </div>
     </div>
@@ -171,34 +164,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+  $(document).ready(function(){
 
-  $('input:radio[name="paymentMethod"]').change(function(){
-      if($(this).val() != 'Cheque'){
-        $("#chequeLabel").removeClass("d-flex").addClass("d-none");
-      }
-      else $("#chequeLabel").addClass("d-flex");
-  });
+    $('input:radio[name="paymentMethod"]').change(function(){
+        if($(this).val() != 'Cheque'){
+          $("#chequeLabel").removeClass("d-flex").addClass("d-none");
+        }
+        else $("#chequeLabel").addClass("d-flex");
+    });
 
-  $('.paymentView').click(function(e){
-    var mission_id = this.id
-    console.log(mission_id);
-    $.get('/payments/paymission/view-payment-details/'+mission_id,function(missionObj){
-      //success
-      //console.log(missionObj);
+    $('.paymentView').click(function(e){
+      var mission_id = this.id
+      console.log(mission_id);
+      $.get('/payments/paymission/view-payment-details/'+mission_id,function(missionObj){
+        //success
+        console.log(missionObj);
+        
+          $('#mission_user_name').html(missionObj.user.name); 
+          $('#mission_user_tel').html(missionObj.user.phone); 
+          $('#mission_user_mail').html(missionObj.user.email); 
+          $('#mission_title').html(missionObj.mission.titre);
+          $('#mission_description').html(missionObj.mission.description);
+          $('#mission_destination').html(missionObj.mission.destination);
+          $('#mission_price').html(missionObj.mission.cout);
+          $('#mission_DC').html(missionObj.mission.datecreation);  
+          $('#mission_DE').html(missionObj.mission.dateecheance);
       
-        $('#mission_user_name').html(missionObj.get_users.name); 
-        $('#mission_user_tel').html(missionObj.get_users.phone); 
-        $('#mission_user_mail').html(missionObj.get_users.email); 
-        $('#mission_title').html(missionObj.titre);  
-        $('#mission_description').html(missionObj.description);
-        $('#mission_destination').html(missionObj.destination);
-        $('#mission_price').html(missionObj.cout);
-        $('#mission_DC').html(missionObj.datecreation);  
-        $('#mission_DE').html(missionObj.dateecheance);
-    
+      });
     });
   });
-});
 </script>
 @endsection

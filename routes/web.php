@@ -230,4 +230,6 @@ Route::get('/payments/refund', function () {
     return view('payments.refund');
 })->name('refund');
 Route::get('/payments/paymission/view-payment-details/{id}', [PaymentController::class,'viewMission'])->name('paymentDetails');
+Route::post('/payments/paymission/view-payment-details/choose-payment-method', [PaymentController::class,'choosePaymentMethod'])->name('Payments.choosePaymentMethod');
+Route::get('/payments/paymission/view-payment-details/{id}/details', [PaymentController::class,'showMissionPayment'])->name('Payments.showMissionPayment');
 
