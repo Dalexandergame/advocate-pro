@@ -9,7 +9,7 @@ class Cheque extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['serial_number','screen'];
+    protected $fillable = ['user_id','mission_id','dossierjuridique_id','serial_number','screen'];
 
     public function user ()
     {

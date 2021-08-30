@@ -50,7 +50,7 @@
 
                          <td><br><span class="mr-4 pai">Etat</span></div></td>
 
-                         <td><br><span>En attente</span></td>
+                         <td><br><span>{{$mission->paymentMission->status ?? 'En attente'}}</span></td>
 
                     </tr>
                     <tr>
@@ -89,7 +89,7 @@
             <div style="font-family: Gotham;font-style: normal;font-weight: normal;font-size: 12px;line-height: 14px;color: #333333;"> Marrakech le: {{date('Y/m/d h:i A')}}</div>
           </div>
 
-          <div class="add-form">  
+          <div class="add-form">
             <form action="{{ route('Payments.choosePaymentMethod') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-back">
@@ -128,12 +128,12 @@
                 <div id="chequeLabel" class="d-flex justify-content-between" style="display: none">
                   <div class="f-label">Chèque</div>
                   <div class="py-1 mr-4">
-                    <input type="number" name="cheque" placeholder="N° de série"style="height: 2rem; width:13rem"/><br>
+                    <input type="number" name="chequeSN" placeholder="N° de série"style="height: 2rem; width:13rem"/><br>
                     <label for="cheque-input" class="add-catg py-1 mt-1">
                       <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
                       <span class="">Ajouter une capture</span>
                     </label>
-                    <input id="cheque-input" name="cheque" type="file" style="position: absolute;z-index: -10;" />
+                    <input id="cheque-input" name="chequeScreen" type="file" style="position: absolute;z-index: -10;" />
                   </div>
                 </div>
 

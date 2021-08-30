@@ -4,7 +4,7 @@
 <div class="cont">
     <div class="filter mx-4">
         <select class="pl-2 py-2" onchange="window.location.href=this.options[this.selectedIndex].value;">
-            <option value="">Selectioner</option>
+            <option value="{{route('payments.index')}}">index</option>
             <option value="{{ route('paymission') }}">ordres de missions</option>
             <option value="{{ route('paydossier') }}">Paiements des dossiers</option> 
             <option value="{{ route('refund') }}">Remboursements</option>

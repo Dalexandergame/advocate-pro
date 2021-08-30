@@ -9,7 +9,7 @@ class MissionPayment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['payment_method','status'];
+    protected $fillable = ['user_id','mission_id','payment_method','status'];
 
     public function mission() 
     {

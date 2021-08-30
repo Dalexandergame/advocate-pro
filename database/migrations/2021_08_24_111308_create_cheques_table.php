@@ -16,8 +16,8 @@ class CreateChequesTable extends Migration
         Schema::create('cheques', function (Blueprint $table) {
             $table->bigInteger('serial_number')->unique()->primary();
             $table->ForeignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->ForeignId('mission_id')->constrained('missions')->nullable()->onDelete('cascade');
-            $table->ForeignId('dossierjuridique_id')->constrained('dossierjuridiques')->nullable()->onDelete('cascade');
+            $table->ForeignId('mission_id')->nullable()->constrained('missions')->onDelete('cascade');
+            $table->ForeignId('dossierjuridique_id')->nullable()->constrained('dossierjuridiques')->onDelete('cascade');
             $table->string('screen');
             $table->timestamps();
         });

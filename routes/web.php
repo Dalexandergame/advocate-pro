@@ -4,7 +4,7 @@ use App\Models\Mission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TacheController;
+//use App\Http\Controllers\TacheController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\StocksController;
@@ -89,10 +89,10 @@ Route::get('/ordre-de-mission/approved', [MissionController::class,'approved']);
 Route::get('/ordre-de-mission/declined', [MissionController::class,'declined']);
 Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
 
-Route::get('/calendrier/search',  [TacheController::class,'search']);
-Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
+//Route::get('/calendrier/search',  [TacheController::class,'search']);
+//Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
 //Route::get('/calendrier',  [TacheController::class,'indexCal']);
-Route::get('/calendrier',  [TacheController::class,'showcal']);
+//Route::get('/calendrier',  [TacheController::class,'showcal']);
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -112,10 +112,10 @@ Route::get('/correspondence', function () {
 
 
 //Route::get('/taches', [TacheController::class,'index']);
-Route::get('/taches', [TacheController::class,'show']);
-Route::post('/taches', [TacheController::class,'store']);
-Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
-Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
+//Route::get('/taches', [TacheController::class,'show']);
+//Route::post('/taches', [TacheController::class,'store']);
+//Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
+//Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
 
 Route::post('/comment/store', [CommentController::class,'store'])->name('comment.add');
 Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
@@ -134,8 +134,10 @@ Route::get('/dossier-juridiques', function () {
 });
 
 Route::get('/payments', function () {
-    return view('payments.paymentIndex');
-});
+    $userMissions = Mission::where('user_id',auth()->user()->id)->count();
+    $userLastMission = Mission::where('user_id',auth()->user()->id)->last();
+    return view('payments.paymentIndex',compact('userMission','userLastMission'));
+})->name('payment.index');
 
 
 
@@ -220,7 +222,7 @@ Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
 Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);
 
 Route::get('/payments/paymission', function () {
-    $missions= Mission::where('status','=','Aprouver')->get();
+    $missions= Mission::where('status','=','Aprouver')->with('paymentMission')->get();
     return view('payments.paymission', compact('missions'));
 })->name('paymission');
 Route::get('/payments/paydossier', function () {
@@ -231,5 +233,5 @@ Route::get('/payments/refund', function () {
 })->name('refund');
 Route::get('/payments/paymission/view-payment-details/{id}', [PaymentController::class,'viewMission'])->name('paymentDetails');
 Route::post('/payments/paymission/view-payment-details/choose-payment-method', [PaymentController::class,'choosePaymentMethod'])->name('Payments.choosePaymentMethod');
-Route::get('/payments/paymission/view-payment-details/{id}/details', [PaymentController::class,'showMissionPayment'])->name('Payments.showMissionPayment');
+Route::get('/payments/paymission/view-payment-details/choose-payment-method/cheque/{id}', [PaymentController::class,'showMissionPayment'])->name('Payments.showMissionPayment');
 
