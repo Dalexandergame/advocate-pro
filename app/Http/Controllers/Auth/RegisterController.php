@@ -6,6 +6,7 @@ use App\Mail\ContactFormMail;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -56,7 +57,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -69,6 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
+        $roles = Role::all();
 
         $user = User::create([
             'name' => $data['name'],
@@ -76,10 +78,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        
-        $url = "http://127.0.0.1:8000/password/reset/".$data['_token'];
-        Mail::to('test@test.com')->send(new ContactFormMail($user,$url));
 
-        return $user;
+     $user->roles()->attach($data['role']);
+     $user->save();
+        
+        //$url = "http://127.0.0.1:8000/password/reset/".$data['_token'];
+        //Mail::to('test@test.com')->send(new ContactFormMail($user,$url));
+
+            return $user;
     }
 }

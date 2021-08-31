@@ -25,6 +25,9 @@ use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
 use App\Http\Controllers\JurisprudenceController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\PermissionController;
+
 
 
 
@@ -54,10 +57,13 @@ Route::get('/', function () {
     return view('auth/newLogin');
 });
 
+
 Route::resource('/users', UsersController::class);
 Route::get('/users/delete/{id}',[UsersController::class,'destroy']);
-
-
+Route::resource('/roles', RolesController::class);
+Route::get('/roles/delete/{id}',[RolesController::class,'destroy']);
+Route::resource('/permissions', PermissionController::class);
+Route::get('/permissions/delete/{id}',[PermissionController::class,'destroy']);
 
 Auth::routes();
 
