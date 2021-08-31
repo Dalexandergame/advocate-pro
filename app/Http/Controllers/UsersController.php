@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Role;
 
 class UsersController extends Controller
 {
@@ -60,8 +61,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::all();
         $user=user::find($id);
-        return view('users/edituser',compact('user'));
+        $userRole = $user->roles->first();
+        return view('users/edituser',compact('user','roles','userRole'));
     }
 
     /**
@@ -80,6 +83,14 @@ class UsersController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
+
+        $user->roles()->detach();
+        $user->permissions()->detach();
+
+        if($request->role != null){
+            $user->roles()->attach($request->role);
+            $user->save();
+        }
         return redirect('/users');
     }
 
@@ -92,6 +103,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user=user::find($id);
+        $user->roles()->detach();
+        $user->permissions()->detach();
         $user->delete();
         return redirect('/users');
 
