@@ -101,7 +101,6 @@
       <img src="/storage/{{$cheque->screen}}" class="w-100"/><br>
     </div>    
   </div> 
-</body>  
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -122,5 +121,4 @@
         });
     });
   </script>
-  </div>
 </body>

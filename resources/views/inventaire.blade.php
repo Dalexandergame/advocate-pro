@@ -35,10 +35,8 @@
             <div class="pr-wrapper row pl-2">
                 @foreach($chunk as $item)
                    <div class="col products">
-                       <a href="#">
                            <img src="/storage/{{ $item['photo'] }}" alt="products" class="w-100 h-50"/>
                            <div class="text-center">{{$item['name']}}</div>
-                       </a>
                    </div>
                 @endforeach
             </div>
@@ -69,6 +67,14 @@
                 var cat_id = e.target.value;
                 //console.log(subcat_id);
                 //ajax
+                $.get('/getCatProducts?cat_id='+cat_id,function(data){
+                    //success
+                    console.log(data);
+                    var product = $('#productList').empty();
+                    $.each(data, function(create, productObj){
+                        
+                    });
+                });
 
 
             });

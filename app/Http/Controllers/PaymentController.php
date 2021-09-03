@@ -6,10 +6,10 @@ use Auth;
 use App\Models\User;
 use App\Models\Cheque;
 use App\Models\Mission;
+use Illuminate\Http\Request;
 use App\Models\MissionPayment;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\UserAuthController;
 
 class PaymentController extends Controller
 {
@@ -43,7 +43,7 @@ class PaymentController extends Controller
                 'mission_id' => $missionTopay->id,
                 'payment_method' => 'Virement banquaire',
             ]);
-            return redirect()->route('cardCheckout');
+            return redirect()->route('cardCheckout', $id);
         }     
         else{
             if ( request()->input('paymentMethod') == 'Cash')
@@ -85,6 +85,38 @@ class PaymentController extends Controller
         }    
     
     }
+
+    public function cardCheckout($id)
+    {
+        $mission = Mission::findOrFail($id);
+        $intent = auth()->user()->createSetupIntent();
+        //dd($paidMission);
+
+        return view('payments.cardCheckout', compact('mission','intent'));
+    }
+
+    public function pay(Request $request, $id)
+    {
+        $user          = auth()->user();
+        $mission       = Mission::findOrfail($id);
+        $paymission    = MissionPayment::where('mission_id',$mission->id)->first();
+        $paymentMethod = $request->input('payment_method');
+        //dd($request->all());
+
+        try {
+            $user->createOrGetStripeCustomer();
+            $user->updateDefaultPaymentMethod($paymentMethod);
+            $user->charge($mission->cout * 100 * 0.11, $paymentMethod);
+
+            $paymission->update(['status'=>'Payé']);
+
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
+
+        return back()->with('message', 'Product purchased successfully!');
+    }
+
     public function showMissionPayment($id)
     {
         $paidMission = Mission::findOrFail($id);

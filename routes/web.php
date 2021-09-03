@@ -135,9 +135,10 @@ Route::get('/dossier-juridiques', function () {
 
 Route::get('/payments', function () {
     $userMissions = Mission::where('user_id',auth()->user()->id)->count();
-    $userLastMission = Mission::where('user_id',auth()->user()->id)->last();
-    return view('payments.paymentIndex',compact('userMission','userLastMission'));
-})->name('payment.index');
+    $userLastMission = Mission::with('paymentMission')->where('user_id',auth()->user()->id)->latest('updated_at')->first();
+    //dd($userLastMission);
+    return view('payments.paymentIndex',compact('userMissions','userLastMission'));
+})->name('payments.index');
 
 
 
@@ -233,5 +234,7 @@ Route::get('/payments/refund', function () {
 })->name('refund');
 Route::get('/payments/paymission/view-payment-details/{id}', [PaymentController::class,'viewMission'])->name('paymentDetails');
 Route::post('/payments/paymission/view-payment-details/choose-payment-method', [PaymentController::class,'choosePaymentMethod'])->name('Payments.choosePaymentMethod');
+Route::get('/payments/paymission/{id}/card-checkout', [PaymentController::class,'cardCheckout'])->name('cardCheckout');
+Route::post('/payments/paymission/{id}', [PaymentController::class,'pay'])->name('pay.post');
 Route::get('/payments/paymission/view-payment-details/choose-payment-method/cheque/{id}', [PaymentController::class,'showMissionPayment'])->name('Payments.showMissionPayment');
 
