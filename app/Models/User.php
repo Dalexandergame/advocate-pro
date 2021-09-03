@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Laravel\Cashier\Billable;
+use App\Traits\HasRolesAndPermissions;
 use Illuminate\Notifications\Notifiable;
-use App\Notifications\CustomResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, Billable;
+    use HasFactory, Notifiable, HasRolesAndPermissions, Billable;
     
     public function taches()
     {
