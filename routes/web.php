@@ -180,15 +180,6 @@ Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
 
-
-// Route::get('/dossier-juridiques', function () {
-//     return view('dossierjuridique');
-// });
-
-// Route::get('/dossier-juridiques-vue', function () {
-//     return view('dossierjuridiquevue');
-// });
-
 Route::get('dossier-juridiques', [DossierjuridiqueController::class,'show']);
 Route::get('dossier-juridiques/vue/{id}', [DossierjuridiqueController::class,'vue']);
 Route::post('dossier-juridiques', [DossierjuridiqueController::class,'store']);
@@ -199,16 +190,6 @@ Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'sea
 Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
 
-
-// Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
-// Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
-// Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
-// Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
-// Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
-// Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
-// Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
-// Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
-// Route::get('/dossierjuridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
 
 Route::get('/jurisprudence',[JurisprudenceController::class,'show']);
 Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);
