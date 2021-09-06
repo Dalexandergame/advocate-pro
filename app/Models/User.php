@@ -2,14 +2,28 @@
 
 namespace App\Models;
 
+use App\Traits\HasRolesAndPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\CustomResetPassword;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRolesAndPermissions;
+    
+    public function taches()
+    {
+        return $this->hasMany('App\Models\Tache');
+    }
+
+     public function missions()
+    {
+        return $this->hasMany('App\Models\Mission');
+    }
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -18,8 +32,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone',
+        'num_tel',
         'email',
         'password',
+        'phone',
     ];
 
     /**
@@ -40,4 +57,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $guarded = ['id'];
+
+    public function Jurisprudences()
+    {
+        return $this->hasMany(Jurisprudence::class);
+
+    }
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+      $this->notify(new CustomResetPassword($token));
+    }
 }

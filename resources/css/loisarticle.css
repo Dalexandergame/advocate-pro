@@ -1,6 +1,6 @@
 .filois{
   width :298px;
-  height:35px;
+  height:40px;
   border: 1px solid #989898;
   box-sizing: border-box;
   margin-left: 5px;
@@ -48,7 +48,16 @@ td , th {  text-align: center; }
   margin-top: 15px;
   text-align: center;
   text-decoration: none;
-  display: block;
+  font-family: Gotham;
+  padding: 6px 34px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  font-size: 16px;
+}
+.artnom{
+  margin-top: 25px;
+  text-align: center;
+  text-decoration: none;
   font-family: Gotham;
   padding: 6px 34px;
   padding-top: 3px;
@@ -70,3 +79,157 @@ td , th {  text-align: center; }
   font-size: 12px;
   background-color: #C4C4C4;
   height: 34px;}
+
+.button0{
+  color: #827E7E;
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px #827E7E;
+  font-family: system-ui;
+  padding: 4px 32px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  height: 34px;
+  width: 200px;
+  float: right;
+}
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 13px;
+line-height: 13px;
+color: #827E7E;
+margin-left: 30px;
+margin-top: 10px;
+}
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+width: 380px;
+height: 35px;
+margin-left: 30px;
+background-color:#F5F5F5;
+}
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
+}
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+}
+.add-form{
+float: right;
+margin-top: 50px;
+}
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 320px;
+ 
+}
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
+}
+.user-label span{
+font-weight: normal;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.inputfile + label {
+    font-size: 12px;
+    font-weight: normal;
+    color:#827E7E;
+    background-color:#F5F5F5;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    margin-left:30px; 
+}
+.view{
+    background-color: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: auto;
+    border-style: solid;
+    border-color: silver;
+    border-radius: 20px;
+    box-shadow: 0 0 11px rgb(102, 102, 102); 
+    height: 1050px;
+  }
+
+h4{
+    color: black;
+    margin-left: 80px;
+    font-style: oblique 50deg; 
+    font-family: Trebuchet MS;
+    display: inline-block;font-size: 12px;
+}
+h5{
+    color: black;
+    margin-left: 20px;
+    font-family: Candara;
+    display: inline-block;font-size: 12px;
+}
+
+.art{
+    margin: 30px;
+}
+.ligne{
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-shadow: 0 5px 15px rgb(105, 105, 105);
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 20px;
+
+
+}
+select:required:invalid {
+  color: #737171;
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
+}

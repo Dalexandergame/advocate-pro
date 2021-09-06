@@ -11,18 +11,14 @@
   background-color: none;}
 
 .block1 {
-  height:115px;
-  display:block;}
-
-.block2 {
-  height:100px;
+  height:50px;
   display:block;}
 
 .titlem{
     font-family: Gotham;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 15px;
     color: #000000;}
 
@@ -73,6 +69,11 @@ text-align: left;
 color: #989898;	
 }
 
+a:hover {
+  text-decoration: none;
+  color: #989898;
+}
+
 .tmpMission {
 font-family: Gotham;
 font-size: 10px;
@@ -94,7 +95,6 @@ text-align: left;
   border: none;
   font-family: system-ui;
 }
-
 
 .button1 {
   margin-left: 5px;
@@ -132,19 +132,28 @@ text-align: left;
   width: 150px;
   margin-left: 10px;
   padding: 6px 55px;
-  font-size: 11px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;
   background-color: #000000;}
 
 .button6 {
-  margin-right: 10px;
-  background-color: #E6E6E6;;
-  border: solid 2px;
-  padding: 6px 51px;
-  font-size: 11px;
-  padding-bottom: 3px;
+  margin-left: 10px;
+  background-color: #E6E6E6;
   color: black;
   height: 43px;
-  width: 155px;}
+  width: 155px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;}
 
 
 .button5 {
@@ -152,7 +161,13 @@ text-align: left;
   width: 150px;
   margin-left: 15px;
   padding: 6px 40px;
-  font-size: 11px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;
   background-color: #FF0000;} /* Red */ 
 
 body {
@@ -192,7 +207,7 @@ table.table tr th:first-child {
     width: 500px;}
 
 table.table tr th:last-child {
-    width: 200px;}
+    width: 160px;}
 
 table.table-striped tbody tr:nth-of-type(odd) {
     background-color: #fcfcfc;}
@@ -200,3 +215,144 @@ table.table-striped tbody tr:nth-of-type(odd) {
 table.table-striped.table-hover tbody tr:hover {
     background: #f5f5f5;}
 
+.buttone{
+  color: #827E7E;
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px #827E7E;
+  font-family: system-ui;
+  padding: 4px 32px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  height: 34px;
+  width: 200px;
+  float: right;
+}
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 13px;
+line-height: 13px;
+color: #827E7E;
+margin-left: 30px;
+margin-top: 10px;
+}
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+background-color:#F5F5F5;
+width: 380px;
+height: 45px;
+margin-left: 30px;
+}
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
+}
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+}
+.add-form{
+float: right;
+margin-top: 50px;
+}
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 620px;
+ 
+}
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
+}
+.user-label span{
+font-weight: normal;
+}
+input::placeholder {
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+/* identical to box height, or 22px */
+color: #827E7E;
+opacity: 0.3;
+}
+textarea::placeholder {
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+/* identical to box height, or 22px */
+color: #827E7E;
+opacity: 0.3;
+}
+.box {
+  text-align: left;
+}
+.same-row {
+  display: inline-block;
+}
+
+.single-edit{
+  float: right;
+  margin-left: 5px;
+  border: none;
+  height: 30px;
+  background-color: none;
+}
+.single-delete{
+  float: right;
+  margin-left: 5px;
+  border: none;
+  height: 30px;
+  background-color: #FF0000;
+}
+.username{
+  font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 15px;
+color: #827E7E;
+text-align: center;
+}
+.img-circle{
+width: 43px;
+height: 45px;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
+}

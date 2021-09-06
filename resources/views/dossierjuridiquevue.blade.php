@@ -35,35 +35,122 @@
 	</div>
 </form>
 
-<button class="button button5" class="btn btn-default btn-lg"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</button>
 
-<div style="margin-top: 40px;"></div>
+<button  id="btnadd" {{-- class="button button5" --}} style="background: #000000;width: 252px;height: 40px;color: #FFFFFF;margin-left:30px;" class="btn btn-default btn-lg"><img src="{{ url('/img/plus.png ')}}" height="12px" width="12px"> Ajouter nouveau</button>
+
+{{-- add dossier --}}
+
+<div class="container" style="display: none;" id="divadd">
+	<div class="big-grid" style="margin-right: -20px; height: 450px">
+		<div class="row" style="margin-top: 20px">
+			
+			<form action="{{ url('dossier-juridiques')}}" method="post">
+
+				{{ csrf_field()}}
+
+				<div class="form-column col-md-8 type-move0">
+					<div class="col">
+						<input type="text" class="form-control" placeholder="numero dossier" name="file_number">
+					</div><div style="margin-top: 5px"></div>
+					<div class="col">
+						<input type="date" class="form-control" placeholder="date creation" name="date_creation">
+					</div><div style="margin-top: 5px"></div>
+					<div class="col">
+						<input type="text" class="form-control" placeholder="tagwords" name="tagwords">
+					</div>
+				</div>
+				<div class="form-group col-md-7 type-move">
+					<label for="inputState">Type</label>
+					<select id="inputState" name="type_dossier" class="form-control">
+						<option value="">Choose type</option>
+						<option value="type1">type 1</option>
+						<option value="type2">type 2</option>
+					</select>
+				</div>
+				<div class="form-row type-move2">
+					<div class="col">
+						<label for="">Pour</label>
+						{{-- <input type="text" class="form-control" placeholder="Nom du compte" name="for"> --}}
+						<select name="for" class="form-control">
+						<option disabled selected>Choisir un compte</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
+					</div>
+					<div class="col">
+						<label for="">Contre</label>
+						{{-- <input type="text" class="form-control" placeholder="Nom du compte" name="against"> --}}
+						<select name="against" class="form-control">
+						<option disabled selected>Choisir un compte</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
+					</div>
+				</div>
+				<div class="form-row type-move3">
+					<div class="col">
+						<label for="">Client indirect</label>
+{{-- 						<input type="text" class="form-control" placeholder="Nom du compte" name="indirect_pour"> --}}
+	`					<select name="indirect_pour" class="form-control">
+						<option disabled selected>Choisir un compte</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
+					</div>
+					<div class="col">
+						<label for="">Client indirect</label>
+						{{-- <input type="text" class="form-control" placeholder="Nom du compte" name="indirect_contre"> --}}
+						<select name="indirect_contre" class="form-control">
+						<option disabled selected>Choisir un compte</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
+					</div>
+				</div>
+				<div class="form-group text-area-move">
+					<label for="exampleFormControlTextarea1">Commentaire principal</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
+				</div>
+				<div class="form-row type-move4">
+					<div class="col">
+						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
+					</div>
+				</div>
+				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
+			</form>
+
+			<a class="button button3" href="" style="margin-left:250px;"><img src="{{ url('/img/trash.png') }}" height="13px" width="13px" style="margin-top: -5px;margin-right:5px">Enregistrer dans la brouillon</a>
+		</div>
+	</div>
+</div>
+<br>
 <div class="container">
 	<div class="big-grid">
 		<div class="row" style="margin-top: 20px">
-			<div class="col-2.5" id="red-writing">Dossier N 37538</div>
+			<div class="col-2.5" id="red-writing">Dossier N {{ $dossierjuridique->file_number }}</div>
 			<div class="col gray-bold1">Sous dossiers(05)</div>
 			<div class="col titre col3-marg">Type</div>
 			<div class="col-3 titre">Pour</div>
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
-			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le(07/02/2019)</div>
+			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le ({{ $dossierjuridique->date_creation->format('d/m/Y') }})</div>
 			<div class="col marg"></div>
-			<div class="col marg-c2">Type 1<br>Type 2<br>Type 3<br>Type 4<br>Type 5</div>
-			<div class="col-3 marg-c3"><div class=" bold-description1">Atelier IKS</div><br><div class=" bold-description1">Tel </div> +212 600 137 224<br><div class=" bold-description1">Mail </div> nom&prenom@gmail.com</div>
-			<div class="col-3 marg-c4"> <div class=" bold-description2">Babanou Oumaima</div> <br><div class=" bold-description2">Tel </div> +212 600 137 224<br><div class=" bold-description2">Mail </div> nom&prenom@gmail.com</div>
+			<div class="col marg-c2">{{ $dossierjuridique->type_dossier }}</div>
+			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->for->mail_contact_principal }}</div>
+			<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossierjuridique->against->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossierjuridique->against->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossierjuridique->against->mail_contact_principal }}</div>
 		</div>
 		<div class="row">
-			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#IKS #Outhman</div></div>
+			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossierjuridique->commentaire }}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossierjuridique->tagwords }}</div></div>
 		</div>
 		<br>
 	</div>
 </div>
+
+
 <br>
 <div style="margin-top: 10px;"></div>
 
@@ -124,7 +211,7 @@
 				</div>
 				<div class="col-2.5">
 					<div style="margin-top: -555px; margin-left: -10px"><div class="loader">Loading...</div><div class="gray-cours-traitement">En cours de traitement</div> </div>
-					<div style="margin-left: 430px;margin-top: 45px"><a href="" class="a-afficher"><div class="gray-bold-rep3">Tâches </div><div class="gray-number2">(17)</div> <i class="arrow-right-tache"></i></a></div>
+					<div style="margin-left: 430px;margin-top: 45px"><a href="" class="a-afficher"><div class="gray-bold-rep3">Tâches </div><div class="gray-number2">({{ $taches }})</div> <i class="arrow-right-tache"></i></a></div>
 					<a href="" class="a-afficher"><div class="gray-bold-details">Voir détails</div></a>
 					<div style="margin-left: 335px;margin-top: 190px"><a href="" class="a-afficher"><img src="/img/attach.png" height="11px" width="11px" style="margin-left: 50px;"/><div class="colored-gray-joint">2 Fichiers joints</div></a></div>
 				</div>
@@ -133,7 +220,7 @@
 	</div>
 </div></div>
 <div class="float-container">
-	<div class="float-child" style="margin-left: 300px; width: 1160px">
+	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
 			<div class="row">
 				<div class="col-2.5" id="red-writing-3">Historique du dossier
@@ -150,7 +237,7 @@
 	</div>
 </div>
 <div class="float-container">
-	<div class="float-child" style="margin-left: 300px; width: 1160px">
+	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
 			<div class="row">
 
@@ -185,8 +272,124 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/dossierjuridiquevue.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/createdossierjuridique.css') }}">
+<link href="{{ asset('css/tachesdetails.css') }}" rel="stylesheet">
+<link href="{{ asset('css/taches.css') }}" rel="stylesheet">
+<link href="{{ asset('css/calendrier.css') }}" rel="stylesheet">
+<style type="text/css">
+	.numberd{
+		border: none transparent;
+		outline: none;
+		font-family: Gotham;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 22px;
+		color: #EC1E24;
+	}
+	.ddate{
+		font-family: Gotham;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 10px;
+		line-height: 12px;
+		color: #737171;
+		margin-left:30px;
+	}
+	.imprime{
+margin-left: 40px;
+}
+
+.vue {
+margin-left: 40px;
+}
+</style>
+<style type="text/css">
+.comment{
+width: 260px;
+ }
+input::placeholder{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: #737171;
+opacity: 0.3;
+ }
+ .btnr {
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: white;
+margin-left: 10px;
+background-color: grey;
+ }
+</style>
 @endsection
 
 @section('scripts')
 <script src="{{ asset('js/menuselector.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script type="text/javascript">
+    updateList = function() {
+  var input = document.getElementById('file');
+  var output = document.getElementById('fileList');
+
+  output.innerHTML = '<ul>';
+  for (var i = 0; i < input.files.length; ++i) {
+    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+  }
+  output.innerHTML += '</ul>';
+}
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $("#formButton").click(function() {
+    $("#selectUser").toggle();
+    $("#labelUser").toggle();
+    $("#formButton").toggle();
+  });
+});
+</script>
+<script type="text/javascript">
+     $(function () {
+  $("#typetache").change(function() {
+     if ($("#tachesimple").is(":selected")) {
+
+        $("#tachesimple_input").show();
+        $("#audiance_input").hide();
+    }
+    else if ($("#audiance").is(":selected")) {
+        $("#audiance_input").show();
+        $("#tachesimple_input").hide();
+    }
+    else if ($("#rendezvous").is(":selected")) {
+
+        $("#tachesimple_input").show();
+        $("#audiance_input").hide();
+    }
+   }).trigger('change');
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $("#recapbtn").click(function() {
+    $("#recapdiv").toggle();
+    $("#recapbtn").toggle();
+  });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $("#btnadd").click(function() {
+    $("#divadd").toggle();
+    
+  });
+});
+</script>
 @endsection

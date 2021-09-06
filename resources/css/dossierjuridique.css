@@ -1,4 +1,3 @@
-
 .customSelect {
    position: relative;
    font-family: Arial, Helvetica, sans-serif;
@@ -168,4 +167,31 @@
 }
 .col3-marg{
    text-align: center;
+}
+
+
+a.button {
+ color: white;
+ margin-top: 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ border: none;
+ font-family: system-ui;
+}
+a.button5 {
+ margin-left: 35px;
+ padding: 7px 85px;
+ font-size: 13px;
+ background-color: #000000;} /* Black */
+
+.button-supprimer {
+  padding: 5px 15px;
+  font-size: 12px;
+  background-color: red;
+margin-right: 10px;}
+
+.buttonview{
+   margin-right: -10px;
 }
