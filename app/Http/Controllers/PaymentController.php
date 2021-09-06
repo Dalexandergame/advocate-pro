@@ -8,7 +8,7 @@ use App\Models\Cheque;
 use App\Models\Mission;
 use Illuminate\Http\Request;
 use App\Models\MissionPayment;
-use Illuminate\Validation\Rule;
+use Laravel\Cashier\Billable;
 use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
@@ -89,7 +89,7 @@ class PaymentController extends Controller
     public function cardCheckout($id)
     {
         $mission = Mission::findOrFail($id);
-        $intent = auth()->user()->createSetupIntent();
+        $intent = Auth::user()->createSetupIntent();
         //dd($paidMission);
 
         return view('payments.cardCheckout', compact('mission','intent'));
@@ -97,7 +97,7 @@ class PaymentController extends Controller
 
     public function pay(Request $request, $id)
     {
-        $user          = auth()->user();
+        $user          = Auth::user();
         $mission       = Mission::findOrfail($id);
         $paymission    = MissionPayment::where('mission_id',$mission->id)->first();
         $paymentMethod = $request->input('payment_method');
@@ -114,7 +114,7 @@ class PaymentController extends Controller
             return back()->with('error', $exception->getMessage());
         }
 
-        return back()->with('message', 'Product purchased successfully!');
+        return redirect('paymission')->with('message', 'Product purchased successfully!');
     }
 
     public function showMissionPayment($id)

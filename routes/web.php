@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 //use App\Http\Controllers\TacheController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\StocksController;
@@ -22,14 +23,14 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ClientcompteController;
 use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\JurisprudenceController;
 use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\GovertemplatesController;
 use App\Http\Controllers\DossierjuridiqueController;
-use App\Http\Controllers\RolesController;
-use App\Http\Controllers\PermissionController;
 
 
 
@@ -160,6 +161,7 @@ Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->n
 Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
 
 Route::resource('templates', TemplatesController::class)->except('index');
+Route::resource('govertemplates', GovertemplatesController::class);
 
 Route::resource('categories', CategoriesController::class);
 Route::resource('categories.products', ProductsController::class)->shallow();
@@ -173,8 +175,6 @@ Route::resource('vignettes', VignettesController::class);
 
 Route::get('/getCatProducts', [DropdownController::class, 'selectCategory']);
 Route::get('/getProduct', [DropdownController::class, 'selectProduct']);
-
-Route::resource('templates', TemplatesController::class)->except(['index']);
 
 Route::get('/documents', function () {
     return view('documents');

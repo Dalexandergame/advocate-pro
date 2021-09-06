@@ -13,7 +13,7 @@
 @endsection
 
 @section('styles')
-    <link href="{{ asset('css/ordremission.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/.css') }}" rel="stylesheet">
 @endsection
 
 @section('scripts')
