@@ -8,7 +8,7 @@
     <!-- Add Modal -->
 <div class="modal fade" id="Modaladd" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog" role="document">   
-    <div class="modal-content" style="width: 663px;height: 720px;">
+    <div class="modal-content" style="width: 663px;height: 820px;">
         <div class="modal-body">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
@@ -41,6 +41,10 @@
             <label class="f-label" for="file_number">Numero du dossier juridique</label>
             <br>
             <input class="f-input" type="text" name="file_number" placeholder="saisir le numero du dossier" style="height: 28px;width: 180;">
+            <br><br>
+            <label class="f-label" for="tribunal_number">Numero du tribunal</label>
+            <br>
+            <input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;">
             </div>
 
             <br>

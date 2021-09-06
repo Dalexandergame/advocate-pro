@@ -184,6 +184,7 @@ Route::get('/documents/search',[DocumentController::class,'search']);
 Route::get('dossier-juridiques', [DossierjuridiqueController::class,'show']);
 Route::get('dossier-juridiques/vue/{id}', [DossierjuridiqueController::class,'vue']);
 Route::post('dossier-juridiques', [DossierjuridiqueController::class,'store']);
+Route::post('dossier-juridiques/sous', [DossierjuridiqueController::class,'sousstore']);
 Route::get('dossier-juridiques/edit/{id}', [DossierjuridiqueController::class,'edit']);
 Route::put('dossier-juridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'search']);

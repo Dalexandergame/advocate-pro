@@ -31,7 +31,7 @@
   <!-- Edit Modal -->
 
 
-    <div class="modal-content" style="width: 796px; height: 820px; margin-left: 400px;">
+    <div class="modal-content" style="width: 796px; height: 860px; margin-left: 400px;">
 
         <div class="modal-body">
 
@@ -95,6 +95,10 @@
             <label class="f-label" for="file_number">Numero du dossier juridique</label>
             <br>
             <input class="f-input" type="text" name="file_number" placeholder="saisir le numero du dossier" style="height: 28px;width: 180;" value="{{ $data['dossier_num'] }}">
+            <br><br>
+            <label class="f-label" for="tribunal_number">Numero du tribunal</label>
+            <br>
+            <input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;" value="{{ $data['tribunal_number'] }}">
             </div>
 
             <br>

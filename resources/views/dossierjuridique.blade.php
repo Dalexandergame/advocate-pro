@@ -116,15 +116,16 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
 				</div>
-				<div class="form-row type-move4">
+				{{-- <div class="form-row type-move4">
 					<div class="col">
 						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
 					</div>
-				</div>
+				</div> --}}
+				<br><br>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
 			</form>
 
-			<a class="button button3" href=""><img src="{{ url('/img/trash.png') }}" height="13px" width="13px" style="margin-top: -5px;margin-right: 5px">Enregistrer dans la brouillon</a>
+			{{-- <a class="button button3" href=""><img src="{{ url('/img/trash.png') }}" height="13px" width="13px" style="margin-top: -1px;margin-right: 5px">Enregistrer dans la brouillon</a> --}}
 		</div>
 	</div>
 </div>
@@ -135,7 +136,7 @@
 	<div class="big-grid" style="margin-right: -20px">
 		<div class="row" style="margin-top: 20px">
 			<div class="col-2.5" id="red-writing">Dossier N {{ $dossier->file_number }}</div>
-			<div class="col gray-bold1">Sous dossiers(05)</div>
+			<div class="col gray-bold1">{{-- Sous dossiers() --}}</div>
 			<div class="col titre col3-marg">Type</div>
 			<div class="col-3 titre">Pour</div>
 			<div class="col-3 titre">Contre</div>
@@ -152,7 +153,7 @@
 		<div class="row">
 			<div><img src="{{ url('/img/qr-code.png') }}" height="70px" width="70px" style="margin-left: 35px"></div>
 			<div class="buttons-position"> 
-				<button class="buttonx" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques/vue', $dossier->id) }}'"><img src="{{ url('/img/eye2.png') }}" height="15px" width="15px"/> Vue</button>
+				<button class="buttonx" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossier-juridiques/vue', $dossier->id) }}'"><img src="{{ url('/img/eye2.png') }}" height="15px" width="15px"/> Vue</button>
 
 				<button style="margin-left: 20px; margin-top:-2px;" class="buttonw" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques/edit', $dossier->id) }}'"><img src="{{ url('/img/edit.png') }}" height="13px" width="13px"/> Editer</button>
 

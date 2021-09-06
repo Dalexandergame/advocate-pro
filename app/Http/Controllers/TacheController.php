@@ -61,6 +61,7 @@ class TacheController extends Controller
         $task->dateecheance = $request->input('dateaudiance');
         $task->dateecheance = $request->input('dateecheance');
         $task->dossier_num = $request->input('file_number');
+        $task->tribunal_number = $request->input('tribunal_number');
         $task->assigned_user_id = $request->input('assigned_user_id');
         $task->user_id = Auth::user()->id;
         $task->etat = 'ouvert';

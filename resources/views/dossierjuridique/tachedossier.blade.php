@@ -7,7 +7,7 @@
                 <ul class="nav navbar-nav ml-auto">
                   <li class="nav-item me-3 me-lg-1">
                     <i class="nav-link" style="text-align:right;">
-                     <a href="{{  url('./dossierjuridiques')}}"><img src="{{ url('/img/arrow.svg') }}">Retour</a>
+                     <a href="{{  url('./dossier-juridiques')}}"><img src="{{ url('/img/arrow.svg') }}">Retour</a>
                     </i>
                   </li>
                 </ul>

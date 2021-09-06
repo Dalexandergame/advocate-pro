@@ -17,10 +17,13 @@ class CreateTachesTable extends Migration
             $table->id();
             $table->string('titre');
             $table->string('type');
-            $table->dateTime('dateaudiance')->nullable();
             $table->text('description');
             $table->string('etat');
+
             $table->dateTime('dateecheance')->nullable();
+
+            $table->dateTime('dateaudiance')->nullable();
+            $table->string('tribunal_number')->nullable();
             $table->string('remarque')->nullable();
             $table->string('mesures')->nullable();
             $table->string('dossier_num',20)->nullable();

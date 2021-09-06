@@ -26,6 +26,7 @@ class DossierjuridiqueController extends Controller
         
         $dossierjuridiques = Dossierjuridique::all();
         $clientcomptes = Clientcompte::all();
+        
         return view('dossierjuridique', compact('dossierjuridiques', 'clientcomptes'));
     }
 
@@ -46,7 +47,28 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->tribunal_number = $request->input('tribunal_number');
+        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
+        $dossierjuridique->user_id = Auth::user()->id;
+
+        $dossierjuridique->save();
+
+        return Redirect::back()->with('success', 'Data Saved');
+
+    }
+    public function sousstore(Request $request){
+        
+        $dossierjuridique = new Dossierjuridique();
+
+        $dossierjuridique->file_number = $request->input('file_number');
+        $dossierjuridique->date_creation = $request->input('date_creation');
+        $dossierjuridique->parent = $request->input('parent');
+        $dossierjuridique->type_dossier = $request->input('type_dossier');
+        $dossierjuridique->compte_pour = $request->input('for');
+        $dossierjuridique->compte_contre = $request->input('against');
+        $dossierjuridique->indirect_pour = $request->input('indirect_pour');
+        $dossierjuridique->indirect_contre = $request->input('indirect_contre');
+        $dossierjuridique->tagwords = $request->input('tagwords');
+        $dossierjuridique->commentaire = $request->input('commentaire');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -71,7 +93,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->tribunal_number = $request->input('tribunal_number');
+        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
         $dossierjuridique->save();
 
         return redirect('dossier-juridiques');
@@ -98,60 +120,59 @@ class DossierjuridiqueController extends Controller
         return view('dossierjuridique', ['dossierjuridiques' => $dossierjuridiques]);
       
     }
-    public function vue(Request $request)
+    public function vue($id)
     {
-            $users = User::all();
-            $today = Carbon::now()->format('Y-m-d').'%';
+        $users = User::all();
+        $today = Carbon::now()->format('Y-m-d').'%';
 
-            $file_number = $request->route('file_number');
-            $taches = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+        $dossierjuridique= Dossierjuridique::find($id);
+        $clientcomptes = Clientcompte::all();
+
+        $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
+
+        $taches = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('etat','!=','finis')
                             ->where('type','!=','audiance')
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->count();
-            $audiance = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+        $sousdossiers = Dossierjuridique::where('parent', 'LIKE', $file_number)
+                            ->count(); 
+        $allsousdossiers = Dossierjuridique::where('parent', 'LIKE', $file_number)
+                            ->get();         
+        $audiance = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('etat','=','ouvert')
                             ->where('type','=','audiance')
                             ->whereDate('taches.dateaudiance', '>=', $today)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('users', 'taches.user_id', '=', 'users.id')
+                            ->join('comments', 'comments.commentable_id', '=', 'taches.id')
                             ->first();
             $audiancehes = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('type','=','audiance')
-                            ->whereDate('taches.dateaudiance', '<=', $today)
+                            ->whereDate('taches.dateaudiance', '<', $today)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('users', 'taches.user_id', '=', 'users.id')
                             ->get();
-            $lasttache = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
-                            ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-                            ->join('users', 'taches.user_id', '=', 'users.id')
-                            ->join('comments', 'comments.commentable_id', '=', 'taches.id')
-                            ->first();
+            // $lasttache = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
+            //                 ->join('users', 'taches.user_id', '=', 'users.id')
+            //                 ->join('comments', 'comments.commentable_id', '=', 'taches.id')
+            //                 ->first();
+            // $jugement = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+            //                 ->where('etat','=','finis')
+            //                 ->where('type','=','audiance')
+            //                 ->whereDate('taches.dateaudiance', '<=', $today)
+            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
+            //                 ->first();
             $comments = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('users', 'taches.user_id', '=', 'users.id')
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
                             ->get();
-            $clientcomptes = Clientcompte::all();
-            $dossierjuridiques = Dossierjuridique::all(); 
-            $id = $request->route('id');
-            foreach ($dossierjuridiques as $dossierjuridique) {
-                if($dossierjuridique->id == $id) {
-                           return view('dossierjuridique.vue', compact('users','audiance','comments','audiancehes','taches','lasttache','dossierjuridiques','clientcomptes'));
 
-                        }
-            }
-
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','taches','dossierjuridique','clientcomptes'));
                     
    }
-
-            public function getid(id $id){
-        return $id;
-    }
-
-      public function getfile_number(file_number $file_number){
-        return $file_number;
-    }
 
       public function alltaches($number)
     
