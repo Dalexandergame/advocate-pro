@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-xl">
-    <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="img/plus.svg"> Ajouter nouveau</button>
+    <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="{{ url('img/plus.svg') }}"> Ajouter nouveau</button>
     {{-- <button class="button button2"> <img src="img/edit.svg"> Editer</button> --}}
 
 
@@ -57,7 +57,7 @@
             <br>
             <textarea class="f-input" type="text"  name="description" placeholder="Tapez votre texte ici ..." style="height: 135px;width: 550px;" required></textarea>
 
-            <button class="buttonu" type="button" id="formButton"><img class="tprof" src="img/roundplus.svg"/>Assigner une tâche</button>
+            <button class="buttonu" type="button" id="formButton"><img class="tprof" src="{{ url('img/roundplus.svg') }}"/>Assigner une tâche</button>
 
             <br><br>
             
@@ -85,8 +85,8 @@
             <nav class="navbar navbar-expand-lg navbar-light" id="tnav">
                 <div class="container-fluid p-0" id="tmenu">
                     <div class="navbar-nav sm-menu">
-                        <a class="nav-link px-md-4 active" href="{{ url('/taches') }}">mes tâches de bureau <span style="color: #989898;">( {{ $data5 }} )</span></a>
-                        <a class="nav-link px-md-4" href="{{ url('/taches/rendez-vous') }}">mes rendez-vous <span style="color: #989898;">( {{ $data6 }} )</span></a>
+                        <a class="nav-link px-md-4" href="{{ url('/taches') }}">mes tâches de bureau <span style="color: #989898;">( {{ $data5 }} )</span></a>
+                        <a class="nav-link px-md-4 active" href="{{ url('/taches/rendez-vous') }}">mes rendez-vous <span style="color: #989898;">( {{ $data6 }} )</span></a>
                         <a class="nav-link px-md-4" href="{{ url('/taches/audiances') }}">mes audiances <span style="color: #989898;">( {{ $data7 }} )</span></a>
                     </div>
                 </div>
@@ -133,10 +133,10 @@
                            </div>  
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Date de creation {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #EC1E24;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #EC1E24;">Date de rendez-vous {{ $tache['dateecheance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
@@ -171,10 +171,10 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Date de creation {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #ED741C;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #ED741C;">Date de rendez-vous {{ $tache['dateecheance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
@@ -204,10 +204,10 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Date de creation {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #3AE341;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #3AE341;">Date de rendez-vous {{ $tache['dateecheance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
@@ -243,10 +243,10 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Date de creation {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #989898;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #989898;">Date de rendez-vous {{ $tache['dateecheance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>

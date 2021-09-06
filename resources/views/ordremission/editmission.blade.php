@@ -148,6 +148,6 @@
     $("#btnx").toggle();
   });
 });
-  </script>
-  </div>
+</script>
+ 
 </body>

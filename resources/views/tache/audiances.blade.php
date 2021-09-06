@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-xl">
-    <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="img/plus.svg"> Ajouter nouveau</button>
+    <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="{{ url('img/plus.svg') }}"> Ajouter nouveau</button>
     {{-- <button class="button button2"> <img src="img/edit.svg"> Editer</button> --}}
 
 
@@ -57,7 +57,7 @@
             <br>
             <textarea class="f-input" type="text"  name="description" placeholder="Tapez votre texte ici ..." style="height: 135px;width: 550px;" required></textarea>
 
-            <button class="buttonu" type="button" id="formButton"><img class="tprof" src="img/roundplus.svg"/>Assigner une tâche</button>
+            <button class="buttonu" type="button" id="formButton"><img class="tprof" src="{{ url('img/roundplus.svg') }}"/>Assigner une tâche</button>
 
             <br><br>
             
@@ -85,9 +85,9 @@
             <nav class="navbar navbar-expand-lg navbar-light" id="tnav">
                 <div class="container-fluid p-0" id="tmenu">
                     <div class="navbar-nav sm-menu">
-                        <a class="nav-link px-md-4 active" href="{{ url('/taches') }}">mes tâches de bureau <span style="color: #989898;">( {{ $data5 }} )</span></a>
+                        <a class="nav-link px-md-4" href="{{ url('/taches') }}">mes tâches de bureau <span style="color: #989898;">( {{ $data5 }} )</span></a>
                         <a class="nav-link px-md-4" href="{{ url('/taches/rendez-vous') }}">mes rendez-vous <span style="color: #989898;">( {{ $data6 }} )</span></a>
-                        <a class="nav-link px-md-4" href="{{ url('/taches/audiances') }}">mes audiances <span style="color: #989898;">( {{ $data7 }} )</span></a>
+                        <a class="nav-link px-md-4 active" href="{{ url('/taches/audiances') }}">mes audiances <span style="color: #989898;">( {{ $data7 }} )</span></a>
                     </div>
                 </div>
             </nav>
@@ -123,68 +123,21 @@
                     <!--taches ouvert-->
                     @foreach($ouvert as $tache)
                         <div class="shadow py-3 my-3 tasks">
-                          <div style="margin-right:20px;">
-                            <form action="{{ url('/taches', $tache->id) }}" method="POST">
-                           {{ csrf_field() }}
-                            <button class="buttonu1" style="color: #ED741C;" type="submit" name="etat" value="en cours">.</button>
-                            <button class="buttonu1" style="color: #3AE341;" type="submit" name="etat" value="finis">.</button>
-                            <button class="buttonu1" style="color: #989898;" type="submit" name="etat" value="en attente">.</button>
-                             </form>
-                           </div>  
-                           <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Creation de l'audiance {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #EC1E24;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #EC1E24;">date de l'audiance {{ $tache['dateaudiance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
                                 <h5>{{ $tache['titre'] }}</h5>
                                 <p class="desc">{{ $tache['description'] }}</p>
                                 <br>
-                                <button class="button0 button4" style="margin-left: 20px;" onclick="window.location.href='{{ url('./taches-details', $tache->id) }}'">ouverte</button>
+                                <button class="button0 button4" style="margin-left: 20px;" onclick="window.location.href='{{ url('./audiance-details', $tache->id) }}'">ouverte</button>
                               </div>
                         </div>
                    @endforeach
-                </div>
-                
-
-               
-                <div class="mx-auto" style="width: 272px;height: 226px;">
-                    <div class="tl-container pt-1">
-                    <div class="tl-wrapper row pl-2">
-                    <div class="col title">
-                    <div style="margin-top: 15px;">En cours <span style="color: #989898;">{{ $data2 }}</span><hr color="orange"></div>
-                    </div>
-                    </div>
-                    </div>   
-                    <!--taches en cours-->
-                     @foreach($encours as $tache)
-                        <div class="shadow py-3 my-3 tasks">
-                            <div style="margin-right:20px;">
-                                <form action="{{ url('/taches', $tache->id) }}" method="POST">
-                           {{ csrf_field() }}
-                            <button class="buttonu1" style="color: #3AE341;" type="submit" name="etat" value="finis">.</button>
-                            <button class="buttonu1" style="color: #989898;" type="submit" name="etat" value="en attente">.</button>
-                               </form>
-                           </div> 
-                           <br>
-                             <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
-                                    <br>
-                                <span style="color: #ED741C;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
-                                </p>
-                                <br>
-                                <br>
-                                <h5>{{ $tache['titre'] }}</h5>
-                                <p class="desc">{{ $tache['description'] }}</p>
-                                <br>
-                                <button class="button0 button5" style="margin-left:20px;" onclick="window.location.href='{{ url('./taches-details', $tache->id) }}'">En cours</button>
-                             </div>
-                        </div>
-                        @endforeach
                 </div>
                    
 
@@ -200,21 +153,18 @@
                     <!--taches finis-->
                     @foreach($finis as $tache)
                         <div class="shadow py-3 my-3 tasks">
-                             <div style="margin-right:20px;">
-                           </div> 
-                           <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Creation de l'audiance {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #3AE341;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #3AE341;">date de l'audiance {{ $tache['dateaudiance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
                                 <h5>{{ $tache['titre'] }}</h5>
                                 <p class="desc">{{ $tache['description'] }}</p>
                                 <br>
-                                <button class="button0 button6" style="margin-left:20px;"onclick="window.location.href='{{ url('./taches-details', $tache->id) }}'">Finis</button>
+                                <button class="button0 button6" style="margin-left:20px;"onclick="window.location.href='{{ url('./audiance-details', $tache->id) }}'">Finis</button>
                               </div>
                         </div>
                          @endforeach
@@ -234,26 +184,18 @@
                     <!--taches en attente-->
                     @foreach($attente as $tache)
                         <div class="shadow py-3 my-3 tasks">
-                             <div style="margin-right:20px;">
-                                <form action="{{ url('/taches', $tache->id) }}" method="POST">
-                           {{ csrf_field() }}
-                            <button class="buttonu1" style="color: #ED741C;" type="submit" name="etat" value="en cours">.</button>
-                            <button class="buttonu1" style="color: #3AE341;" type="submit" name="etat" value="finis">.</button>
-                                </form>
-                           </div> 
-                           <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
-                                <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
+                                <p class="tdate">Creation de l'audiance {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
-                                <span style="color: #989898;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
+                                <span style="color: #989898;">date de l'audiance{{ $tache['dateaudiance']->format('d/m/Y') }}</span>
                                 </p>
                                 <br>
                                 <br>
                                 <h5>{{ $tache['titre'] }}</h5>
                                 <p class="desc">{{ $tache['description'] }}</p>
                                 <br>
-                                <button class="button0 button7" style="margin-left:20px;" onclick="window.location.href='{{ url('./taches-details', $tache->id) }}'">En attente</button>
+                                <button class="button0 button7" style="margin-left:20px;" onclick="window.location.href='{{ url('./audiance-details', $tache->id) }}'">En attente</button>
                               </div>
                         </div>
                          @endforeach

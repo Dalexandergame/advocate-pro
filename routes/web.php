@@ -25,12 +25,14 @@ use App\Http\Controllers\VignettesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ContactFormController;
-use App\Http\Controllers\ClientcompteController;
-use App\Http\Controllers\ClientcontactController;
-use App\Http\Controllers\JurisprudenceController;
-use App\Http\Controllers\ProductsStockController;
-use App\Http\Controllers\GovertemplatesController;
 use App\Http\Controllers\DossierjuridiqueController;
+use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\TacheController;
+use App\Http\Controllers\CalendrierController;
+use App\Http\Controllers\ClientcontactController;
+use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\JurisprudenceController;
+use App\Http\Controllers\GovertemplatesController;
 
 
 
@@ -96,10 +98,13 @@ Route::get('/ordre-de-mission/approved', [MissionController::class,'approved']);
 Route::get('/ordre-de-mission/declined', [MissionController::class,'declined']);
 Route::get('/ordre-de-mission/attente', [MissionController::class,'attente']);
 
-//Route::get('/calendrier/search',  [TacheController::class,'search']);
-//Route::get('/calendrier/view/{id}',  [TacheController::class,'view']);
-//Route::get('/calendrier',  [TacheController::class,'indexCal']);
-//Route::get('/calendrier',  [TacheController::class,'showcal']);
+
+Route::get('/calendrier/search',  [CalendrierController::class,'search']);
+Route::get('/calendrier/view/{id}',  [CalendrierController::class,'view']);
+Route::get('/calendrier/filteradmin',  [CalendrierController::class,'filteradmin']);
+Route::get('/calendrier',  [CalendrierController::class,'showcal']);
+Route::put('/calendrier/audiances/recap', [CalendrierController::class,'recap']);
+
 
 Route::get('/inventaire', [InventoryController::class, 'index']);
 
@@ -118,11 +123,17 @@ Route::get('/correspondence', function () {
 });
 
 
-//Route::get('/taches', [TacheController::class,'index']);
-//Route::get('/taches', [TacheController::class,'show']);
-//Route::post('/taches', [TacheController::class,'store']);
-//Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
-//Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
+Route::post('/taches/{etat}', [TacheController::class,'etat']);
+Route::get('/taches', [TacheController::class,'show']);
+Route::get('/taches/rendez-vous', [TacheController::class,'rendezvous']);
+Route::get('/taches/audiances', [TacheController::class,'audiances']);
+Route::put('/taches/audiances/recap/{id}', [TacheController::class,'recap']);
+Route::post('/taches', [TacheController::class,'store']);
+Route::get('/taches-details/{id}', [TacheController::class,'viewtask']);
+Route::get('/audiance-details/{id}', [TacheController::class,'viewaudiance']);
+Route::delete('/taches-details/delete/{id}', [TacheController::class,'destroy']);
+Route::get('/taches-details/edit/{id}', [TacheController::class,'edit']);
+Route::put('/taches-details/update/{id}', [TacheController::class,'update']);
 
 Route::post('/comment/store', [CommentController::class,'store'])->name('comment.add');
 Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
@@ -153,9 +164,6 @@ Route::get('/messages', function () {
         return view('messages');
 });
 
-Route::get('/dossier-juridiques-vue', function () {
-    return view('dossierjuridiquevue');
-});
 
 Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
 Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
@@ -186,6 +194,17 @@ Route::delete('/documents/{id}',[DocumentController::class,'destroy']);
 Route::delete('/selected-docs',[DocumentController::class,'deleteCheckedStudents'])->name('doc.deleteSelected');
 Route::get('/documents/documentview/{id}',[DocumentController::class,'view']);
 Route::get('/documents/search',[DocumentController::class,'search']);
+
+Route::get('dossier-juridiques', [DossierjuridiqueController::class,'show']);
+Route::get('dossier-juridiques/vue/{id}', [DossierjuridiqueController::class,'vue']);
+Route::post('dossier-juridiques', [DossierjuridiqueController::class,'store']);
+Route::post('dossier-juridiques/sous', [DossierjuridiqueController::class,'sousstore']);
+Route::get('dossier-juridiques/edit/{id}', [DossierjuridiqueController::class,'edit']);
+Route::put('dossier-juridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'search']);
+Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
+
 
 Route::get('/jurisprudence',[JurisprudenceController::class,'show']);
 Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);

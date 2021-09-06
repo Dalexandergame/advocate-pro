@@ -59,7 +59,7 @@
 #tnav{background-color:#F5F5F5;}
 
 .tl-container {
-    margin-left: 2.5rem;
+    margin-left: 25px;
     margin-right:2.5rem ;
     margin-bottom: 1rem;
     display: grid;
@@ -67,7 +67,7 @@
     gap: 1rem;
 }
 .tl-wrapper{
-    gap: 1rem;
+    gap: 2rem;
 }
 .title {
     background-color: #F5F5F5;
@@ -78,6 +78,7 @@
     font-size: 14px;
     line-height: 15px;
     color: #333333;
+    height:40px;
 }
 .task-container{
     margin-left: 2.5rem;
@@ -109,6 +110,7 @@ line-height: 12px;
 .tprof{
   width: 45px;
   height: 45px;
+  margin-left: 20px;
 }
 h5{
 font-family: Gotham;
@@ -117,6 +119,7 @@ font-weight: bold;
 font-size: 14px;
 line-height: 15px;
 color: #000000;
+margin-left: 20px;
 }
 .desc{
 font-family: Gotham;
@@ -125,5 +128,153 @@ font-weight: normal;
 font-size: 10px;
 line-height: 180.5%;/* or 18px */
 color: #000000;
+margin-left: 20px;
+margin-right: 20px;
 }
 
+.buttone{
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+background-color: white;
+width: 116px;
+height: 34px;
+border: 1.5px solid #000000;
+box-sizing: border-box;
+float: right;
+bottom: 0;
+}
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+margin-left: 30px;
+margin-top: 10px;
+}
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+width: 380px;
+height: 45px;
+margin-left: 30px;
+background-color:white;
+}
+ input::placeholder{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: #737171;
+opacity: 0.3;
+ }
+
+ textarea::placeholder{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: #737171;
+opacity: 0.3;
+margin-top: 10px;
+ }
+
+select:required:invalid {
+  color: #737171;
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+i>a:hover {
+color: black;
+text-decoration: none;
+}
+
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
+}
+.buttonu1{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 80px;
+line-height: 15px;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+display: inline-block;
+background-color: white;
+float: right;
+position: relative;
+bottom: 20px;
+}
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
+}
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+}
+.add-form{
+float: right;
+margin-top: 50px;
+}
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 720px;
+ 
+}
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
+}
+.user-label span{
+font-weight: normal;
+}
+.numberd{
+    border: none transparent;
+    outline: none;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    color: #EC1E24;
+  }

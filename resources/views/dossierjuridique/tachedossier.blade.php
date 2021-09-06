@@ -1,14 +1,25 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-xl">
-    <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="img/plus.svg"> Ajouter nouveau</button>
+
+<span class="numberd" style="margin-left:30px;">Dossier N° {{ $data->dossier_num }}</span>
+
+                <ul class="nav navbar-nav ml-auto">
+                  <li class="nav-item me-3 me-lg-1">
+                    <i class="nav-link" style="text-align:right;">
+                     <a href="{{  url('./dossier-juridiques')}}"><img src="{{ url('/img/arrow.svg') }}">Retour</a>
+                    </i>
+                  </li>
+                </ul>
+
+    {{-- <button class="button button3" class="btn btn-default btn-lg" type="button" data-toggle="modal" data-target="#Modaladd"> <img src="img/plus.svg"> Ajouter nouveau</button> --}}
     {{-- <button class="button button2"> <img src="img/edit.svg"> Editer</button> --}}
 
 
     <!-- Add Modal -->
 <div class="modal fade" id="Modaladd" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog" role="document">   
-    <div class="modal-content" style="width: 663px;height: 820px;">
+    <div class="modal-content" style="width: 663px;height: 720px;">
         <div class="modal-body">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
@@ -41,10 +52,6 @@
             <label class="f-label" for="file_number">Numero du dossier juridique</label>
             <br>
             <input class="f-input" type="text" name="file_number" placeholder="saisir le numero du dossier" style="height: 28px;width: 180;">
-            <br><br>
-            <label class="f-label" for="tribunal_number">Numero du tribunal</label>
-            <br>
-            <input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;">
             </div>
 
             <br>
@@ -79,7 +86,7 @@
   </div>
 </div>
 
-    <br> 
+    {{-- <br> 
     <br>
     <div class="row menu ml-1 pt-4 ">
             <nav class="navbar navbar-expand-lg navbar-light" id="tnav">
@@ -91,7 +98,7 @@
                     </div>
                 </div>
             </nav>
-    </div>
+    </div> --}}
 </div>
 <br>
 <br>
@@ -133,7 +140,7 @@
                            </div>  
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
                                 <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
                                 <span style="color: #EC1E24;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
@@ -171,7 +178,7 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
                                 <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
                                 <span style="color: #ED741C;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
@@ -204,7 +211,7 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
                                 <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
                                 <span style="color: #3AE341;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
@@ -243,7 +250,7 @@
                            </div> 
                            <br>
                              <div>
-                                <img class="tprof" src="img/profile.svg"/>
+                                <img class="tprof" src="{{ url('img/profile.svg') }}"/>
                                 <p class="tdate">Debut de la tache {{ $tache['created_at']->format('d/m/Y') }}
                                     <br>
                                 <span style="color: #989898;">Fin de tache {{ $tache['dateecheance']->format('d/m/Y') }}</span>
