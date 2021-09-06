@@ -115,11 +115,11 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
 				</div>
-				<div class="form-row type-move4">
+				{{-- <div class="form-row type-move4">
 					<div class="col">
 						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
 					</div>
-				</div>
+				</div> --}}
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
 			</form>
 
@@ -186,11 +186,11 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"><?php echo htmlspecialchars($dossierjuridique->commentaire); ?></textarea>
 				</div>
-				<div class="form-row type-move4">
+				{{-- <div class="form-row type-move4">
 					<div class="col">
 						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number"  value="{{ $dossierjuridique->tribunal_number }}">
 					</div>
-				</div>
+				</div> --}}
 				<input type="submit" name="enregistrer" value="Enregistrer" class="buttonw">
 			</form>
 			   <button class="buttonw" onclick="window.location='{{ url('/dossier-juridiques') }}'">Retour</button> 

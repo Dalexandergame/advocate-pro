@@ -338,9 +338,9 @@
           	<div class="gray-bold" style="margin-left: 40px;margin-top: 20px">Récap d’audiences</div><br>
 
           	<button class="vue" class="btn btn-default btn-lg" id="recapbtn"><img src="{{url('img/vue.svg')}}"/> Vue</button>
-          	<button class="imprime" class="btn btn-default btn-lg"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
+          	<button class="imprime" class="btn btn-default btn-lg"  onclick="imprimer('recapdiv')"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
 
-          	<div id="recapdiv" style="display:none;">
+          	<div id="recapdiv" style="display:none;" >
           		{{-- <span class="head">Avocat en charge:<br>  {{ $audiance->name }}</span> --}}
           		<span class="head">Séance de délit de circulation devant le tribunal de première instance à Marrakech</span>
                     {{-- <span class="head">Nom du juge:<br>Date audiance: {{$audiance['dateaudiance']->format('d/m/Y')}}</span>
@@ -408,8 +408,7 @@
 
 
 <h5 class="commentaires">Commentaires</h5>
-<img src="{{ url('/img/profile.png')}}" height="30px" width="30px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-normal2">{{ $audiance->comment }}</div><br>
-
+<img src="{{ url('/img/profile.png')}}" height="30px" width="30px" style="margin-left: 40px;margin-top: 20px"/><div class="marg-responsable-dossier"><div class="gray-normal2"><span style="color:black;">{{ $audiance->name }}</span><br><br>{{ $audiance->comment }}</div>
 
 
 <a type="button" data-toggle="modal" data-target="#Modalcomments" class="a-afficher"><div class="gray-bold-rep">
@@ -490,8 +489,7 @@
 		<input type="hidden" name="tache_id" value="{{ $audiance->tache_id }}" />
 		<input type="hidden" name="comment_id" value="{{ $audiance->comment_id }}" />
 		<input type="text" class="comment" name="comment" placeholder="Ajouter une reponse" required/>
-		<input type="file" name="file" id="file" class="inputfile" multiple onchange="javascript:updateList()"  />
-		<label for="file" id="fileList">+ Ajouter piece jointe </label>
+		
 
 		<input type="submit" class="btnr btn-sm py-0" style="font-size: 0.8em;" value="Repondre" />
 	</div>
@@ -645,7 +643,7 @@
 				@endif
 			</div>
 			<div class="row">
-				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement <div class="date-style">{{-- {{ $audiance->dateaudiance->format('d/m/Y') }} --}}</div></h5><p style="font-size: 14px; color: gray">jugementvcsuig cuigscu csduvsd cyvcd dacggvd dgvudc ug</p></div>
+				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement <div class="date-style">{{-- {{ $audiance->dateaudiance->format('d/m/Y') }} --}}</div></h5><br><p style="font-size: 14px; color: gray">jugementvcsuig cuigscu csduvsd cyvcd dacggvd dgvudc ug</p></div>
 			</div>
 			<div class="row">
 				<div><img src="{{ url('/img/qr-code.png')}}" height="70px" width="70px" style="margin-left: 150px;margin-top: 20px"></div>
@@ -728,6 +726,15 @@ input::placeholder{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script>
+function imprimer(recapdiv) {
+      var printContents = document.getElementById(recapdiv).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+</script>
 <script type="text/javascript">
 	updateList = function() {
 		var input = document.getElementById('file');

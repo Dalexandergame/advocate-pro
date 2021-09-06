@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserAuthController;
+use App\Models\Comment;
 use App\Models\Tache;
 use App\Models\User;
-use Carbon\Carbon;
-use App\Http\Controllers\UserAuthController;
 use Auth;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Redirect;
 
 class TacheController extends Controller
@@ -65,8 +66,15 @@ class TacheController extends Controller
         $task->assigned_user_id = $request->input('assigned_user_id');
         $task->user_id = Auth::user()->id;
         $task->etat = 'ouvert';
-
         $task->save();
+
+        $comment = new Comment;
+
+        $comment->comment = 'Vous etes assigner pour cette audiance';
+        $comment->user_id = Auth::user()->id;
+        $tache = Tache::find($task->id);
+        $tache->comments()->save($comment);
+
         return Redirect::back()->with('success', 'Data Saved');
     }
 

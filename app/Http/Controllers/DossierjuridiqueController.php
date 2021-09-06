@@ -47,6 +47,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
+        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -92,6 +93,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
+        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
         $dossierjuridique->save();
 
         return redirect('dossier-juridiques');
@@ -144,6 +146,7 @@ class DossierjuridiqueController extends Controller
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('users', 'taches.user_id', '=', 'users.id')
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
+                            ->select('*','taches.id as tache_id','comments.id as comment_id','comments.user_id as comment_user')
                             ->first();
             $audiancehes = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('type','=','audiance')
@@ -151,11 +154,23 @@ class DossierjuridiqueController extends Controller
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('users', 'taches.user_id', '=', 'users.id')
                             ->get();
-        
+            // $lasttache = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
+            //                 ->join('users', 'taches.user_id', '=', 'users.id')
+            //                 ->join('comments', 'comments.commentable_id', '=', 'taches.id')
+            //                 ->first();
+            // $jugement = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+            //                 ->where('etat','=','finis')
+            //                 ->where('type','=','audiance')
+            //                 ->whereDate('taches.dateaudiance', '<=', $today)
+            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
+            //                 ->first();
             $comments = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-                            ->join('users', 'taches.user_id', '=', 'users.id')
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
+                            ->join('users', 'comments.user_id', '=', 'users.id')
+                            ->orderBy('comments.created_at', 'desc')
+                            ->take(5)
                             ->get();
 
         return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','taches','dossierjuridique','clientcomptes'));
@@ -176,6 +191,9 @@ class DossierjuridiqueController extends Controller
         $data2= Tache::where('etat','=','en cours')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
         $data3= Tache::where('etat','=','finis')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
         $data4= Tache::where('etat','=','en attente')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
+        // $data5= Tache::where('type','=','tache bureau')->where('taches.dossier_num', $number)->count();
+        // $data6= Tache::where('type','=','rendez-vous')->where('taches.dossier_num', $number)->count();
+        // $data7= Tache::where('type','=','audiance')->where('taches.dossier_num', $number)->count();
         $users = User::all();
 
         $ouvert = Tache::where('etat','=','ouvert')
@@ -197,4 +215,5 @@ class DossierjuridiqueController extends Controller
 
         return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente'));
     }
+    
 }

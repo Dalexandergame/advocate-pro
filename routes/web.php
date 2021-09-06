@@ -191,6 +191,16 @@ Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'de
 Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
 
 
+// Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+// Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+// Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+// Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+// Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+// Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+// Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+// Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
+// Route::get('/dossierjuridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
+
 Route::get('/jurisprudence',[JurisprudenceController::class,'show']);
 Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);
 Route::get('/jurisprudence/download/{file}',[JurisprudenceController::class,'download']); 
