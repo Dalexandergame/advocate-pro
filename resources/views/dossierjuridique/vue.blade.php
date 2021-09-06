@@ -145,19 +145,19 @@
 			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->for->mail_contact_principal }}
 			@if(isset($dossierjuridique->indirectfor))
 			<br><br><div class=" bold-description1">{{ $dossierjuridique->indirectfor->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->indirectfor->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->indirectfor->mail_contact_principal }}
-		  @endif
-		  </div>
-			<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossierjuridique->against->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossierjuridique->against->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossierjuridique->against->mail_contact_principal }}
-			@if(isset($dossierjuridique->indirectagainst))
-			<br><br><div class=" bold-description2">{{ $dossierjuridique->indirectagainst->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossierjuridique->indirectagainst->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossierjuridique->indirectagainst->mail_contact_principal }}
+			@endif
+		</div>
+		<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossierjuridique->against->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossierjuridique->against->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossierjuridique->against->mail_contact_principal }}
+		@if(isset($dossierjuridique->indirectagainst))
+		<br><br><div class=" bold-description2">{{ $dossierjuridique->indirectagainst->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossierjuridique->indirectagainst->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossierjuridique->indirectagainst->mail_contact_principal }}
 		@endif
 	</div>
-		</div>
-		<div class="row">
-			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossierjuridique->commentaire }}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossierjuridique->tagwords }}</div></div>
-		</div>
-		<br>
-	</div>
+</div>
+<div class="row">
+	<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossierjuridique->commentaire }}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossierjuridique->tagwords }}</div></div>
+</div>
+<br>
+</div>
 </div>
 
 
@@ -173,144 +173,144 @@
 					<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Responsable du dossier</div><br><div class="gray-normal">{{ $dossierjuridique->user->name }}</div></div>
 					@if(isset($dossierjuridique->parent))
 					<h3 id="red-writing" style="color:#827E7E">Dossier parent</h3>
-				  <a href="#" class="text-button-red" style="color: #827E7E;">{{ $dossierjuridique->parent }} v</a>
+					<a href="#" class="text-button-red" style="color: #827E7E;">{{ $dossierjuridique->parent }} v</a>
 					<div class="line-vertical" style="height:10px;"></div>
 					<div class="line-horizontal"></div>
 					@endif
-				<div style="margin-left:50px;">	<h3 id="red-writing">Dossier</h3>
-					<a href="#" class="text-button-red">{{ $dossierjuridique->file_number }}<i class="arrow-down"></i></a>
-					<div class="line-vertical"></div>
-					<div class="line-horizontal"></div>
-					<div class="plus-dossier"><a class="hover-plus-dossier" type="button" data-toggle="modal" data-target="#Modalsous"><div style="color: black">+</div><div class="colored-gray">Ajouter un sous-dossier</div></a></div>
-@foreach($allsousdossiers as $ssdossier)
-					<div class="plus-dossier color-text"><a style="color:grey;" href="{{ url('dossier-juridiques/vue', $ssdossier->id) }}"> {{ $ssdossier->file_number }}<i class="arrow-right"></i></a></div>
-@endforeach
-					<div style="margin-top: 17px"></div>
-					<div class="plus-dossier"><a class="hover-plus-dossier" type="button" data-toggle="modal" data-target="#Modalsous"><div style="color: black">+</div><div class="colored-gray">Ajouter un sous-dossier</div></a>
-			
-         </div>
-
-				<div class="modal fade" id="Modalsous" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
-	<div class="modal-dialog" role="document">   
-		<div class="modal-content" style="width: 663px;height: 520px;">
-			<div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
-				</button>
-
-				<form action="{{ url('dossier-juridiques/sous') }}" method="POST">
-					{{ csrf_field() }}
-
-					<span class="numberd" style="margin-left:30px;">Dossier parent N° {{ $dossierjuridique->file_number }}</span>
-
-					<input class="f-input numberd" type="hidden" name="parent" value="{{ $dossierjuridique->file_number }}">
-					<input class="f-input numberd" type="hidden" name="tagwords" value="{{ $dossierjuridique->tagwords }}">
-					<input class="f-input numberd" type="hidden" name="commentaire" value="{{ $dossierjuridique->commentaire }}">
-					<input class="f-input numberd" type="hidden" name="for" value="{{ $dossierjuridique->for->id }}">
-					<input class="f-input numberd" type="hidden" name="against" value="{{ $dossierjuridique->against->id }}">
-
-					<div class="ddate">{{date('d/ m/ Y à H:i ')}}</div>
-					<br>
-
-					<label class="f-label" for="file_number">Numero sous dossier</label>
-						<br>
-						<input class="f-input" type="text" name="file_number" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
-            <br><br>
-
-					<label  class="f-label" for="type">Type</label>
-					<br>
-					<select class="f-input" type="text" name="type_dossier" aria-label="Default select example" style="height: 28px;width: 180px;" required>
-						<option value="" selected disabled>Choisir sous type</option>
-						<option value="type1">type 1</option>
-						<option value="type2">type 2</option>
-					</select>
-					<br><br>
-
-					
-						<label class="f-label" for="date_creation">Date creation</label>
-						<br>
-						<input class="f-input" type="text" name="date_creation" placeholder="Enter la date creation" onfocus="(this.type='date')" style="height: 28px;width: 180;">
-					
-					<br><br>
-					<div style="display:inline-block;">
-
-					<label  class="f-label" for="indirect_pour">Client indirect pour</label>
-					<br>
-					<select class="f-input" type="text" name="indirect_pour" aria-label="Default select example" style="height: 28px;width: 259px;">
-						<option value="" selected disabled>Choisir client pour</option>
-						@foreach($clientcomptes as $compte)
-						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+					<div style="margin-left:50px;">	<h3 id="red-writing">Dossier</h3>
+						<a href="#" class="text-button-red">{{ $dossierjuridique->file_number }}<i class="arrow-down"></i></a>
+						<div class="line-vertical"></div>
+						<div class="line-horizontal"></div>
+						<div class="plus-dossier"><a class="hover-plus-dossier" type="button" data-toggle="modal" data-target="#Modalsous"><div style="color: black">+</div><div class="colored-gray">Ajouter un sous-dossier</div></a></div>
+						@foreach($allsousdossiers as $ssdossier)
+						<div class="plus-dossier color-text"><a style="color:grey;" href="{{ url('dossier-juridiques/vue', $ssdossier->id) }}"> {{ $ssdossier->file_number }}<i class="arrow-right"></i></a></div>
 						@endforeach
-					</select></div>
-					
-					<div style="display:inline-block">
+						<div style="margin-top: 17px"></div>
+						<div class="plus-dossier"><a class="hover-plus-dossier" type="button" data-toggle="modal" data-target="#Modalsous"><div style="color: black">+</div><div class="colored-gray">Ajouter un sous-dossier</div></a>
 
-					<label  class="f-label" for="indirect_contre">Client indirect contre</label>
-					<br>
-					<select class="f-input" type="text" name="indirect_contre" aria-label="Default select example" style="height: 28px;width: 259px;">
-						<option value = "" selected disabled>Choisir client contre</option>
-						@foreach($clientcomptes as $compte)
-						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
-						@endforeach
-					</select></div>
-
-					<br><br><br>
-					<button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
-				</form> 
-
-			</div>
-		</div>
-	</div>
-</div>
-
-</div>
-					<div style="margin-bottom: 60px"></div>
-
-				</div>
-				<div class="col-2.5">
-
-					<div class="customSelect" style="width:220px; height: 50px; margin-left: 30px; margin-right: -7px;">
-						<select>
-							<option value="0">Type du dossier</option>
-							<option value="type1">type 1</option>
-							<option value="type2">type 2</option>
-							<option value="type3">type 3</option>
-							<option value="type4">type 4</option>
-						</select>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="float-child">
-		<div class="big-grid2">
-			<div class="row">
-				<div class="col-2.5">
-
-					@if(isset($audiance))        	
-					<img src="{{ url('/img/alarm.png')}}" height="20px" width="20px" style="margin-left: 40px;margin-top: 20px"/>
-					<div class="marg-red-bold"><div class="red-bold">
-						{{-- @foreach($audiance as $audiance) --}}
-						<span> Date du prochaine audience {{ $audiance->dateaudiance->format('d/m/Y H:i') }} </span><br>
-						{{-- @endforeach --}}
-					</div><br></div>
-					
-
-
-
-					<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Utilisateur en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div><br>
-
-					<a type="button" data-toggle="modal" data-target="#Modalview" class="gray-bold-audience marg-responsable-dossier2">Afficher plus de détails sur l'audience</a>
-
-					<!-- view audiance details Modal -->
-					<div class="modal fade" id="Modalview" tabindex="-1" role="dialog" aria-labelledby="viewLabel" aria-hidden="true" data-backdrop="static">
+					<div class="modal fade" id="Modalsous" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
 						<div class="modal-dialog" role="document">   
-							<div class="modal-content" style="width: 870px;height: 1020px;">
+							<div class="modal-content" style="width: 663px;height: 520px;">
 								<div class="modal-body">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
 									</button>
+
+									<form action="{{ url('dossier-juridiques/sous') }}" method="POST">
+										{{ csrf_field() }}
+
+										<span class="numberd" style="margin-left:30px;">Dossier parent N° {{ $dossierjuridique->file_number }}</span>
+
+										<input class="f-input numberd" type="hidden" name="parent" value="{{ $dossierjuridique->file_number }}">
+										<input class="f-input numberd" type="hidden" name="tagwords" value="{{ $dossierjuridique->tagwords }}">
+										<input class="f-input numberd" type="hidden" name="commentaire" value="{{ $dossierjuridique->commentaire }}">
+										<input class="f-input numberd" type="hidden" name="for" value="{{ $dossierjuridique->for->id }}">
+										<input class="f-input numberd" type="hidden" name="against" value="{{ $dossierjuridique->against->id }}">
+
+										<div class="ddate">{{date('d/ m/ Y à H:i ')}}</div>
+										<br>
+
+										<label class="f-label" for="file_number">Numero sous dossier</label>
+										<br>
+										<input class="f-input" type="text" name="file_number" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
+										<br><br>
+
+										<label  class="f-label" for="type">Type</label>
+										<br>
+										<select class="f-input" type="text" name="type_dossier" aria-label="Default select example" style="height: 28px;width: 180px;" required>
+											<option value="" selected disabled>Choisir sous type</option>
+											<option value="type1">type 1</option>
+											<option value="type2">type 2</option>
+										</select>
+										<br><br>
+
+
+										<label class="f-label" for="date_creation">Date creation</label>
+										<br>
+										<input class="f-input" type="text" name="date_creation" placeholder="Enter la date creation" onfocus="(this.type='date')" style="height: 28px;width: 180;">
+
+										<br><br>
+										<div style="display:inline-block;">
+
+											<label  class="f-label" for="indirect_pour">Client indirect pour</label>
+											<br>
+											<select class="f-input" type="text" name="indirect_pour" aria-label="Default select example" style="height: 28px;width: 259px;">
+												<option value="" selected disabled>Choisir client pour</option>
+												@foreach($clientcomptes as $compte)
+												<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+												@endforeach
+											</select></div>
+
+											<div style="display:inline-block">
+
+												<label  class="f-label" for="indirect_contre">Client indirect contre</label>
+												<br>
+												<select class="f-input" type="text" name="indirect_contre" aria-label="Default select example" style="height: 28px;width: 259px;">
+													<option value = "" selected disabled>Choisir client contre</option>
+													@foreach($clientcomptes as $compte)
+													<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+													@endforeach
+												</select></div>
+
+												<br><br><br>
+												<button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
+											</form> 
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div style="margin-bottom: 60px"></div>
+
+					</div>
+					<div class="col-2.5">
+
+						<div class="customSelect" style="width:220px; height: 50px; margin-left: 30px; margin-right: -7px;">
+							<select>
+								<option value="0">Type du dossier</option>
+								<option value="type1">type 1</option>
+								<option value="type2">type 2</option>
+								<option value="type3">type 3</option>
+								<option value="type4">type 4</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="float-child">
+			<div class="big-grid2">
+				<div class="row">
+					<div class="col-2.5">
+
+						@if(isset($audiance))        	
+						<img src="{{ url('/img/alarm.png')}}" height="20px" width="20px" style="margin-left: 40px;margin-top: 20px"/>
+						<div class="marg-red-bold"><div class="red-bold">
+							{{-- @foreach($audiance as $audiance) --}}
+							<span> Date du prochaine audience {{ $audiance->dateaudiance->format('d/m/Y H:i') }} </span><br>
+							{{-- @endforeach --}}
+						</div><br></div>
+
+
+
+
+						<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Utilisateur en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div><br>
+
+						<a type="button" data-toggle="modal" data-target="#Modalview" class="gray-bold-audience marg-responsable-dossier2">Afficher plus de détails sur l'audience</a>
+
+						<!-- view audiance details Modal -->
+						<div class="modal fade" id="Modalview" tabindex="-1" role="dialog" aria-labelledby="viewLabel" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog" role="document">   
+								<div class="modal-content" style="width: 870px;height: 1020px;">
+									<div class="modal-body">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+										</button>
 
           {{-- <form action="{{ url('') }}" method="POST">
           	{{ csrf_field() }} --}}
@@ -407,10 +407,6 @@
 </div>
 
 
-<div><div class="frais-color">Frais</div><div class="frais-color-dh">200 Dhs</div></div>
-<a href="#" class="ajouer-frais"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
-
-
 <h5 class="commentaires">Commentaires</h5>
 <img src="{{ url('/img/profile.png')}}" height="30px" width="30px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-normal2">{{ $audiance->comment }}</div><br>
 
@@ -424,14 +420,14 @@
 	<!-- comments Modal -->
 	<div class="modal fade" id="Modalcomments" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">
 		<div class="modal-dialog" role="document">   
-			<div class="modal-content" style="width: 663px;height: 720px;">
+			<div class="modal-content" style="width: 663px;height: 1020px;">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
 					</button>
 
-					<form action="{{ url('comment.add') }}" method="POST">
-						{{ csrf_field() }}
+					{{-- <form action="{{ url('comment.add') }}" method="POST">
+						{{ csrf_field() }} --}}
 
 						<span class="numberd" style="margin-left:30px;">Dossier N° </span><input class="f-input numberd" type="text" name="file_number" value="{{ $dossierjuridique->file_number }}">
 						<div class="ddate">{{date('d/ m/ Y à H:i ')}}</div>
@@ -449,6 +445,18 @@
 
 
 							</div>
+							<form method="post" action="{{ route('reply.add') }}" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<div class="form-inline" style="margin-left:50px;">
+									<input type="hidden" name="tache_id" value="{{ $audiance->tache_id }}" />
+									<input type="hidden" name="comment_id" value="{{ $audiance->comment_id }}" />
+									<input type="text" class="comment" name="comment" placeholder="Ajouter une reponse" required/>
+									<input type="file" name="file" id="file" class="inputfile" multiple onchange="javascript:updateList()"  />
+									<label for="file" id="fileList">+ Ajouter piece jointe </label>
+
+									<input type="submit" class="btnr btn-sm py-0" style="font-size: 0.8em;" value="Repondre" />
+								</div>
+							</form>
 
 
 							{{-- <button type="button" id="formButton">Repondre</button> --}}
@@ -463,9 +471,7 @@
         
             <input type="submit" class="btnr btn-sm py-0" style="font-size: 0.8em;" value="Repondre" />
         </div>
-      </form> --}}
-      <br>
-      <br>    
+      </form> --}}  
     </div>
     {{-- <div style="margin-left:30px;"> @include('tache.replies', ['comments' => $comment->replies])</div> --}}
     @endforeach
@@ -478,10 +484,11 @@
 
 
 
-<form method="post" action="{{ route('comment.add') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('reply.add') }}" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	<div class="form-inline" style="margin-left:50px;">
-		<input type="hidden" name="tache_id" value="{{ $audiance->id }}" />
+		<input type="hidden" name="tache_id" value="{{ $audiance->tache_id }}" />
+		<input type="hidden" name="comment_id" value="{{ $audiance->comment_id }}" />
 		<input type="text" class="comment" name="comment" placeholder="Ajouter une reponse" required/>
 		<input type="file" name="file" id="file" class="inputfile" multiple onchange="javascript:updateList()"  />
 		<label for="file" id="fileList">+ Ajouter piece jointe </label>
@@ -496,11 +503,11 @@
 <br>
 <br>
 <div class="col-2.5">
-	<div style="margin-top: -500px; margin-left: -10px"><div class="loader">Loading...</div><div class="gray-cours-traitement">En cours de traitement</div> </div>
+	<div style="margin-top: -430px; margin-left: -10px"><div class="loader">Loading...</div><div class="gray-cours-traitement">En cours de traitement</div> </div>
 
-{{-- 		<a href="" class="a-afficher"><div class="gray-bold-details">Voir détails</div></a>
- --}}		
-@endif
+	<a href="{{ url('/audiance-details', $audiance->tache_id) }}" class="a-afficher"><div class="gray-bold-details">Voir détails</div></a>
+
+	@endif
 
 
 
@@ -508,12 +515,16 @@
 
 
 
-
-
 	<div style="margin-left: 335px;margin-top: 190px"><a href="" class="a-afficher"><img src="{{-- {{ url('/img/attach.png')}} --}}" height="11px" width="11px" style="margin-left: 50px;"/>  <div class="colored-gray-joint">{{-- {{ $audiance->file }} --}}</div></a></div>
 </div>
 
+<br><br>
+
 <a class="marg-circle-button"type="button" data-toggle="modal" data-target="#Modaladd" style="margin-top: -100px"><div class="circle">+</div><div class="gray-bold-rep2">Assigner une tâche</div></a>
+
+
+<div style="margin-top: -100px; margin-right:-185px;"><div class="frais-color">Frais</div><div class="frais-color-dh">200 Dhs</div></div>
+<a href="#" class="ajouer-frais" style="margin-top: -50px"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
 
 <!-- Add Tache Modal -->
 <div class="modal fade" id="Modaladd" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">
@@ -550,9 +561,9 @@
 					</div>
 					<div id="audiance_input" style="display:none;">
 						<label class="f-label" for="dateecheance">Date & heur d’audiance</label>
-            <br>
-            <input class="f-input" type="text" name="dateaudiance" placeholder="Date de la prochaine audiance" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
-            <br>
+						<br>
+						<input class="f-input" type="text" name="dateaudiance" placeholder="Date de la prochaine audiance" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
+						<br>
 						<label class="f-label" for="tribunal_number">Numero du tribunal</label>
 						<br>
 						<input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;">
@@ -596,6 +607,7 @@
 </div>
 </div>
 </div></div>
+@if(isset($his->file_number))
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
@@ -606,10 +618,10 @@
 				<hr class="red-line">
 				
 				@foreach($audiancehes as $his)
-				@if(isset($his->file_number))
+				
 				<div class="style-n-all2"><div class="style-n1">{{ $his->file_number }}</div><div  class="style-n2">{{ $his->tribunal_number }}</div><div class="style-n3">  {{ $his->type_dossier }}</div><div class="style-n3">{{ $his->dateaudiance->format('d-m-Y') }}</div></div>
 				<hr class="red-line2">
-				@endif
+			
 				@endforeach
 
 				{{-- <div class="style-n-all2"><div class="style-n1">N du dossier</div><div  class="style-n2">N du tribunal</div><div class="style-n3">Type du dossier</div><div class="style-n4">Date</div></div>
@@ -619,6 +631,7 @@
 		</div>
 	</div>
 </div>
+@endif
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
