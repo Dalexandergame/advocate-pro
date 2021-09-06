@@ -24,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TribunalController;
 use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\JurisprudenceController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\PermissionController;
+
 
 
 
@@ -49,12 +54,17 @@ Route::get('/new-forget', function () {
 Route::get('/new-register', function () {
     return view('users/newRegister');
 });
+Route::get('/', function () {
+    return view('auth/newLogin');
+});
 
 
 Route::resource('/users', UsersController::class);
 Route::get('/users/delete/{id}',[UsersController::class,'destroy']);
-
-
+Route::resource('/roles', RolesController::class);
+Route::get('/roles/delete/{id}',[RolesController::class,'destroy']);
+Route::resource('/permissions', PermissionController::class);
+Route::get('/permissions/delete/{id}',[PermissionController::class,'destroy']);
 
 Auth::routes();
 
@@ -68,9 +78,9 @@ Route::get('/clients', function () {
     return view('clientview');
 });
 
-Route::get('/profile', function () {
-    return view('personalprofilview');
-});
+Route::get('/profile',[ProfilController::class,'show']);
+Route::put('/profile/update/{id}',[ProfilController::class,'update']);
+Route::put('/profile/updatepass/{id}',[ProfilController::class,'updatepass']);
 
 Route::put('/ordre-de-mission/update/{id}', [MissionController::class,'update']);
 Route::get('/ordre-de-mission', [MissionController::class,'show']);
@@ -132,9 +142,7 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
-Route::get('/jurisprudence', function () {
-    return view('jurisprudence');
-});
+
 
 Route::get('/messages', function () {
         return view('messages');
@@ -202,6 +210,24 @@ Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController
 // Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
 // Route::get('/dossierjuridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
 
+Route::get('/jurisprudence',[JurisprudenceController::class,'show']);
+Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);
+Route::get('/jurisprudence/download/{file}',[JurisprudenceController::class,'download']); 
+Route::get('/jurisprudence/jurisprudenceview/{id}',[JurisprudenceController::class,'view']);
+Route::delete('/selected-jurisprudence',[JurisprudenceController::class,'deleteCheckedStudents'])->name('jurisprudence.deleteSelected');
+
+
+Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
+Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
+Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
+Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
+Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
+Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
+Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
+Route::get('/dossier-juridiques-vue', function () {
+    return view('dossierjuridiquevue');
+});
 
 Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
 Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);

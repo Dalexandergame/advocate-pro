@@ -16,6 +16,7 @@
         </div>
         <div class="list item-4">
             <a href="{{ url('documents')}}" class="flex"><x-doc-icon></x-doc-icon><span>Doccuments</span></a>
+            <a href="./documents" class="flex"><x-doc-icon></x-doc-icon><span>Documents</span></a>
         </div>
         <div class="list item-5">
             <a href="/users')}}" class="flex"><x-user-icon></x-user-icon><span>Utilisateurs</span></a>

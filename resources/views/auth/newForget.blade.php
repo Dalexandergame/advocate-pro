@@ -10,10 +10,10 @@
         <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
         <style>
             body {
-                background-image: url(img/ImageAvocat2.jpg);
+                background-image:url({{url('img/ImageAvocat2.jpg')}})
                  }
             #logo {
-                background-image: url(img/Logo-Blanc-AdvocatPro.png);
+                background-image:url({{url('img/Logo-Blanc-AdvocatPro.png')}})
             }
         </style>
     </head>

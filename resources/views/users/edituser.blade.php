@@ -31,6 +31,15 @@
         <label for="password_confirmation">Password Confirm</label>
         <input type="password" name="password_confirmation" class="form-control" placeholder="Password..." id="password_confirmation">
     </div>
+    <div class="form-group">
+        <label for="role">Selectioner le Role</label>
+        <select class="role form-control" name="role" id="role">
+            <option value="">Selection</option>
+            @foreach ($roles as $role)
+                <option data-role-id="{{$role->id}}" data-role-slug="{{$role->slug}}" value="{{$role->id}}" {{ $user->roles->isEmpty() || $role->name != $userRole->name ? "" : "selected"}}>{{$role->name}}</option>                
+            @endforeach
+        </select>          
+    </div>
  
 
     <div class="form-group pt-2">

@@ -44,5 +44,6 @@
     </div>
 
     @yield('scripts')
+    @yield('js_user_page')
 </body>
 </html>
