@@ -153,6 +153,7 @@ Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->n
 Route::post('add-product-to-stock', [ProductsStockController::class, 'choose'])->name('productstock.choose');
 
 Route::resource('templates', TemplatesController::class)->except('index');
+Route::resource('govertemplates', GovertemplatesController::class);
 
 Route::resource('categories', CategoriesController::class);
 Route::resource('categories.products', ProductsController::class)->shallow();
