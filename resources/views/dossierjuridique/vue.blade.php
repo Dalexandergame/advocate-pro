@@ -663,8 +663,9 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
 									</button>
-          <form action="{{ url('dossier-juridiques/sous') }}" method="POST">
+          {{-- <form action="{{ url('dossier-juridiques/gouver',$dossierjuridique->id) }}" method="POST">
 										{{ csrf_field() }}
+										{{ method_field('PUT') }} --}}
 
 										<span class="numberd" style="margin-left:30px;">Dossier N° {{ $dossierjuridique->file_number }}</span>
 										<br>
@@ -672,25 +673,61 @@
 
           	<h5 class="commentaires">N° de tribunal: {{ $audiance->tribunal_number }}</h5>
           	<h5 class="commentaires">Type: {{ $audiance->type_dossier }}</h5>
-          	<h5 class="commentaires">Date audiance: {{ $audiance->tribunal_number }}</h5>
+          	<h5 class="commentaires">Date audiance: {{ $audiance->dateaudiance->format('d-m-Y') }}</h5>
           	<br>
 
-											<label style="float: right;" class="f-label" for="indirect_pour">طلب نسخة من الحكم</label>
+											<label style="float: right;" class="f-label" for="exepmle_id">طلب نسخة من الحكم</label>
 											<br><br>
-											<select class="f-input" type="text" name="indirect_pour" aria-label="Default select example" style="height: 28px;width: 259px;float: right;">
-												<option value="" selected disabled>Choisir client pour</option>
-												@foreach($clientcomptes as $compte)
-												<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+											<select class="f-input" type="text" name="exepmle_id" aria-label="Default select example" style="height: 28px;width: 259px;float: right;" >
+												<option value="" selected disabled>اختر نموذج</option>
+												@foreach($gouvers as $gouver)
+												<option value="{{ $gouver->id }}">نموذج {{ $gouver->id }}</option>
 												@endforeach
 											</select>
 
 												<button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
-											</form>
+											{{-- </form> --}}
 										</div>
 									</div>
 								</div>
 							</div>
-          <button class="jugement-view">voir la copie du jugement </button>
+          <button class="jugement-view" type="button" data-toggle="modal" data-target="#Modalvoir">voir la copie du jugement </button>
+
+          <div class="modal fade" id="Modalvoir" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal-dialog" role="document">   
+							<div class="modal-content" style="width: 663px;height: 380px;">
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+									</button>
+
+										<span class="numberd" style="margin-left:30px;">Dossier N° {{ $dossierjuridique->file_number }}</span>
+										<br>
+										<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Avocat en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div>
+
+          	<h5 class="commentaires">N° de tribunal: {{ $audiance->tribunal_number }}</h5>
+          	<h5 class="commentaires">Type: {{ $audiance->type_dossier }}</h5>
+          	<h5 class="commentaires">Date audiance: {{ $audiance->dateaudiance->format('d-m-Y') }}</h5>
+          	<br>
+
+											<label style="float: right;" class="f-label" for="exepmle_id">طلب نسخة من الحكم</label>
+											<br><br>
+											<select class="f-input" type="text" name="exepmle_id" aria-label="Default select example" style="height: 28px;width: 259px;float: right;" >
+												<option value="نموذج  {{ $dossierjuridique->exemple_id }}" selected disabled>نموذج  {{ $dossierjuridique->exemple_id }}</option>
+											</select>
+
+										</div>
+									</div>
+
+
+										<div class="modal-content" style="width: 663px;height: 980px;">
+											<div class="modal-body">
+
+
+											</div>
+									</div>
+								</div>
+							</div>
 				</div>
 			
 			</div>

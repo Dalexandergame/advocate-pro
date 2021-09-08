@@ -60,4 +60,9 @@ class Dossierjuridique extends Model
     {
         return $this->belongsTo('App\Models\Clientcompte' , 'indirect_contre');
     }
+
+    public function gouver()
+    {
+        return $this->hasMany('App\Models\govertemplates' , 'example_id');
+    }
 }

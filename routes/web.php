@@ -1,33 +1,34 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DemandsController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DossierjuridiqueController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\GovertemplatesController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\JurisprudenceController;
 use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StocksController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\TemplatesController;
-use App\Http\Controllers\UserAuthController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\VignettesController;
-use App\Http\Controllers\CalendrierController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TribunalController;
-use App\Http\Controllers\ClientcontactController;
-use App\Http\Controllers\ClientcompteController;
-use App\Http\Controllers\JurisprudenceController;
-use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\RolesController;
-use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\VignettesController;
+use Illuminate\Support\Facades\Route;
 
 
 
@@ -188,6 +189,7 @@ Route::post('dossier-juridiques/sous', [DossierjuridiqueController::class,'souss
 Route::get('dossier-juridiques/edit/{id}', [DossierjuridiqueController::class,'edit']);
 Route::put('dossier-juridiques/{id}', [DossierjuridiqueController::class,'update']);
 Route::put('dossier-juridiques/jugement/{id}', [DossierjuridiqueController::class,'updatejugement']);
+// Route::put('dossier-juridiques/gouver/{id}', [DossierjuridiqueController::class,'updategouver']);
 Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'search']);
 Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);
@@ -208,19 +210,6 @@ Route::post('/jurisprudence/upload',[JurisprudenceController::class,'store']);
 Route::get('/jurisprudence/download/{file}',[JurisprudenceController::class,'download']); 
 Route::get('/jurisprudence/jurisprudenceview/{id}',[JurisprudenceController::class,'view']);
 Route::delete('/selected-jurisprudence',[JurisprudenceController::class,'deleteCheckedStudents'])->name('jurisprudence.deleteSelected');
-
-
-Route::get('dossierjuridiques', [DossierjuridiqueController::class,'index']);
-Route::get('dossierjuridiques/create', [DossierjuridiqueController::class,'create']);
-Route::post('dossierjuridiques', [DossierjuridiqueController::class,'store']);
-Route::get('dossierjuridiques/{id}/edit', [DossierjuridiqueController::class,'edit']);
-Route::put('dossierjuridiques/{id}', [DossierjuridiqueController::class,'update']);
-Route::delete('dossierjuridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
-Route::get('/dossierjuridiques/search',[DossierjuridiqueController::class, 'search']);
-Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'vue']);
-Route::get('/dossier-juridiques-vue', function () {
-    return view('dossierjuridiquevue');
-});
 
 Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
 Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);

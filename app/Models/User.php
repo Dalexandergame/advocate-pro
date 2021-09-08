@@ -23,6 +23,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Mission');
     }
 
+     public function dossiers()
+    {
+        return $this->hasMany('App\Models\dossierjuridiques');
+    }
+
     protected $table = 'users';
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\UserAuthController;
 use App\Models\Clientcompte;
 use App\Models\Dossierjuridique;
+use App\Models\Govertemplate;
 use App\Models\Tache;
 use App\Models\User;
 use Auth;
@@ -103,11 +104,13 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique = Dossierjuridique::find($id);
 
         $dossierjuridique->jugement = $request->input('jugement');
+        $dossierjuridique->exepmle_id = $request->input('exepmle_id');
         $dossierjuridique->save();
 
         return Redirect::back();
 
     }
+    
 
     public function destroy(Request $request, $id){
 
@@ -136,7 +139,7 @@ class DossierjuridiqueController extends Controller
 
         $dossierjuridique= Dossierjuridique::find($id);
         $clientcomptes = Clientcompte::all();
-        $clientcomptes = Clientcompte::all();
+        $gouvers = Govertemplate::all();
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
 
@@ -191,7 +194,7 @@ class DossierjuridiqueController extends Controller
                             ->take(5)
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','clientcomptes'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','clientcomptes','gouvers'));
                     
    }
 
