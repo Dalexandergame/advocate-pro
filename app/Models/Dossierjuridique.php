@@ -31,6 +31,11 @@ class Dossierjuridique extends Model
         return $this->hasMany('App\Models\Tache');
     }
 
+    public function dossier()
+    {
+        return $this->belongsTo('App\Models\Dossierjuridique', 'parent' , 'file_number');
+    }
+
      public function user()
     {
         return $this->belongsTo('App\Models\User' , 'user_id');

@@ -186,6 +186,7 @@ Route::post('dossier-juridiques', [DossierjuridiqueController::class,'store']);
 Route::post('dossier-juridiques/sous', [DossierjuridiqueController::class,'sousstore']);
 Route::get('dossier-juridiques/edit/{id}', [DossierjuridiqueController::class,'edit']);
 Route::put('dossier-juridiques/{id}', [DossierjuridiqueController::class,'update']);
+Route::put('dossier-juridiques/jugement/{id}', [DossierjuridiqueController::class,'updatejugement']);
 Route::get('/dossier-juridiques/search',[DossierjuridiqueController::class, 'search']);
 Route::delete('dossier-juridiques/{id}', [DossierjuridiqueController::class, 'destroy']);
 Route::get('/dossier-juridiques/alltaches/{number}', [DossierjuridiqueController::class, 'alltaches']);

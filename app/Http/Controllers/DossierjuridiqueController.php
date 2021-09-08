@@ -93,10 +93,19 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
         $dossierjuridique->save();
 
         return redirect('dossier-juridiques');
+
+    }
+
+    public function updatejugement(Request $request, $id){
+        $dossierjuridique = Dossierjuridique::find($id);
+
+        $dossierjuridique->jugement = $request->input('jugement');
+        $dossierjuridique->save();
+
+        return Redirect::back();
 
     }
 
@@ -127,6 +136,7 @@ class DossierjuridiqueController extends Controller
 
         $dossierjuridique= Dossierjuridique::find($id);
         $clientcomptes = Clientcompte::all();
+        $clientcomptes = Clientcompte::all();
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
 
@@ -142,9 +152,9 @@ class DossierjuridiqueController extends Controller
         $audiance = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('etat','=','ouvert')
                             ->where('type','=','audiance')
-                            ->whereDate('taches.dateaudiance', '>=', $today)
+                            //->whereDate('taches.dateaudiance', '>=', $today)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-                            ->join('users', 'taches.user_id', '=', 'users.id')
+                            ->join('users', 'taches.assigned_user_id', '=', 'users.id')
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
                             ->select('*','taches.id as tache_id','comments.id as comment_id','comments.user_id as comment_user')
                             ->first();
@@ -152,7 +162,15 @@ class DossierjuridiqueController extends Controller
                             ->where('type','=','audiance')
                             ->whereDate('taches.dateaudiance', '<', $today)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-                            ->join('users', 'taches.user_id', '=', 'users.id')
+                            ->join('users', 'taches.assigned_user_id', '=', 'users.id')
+                            ->take(8)
+                            ->get();
+            $audiancehes2 = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
+                            ->where('type','=','audiance')
+                            ->whereDate('taches.dateaudiance', '<', $today)
+                            ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
+                            ->join('users', 'taches.assigned_user_id', '=', 'users.id')
+                            ->take(4)
                             ->get();
             // $lasttache = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
             //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
@@ -173,7 +191,7 @@ class DossierjuridiqueController extends Controller
                             ->take(5)
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','taches','dossierjuridique','clientcomptes'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','clientcomptes'));
                     
    }
 

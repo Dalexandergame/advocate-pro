@@ -22,17 +22,17 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('commentaire')->nullable();
 
             $table->string('jugement')->nullable(); 
+
             $table->string('parent',20)->nullable();
             $table->foreign('parent')
-                ->nullable()
                 ->references('file_number')
                 ->on('dossierjuridiques')
                 ->onDelete('cascade'); 
 
-            $table->string('tribunal_number')->nullable(); 
-            $table->dateTime('dateaudiance')->nullable();
-            $table->string('remarque')->nullable();
-            $table->string('mesures')->nullable();
+            // $table->string('tribunal_number')->nullable(); 
+            // $table->dateTime('dateaudiance')->nullable();
+            // $table->string('remarque')->nullable();
+            // $table->string('mesures')->nullable();
 
 
             $table->ForeignId('user_id')
@@ -40,24 +40,29 @@ class CreateDossierjuridiquesTable extends Migration
                 ->constrained('users')
                 ->onDelete('cascade');
 
+            $table->ForeignId('exepmle_id')
+                ->nullable()
+                ->constrained('govertemplates')
+                ->onDelete('cascade');
+
             $table->ForeignId('compte_pour')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('compte_contre')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('indirect_pour')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('indirect_contre')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->timestamps();

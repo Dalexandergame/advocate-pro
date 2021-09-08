@@ -51,10 +51,10 @@
 
 				<div class="form-column col-md-8 type-move0">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="numero dossier" name="file_number">
+						<input type="text" class="form-control" placeholder="numero dossier" name="file_number" required="saisir un numero">
 					</div><div style="margin-top: 5px"></div>
 					<div class="col">
-						<input type="date" class="form-control" placeholder="date creation" name="date_creation">
+						<input type="date" class="form-control" placeholder="date creation" name="date_creation" required="selectionner une date">
 					</div><div style="margin-top: 5px"></div>
 					<div class="col">
 						<input type="text" class="form-control" placeholder="tagwords" name="tagwords">
@@ -62,7 +62,7 @@
 				</div>
 				<div class="form-group col-md-7 type-move">
 					<label for="inputState">Type</label>
-					<select id="inputState" name="type_dossier" class="form-control">
+					<select id="inputState" name="type_dossier" class="form-control" required="choisir un type">
 						<option value="">Choose type</option>
 						<option value="type1">type 1</option>
 						<option value="type2">type 2</option>
@@ -72,7 +72,7 @@
 					<div class="col">
 						<label for="">Pour</label>
 						{{-- <input type="text" class="form-control" placeholder="Nom du compte" name="for"> --}}
-						<select name="for" class="form-control">
+						<select name="for" class="form-control" required="choisir client pour">
 						<option disabled selected>Choisir un compte</option>
 						@foreach($clientcomptes as $compte)
 						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
@@ -82,7 +82,7 @@
 					<div class="col">
 						<label for="">Contre</label>
 						{{-- <input type="text" class="form-control" placeholder="Nom du compte" name="against"> --}}
-						<select name="against" class="form-control">
+						<select name="against" class="form-control" required="choisir client contre">
 						<option disabled selected>Choisir un compte</option>
 						@foreach($clientcomptes as $compte)
 						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
@@ -114,7 +114,7 @@
 				</div>
 				<div class="form-group text-area-move">
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire" required="saisir un Commentaire"></textarea>
 				</div>
 				{{-- <div class="form-row type-move4">
 					<div class="col">

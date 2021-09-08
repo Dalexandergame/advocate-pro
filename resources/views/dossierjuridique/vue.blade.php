@@ -214,7 +214,7 @@
 
 										<label class="f-label" for="file_number">Numero sous dossier</label>
 										<br>
-										<input class="f-input" type="text" name="file_number" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
+										<input class="f-input" type="text" name="file_number" value="{{ $dossierjuridique->file_number }}" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
 										<br><br>
 
 										<label  class="f-label" for="type">Type</label>
@@ -605,7 +605,7 @@
 </div>
 </div>
 </div></div>
-@if(isset($his->file_number))
+
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
@@ -613,14 +613,16 @@
 				<div class="col-2.5" id="red-writing-3">Historique du dossier</div>
 
 				<div class="style-n-all"><div class="style-n1">N du dossier</div><div  class="style-n2">N du tribunal</div><div class="style-n3">Type du dossier</div><div class="style-n4">Date</div></div>
-				<hr class="red-line">
+				<hr class="red-line2" style="width:1px;">
+
 				
-				@foreach($audiancehes as $his)
-				
-				<div class="style-n-all2"><div class="style-n1">{{ $his->file_number }}</div><div  class="style-n2">{{ $his->tribunal_number }}</div><div class="style-n3">  {{ $his->type_dossier }}</div><div class="style-n3">{{ $his->dateaudiance->format('d-m-Y') }}</div></div>
-				<hr class="red-line2">
-			
+				@foreach($audiancehes2 as $audiancehes2)
+
+				<hr class="red-line2" style="width:50px;">
+				<div class="style-n-all2"><div class="style-n1">{{ $audiancehes2['file_number'] }}</div><div  class="style-n2">{{ $audiancehes2['tribunal_number'] }}</div><div class="style-n3">  {{ $audiancehes2['type_dossier'] }}</div><div class="style-n3">{{ $audiancehes2['dateaudiance']->format('d-m-Y') }}</div></div>
+		
 				@endforeach
+       
 
 				{{-- <div class="style-n-all2"><div class="style-n1">N du dossier</div><div  class="style-n2">N du tribunal</div><div class="style-n3">Type du dossier</div><div class="style-n4">Date</div></div>
 				<hr class="red-line2">
@@ -629,7 +631,7 @@
 		</div>
 	</div>
 </div>
-@endif
+
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
@@ -643,7 +645,54 @@
 				@endif
 			</div>
 			<div class="row">
-				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement <div class="date-style">{{-- {{ $audiance->dateaudiance->format('d/m/Y') }} --}}</div></h5><br><p style="font-size: 14px; color: gray">jugementvcsuig cuigscu csduvsd cyvcd dacggvd dgvudc ug</p></div>
+				<form action="{{ url('dossier-juridiques/jugement',$dossierjuridique->id)}}" method="post">
+				{{ csrf_field()}}
+				{{ method_field('PUT') }}
+				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement 
+
+          @if(isset($audiance))
+					<div class="date-style">{{ $audiance->dateaudiance->format('d/m/Y') }}</div>
+				  @endif
+				  </h5><br><textarea name="jugement" placeholder="Entrer un jugement............" rows="6" style="font-size: 14px; color: gray;width:850px;border: none;"><?php echo htmlspecialchars($dossierjuridique->jugement); ?></textarea>
+
+          <button class="jugement-btn" type="button" data-toggle="modal" data-target="#Modaljugement">+ Ajouter une demande de copie du jugement</button><br>
+          <div class="modal fade" id="Modaljugement" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal-dialog" role="document">   
+							<div class="modal-content" style="width: 663px;height: 520px;">
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+									</button>
+          <form action="{{ url('dossier-juridiques/sous') }}" method="POST">
+										{{ csrf_field() }}
+
+										<span class="numberd" style="margin-left:30px;">Dossier N° {{ $dossierjuridique->file_number }}</span>
+										<br>
+										<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Avocat en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div>
+
+          	<h5 class="commentaires">N° de tribunal: {{ $audiance->tribunal_number }}</h5>
+          	<h5 class="commentaires">Type: {{ $audiance->type_dossier }}</h5>
+          	<h5 class="commentaires">Date audiance: {{ $audiance->tribunal_number }}</h5>
+          	<br>
+
+											<label style="float: right;" class="f-label" for="indirect_pour">طلب نسخة من الحكم</label>
+											<br><br>
+											<select class="f-input" type="text" name="indirect_pour" aria-label="Default select example" style="height: 28px;width: 259px;float: right;">
+												<option value="" selected disabled>Choisir client pour</option>
+												@foreach($clientcomptes as $compte)
+												<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+												@endforeach
+											</select>
+
+												<button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+          <button class="jugement-view">voir la copie du jugement </button>
+				</div>
+			
 			</div>
 			<div class="row">
 				<div><img src="{{ url('/img/qr-code.png')}}" height="70px" width="70px" style="margin-left: 150px;margin-top: 20px"></div>
@@ -651,7 +700,7 @@
 					<button class="buttonx2" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques') }}'"><img src="{{ url('/img/hide-eye.png')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Masquer</button>
 
 					<button style="margin-left: 10px" class="buttonw2" class="btn btn-default btn-lg"  type="button" data-toggle="modal" data-target="#Modalsous"><img src="{{ url('/img/folder.png')}}" height="14px" width="14px" style="margin-right: 2px; margin-top: -2px" /> Créer un sous dossier</button>
-					<button class="buttonx-save" class="btn btn-default btn-lg"><img src="{{ url('/img/save.png ')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Enregitrer</button>
+					<button class="buttonx-save"  type="submit" class="btn btn-default btn-lg"><img src="{{ url('/img/save.png ')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Enregitrer</button></form>
 				</div>
 			</div>
 			<br><br>
@@ -668,6 +717,29 @@
 <link href="{{ asset('css/taches.css') }}" rel="stylesheet">
 <link href="{{ asset('css/calendrier.css') }}" rel="stylesheet">
 <style type="text/css">
+.jugement-btn{
+font-family: Greta Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+color: red;
+opacity: 0.5;
+border: none;
+background-color:unset;
+}
+.jugement-view{
+font-family: Greta Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+color: grey;
+opacity: 0.5;
+border: none;
+background-color:unset;
+margin-left: 9px;
+}
 .numberd{
 	border: none transparent;
 	outline: none;
