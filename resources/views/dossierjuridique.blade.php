@@ -3,6 +3,19 @@
 @section('content')
 
 <br>
+
+<div class="row menu ml-1 pt-4 ">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F2F2F2; margin-left:50px;">
+        <div class="container-fluid p-0">
+            <div class="navbar-nav sm-menu">
+                <a class="nav-link px-md-5" href="{{url('dossier-juridiques/mine')}}">Mes dossiers ({{ $count1 }})</a>
+                <a class="nav-link px-md-5 active"  href="{{url('dossier-juridiques')}}">Tous les dossiers ({{ $count2 }})</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<br>
+<br>
 {{-- search dossier--}}
 
 <form style="margin-left: 34px" action="{{ url('/dossier-juridiques/search') }}" method="get">
@@ -116,11 +129,11 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire" required="saisir un Commentaire"></textarea>
 				</div>
-				{{-- <div class="form-row type-move4">
+				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay" required>
 					</div>
-				</div> --}}
+				</div>
 				<br><br>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
 			</form>
@@ -142,10 +155,20 @@
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
 			<div class="col-2.5 marg-c1 bold-description1">Marrakech le ({{ $dossier->date_creation->format('d/m/Y') }})</div>
+			<div class="w-100"></div>
+			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossier->modepay }}</span></div>
 			<div class="col marg"></div>
 			<div class="col marg-c2">{{ $dossier->type_dossier }}</div>
-			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossier->for->nom_entreprise }}<br>{{ $dossier->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossier->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossier->for->mail_contact_principal }}</div>
-			<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossier->against->nom_entreprise }}<br>{{ $dossier->against->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossier->against->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossier->against->mail_contact_principal }}</div>
+			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossier->for->nom_entreprise }}<br>{{ $dossier->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossier->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossier->for->mail_contact_principal }}<br><br>
+			@if(isset($dossier->indirectfor))
+			     <div class=" bold-description1">{{ $dossier->indirectfor->nom_entreprise }}<br>{{ $dossier->indirectfor->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossier->indirectfor->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossier->indirectfor->mail_contact_principal }}
+			  @endif
+		</div>
+			<div class="col-3 marg-c4"> <div class=" bold-description2">{{ $dossier->against->nom_entreprise }}<br>{{ $dossier->against->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossier->against->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossier->against->mail_contact_principal }}<br><br>
+			@if(isset($dossier->indirectagainst))
+		<div class=" bold-description2">{{ $dossier->indirectagainst->nom_entreprise }}<br>{{ $dossier->indirectagainst->nom_contact_principal }}</div> <br><div class=" bold-description2">Tel </div> {{ $dossier->indirectagainst->tel_contact_principal }}<br><div class=" bold-description2">Mail </div> {{ $dossier->indirectagainst->mail_contact_principal }}
+           @endif
+	</div>
 		</div>
 		<div class="row">
 			<div class="edit-paragraph"><h5 class="gray-bold">Commentaire principal</h5><p style="font-size: 14px">{{ $dossier->commentaire}}</p> <div style="color: #696262; font-weight: bold;font-size: 13px">#{{ $dossier->tagwords }}</div></div>

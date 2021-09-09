@@ -37,7 +37,7 @@ class TemplatesController extends Controller
     {
         $data = request()->validate([
             'title'=> 'required|unique:templates|max:255',
-            'tag'=> '',
+            'tag'=> 'required',
             'description'=> 'required'
         ]);
 

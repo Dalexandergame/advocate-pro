@@ -63,17 +63,21 @@
 </div>
 </div>
 </div>
-
+ 
 
 
 
 <!-- menu -->
 <br>
-<select class="form-select filordre" aria-label="Default select example">
+<form action="{{ url('/ordre-de-missions') }}" method="GET">
+      {{csrf_field()}}
+<select class="form-select filordre" aria-label="Default select example" type="search" name="select" onchange="this.form.submit()">
   <option selected>Selection filtre</option>
-  <option value="1">Mes ordres de missions</option>
-  <option value="2">Voir tous</option>
+  <option value="show">Mes ordres de missions</option>
+  <option value="index">Voir tous</option>
 </select>
+</form>
+
 
 <br>
 <div class="row menu ml-1 pt-4 ">

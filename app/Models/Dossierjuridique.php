@@ -20,6 +20,7 @@ class Dossierjuridique extends Model
             'compte_pour',
             'compte_contre',
             'user_id',
+            'exepmle_id',
         ];
     protected $dates = [
         'dateaudiance',
@@ -61,8 +62,4 @@ class Dossierjuridique extends Model
         return $this->belongsTo('App\Models\Clientcompte' , 'indirect_contre');
     }
 
-    public function gouver()
-    {
-        return $this->hasMany('App\Models\govertemplates' , 'example_id');
-    }
 }

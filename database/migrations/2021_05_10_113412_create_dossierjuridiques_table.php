@@ -20,6 +20,7 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('type_dossier');
             $table->string('tagwords')->nullable();
             $table->string('commentaire')->nullable();
+            $table->string('modepay')->nullable();
 
             $table->string('jugement')->nullable(); 
 
@@ -28,12 +29,6 @@ class CreateDossierjuridiquesTable extends Migration
                 ->references('file_number')
                 ->on('dossierjuridiques')
                 ->onDelete('cascade'); 
-
-            // $table->string('tribunal_number')->nullable(); 
-            // $table->dateTime('dateaudiance')->nullable();
-            // $table->string('remarque')->nullable();
-            // $table->string('mesures')->nullable();
-
 
             $table->ForeignId('user_id')
                 ->nullable()

@@ -109,80 +109,115 @@ class TacheController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {
-        $data1= Tache::where('etat','=','ouvert')->where('type','=','tache bureau')->count();
-        $data2= Tache::where('etat','=','en cours')->where('type','=','tache bureau')->count();
-        $data3= Tache::where('etat','=','finis')->where('type','=','tache bureau')->count();
-        $data4= Tache::where('etat','=','en attente')->where('type','=','tache bureau')->count();
-        $data5= Tache::where('type','=','tache bureau')->count();
-        $data6= Tache::where('type','=','rendez-vous')->count();
-        $data7= Tache::where('type','=','audiance')->count();
+    {    
+        $user = Auth::user()->id;
+
+        $data1= Tache::where('etat','=','ouvert')->where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')->where('type','=','tache bureau')->count();
+        $data2= Tache::where('etat','=','en cours')->where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')->where('type','=','tache bureau')->count();
+        $data3= Tache::where('etat','=','finis')->where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')->where('type','=','tache bureau')->count();
+        $data4= Tache::where('etat','=','en attente')->where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')->where('type','=','tache bureau')->count();
+        $data5= Tache::where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','tache bureau')->count();
+        $data6= Tache::where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','rendez-vous')->count();
+        $data7= Tache::where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','audiance')->count();
         $users = User::all();
         $ouvert = Tache::where('etat','=','ouvert')
+                         ->where('type','=','tache bureau')
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')
                          ->where('type','=','tache bureau')
                          ->get();
         $encours = Tache::where('etat','=','en cours')
                           ->where('type','=','tache bureau')
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')
+                          ->where('type','=','tache bureau')
                           ->get();
         $finis = Tache::where('etat','=','finis')
                          ->where('type','=','tache bureau')
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')
+                         ->where('type','=','tache bureau')
                          ->get();
         $attente = Tache::where('etat','=','en attente')
+                          ->where('type','=','tache bureau')
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')
                           ->where('type','=','tache bureau')
                           ->get();
         return view('taches',compact('data1','data2','data3','data4','data5','data6','data7','users','ouvert', 'encours','finis','attente'));
     }
 
     public function rendezvous()
-    {
-        $data1= Tache::where('etat','=','ouvert')->where('type','=','rendez-vous')->count();
-        $data2= Tache::where('etat','=','en cours')->where('type','=','rendez-vous')->count();
-        $data3= Tache::where('etat','=','finis')->where('type','=','rendez-vous')->count();
-        $data4= Tache::where('etat','=','en attente')->where('type','=','rendez-vous')->count();
-        $data5= Tache::where('type','=','tache bureau')->count();
-        $data6= Tache::where('type','=','rendez-vous')->count();
-        $data7= Tache::where('type','=','audiance')->count();
+    {  
+        $user = Auth::user()->id;
+
+        $data1= Tache::where('etat','=','ouvert')->where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')->where('type','=','rendez-vous')->count();
+        $data2= Tache::where('etat','=','en cours')->where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')->where('type','=','rendez-vous')->count();
+        $data3= Tache::where('etat','=','finis')->where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')->where('type','=','rendez-vous')->count();
+        $data4= Tache::where('etat','=','en attente')->where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')->where('type','=','rendez-vous')->count();
+
+        $data5= Tache::where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','tache bureau')->count();
+        $data6= Tache::where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','rendez-vous')->count();
+        $data7= Tache::where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','audiance')->count();
         $users = User::all();
         $ouvert = Tache::where('etat','=','ouvert')
+                         ->where('type','=','rendez-vous')
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')
                          ->where('type','=','rendez-vous')
                          ->get();
         $encours = Tache::where('etat','=','en cours')
                           ->where('type','=','rendez-vous')
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')
+                          ->where('type','=','rendez-vous')
                           ->get();
         $finis = Tache::where('etat','=','finis')
+                         ->where('type','=','rendez-vous')
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')
                          ->where('type','=','rendez-vous')
                          ->get();
         $attente = Tache::where('etat','=','en attente')
                           ->where('type','=','rendez-vous')
-                          ->get();
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')
+                          ->where('type','=','rendez-vous')
+                          ->get();  
+
         return view('tache.rendez-vous',compact('data1','data2','data3','data4','data5','data6','data7','users','ouvert', 'encours','finis','attente'));
     }
 
     public function audiances()
     {
         $today = Carbon::now()->format('Y-m-d').'%'; 
+        $user = Auth::user()->id;
 
-        $data1= Tache::where('etat','=','ouvert')->where('type','=','audiance')->count();
-        $data2= Tache::where('etat','=','en cours')->where('type','=','audiance')->count();
-        $data3= Tache::where('etat','=','finis')->where('type','=','audiance')->count();
-        $data4= Tache::where('etat','=','en attente')->where('type','=','audiance')->count();
-        $data5= Tache::where('type','=','tache bureau')->count();
-        $data6= Tache::where('type','=','rendez-vous')->count();
-        $data7= Tache::where('type','=','audiance')->count();
+        $data1= Tache::where('etat','=','ouvert')->where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')->where('type','=','audiance')->count();
+
+        $data2= Tache::where('etat','=','en cours')->where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')->where('type','=','audiance')->count();
+
+        $data3= Tache::where('etat','=','finis')->where('updated_at','like', $today)->where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')->where('updated_at','like', $today)->where('type','=','audiance')->count();
+        
+        $data4= Tache::where('etat','=','en attente')->where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')->where('type','=','audiance')->count();
+
+        $data5= Tache::where('type','=','tache bureau')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','tache bureau')->count();
+        $data6= Tache::where('type','=','rendez-vous')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','rendez-vous')->count();
+        $data7= Tache::where('type','=','audiance')->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('type','=','audiance')->count();
         $users = User::all();
         $ouvert = Tache::where('etat','=','ouvert')
+                         ->where('type','=','audiance')
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','ouvert')
                          ->where('type','=','audiance')
                          ->get();
         $encours = Tache::where('etat','=','en cours')
                           ->where('type','=','audiance')
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en cours')
+                          ->where('type','=','audiance')
                           ->get();
         $finis = Tache::where('etat','=','finis')
-                         ->where('type','=','audiance')
-                         ->where('dateaudiance','=', $today)
+                         ->where('type','=','audiance')->where('updated_at','like', $today)
+                         ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','finis')
+                         ->where('type','=','audiance')->where('updated_at','like', $today)
                          ->get();
         $attente = Tache::where('etat','=','en attente')
                           ->where('type','=','audiance')
+                          ->where('user_id', '=', $user)->orWhere('assigned_user_id', '=', $user)->where('etat','=','en attente')
+                          ->where('type','=','audiance')
                           ->get();
+
         return view('tache.audiances',compact('data1','data2','data3','data4','data5','data6','data7','users','ouvert', 'encours','finis','attente'));
     }
 

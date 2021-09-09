@@ -115,11 +115,11 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
 				</div>
-				{{-- <div class="form-row type-move4">
+				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
 					</div>
-				</div> --}}
+				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
 			</form>
 
@@ -165,32 +165,60 @@
 				<div class="form-row type-move2">
 					<div class="col">
 						<label for="">Pour</label>
-						<input type="text" class="form-control" placeholder="Nom du compte" name="for"  value="{{ $dossierjuridique->for->nom_contact_principal}}">
+						<select name="for" class="form-control">
+						<option value="{{ $dossierjuridique->compte_pour }}" selected>{{ $dossierjuridique->for->nom_contact_principal }}</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
 					</div>
 					<div class="col">
 						<label for="">Contre</label>
-						<input type="text" class="form-control" placeholder="Nom du compte" name="against"  value="{{ $dossierjuridique->against->nom_contact_principal }}">
+						<select name="against" class="form-control">
+						<option value="{{ $dossierjuridique->compte_contre }}" selected>{{ $dossierjuridique->against->nom_contact_principal }}</option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
 					</div>
 				</div>
 				<div class="form-row type-move3">
 					<div class="col">
 						<label for="">Client indirect</label>
-						<input type="text" class="form-control" placeholder="Nom du compte" name="indirect_pour">
+						<select name="indirect_pour" class="form-control">
+							@if(isset($dossierjuridique->indirect_pour))
+						<option value="{{ $dossierjuridique->indirect_pour }}" selected>{{ $dossierjuridique->indirectfor->nom_contact_principal }}</option>
+						@endif
+						<option></option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
 					</div>
+					
+					
 					<div class="col">
 						<label for="">Client indirect</label>
-						<input type="text" class="form-control" placeholder="Nom du compte" name="indirect_contre">
+						<select name="indirect_contre" class="form-control">
+							@if(isset($dossierjuridique->indirect_contre))
+						<option value="{{ $dossierjuridique->indirect_contre }}" selected>{{ $dossierjuridique->indirectagainst->nom_contact_principal }}</option>
+						@endif
+						<option></option>
+						@foreach($clientcomptes as $compte)
+						<option value="{{ $compte->id }}"> {{ $compte->nom_entreprise }}</option>
+						@endforeach
+					</select>
 					</div>
 				</div>
 				<div class="form-group text-area-move">
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"><?php echo htmlspecialchars($dossierjuridique->commentaire); ?></textarea>
 				</div>
-				{{-- <div class="form-row type-move4">
+				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number"  value="{{ $dossierjuridique->tribunal_number }}">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay"  value="{{ $dossierjuridique->modepay }}">
 					</div>
-				</div> --}}
+				</div>
 				<input type="submit" name="enregistrer" value="Enregistrer" class="buttonw">
 			</form>
 			   <button class="buttonw" onclick="window.location='{{ url('/dossier-juridiques') }}'">Retour</button> 

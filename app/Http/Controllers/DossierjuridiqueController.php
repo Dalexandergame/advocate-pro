@@ -18,17 +18,23 @@ class DossierjuridiqueController extends Controller
 {
     
     public function index(){
-        
-        $listdossierjuridique = Dossierjuridique::all();
-        return view('dossierjuridique.index', ['dossierjuridiques' => $listdossierjuridique]);
+
+        $user = Auth::user()->id;
+        $dossierjuridiques = Dossierjuridique::where('user_id', '=', $user)->get();
+        $clientcomptes = Clientcompte::all();
+        $count1= Dossierjuridique::where('user_id', '=', $user)->count();
+        $count2= Dossierjuridique::all()->count();
+        return view('dossierjuridique.index', compact('dossierjuridiques', 'clientcomptes', 'count1', 'count2'));
     }
 
      public function show(){
         
+        $user = Auth::user()->id;
         $dossierjuridiques = Dossierjuridique::all();
         $clientcomptes = Clientcompte::all();
-        
-        return view('dossierjuridique', compact('dossierjuridiques', 'clientcomptes'));
+        $count1= Dossierjuridique::where('user_id', '=', $user)->count();
+        $count2= Dossierjuridique::all()->count();
+        return view('dossierjuridique', compact('dossierjuridiques', 'clientcomptes', 'count1', 'count2'));
     }
 
     public function create(){
@@ -48,7 +54,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        // $dossierjuridique->tribunal_number = $request->input('tribunal_number');
+        $dossierjuridique->modepay = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -70,6 +76,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->tagwords = $request->input('tagwords');
         $dossierjuridique->commentaire = $request->input('commentaire');
+        $dossierjuridique->modepay = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -94,6 +101,8 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
+        $dossierjuridique->modepay = $request->input('modepay');
+
         $dossierjuridique->save();
 
         return redirect('dossier-juridiques');
@@ -127,9 +136,16 @@ class DossierjuridiqueController extends Controller
         $searchT = $request->get('tagwords');
         $searchCD = $request->get('for');
 
-        $dossierjuridiques = DB::table('dossierjuridiques')->where('file_number', 'like', '%'.$search.'%')->where('tagwords', 'like', '%'.$searchT.'%')->where('compte_pour', 'like', '%'.$searchCD.'%')->get();   
+        $dossierjuridiques = DB::table('dossierjuridiques')->where('file_number', 'like', '%'.$search.'%')->where('tagwords', 'like', '%'.$searchT.'%')->where('compte_pour', 'like', '%'.$searchCD.'%')->get();  
+
+        $user = Auth::user()->id;
+        
+        $clientcomptes = Clientcompte::all();
+        $count1= Dossierjuridique::where('user_id', '=', $user)->count();
+        $count2= Dossierjuridique::all()->count();
+
+        return view('dossierjuridique', compact('dossierjuridiques', 'clientcomptes', 'count1', 'count2')); 
        
-        return view('dossierjuridique', ['dossierjuridiques' => $dossierjuridiques]);
       
     }
     public function vue($id)
@@ -142,6 +158,9 @@ class DossierjuridiqueController extends Controller
         $gouvers = Govertemplate::all();
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
+        $exepmle_id= Dossierjuridique::where('id', '=', $id)->pluck('exepmle_id');
+
+        $dossierjuridique1= Govertemplate::where('id', '=', $exepmle_id)->first();
 
         $taches = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->where('etat','!=','finis')
@@ -175,17 +194,6 @@ class DossierjuridiqueController extends Controller
                             ->join('users', 'taches.assigned_user_id', '=', 'users.id')
                             ->take(4)
                             ->get();
-            // $lasttache = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
-            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-            //                 ->join('users', 'taches.user_id', '=', 'users.id')
-            //                 ->join('comments', 'comments.commentable_id', '=', 'taches.id')
-            //                 ->first();
-            // $jugement = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
-            //                 ->where('etat','=','finis')
-            //                 ->where('type','=','audiance')
-            //                 ->whereDate('taches.dateaudiance', '<=', $today)
-            //                 ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
-            //                 ->first();
             $comments = Dossierjuridique::where('taches.dossier_num', 'LIKE', $file_number)
                             ->join('taches', 'dossierjuridiques.file_number', '=', 'taches.dossier_num')
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
@@ -194,7 +202,7 @@ class DossierjuridiqueController extends Controller
                             ->take(5)
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','clientcomptes','gouvers'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','dossierjuridique1','clientcomptes','gouvers'));
                     
    }
 
@@ -212,9 +220,6 @@ class DossierjuridiqueController extends Controller
         $data2= Tache::where('etat','=','en cours')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
         $data3= Tache::where('etat','=','finis')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
         $data4= Tache::where('etat','=','en attente')->where('type','!=','audiance')->where('taches.dossier_num', $number)->count();
-        // $data5= Tache::where('type','=','tache bureau')->where('taches.dossier_num', $number)->count();
-        // $data6= Tache::where('type','=','rendez-vous')->where('taches.dossier_num', $number)->count();
-        // $data7= Tache::where('type','=','audiance')->where('taches.dossier_num', $number)->count();
         $users = User::all();
 
         $ouvert = Tache::where('etat','=','ouvert')
