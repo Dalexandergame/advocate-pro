@@ -728,12 +728,14 @@
 												<option value="نموذج  {{ $dossierjuridique->exepmle_id }}" selected disabled>نموذج  {{ $dossierjuridique->exepmle_id }}</option>
 											</select>
 
+											<button class="imprime" class="btn btn-default btn-lg"  onclick="imprimer('jugementdiv')"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
+
 										</div>
 									</div>
 
     {{-- generer un copie de jugement --}}
 
-										<div class="modal-content" style="width: 663px;height: 980px;">
+										<div id="jugementdiv" class="modal-content" style="width: 663px;height: 980px;">
 											<div class="modal-body" style="position:relative;">
 
 												<div  style="display:inline-block;float: left; text-align: center;">
@@ -756,7 +758,7 @@
 												</div>
 												<br><br><br><br><br><br>
 
-												<div style="display:inline-block;text-align: center; margin-left:250px;">
+												<div style="display:inline-block;text-align: center; margin-left:100px;">
 													<span  class="maitrea" >مراكش  : </span>
 													<span class="ava">{{ date('Y/m/d') }}</span>
 													<hr style="border: 1px solid #000000;">
@@ -764,8 +766,8 @@
 												<br><br><br><br><br>
 
 												<div style="text-align: center;">
-													<h3  class="maitrea" >طلب نسخة من الحكم</h3>
-													<hr style="width:150px;border: 1px solid #000000;">
+													<h3  class="maitrea" style="margin-left:100px;" >طلب نسخة من الحكم</h3>
+													{{-- <hr style="width:150px;border: 1px solid #000000;"> --}}
 												</div>
 												<br><br>
 
@@ -789,7 +791,7 @@
 													<span class="ava">{!! $dossierjuridique1->description !!}</span>
 												</div>
 
-												<div style="text-align: center;position: absolute; bottom:0px;width:200px; margin-left:200px;">
+												<div style="text-align: center;position: absolute; bottom:0px;width:200px;top:880px; margin-left:250px;">
 													<hr>
 													<span class="avf">180, Avenue Abdelkrim El Khattabi, Résidence Rokya, Bloc A, Appt 17, Guéliz, Marrakech, Maroc.</span>
 												</div>
@@ -945,6 +947,15 @@ input::placeholder{
 <script>
 function imprimer(recapdiv) {
       var printContents = document.getElementById(recapdiv).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+</script>
+<script>
+function imprimer(jugementdiv) {
+      var printContents = document.getElementById(jugementdiv).innerHTML;    
    var originalContents = document.body.innerHTML;      
    document.body.innerHTML = printContents;     
    window.print();     
