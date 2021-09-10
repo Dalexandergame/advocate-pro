@@ -20,6 +20,7 @@ class Dossierjuridique extends Model
             'compte_pour',
             'compte_contre',
             'user_id',
+            'exepmle_id',
         ];
     protected $dates = [
         'dateaudiance',
@@ -29,6 +30,11 @@ class Dossierjuridique extends Model
     public function taches()
     {
         return $this->hasMany('App\Models\Tache');
+    }
+
+    public function dossier()
+    {
+        return $this->belongsTo('App\Models\Dossierjuridique', 'parent' , 'file_number');
     }
 
      public function user()
@@ -55,4 +61,5 @@ class Dossierjuridique extends Model
     {
         return $this->belongsTo('App\Models\Clientcompte' , 'indirect_contre');
     }
+
 }

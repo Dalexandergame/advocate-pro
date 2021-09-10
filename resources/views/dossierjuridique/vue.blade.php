@@ -4,7 +4,7 @@
 
 <br>
 
-<form style="margin-left: 34px" action="{{ url('/dossier-juridiques/search') }}" method="get">
+{{-- <form style="margin-left: 34px" action="{{ url('/dossier-juridiques/search') }}" method="get">
 	<div class="form-row align-items-center">
 		<div class="col-2.7">
 			<label class="sr-only" for="inlineFormInput">Numero du dossier</label>
@@ -33,7 +33,7 @@
 			<button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit" style="margin-top: 10px"><img class="icon-center" src="{{ url('img/search.svg') }}"></button>
 		</div>
 	</div>
-</form>
+</form> --}}
 
 <button  id="btnadd" {{-- class="button button5" --}} style="background: #000000;width: 252px;height: 40px;color: #FFFFFF;margin-left:30px;" class="btn btn-default btn-lg"><img src="{{ url('/img/plus.png ')}}" height="12px" width="12px"> Ajouter nouveau</button>
 
@@ -114,11 +114,11 @@
 					<label for="exampleFormControlTextarea1">Commentaire principal</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="commentaire"></textarea>
 				</div>
-				{{-- <div class="form-row type-move4">
+				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="numero tribunal" name="tribunal_number">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
 					</div>
-				</div> --}}
+				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
 			</form>
 
@@ -139,7 +139,8 @@
 			<div class="col-3 titre">Pour</div>
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
-			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le({{ $dossierjuridique->date_creation->format('d/m/Y') }})</div>
+			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le({{ $dossierjuridique->date_creation->format('d/m/Y') }})</div><div class="w-100"></div>
+			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossierjuridique->modepay }}</span></div>
 			<div class="col marg"></div>
 			<div class="col marg-c2">{{ $dossierjuridique->type_dossier }}</div>
 			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->for->mail_contact_principal }}
@@ -171,6 +172,18 @@
 			<div class="row">
 				<div class="col-2.5"> 
 					<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Responsable du dossier</div><br><div class="gray-normal">{{ $dossierjuridique->user->name }}</div></div>
+
+
+					{{-- <form action="" method="GET">
+					      {{csrf_field()}}
+					<select class="form-select filordre" style="width:150px;float: right;margin-left:350px;" aria-label="Default select example" type="search" name="search" onchange="this.form.submit()">
+					  <option selected> Selection type</option>
+					  <option value="type1">type1</option>
+					  <option value="type2">type2</option>
+					</select>
+					</form> --}}
+
+				
 					@if(isset($dossierjuridique->parent))
 					<h3 id="red-writing" style="color:#827E7E">Dossier parent</h3>
 					<a href="#" class="text-button-red" style="color: #827E7E;">{{ $dossierjuridique->parent }} v</a>
@@ -192,7 +205,7 @@
 
 					<div class="modal fade" id="Modalsous" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
 						<div class="modal-dialog" role="document">   
-							<div class="modal-content" style="width: 663px;height: 520px;">
+							<div class="modal-content" style="width: 663px;height: 620px;">
 								<div class="modal-body">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
@@ -214,7 +227,7 @@
 
 										<label class="f-label" for="file_number">Numero sous dossier</label>
 										<br>
-										<input class="f-input" type="text" name="file_number" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
+										<input class="f-input" type="text" name="file_number" value="{{ $dossierjuridique->file_number }}" placeholder="Enter numero du sous dossier" style="height: 28px;width: 180;">
 										<br><br>
 
 										<label  class="f-label" for="type">Type</label>
@@ -225,7 +238,11 @@
 											<option value="type2">type 2</option>
 										</select>
 										<br><br>
-
+                    
+                    <label class="f-label" for="modepay">Mode paiment</label>
+										<br>
+										<input class="f-input" type="text" name="modepay" value="{{ $dossierjuridique->modepay }}" placeholder="Enter mode de paiment" style="height: 28px;width: 180;">
+										<br><br>
 
 										<label class="f-label" for="date_creation">Date creation</label>
 										<br>
@@ -267,18 +284,7 @@
 						<div style="margin-bottom: 60px"></div>
 
 					</div>
-					<div class="col-2.5">
 
-						<div class="customSelect" style="width:220px; height: 50px; margin-left: 30px; margin-right: -7px;">
-							<select>
-								<option value="0">Type du dossier</option>
-								<option value="type1">type 1</option>
-								<option value="type2">type 2</option>
-								<option value="type3">type 3</option>
-								<option value="type4">type 4</option>
-							</select>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -338,9 +344,9 @@
           	<div class="gray-bold" style="margin-left: 40px;margin-top: 20px">Récap d’audiences</div><br>
 
           	<button class="vue" class="btn btn-default btn-lg" id="recapbtn"><img src="{{url('img/vue.svg')}}"/> Vue</button>
-          	<button class="imprime" class="btn btn-default btn-lg"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
+          	<button class="imprime" class="btn btn-default btn-lg"  onclick="imprimer('recapdiv')"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
 
-          	<div id="recapdiv" style="display:none;">
+          	<div id="recapdiv" style="display:none;" >
           		{{-- <span class="head">Avocat en charge:<br>  {{ $audiance->name }}</span> --}}
           		<span class="head">Séance de délit de circulation devant le tribunal de première instance à Marrakech</span>
                     {{-- <span class="head">Nom du juge:<br>Date audiance: {{$audiance['dateaudiance']->format('d/m/Y')}}</span>
@@ -408,8 +414,7 @@
 
 
 <h5 class="commentaires">Commentaires</h5>
-<img src="{{ url('/img/profile.png')}}" height="30px" width="30px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-normal2">{{ $audiance->comment }}</div><br>
-
+<img src="{{ url('/img/profile.png')}}" height="30px" width="30px" style="margin-left: 40px;margin-top: 20px"/><div class="marg-responsable-dossier"><div class="gray-normal2"><span style="color:black;">{{ $audiance->name }}</span><br><br>{{ $audiance->comment }}</div>
 
 
 <a type="button" data-toggle="modal" data-target="#Modalcomments" class="a-afficher"><div class="gray-bold-rep">
@@ -490,8 +495,7 @@
 		<input type="hidden" name="tache_id" value="{{ $audiance->tache_id }}" />
 		<input type="hidden" name="comment_id" value="{{ $audiance->comment_id }}" />
 		<input type="text" class="comment" name="comment" placeholder="Ajouter une reponse" required/>
-		<input type="file" name="file" id="file" class="inputfile" multiple onchange="javascript:updateList()"  />
-		<label for="file" id="fileList">+ Ajouter piece jointe </label>
+		
 
 		<input type="submit" class="btnr btn-sm py-0" style="font-size: 0.8em;" value="Repondre" />
 	</div>
@@ -607,7 +611,7 @@
 </div>
 </div>
 </div></div>
-@if(isset($his->file_number))
+
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
@@ -615,14 +619,16 @@
 				<div class="col-2.5" id="red-writing-3">Historique du dossier</div>
 
 				<div class="style-n-all"><div class="style-n1">N du dossier</div><div  class="style-n2">N du tribunal</div><div class="style-n3">Type du dossier</div><div class="style-n4">Date</div></div>
-				<hr class="red-line">
+				<hr class="red-line2" style="width:1px;">
+
 				
-				@foreach($audiancehes as $his)
-				
-				<div class="style-n-all2"><div class="style-n1">{{ $his->file_number }}</div><div  class="style-n2">{{ $his->tribunal_number }}</div><div class="style-n3">  {{ $his->type_dossier }}</div><div class="style-n3">{{ $his->dateaudiance->format('d-m-Y') }}</div></div>
-				<hr class="red-line2">
-			
+				@foreach($audiancehes2 as $audiancehes2)
+
+				<hr class="red-line2" style="width:50px;">
+				<div class="style-n-all2"><div class="style-n1">{{ $audiancehes2['file_number'] }}</div><div  class="style-n2">{{ $audiancehes2['tribunal_number'] }}</div><div class="style-n3">  {{ $audiancehes2['type_dossier'] }}</div><div class="style-n3">{{ $audiancehes2['dateaudiance']->format('d-m-Y') }}</div></div>
+		
 				@endforeach
+       
 
 				{{-- <div class="style-n-all2"><div class="style-n1">N du dossier</div><div  class="style-n2">N du tribunal</div><div class="style-n3">Type du dossier</div><div class="style-n4">Date</div></div>
 				<hr class="red-line2">
@@ -631,7 +637,7 @@
 		</div>
 	</div>
 </div>
-@endif
+
 <div class="float-container">
 	<div class="float-child" style="margin-left: 400px; width: 1160px">
 		<div class="big-grid2" >
@@ -645,15 +651,166 @@
 				@endif
 			</div>
 			<div class="row">
-				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement <div class="date-style">{{-- {{ $audiance->dateaudiance->format('d/m/Y') }} --}}</div></h5><p style="font-size: 14px; color: gray">jugementvcsuig cuigscu csduvsd cyvcd dacggvd dgvudc ug</p></div>
+				<form action="{{ url('dossier-juridiques/jugement',$dossierjuridique->id)}}" method="post">
+				{{ csrf_field()}}
+				{{ method_field('PUT') }}
+				<div class="edit-paragraph2"><h5 class="gray-bold-2">Jugement 
+
+          @if(isset($audiance))
+					<div class="date-style">{{ $audiance->dateaudiance->format('d/m/Y') }}</div>
+				  @endif
+				  </h5><br><textarea name="jugement" placeholder="Entrer un jugement............" rows="6" style="font-size: 14px; color: gray;width:850px;border: none;"><?php echo htmlspecialchars($dossierjuridique->jugement); ?></textarea>
+
+
+    @if(isset($audiance))
+          <button class="jugement-btn" type="button" data-toggle="modal" data-target="#Modaljugement">+ Ajouter une demande de copie du jugement</button><br>
+          
+          <div class="modal fade" id="Modaljugement" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal-dialog" role="document">   
+							<div class="modal-content" style="width: 663px;height: 520px;">
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+									</button>
+          {{-- <form action="{{ url('dossier-juridiques/gouver',$dossierjuridique->id) }}" method="POST">
+										{{ csrf_field() }}
+										{{ method_field('PUT') }} --}}
+
+										<span class="numberd" style="margin-left:30px;">Dossier N° {{ $dossierjuridique->file_number }}</span>
+										<br>
+										<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Avocat en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div>
+
+          	<h5 class="commentaires">N° de tribunal: {{ $audiance->tribunal_number }}</h5>
+          	<h5 class="commentaires">Type: {{ $audiance->type_dossier }}</h5>
+          	<h5 class="commentaires">Date audiance: {{ $audiance->dateaudiance->format('d-m-Y') }}</h5>
+          	<br>
+
+											<label style="float: right;" class="f-label" for="exepmle_id">طلب نسخة من الحكم</label>
+											<br><br>
+											<select class="f-input" type="text" name="exepmle_id" aria-label="Default select example" style="height: 28px;width: 259px;float: right;" >
+												<option value="" selected disabled>اختر نموذج</option>
+												@foreach($gouvers as $gouver)
+												<option value="{{ $gouver->id }}">نموذج {{ $gouver->id }}</option>
+												@endforeach
+											</select>
+
+												<button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
+											{{-- </form> --}}
+										</div>
+									</div>
+								</div>
+							</div>
+				@endif
+
+							@if(isset($dossierjuridique->exepmle_id))
+          <button class="jugement-view" type="button" data-toggle="modal" data-target="#Modalvoir">voir la copie du jugement </button>
+
+          <div class="modal fade" id="Modalvoir" tabindex="-1" role="dialog" aria-labelledby="sousLabel" aria-hidden="true" data-backdrop="static">
+						<div class="modal-dialog" role="document">   
+							<div class="modal-content" style="width: 663px;height: 380px;">
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true"  style="font-size: 50px;">&times;</span>
+									</button>
+
+										<span class="numberd" style="margin-left:30px;">Dossier N° {{ $dossierjuridique->file_number }}</span>
+										<br>
+										<img src="{{ url('/img/profile.png')}}" height="38px" width="38px" style="margin-left: 40px;margin-top: 20px"/> <div class="marg-responsable-dossier"><div class="gray-bold">Avocat en charge</div><br><div class="gray-normal">{{ $audiance->name }}</div></div>
+
+          	<h5 class="commentaires">N° de tribunal: {{ $audiance->tribunal_number }}</h5>
+          	<h5 class="commentaires">Type: {{ $audiance->type_dossier }}</h5>
+          	<h5 class="commentaires">Date audiance: {{ $audiance->dateaudiance->format('d-m-Y') }}</h5>
+          	<br>
+
+											<label style="float: right;" class="f-label" for="exepmle_id">طلب نسخة من الحكم</label>
+											<br><br>
+											<select class="f-input" type="text" name="exepmle_id" aria-label="Default select example" style="height: 28px;width: 259px;float: right;" >
+												<option value="نموذج  {{ $dossierjuridique->exepmle_id }}" selected disabled>نموذج  {{ $dossierjuridique->exepmle_id }}</option>
+											</select>
+
+											<button class="imprime" class="btn btn-default btn-lg"  onclick="imprimer('jugementdiv')"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
+
+										</div>
+									</div>
+
+    {{-- generer un copie de jugement --}}
+
+										<div id="jugementdiv" class="modal-content" style="width: 663px;height: 980px;">
+											<div class="modal-body" style="position:relative;">
+
+												<div  style="display:inline-block;float: left; text-align: center;">
+													<h4 class="maitref">Maître Soufiane EL JAZOULI </h4>
+													<h6 class="avf">Avocat</h6>
+													<h6 class="avf">Ordre des Avocats De Marrakech</h6>
+													<hr style="border: 1px solid #000000;">
+												</div>
+
+												<div style="display:inline-block;float: right;text-align: center;">
+													<h4  class="maitrea" >الأستاذ سفيان الجزولي</h4>
+													<h6 class="ava">محام</h6>
+													<h6 class="ava">هيئة المحامين بمراكش</h6>
+													<hr style="border: 1px solid #000000;">
+													<br>
+													<div  style="display:inline-block;float: right; text-align: center;">
+														<h4 class="maitref">Avocat en charge</h4>
+														<h6 class="avf">{{ $audiance->name }}</h6>
+												  </div>
+												</div>
+												<br><br><br><br><br><br>
+
+												<div style="display:inline-block;text-align: center; margin-left:100px;">
+													<span  class="maitrea" >مراكش  : </span>
+													<span class="ava">{{ date('Y/m/d') }}</span>
+													<hr style="border: 1px solid #000000;">
+												</div>
+												<br><br><br><br><br>
+
+												<div style="text-align: center;">
+													<h3  class="maitrea" style="margin-left:100px;" >طلب نسخة من الحكم</h3>
+													{{-- <hr style="width:150px;border: 1px solid #000000;"> --}}
+												</div>
+												<br><br>
+
+												<div  style="display:inline-block;float: left; text-align: right;">
+													<h4  class="maitrea" >{{ $dossierjuridique1->cab_adress }}</h4>
+													<h4  class="maitrea" >{{ $dossierjuridique1->cab_name }}</h4>
+												</div>
+
+												<div style="display:inline-block;float: right;text-align: right;">
+													<h4  class="maitrea" >{{ $dossierjuridique1->cab_name }}</h4>
+													<h4  class="maitrea" >{{ $dossierjuridique->type_dossier }}</h4>
+													<span  class="maitrea" >عدد:</span>
+													<span class="ava">{{ $audiance->tribunal_number }}</span>
+													<br>
+													<span class="maitrea">حكم بتاريخ : </span>
+													<span class="ava">{{ $audiance->dateaudiance->format('Y/m/d') }}</span>
+												</div>
+												<br><br><br><br><br><br><br><br>
+
+												<div style="text-align: right;">
+													<span class="ava">{!! $dossierjuridique1->description !!}</span>
+												</div>
+
+												<div style="text-align: center;position: absolute; bottom:0px;width:200px;top:880px; margin-left:250px;">
+													<hr>
+													<span class="avf">180, Avenue Abdelkrim El Khattabi, Résidence Rokya, Bloc A, Appt 17, Guéliz, Marrakech, Maroc.</span>
+												</div>
+
+											</div>
+									</div>
+								</div>
+							</div>
+				</div>
+				@endif
+			
 			</div>
 			<div class="row">
 				<div><img src="{{ url('/img/qr-code.png')}}" height="70px" width="70px" style="margin-left: 150px;margin-top: 20px"></div>
 				<div class="buttons-position-3"> 
-					<button class="buttonx2" class="btn btn-default btn-lg" onclick="window.location='{{ url('/dossier-juridiques') }}'"><img src="{{ url('/img/hide-eye.png')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Masquer</button>
+					<button class="buttonx2" class="btn btn-default btn-lg" onclick="window.location='{{ url('dossier-juridiques') }}'"><img src="{{ url('/img/hide-eye.png')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Masquer</button>
 
 					<button style="margin-left: 10px" class="buttonw2" class="btn btn-default btn-lg"  type="button" data-toggle="modal" data-target="#Modalsous"><img src="{{ url('/img/folder.png')}}" height="14px" width="14px" style="margin-right: 2px; margin-top: -2px" /> Créer un sous dossier</button>
-					<button class="buttonx-save" class="btn btn-default btn-lg"><img src="{{ url('/img/save.png ')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Enregitrer</button>
+					<button class="buttonx-save"  type="submit" class="btn btn-default btn-lg"><img src="{{ url('/img/save.png ')}}" height="16px" width="15px"  style="margin-right: 2px; margin-top: -2px"/> Enregitrer</button></form>
 				</div>
 			</div>
 			<br><br>
@@ -670,6 +827,65 @@
 <link href="{{ asset('css/taches.css') }}" rel="stylesheet">
 <link href="{{ asset('css/calendrier.css') }}" rel="stylesheet">
 <style type="text/css">
+.maitref{
+	font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+}
+.maitrea{
+	font-family: Greta Arabic;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 22px;
+color: #000000;
+}
+.avf{
+	font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+	font-size: 14px;
+line-height: 17px;
+}
+.ava{
+		font-family: Greta Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 22px;
+color: #000000;
+	font-size: 16px;
+line-height: 22px;
+}
+.jugement-btn{
+font-family: Greta Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+color: red;
+opacity: 0.5;
+border: none;
+background-color:unset;
+}
+.jugement-view{
+font-family: Greta Arabic;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 17px;
+color: grey;
+opacity: 0.5;
+border: none;
+background-color:unset;
+margin-left: 9px;
+}
 .numberd{
 	border: none transparent;
 	outline: none;
@@ -728,6 +944,24 @@ input::placeholder{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script>
+function imprimer(recapdiv) {
+      var printContents = document.getElementById(recapdiv).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+</script>
+<script>
+function imprimer(jugementdiv) {
+      var printContents = document.getElementById(jugementdiv).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+</script>
 <script type="text/javascript">
 	updateList = function() {
 		var input = document.getElementById('file');

@@ -16,8 +16,23 @@ class MissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-     return view('ordremission');
+    {      
+
+         $search_text = $_GET['select'];
+         $user = Auth::user()->id;
+
+         if ( $search_text == 'index')
+                        {
+                         $data= Mission::where('status','=','none')->get();
+                         return view('ordremission',['missions'=>$data]);  
+                        }
+
+                        else {
+                          $data= Mission::where('status','=','none')->where('user_id','=', $user)->get();
+                          return view('ordremission',['missions'=>$data]);
+                        }
+          
+          
     }
 
     /**
@@ -68,8 +83,9 @@ class MissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show()
-    {
-          $data= Mission::where('status','=','none')->get();
+    {     
+          $user = Auth::user()->id;
+          $data= Mission::where('status','=','none')->where('user_id','=', $user)->get();
         return view('ordremission',['missions'=>$data]);
     }
 
