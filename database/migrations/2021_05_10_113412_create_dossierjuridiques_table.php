@@ -23,21 +23,21 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('payment_mode')->nullable();
 
             $table->string('jugement')->nullable(); 
+
             $table->string('parent',20)->nullable();
             $table->foreign('parent')
                  ->references('file_number')
                  ->on('dossierjuridiques')
                  ->onDelete('cascade'); 
 
-            $table->string('tribunal_number')->nullable(); 
-            $table->dateTime('dateaudiance')->nullable();
-            $table->string('remarque')->nullable();
-            $table->string('mesures')->nullable();
-
-
             $table->ForeignId('user_id')
                 ->nullable()
                 ->constrained('users')
+                ->onDelete('cascade');
+
+            $table->ForeignId('exepmle_id')
+                ->nullable()
+                ->constrained('govertemplates')
                 ->onDelete('cascade');
 
             $table->ForeignId('compte_pour')

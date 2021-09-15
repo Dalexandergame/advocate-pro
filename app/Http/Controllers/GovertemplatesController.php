@@ -39,7 +39,7 @@ class GovertemplatesController extends Controller
             'cab_name' => 'required|max:255',
             'cab_adress' => 'required',
             'title'=> 'required|unique:govertemplates|max:255',
-            'tag'=> '',
+            'tag'=> 'required',
             'description'=> 'required|'
         ]);
 

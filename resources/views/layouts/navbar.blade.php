@@ -29,25 +29,25 @@
     <ul class="navbar-nav flex-row ml-auto ">
 
       <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="./messages">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="{{ url('messages') }}">
           <img src="{{url('img/mail.svg')}}"/>
         </a>
       </li>
 
       <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="./calendrier">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="{{ url('calendrier') }}">
           <img src="{{url('img/calendrier.svg')}}"/>
         </a>
       </li>
 
       <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="{{ url('taches') }}">
           <img src="{{url('img/notification.svg')}}"/>
         </a>
       </li>
 
      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="./profile">
+        <a class="nav-link d-sm-flex align-items-sm-center" href="{{ url('profile') }}">
           <img src="{{url('img/profile.svg')}}"/>
         </a>
       </li>

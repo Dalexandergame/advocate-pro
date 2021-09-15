@@ -13,7 +13,7 @@
           <span class="infos-av">Mail: <span style="color: #989898;">{{ $data1['email'] }}</span></span>
   </div>
   <a class="count clock" onmouseout="this.style.color='#EC1E24';" href="{{ url('/calendrier') }}"><img src="{{ url('img/redclock.svg') }}"> Liste des audiences</a>
-
+<div id="recapdiv">
   <div class="cadre-tab">
     <div>
     <span class="head">Avocat en charge<br>{{ $data1['name'] }}</span>
@@ -36,7 +36,7 @@
     <tbody> 
        @foreach($data as $data)
       <tr>
-        <td class="tab-input">{{ $data->getDossierjuridique['tribunal_number'] }}</td>
+        <td class="tab-input">{{ $data['tribunal_number'] }}</td>
                         <td rowspan="2" class="tab-input">{{ $data->getDossierjuridique->for->nom_entreprise }}<br>{{ $data->getDossierjuridique->for->nom_contact_principal }}<br><span style="font-weight: bold;">Contre</span><br>{{ $data->getDossierjuridique->against->nom_entreprise }}<br>{{ $data->getDossierjuridique->against->nom_contact_principal }}</td>
 
          <form action="{{ url('/calendrier/audiances/recap') }}" method="POST" style="display:inline-block;">
@@ -55,12 +55,12 @@
 </table>
 
 <button class="button button2" type="submit" class="btn btn-default btn-lg" style="float:right; margin-right:20px;background-color:white;"> <img class="imgbtn" src="{{url ('/img/edit.svg') }}">Remplir</button></form>
-                <button class="button button2" style="float:right; margin-right:20px;background-color:#C4C4C4;border:none;" class="btn btn-default btn-lg"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
+                <button class="button button2" onClick="imprimer('recapdiv')" style="float:right; margin-right:20px;background-color:#C4C4C4;border:none;" class="btn btn-default btn-lg"><img src="{{url('img/imprimer.svg')}}"/> Imprimer</button>
 
 </div>
 
 </div>
-                   
+ </div>                  
 @endsection
 
 @section('styles')
@@ -69,5 +69,13 @@
 @endsection
 
 @section('scripts')
-    
+<script>
+function imprimer(recapdiv) {
+      var printContents = document.getElementById(recapdiv).innerHTML;    
+   var originalContents = document.body.innerHTML;      
+   document.body.innerHTML = printContents;     
+   window.print();     
+   document.body.innerHTML = originalContents;
+   }
+</script>
 @endsection

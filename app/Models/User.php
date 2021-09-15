@@ -32,6 +32,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cheque::class);
     }
+    
+     public function dossiers()
+    {
+        return $this->hasMany('App\Models\dossierjuridiques');
+    }
 
     protected $table = 'users';
 

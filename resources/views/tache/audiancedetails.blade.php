@@ -125,5 +125,18 @@
 @endsection
 
 @section('scripts')
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    updateList = function() {
+  var input = document.getElementById('file');
+  var output = document.getElementById('fileList');
+
+  output.innerHTML = '<ul>';
+  for (var i = 0; i < input.files.length; ++i) {
+    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+  }
+  output.innerHTML += '</ul>';
+}
+</script>
 @endsection
