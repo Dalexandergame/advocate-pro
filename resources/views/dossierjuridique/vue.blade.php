@@ -116,7 +116,7 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="payment_mode">
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
@@ -528,12 +528,14 @@
 
 <div style="margin-top: -100px; margin-right:-185px;">
 	<div class="frais-color">Frais</div><div class="frais-color-dh">5000 Dhs</div>
-	@foreach ($frais as $frai)
-	<div>
-		<span>{{$frai->name}} ......................... </span>
-		<span>{{$frai->cost}}</span>
-	</div>
-@endforeach
+	@if ($frais)
+		@foreach ($frais as $frai)
+		<div>
+			<span>{{$frai->name}} ......................... </span>
+			<span>{{$frai->cost}}</span>
+		</div>
+		@endforeach
+	@endif
 </div>
 <a href="{{ route('adddossierCost', $dossierjuridique->id)}}" class="ajouer-frais" style="margin-top: -50px"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
 <a href="{{ route('dossierpayment.create', $dossierjuridique->id ) }}" class="text-danger">Voir paiement</a>

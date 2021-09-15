@@ -55,7 +55,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('payment_mode');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -204,7 +204,7 @@ class DossierjuridiqueController extends Controller
                             ->take(5)
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','dossierjuridique1','clientcomptes','gouvers'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','dossierjuridique1','clientcomptes','gouvers','frais'));
                     
    }
 
@@ -241,7 +241,7 @@ class DossierjuridiqueController extends Controller
                           ->where('taches.dossier_num', $number)
                           ->get();
 
-        return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente'));
+        return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente',));
     }
 
     public function cost_type($id)
