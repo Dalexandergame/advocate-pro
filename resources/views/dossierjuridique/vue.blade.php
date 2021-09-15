@@ -1,4 +1,4 @@
-<@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -522,9 +522,17 @@
 
 <a class="marg-circle-button"type="button" data-toggle="modal" data-target="#Modaladd" style="margin-top: -100px"><div class="circle">+</div><div class="gray-bold-rep2">Assigner une tâche</div></a>
 
-
-<div style="margin-top: -100px; margin-right:-185px;"><div class="frais-color">Frais</div><div class="frais-color-dh">200 Dhs</div></div>
-<a href="#" class="ajouer-frais" style="margin-top: -50px"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
+<div style="margin-top: -100px; margin-right:-185px;">
+	<div class="frais-color">Frais</div><div class="frais-color-dh">5000 Dhs</div>
+	@foreach ($frais as $frai)
+	<div>
+		<span>{{$frai->name}} ......................... </span>
+		<span>{{$frai->cost}}</span>
+	</div>
+@endforeach
+</div>
+<a href="{{ route('adddossierCost', $dossierjuridique->id)}}" class="ajouer-frais" style="margin-top: -50px"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
+<a href="{{ route('dossierpayment.create', $dossierjuridique->id ) }}" class="text-danger">Voir paiement</a>
 
 <!-- Add Tache Modal -->
 <div class="modal fade" id="Modaladd" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">

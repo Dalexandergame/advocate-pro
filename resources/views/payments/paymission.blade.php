@@ -50,7 +50,10 @@
 
                          <td><br><span class="mr-4 pai">Etat</span></div></td>
 
-                         <td><br><span>{{$mission->paymentMission->status ?? 'En attente'}}</span></td>
+                         <td>
+                           <br>
+                          <span>{{$mission->paymentMission->status ?? 'En attente'}}</span>
+                        </td>
 
                     </tr>
                     <tr>
@@ -59,8 +62,22 @@
                         </p>
                       </td>
                       <td></td>
-                      <td></td>
-                      <td><br><button id="{{$mission->id}}" class="paymentView ml-4 px-3 btn btn-dark" type="button" data-toggle="modal" data-target="#Modaladdmission"><img class="pr-2" src="{{url('img/eye2.png')}}" height="19" width="25" />vue</button></td>
+                      <td><br>
+                        @if($mission->cheque)
+                          <button class="ml-4 px-3 btn btn-secondary" type="button">Vue cheque</button>
+                        @endif
+                      </td>
+                      <td>
+                        <br>
+                        @if ($mission->paymentMission)
+                          @if($mission->paymentMission->status != 'Payé')
+                          <button id="{{$mission->id}}" class="paymentView ml-4 px-3 btn btn-dark" type="button" data-toggle="modal" data-target="#Modaladdmission"><img class="pr-2" src="{{url('img/eye2.png')}}" height="19" width="25" />Paye</button>
+                          @endif
+                        @else
+                          <button id="{{$mission->id}}" class="paymentView ml-4 px-3 btn btn-dark" type="button" data-toggle="modal" data-target="#Modaladdmission"><img class="pr-2" src="{{url('img/eye2.png')}}" height="19" width="25" />Paye</button>
+                        @endif
+
+                      </td>
                     </tr>
 
                 </tbody>

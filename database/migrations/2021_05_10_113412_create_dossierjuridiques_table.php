@@ -20,14 +20,14 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('type_dossier');
             $table->string('tagwords')->nullable();
             $table->string('commentaire')->nullable();
+            $table->string('payment_mode')->nullable();
 
             $table->string('jugement')->nullable(); 
             $table->string('parent',20)->nullable();
             $table->foreign('parent')
-                ->nullable()
-                ->references('file_number')
-                ->on('dossierjuridiques')
-                ->onDelete('cascade'); 
+                 ->references('file_number')
+                 ->on('dossierjuridiques')
+                 ->onDelete('cascade'); 
 
             $table->string('tribunal_number')->nullable(); 
             $table->dateTime('dateaudiance')->nullable();
@@ -42,22 +42,22 @@ class CreateDossierjuridiquesTable extends Migration
 
             $table->ForeignId('compte_pour')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('compte_contre')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('indirect_pour')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->ForeignId('indirect_contre')
                 ->nullable()
-                ->constrained('clients')
+                ->constrained('clientcomptes')
                 ->onDelete('cascade');
 
             $table->timestamps();

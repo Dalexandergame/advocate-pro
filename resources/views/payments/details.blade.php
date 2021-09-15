@@ -82,9 +82,9 @@
           </p><br>
 
           <div class="d-flex justify-content-between">
-            <div class="f-label">Chèque</div>
+            <div class="f-label {{isset($cheque) ? '' : 'collapse'}}">Chèque</div>
             <div class="mt-2 mr-5">
-              <span>{{$cheque->serial_number}}</span><br>
+              <span>{{optional($cheque)->serial_number ?? ''}}</span><br>
               <button id="showCheque" class="btn btn-link text-danger font-weight-bolder}}">Visualiser le chèque</button>
             </div>
           </div>
@@ -96,9 +96,9 @@
         </div>   
       </div>
     </div>
-    <div id="panel" class="mx-4 mb-5" style="background-color: #FAFAFA; display:none">
+    <div id="panel" class="mx-4 mb-5 {{isset($cheque) ? '' : 'collapse'}}" style="background-color: #FAFAFA; display:none">
       <span class="p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
-      <img src="/storage/{{$cheque->screen}}" class="w-100"/><br>
+      <img src="/storage/{{ optional($cheque)->screen ?? ''}}" class="w-100"/><br>
     </div>    
   </div> 
 
@@ -113,7 +113,7 @@
         $("#btnx").toggle();
       });
 
-      $("#showCheque").click(function(){
+        $("#showCheque").click(function(){
             $("#panel").slideDown("slow");
         });
         $("#hide").click(function(){

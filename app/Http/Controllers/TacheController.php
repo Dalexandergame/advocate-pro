@@ -8,8 +8,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Http\Controllers\UserAuthController;
 use Auth;
-use Redirect;
-
 class TacheController extends Controller
 {
 
@@ -67,7 +65,7 @@ class TacheController extends Controller
         $task->etat = 'ouvert';
 
         $task->save();
-        return Redirect::back()->with('success', 'Data Saved');
+        return redirect()->back()->with('success', 'Data Saved');
     }
 
     public function addUsers()
@@ -244,7 +242,7 @@ class TacheController extends Controller
 
             $task->save();
            
-            return Redirect::back()->with("data", $task);
+            return redirect()->back()->with("data", $task);
                 
         }
 
@@ -280,11 +278,11 @@ class TacheController extends Controller
              $task->update(['etat'=>'en attente']);
              
             }
-        return  Redirect::back();
+        return redirect()->back();
         
     }
 
-      public function getid(id $id){
+      public function getid($id){
         return $id;
     }
 }

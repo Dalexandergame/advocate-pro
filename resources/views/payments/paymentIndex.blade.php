@@ -50,12 +50,6 @@
             </div>
         </div>
     </div>
-    <div class="paim">
-        <h3 id="mt">Méthode de paiement</h3>
-        <p  id="pt">* chèque</p>
-        <p  id="pt">* Virement banquaire</p>
-        <p  id="pt">* Espèces</p>
-    </div>
     <div class="comm">
         <div class="tit">
             <h4>Commentaire</h4>

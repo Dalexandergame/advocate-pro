@@ -15,4 +15,14 @@ class Cheque extends Model
     {
         $this->belongsTo(User::class);
     }
+
+    public function mission ()
+    {
+        $this->belongsTo(Cheque::class,'mission_id');
+    }
+
+    public function dossier ()
+    {
+        $this->belongsTo(Dossierjuridique::class,'dossier_id');
+    }
 }

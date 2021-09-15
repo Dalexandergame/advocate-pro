@@ -42,4 +42,11 @@ class Mission extends Model
     {
         return $this->hasOne(MissionPayment::class);
     }
+
+    public function cheque()
+    {
+        return $this->hasOne(Cheque::class);
+    }
+
+
 }

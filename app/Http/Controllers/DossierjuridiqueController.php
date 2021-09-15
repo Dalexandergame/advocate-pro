@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\UserAuthController;
-use App\Models\Clientcompte;
-use App\Models\Dossierjuridique;
-use App\Models\Tache;
-use App\Models\User;
 use Auth;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Redirect;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Frais;
+use App\Models\Tache;
+use App\Models\Clientcompte;
+use Illuminate\Http\Request;
+use App\Models\Dossierjuridique;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UserAuthController;
 
 class DossierjuridiqueController extends Controller
 {
@@ -125,6 +126,7 @@ class DossierjuridiqueController extends Controller
 
         $dossierjuridique= Dossierjuridique::find($id);
         $clientcomptes = Clientcompte::all();
+        $frais = Frais::where('dossier_id',$id);
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
 
@@ -158,7 +160,7 @@ class DossierjuridiqueController extends Controller
                             ->join('comments', 'comments.commentable_id', '=', 'taches.id')
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','taches','dossierjuridique','clientcomptes'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','taches','dossierjuridique','clientcomptes','frais'));
                     
    }
 
@@ -197,4 +199,18 @@ class DossierjuridiqueController extends Controller
 
         return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente'));
     }
+
+    public function cost_type($id)
+    {
+        $user = Auth::user();
+        $dossier = Dossierjuridique::findOrFail($id);
+        return view('dossierjuridique.add-cost-type',compact('user','dossier'));
+    }
+
+    public function choose_cost_type($id)
+    {
+        if ( request()->input('product') == 'vignette' ) return redirect()->route('dossierCost.vignettes', $id);
+        else return redirect()->route('dossierCost.other.create', $id) ;
+    }
+
 }

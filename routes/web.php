@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 //use App\Http\Controllers\TacheController;
+use App\Http\Controllers\FraisController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\TacheController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\StocksController;
@@ -22,17 +24,16 @@ use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\VignettesController;
+use App\Http\Controllers\CalendrierController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ContactFormController;
-use App\Http\Controllers\DossierjuridiqueController;
-use App\Http\Controllers\ProductsStockController;
-use App\Http\Controllers\TacheController;
-use App\Http\Controllers\CalendrierController;
-use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\ClientcompteController;
+use App\Http\Controllers\ClientcontactController;
 use App\Http\Controllers\JurisprudenceController;
+use App\Http\Controllers\ProductsStockController;
 use App\Http\Controllers\GovertemplatesController;
+use App\Http\Controllers\DossierjuridiqueController;
 
 
 
@@ -224,6 +225,20 @@ Route::get('/dossierjuridiques/{id}/vue', [DossierjuridiqueController::class, 'v
 Route::get('/dossier-juridiques-vue', function () {
     return view('dossierjuridiquevue');
 });
+Route::get('/dossierjuridiques/{id}/vue/add-cost-type', [DossierjuridiqueController::class, 'cost_type'])->name('adddossierCost');
+Route::post('/dossierjuridiques/{id}/vue/add-cost-type/choose', [DossierjuridiqueController::class, 'choose_cost_type'])->name('dossierCost.choose');
+Route::get('/dossierjuridiques/{id}/vue/add-cost-type/vignettes/create', [VignettesController::class, 'vignetteList'])->name('dossierCost.vignettes');
+Route::post('/dossierjuridiques/{id}/vue/add-cost-type/vignettes', [FraisController::class, 'store_vignette_cost'])->name('dossierCost.vignettes.post');
+Route::get('/dossierjuridiques/{id}/vue/add-cost-type/vignettes/details', [FraisController::class, 'show_added_vignette'])->name('dossierCost.vignettes.get');
+Route::get('/dossierjuridiques/{id}/vue/add-cost-type/other/create', [FraisController::class, 'create_other_cost'])->name('dossierCost.other.create');
+Route::post('/dossierjuridiques/{id}/vue/add-cost-type/other', [FraisController::class, 'store_other_cost'])->name('dossierCost.other.store');
+Route::get('/dossierjuridiques/{id}/vue/add-cost-type/other/details', [FraisController::class, 'show_other_cost'])->name('dossierCost.other.details');
+
+Route::get('/dossierjuridiques/{id}/vue/payments/create', [PaymentController::class, 'dossier_payment_create'])->name('dossierpayment.create');
+Route::post('/dossierjuridiques/{id}/vue/payments/', [PaymentController::class, 'dossier_payment_store'])->name('dossierpayment.store');
+Route::get('/dossierjuridiques/{id}/vue/payments/details', [PaymentController::class, 'dossier_payment_details'])->name('dossierpayment.details');
+
+
 
 Route::get('/clientcomptes', [ClientcompteController::class, 'index']);
 Route::get('/clientcomptes/create', [ClientcompteController::class, 'create']);
@@ -248,7 +263,8 @@ Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
 Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);
 
 Route::get('/payments/paymission', function () {
-    $missions= Mission::where('status','=','Aprouver')->with('paymentMission')->get();
+    $missions= Mission::where('status','=','Aprouver')->with('paymentMission','cheque')->get();
+    //dd($missions);
     return view('payments.paymission', compact('missions'));
 })->name('paymission');
 Route::get('/payments/paydossier', function () {
