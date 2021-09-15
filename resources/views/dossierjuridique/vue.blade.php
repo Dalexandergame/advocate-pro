@@ -116,7 +116,7 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="payment_mode">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
@@ -140,7 +140,7 @@
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
 			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le({{ $dossierjuridique->date_creation->format('d/m/Y') }})</div><div class="w-100"></div>
-			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossierjuridique->modepay }}</span></div>
+			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossierjuridique->payment_mode }}</span></div>
 			<div class="col marg"></div>
 			<div class="col marg-c2">{{ $dossierjuridique->type_dossier }}</div>
 			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->for->mail_contact_principal }}
@@ -241,7 +241,7 @@
                     
                     <label class="f-label" for="modepay">Mode paiment</label>
 										<br>
-										<input class="f-input" type="text" name="modepay" value="{{ $dossierjuridique->modepay }}" placeholder="Enter mode de paiment" style="height: 28px;width: 180;">
+										<input class="f-input" type="text" name="modepay" value="{{ $dossierjuridique->payment_mode }}" placeholder="Enter mode de paiment" style="height: 28px;width: 180;">
 										<br><br>
 
 										<label class="f-label" for="date_creation">Date creation</label>

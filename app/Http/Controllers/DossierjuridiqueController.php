@@ -55,7 +55,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->payment_mode = $request->input('payment_mode');
+        $dossierjuridique->payment_mode = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -77,7 +77,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->tagwords = $request->input('tagwords');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -102,7 +102,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('modepay');
 
         $dossierjuridique->save();
 

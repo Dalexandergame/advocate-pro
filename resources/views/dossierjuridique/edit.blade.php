@@ -216,7 +216,7 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay"  value="{{ $dossierjuridique->modepay }}">
+						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay"  value="{{ $dossierjuridique->payment_mode }}">
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="Enregistrer" class="buttonw">
