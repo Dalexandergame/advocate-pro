@@ -7,6 +7,9 @@ use App\Models\Comment;
 use App\Models\Tache;
 use App\Models\User;
 use Auth;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Redirect;
 class TacheController extends Controller
 {
 
@@ -63,6 +66,15 @@ class TacheController extends Controller
         $task->user_id = Auth::user()->id;
         $task->etat = 'ouvert';
         $task->save();
+        return redirect()->back()->with('success', 'Data Saved');
+    
+        $comment = new Comment;
+
+        $comment->comment = 'Vous etes assigner pour cette audiance';
+        $comment->user_id = Auth::user()->id;
+        $tache = Tache::find($task->id);
+        $tache->comments()->save($comment);
+
         return redirect()->back()->with('success', 'Data Saved');
     }
 
