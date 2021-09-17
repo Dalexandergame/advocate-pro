@@ -10,6 +10,7 @@ use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Redirect;
+
 class TacheController extends Controller
 {
 
@@ -66,8 +67,7 @@ class TacheController extends Controller
         $task->user_id = Auth::user()->id;
         $task->etat = 'ouvert';
         $task->save();
-        return redirect()->back()->with('success', 'Data Saved');
-    
+
         $comment = new Comment;
 
         $comment->comment = 'Vous etes assigner pour cette audiance';
@@ -75,7 +75,7 @@ class TacheController extends Controller
         $tache = Tache::find($task->id);
         $tache->comments()->save($comment);
 
-        return redirect()->back()->with('success', 'Data Saved');
+        return Redirect::back()->with('success', 'Data Saved');
     }
 
     public function addUsers()
@@ -287,7 +287,7 @@ class TacheController extends Controller
 
             $task->save();
            
-            return redirect()->back()->with("data", $task);
+            return Redirect::back()->with("data", $task);
                 
         }
 
@@ -323,11 +323,11 @@ class TacheController extends Controller
              $task->update(['etat'=>'en attente']);
              
             }
-        return redirect()->back();
+        return  Redirect::back();
         
     }
 
-      public function getid($id){
+      public function getid(id $id){
         return $id;
     }
 }
