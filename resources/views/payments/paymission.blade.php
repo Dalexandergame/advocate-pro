@@ -64,7 +64,7 @@
                       <td></td>
                       <td><br>
                         @if($mission->cheque)
-                          <button class="ml-4 px-3 btn btn-secondary" type="button">Vue cheque</button>
+                          <a href="{{route('Payments.showMissionPayment', $mission->id)}}" class="ml-4 px-3 btn btn-secondary" type="button">Vue cheque</a>
                         @endif
                       </td>
                       <td>
