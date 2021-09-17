@@ -156,7 +156,7 @@
 			<div class="w-100"></div>
 			<div class="col-2.5 marg-c1 bold-description1">Marrakech le ({{ $dossier->date_creation->format('d/m/Y') }})</div>
 			<div class="w-100"></div>
-			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossier->modepay }}</span></div>
+			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossier->payment_mode }}</span></div>
 			<div class="col marg"></div>
 			<div class="col marg-c2">{{ $dossier->type_dossier }}</div>
 			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossier->for->nom_entreprise }}<br>{{ $dossier->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossier->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossier->for->mail_contact_principal }}<br><br>
