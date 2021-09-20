@@ -1,7 +1,7 @@
     <!--sidebar-->
     <div class="side-menu">
         <div class="logo-container d-flex justify-content-center">
-            <a href="{{ url('authentication')}}">
+            <a href="{{ url('dashboard')}}">
                 <x-logo></x-logo>
             </a>
         </div>
