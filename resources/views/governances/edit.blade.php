@@ -43,13 +43,13 @@
             <h5 class="py-1 pr-3 font-weight-bold">Edit governance template</h5>
 
             <div class="form-group">
-                <label for="cab_name">Nom de cabinet</label>
-                <input type="text" name="cab_name" class="form-control" placeholder="Nom de cabinet" value="{{ old('cab_name') ?? $govertemplate->cab_name }}">
+                <label for="cab_name">Nom de tribunal</label>
+                <input type="text" name="cab_name" class="form-control" placeholder="nom de tribunal" value="{{ old('cab_name') ?? $govertemplate->cab_name }}">
             </div>
 
             <div class="foem-group mb-5">
-                <label for="cab_name">Adresse de cabinet</label>
-                <textarea name="cab_adress" cols="65" rows="3" class="form-control" placeholder="Adresse de cabinet">{{ old('cab_adress') ?? $govertemplate->cab_adress}}</textarea>
+                <label for="cab_name">Destinataire</label>
+                <textarea name="cab_adress" cols="65" rows="3" class="form-control" placeholder="destinataire">{{ old('cab_adress') ?? $govertemplate->cab_adress}}</textarea>
             </div>
 
             <div class="form-group">

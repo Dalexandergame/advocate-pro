@@ -131,7 +131,11 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay" required>
+						<select class="form-control" name="modepay" required>
+							<option value="Forfait">Forfait</option>
+							<option value="En avence">En avence</option>
+							<option value="En fin">En fin</option>
+						</select>
 					</div>
 				</div>
 				<br><br>
