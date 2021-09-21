@@ -45,7 +45,7 @@
             <form class="offset-4 container" action="{{ route('dossierCost.choose', $dossier->id)}}" method="POST">
                 @csrf
                 <div class="p-4" style="background-color: #FAFAFA">
-                    <input type="radio" name="product" value="vignette" id="">Vignettes</input><br><br>
+                    <input type="radio" name="product" value="vignette" {{ $Vfrai == null ? '' : 'disabled' }}>Vignettes</input><br><br>
                     <input type="radio" name="product" value="autre" id="">Autres</input>
                 </div>
                 <button class="col-md-5 offset-7 Enr-button" id="submit">Suivant</button>

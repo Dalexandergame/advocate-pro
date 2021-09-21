@@ -247,7 +247,7 @@ Route::put('/tribunals/{id}', [TribunalController::class, 'update']);
 Route::delete('/tribunals/{id}', [TribunalController::class, 'destroy']);
 
 Route::get('/payments/paymission', function () {
-    $missions= Mission::where('status','=','Aprouver')->with('paymentMission','cheque')->get();
+    $missions= Mission::where('status','=','Aprouver')->orderBy('updated_at','desc')->with('paymentMission','cheque')->get();
     //dd($missions);
     return view('payments.paymission', compact('missions'));
 })->name('paymission');

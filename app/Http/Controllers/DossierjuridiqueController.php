@@ -156,7 +156,8 @@ class DossierjuridiqueController extends Controller
 
         $dossierjuridique= Dossierjuridique::find($id);
         $clientcomptes = Clientcompte::all();
-        $frais = Frais::where('dossier_id',$id);
+        $frais = Frais::where('dossier_id',$id)->get();     
+        //dd($frais);
         $gouvers = Govertemplate::all();
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
@@ -248,7 +249,9 @@ class DossierjuridiqueController extends Controller
     {
         $user = Auth::user();
         $dossier = Dossierjuridique::findOrFail($id);
-        return view('dossierjuridique.add-cost-type',compact('user','dossier'));
+        $Vfrai = Frais::where('dossier_id',$id)->where('name','Vignette')->first();
+        //dd($Vfrai);
+        return view('dossierjuridique.add-cost-type',compact('user','dossier','Vfrai'));
     }
 
     public function choose_cost_type($id)

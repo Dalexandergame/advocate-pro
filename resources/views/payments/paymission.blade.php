@@ -145,12 +145,12 @@
                 <div id="chequeLabel" class="d-flex justify-content-between" style="display: none">
                   <div class="f-label">Chèque</div>
                   <div class="py-1 mr-4">
-                    <input type="number" name="chequeSN" placeholder="N° de série"style="height: 2rem; width:13rem"/><br>
+                    <input type="number" name="chequeSN" placeholder="N° de série"style="height: 2rem; width:13rem" required/><br>
                     <label for="cheque-input" class="add-catg py-1 mt-1">
                       <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
                       <span class="">Ajouter une capture</span>
                     </label>
-                    <input id="cheque-input" name="chequeScreen" type="file" style="position: absolute;z-index: -10;" />
+                    <input id="cheque-input" name="chequeScreen" type="file" style="position: absolute;z-index: -10;" required/>
                   </div>
                 </div>
 
