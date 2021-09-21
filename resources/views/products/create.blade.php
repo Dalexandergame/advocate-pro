@@ -96,6 +96,7 @@
         </div>
         <div class="row mt-4">
             <div class="col-md offset-8">
+                <a class="btn btn-secondary py-2 px-4 mr-4" href="{{url()->previous()}}">Annuler</a>
                 <button class="Enr-button" type="submit">Enregister</button>
             </div>
         </div>

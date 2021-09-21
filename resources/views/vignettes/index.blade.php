@@ -69,8 +69,9 @@
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col-md offset-8">
+        <div class="col-md offset-7">
             <div>
+                <a class="btn btn-secondary py-2 px-3 mr-3" href="{{ route('productstock.index') }}">Choisir autre produit</a>
                 <a href="{{ route('vignettes.create') }}" class="btn btn-dark px-4">
                     <img class="mr-1" src="{{ url('img/stock.svg') }}"/>
                     <span>Gestion du stock</span>
