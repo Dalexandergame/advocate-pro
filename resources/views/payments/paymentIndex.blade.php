@@ -50,24 +50,6 @@
             </div>
         </div>
     </div>
-    <div class="comm">
-        <div class="tit">
-            <h4>Commentaire</h4>
-        </div>
-        <div class="lescom">
-            <img src="/img/Profile.png" height="30px" width="30px" />
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ut incidunt sequi molestias deleniti iusto perferendis neque animi dignissimos quas.</p>
-            <div class="lescom2">
-                <img src="/img/Profile.png" height="30px" width="30px" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, neque. Aut provident atque culpa, optio beatae dolorum laboriosam dolor ab quas sapiente eaque numquam accusantium iste eos, rem dolorem commodi.</p>
-            </div>
-            <img src="/img/Profile.png" height="30px" width="30px" />
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum ut incidunt sequi molestias deleniti iusto perferendis neque animi dignissimos quas.</p>
-        </div>
-    </div>
-    <div class="ace">
-            <button type="button" class="btn btn-success">Accepter</button>
-    </div>
 </div>
 @endsection
 

@@ -145,12 +145,12 @@
                 <div id="chequeLabel" class="d-flex justify-content-between" style="display: none">
                   <div class="f-label">Chèque</div>
                   <div class="py-1 mr-4">
-                    <input type="number" name="chequeSN" placeholder="N° de série"style="height: 2rem; width:13rem" required/><br>
+                    <input id="input_cSN" type="number" name="chequeSN" placeholder="N° de série"style="height: 2rem; width:13rem"/><br>
                     <label for="cheque-input" class="add-catg py-1 mt-1">
                       <img class="pr-1" src="{{url('img/grey-plus.svg')}}"/>
                       <span class="">Ajouter une capture</span>
                     </label>
-                    <input id="cheque-input" name="chequeScreen" type="file" style="position: absolute;z-index: -10;" required/>
+                    <input id="cheque_input" name="chequeScreen" type="file" style="position: absolute;z-index: -10;"/>
                   </div>
                 </div>
 
@@ -184,10 +184,16 @@
   $(document).ready(function(){
 
     $('input:radio[name="paymentMethod"]').change(function(){
-        if($(this).val() != 'Cheque'){
-          $("#chequeLabel").removeClass("d-flex").addClass("d-none");
+        if($(this).val() == 'Cheque'){
+          $("#chequeLabel").addClass("d-flex");
+          $('#input_cSN').attr('required',true);
+          $('#cheque_input').attr('required',true);
         }
-        else $("#chequeLabel").addClass("d-flex");
+        else
+        $("#chequeLabel").removeClass("d-flex").addClass("d-none");
+        $('#input_cSN').attr('required',false);
+        $('#cheque_input').attr('required',false);
+        
     });
 
     $('.paymentView').click(function(e){

@@ -34,7 +34,7 @@
     <div class="modal-body">
 
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-        onclick="window.location.href='{{ url('./') }}'">
+        onclick="window.location.href='{{ route('paymission') }}'">
         <span aria-hidden="true" style="font-size: 50px;">&times;</span>
       </button>
 

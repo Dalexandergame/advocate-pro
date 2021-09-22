@@ -92,6 +92,7 @@
                 </div>
             </div>
         </div>
+        <div class="col-2 offset-9"><a class="btn btn-secondary py-2 px-3" href="{{ route('dossier.vue',$dossier->id) }}">Retour au dossier</a></div>
         <div class="col-2.5" id="red-writing-3">Historique du Vignette</div>
         <div class="row mt-5 mx-4">
             <div class="float-child" style="width: 100%">
