@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use auth;
 use App\Models\Stock;
 use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\InvoiceStock;
 use App\Models\SerialNumber;
 use Illuminate\Http\Request;
+use App\Models\Dossierjuridique;
+use App\Models\Frais;
 use App\Models\ProductSerialNumber;
 
 class VignettesController extends Controller
@@ -31,6 +34,26 @@ class VignettesController extends Controller
 
         return view('vignettes.index',compact('vignette','invoice','stockInvoice'));
     }
+
+    public function vignetteList($id)
+    {
+        $user = auth()->user();
+        $vignette = Product::where('name','vignette')->with('category')->first();
+        $vignetteNumsTotal = ProductSerialNumber::where('product_id',$vignette->id)->get();
+        // $vignetteNums = ProductSerialNumber::where('product_id',$vignette->id)->paginate(4);
+        $fraisvignettes = Frais::where('name','vignette')->with('dossierjuridique')->get();
+        //dd($fraisvignettes);
+        foreach($fraisvignettes as $key => $fv)
+        {
+            $vignetteNumsTotal->forget($key)->where('serial_number',$fv->serial_number); 
+        }
+        $vignetteNums = $vignetteNumsTotal->slice(0,4);
+        //dd($vignetteNums);
+        $dossier = Dossierjuridique::findOrFail($id);
+        //dd($vignette);
+        return view('frais.vignetteList',compact('vignette','vignetteNums','dossier','user','vignetteNumsTotal','fraisvignettes'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

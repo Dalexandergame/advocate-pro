@@ -9,10 +9,11 @@ use App\Models\Govertemplate;
 use App\Models\Tache;
 use App\Models\User;
 use Auth;
+use Redirect;
 use Carbon\Carbon;
+use App\Models\Frais;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Redirect;
 
 class DossierjuridiqueController extends Controller
 {
@@ -54,7 +55,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -76,7 +77,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->tagwords = $request->input('tagwords');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('modepay');
         $dossierjuridique->user_id = Auth::user()->id;
 
         $dossierjuridique->save();
@@ -101,7 +102,7 @@ class DossierjuridiqueController extends Controller
         $dossierjuridique->indirect_pour = $request->input('indirect_pour');
         $dossierjuridique->indirect_contre = $request->input('indirect_contre');
         $dossierjuridique->commentaire = $request->input('commentaire');
-        $dossierjuridique->modepay = $request->input('modepay');
+        $dossierjuridique->payment_mode = $request->input('modepay');
 
         $dossierjuridique->save();
 
@@ -155,6 +156,8 @@ class DossierjuridiqueController extends Controller
 
         $dossierjuridique= Dossierjuridique::find($id);
         $clientcomptes = Clientcompte::all();
+        $frais = Frais::where('dossier_id',$id)->get();     
+        //dd($frais);
         $gouvers = Govertemplate::all();
 
         $file_number= Dossierjuridique::where('id', '=', $id)->pluck('file_number');
@@ -202,7 +205,7 @@ class DossierjuridiqueController extends Controller
                             ->take(5)
                             ->get();
 
-        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','dossierjuridique1','clientcomptes','gouvers'));
+        return view('dossierjuridique.vue',compact('sousdossiers','allsousdossiers','users','audiance','comments','audiancehes','audiancehes2','taches','dossierjuridique','dossierjuridique1','clientcomptes','gouvers','frais'));
                     
    }
 
@@ -239,7 +242,23 @@ class DossierjuridiqueController extends Controller
                           ->where('taches.dossier_num', $number)
                           ->get();
 
-        return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente'));
+        return view('dossierjuridique.tachedossier',compact('data','users','data1','data2','data3','data4','ouvert', 'encours','finis','attente',));
     }
+
+    public function cost_type($id)
+    {
+        $user = Auth::user();
+        $dossier = Dossierjuridique::findOrFail($id);
+        $Vfrai = Frais::where('dossier_id',$id)->where('name','Vignette')->first();
+        //dd($Vfrai);
+        return view('dossierjuridique.add-cost-type',compact('user','dossier','Vfrai'));
+    }
+
+    public function choose_cost_type($id)
+    {
+        if ( request()->input('product') == 'vignette' ) return redirect()->route('dossierCost.vignettes', $id);
+        else return redirect()->route('dossierCost.other.create', $id) ;
+    }
+
     
 }

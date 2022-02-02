@@ -30,13 +30,13 @@
                             </div>
                         @endif
                         
-                        <label for="cab_name">Nom de cabinet</label>
-                        <input type="text" name="cab_name" class="form-control" placeholder="Nom de cabinet">
+                        <label for="cab_name">Nom de tribunal</label>
+                        <input type="text" name="cab_name" class="form-control" placeholder="Nom de tribunal">
                     </div>
 
                     <div class="foem-group mb-5">
-                        <label for="cab_name">Adresse de cabinet</label>
-                        <textarea name="cab_adress" cols="65" rows="3" class="form-control" placeholder="Adresse de cabinet"></textarea>
+                        <label for="cab_name">Destinataire</label>
+                        <textarea name="cab_adress" cols="65" rows="3" class="form-control" placeholder="destinataire"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -51,7 +51,7 @@
                             <img src="img/eye2.png" height="13" width="13"/>
                             <span class="pl-2">visualiser</span>
                         </button>
-                        <textarea id="editor" name="description" cols="63" rows="10" placeholder="... ﺎﻨﻫ ﺔﻴﺑﺮﻌﻟﺎﺑ ﺐﻠﻄﻟا ىﻮﺘﺤﻣ"></textarea>
+                        <textarea id="editor" name="description" cols="63" rows="10" placeholder"Jugement"></textarea>
                     </div>
                     <div class="d-flex justify-content-end form-group">
                         <button class="Enr-button" id="submit">Enregistrer</button>

@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use Laravel\Cashier\Billable;
 use App\Traits\HasRolesAndPermissions;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 use App\Notifications\CustomResetPassword;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRolesAndPermissions;
+    use HasFactory, Notifiable, HasRolesAndPermissions, Billable;
     
     public function taches()
     {
@@ -23,6 +24,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Mission');
     }
 
+    public function missionspayments()
+    {
+        return $this->hasMany(MissionPayment::class);
+    }
+
+    public function cheques()
+    {
+        return $this->hasMany(Cheque::class);
+    }
+    
      public function dossiers()
     {
         return $this->hasMany('App\Models\dossierjuridiques');

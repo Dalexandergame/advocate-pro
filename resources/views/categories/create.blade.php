@@ -47,13 +47,14 @@
                 </div>
                 <div class="col-md" style="background-color: #FAFAFA ; padding: 2.5rem">
                     <div class="mb-3 font-weight-bold">{{Carbon\Carbon::now()->format('d.m.Y')}}</div>
-                    <input type="text" name="name" class="form-control mb-3" >
-                    <textarea name="description" class="form-control mb-3" cols="20" rows="4"></textarea>
+                    <input type="text" name="name" class="form-control mb-3" required>
+                    <textarea name="description" class="form-control mb-3" cols="20" rows="4" required></textarea>
                 </div>
             </div>
         </div>
         <div>
-            <div class="col-md offset-9">
+            <div class="col-md offset-8">
+                <a class="btn btn-secondary py-2 px-4 mr-4" href="{{url()->previous()}}">Annuler</a>
                 <button type="submit" class="Enr-button">Enregistrer</button>
             </div>
         </div>

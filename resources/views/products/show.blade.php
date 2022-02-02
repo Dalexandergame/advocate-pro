@@ -63,12 +63,12 @@
             <span class="">{{$product->updated_at->format('d.m.Y')}}</span><br>
             <span class="">facture № {{$invoice->id ??'no record exist'}}</span><br>
             <button id="showInvoice" class="btn btn-link text-danger font-weight-bold {{isset($invoice->invoice_number) ? '': 'collapse'}}">Visualiser la facture</button>
+            <a class="btn btn-secondary py-2 px-3 mr-3 mt-2" href="{{route('categories.index')}}">Gestion des categories</a>
         </div>
     </div>
     <div id="panel" class="mt-4 offset-4" style="background-color: #FAFAFA; display:none">
         <span class="float-right p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
         <img src="/storage/{{$invoice->invoice_number ?? ''}}" class="ml-5 mt-2"/><br>
-        <button class="btn btn-secondary">Imprimer</button>
     </div>
 </div>
 

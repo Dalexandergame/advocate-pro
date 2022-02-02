@@ -62,4 +62,13 @@ class Dossierjuridique extends Model
         return $this->belongsTo('App\Models\Clientcompte' , 'indirect_contre');
     }
 
+    public function frais()
+    {
+        return $this->hasMany('App\Models\Frais' , 'frais');
+    }
+
+    public function dossierPayment()
+    {
+        return $this->hasMany('App\Models\DossierPayment' , 'dossierPayment');
+    }
 }

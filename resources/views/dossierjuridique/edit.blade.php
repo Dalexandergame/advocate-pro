@@ -117,7 +117,11 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
+						<select class="form-control" name="modepay" required>
+							<option value="Forfait">Forfait</option>
+							<option value="En avence">En avence</option>
+							<option value="En fin">En fin</option>
+						</select>
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
@@ -216,7 +220,11 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay"  value="{{ $dossierjuridique->modepay }}">
+						<select class="form-control" name="modepay" required>
+							<option value="Forfait">Forfait</option>
+							<option value="En avence">En avence</option>
+							<option value="En fin">En fin</option>
+						</select>
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="Enregistrer" class="buttonw">

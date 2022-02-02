@@ -1,7 +1,7 @@
     <!--sidebar-->
     <div class="side-menu">
         <div class="logo-container d-flex justify-content-center">
-            <a href="{{ url('authentication')}}">
+            <a href="{{ url('dashboard')}}">
                 <x-logo></x-logo>
             </a>
         </div>
@@ -42,7 +42,7 @@
             <a href="{{ url('tribunals')}}" class="flex"><x-tribunal-icon></x-tribunal-icon><span>Tribunal</span></a>
         </div>
         <div class="list item-13">
-            <a href="{{ url('paiements')}}" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
+            <a href="{{ url('payments')}}" class="flex"><x-paie-icon></x-paie-icon><span>Paiements</span></a>
         </div>
         <div class="list item-14">
             <a href="{{ url('correspondence')}}" class="flex"><x-corres-icon></x-corres-icon><span>Correspondence</span></a>

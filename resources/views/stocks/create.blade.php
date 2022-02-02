@@ -90,7 +90,10 @@
                         </label>
                         <input id="invoice-input" name="invoice" type="file" style="position: absolute;z-index: -1;" />
                     </div>
-                    <button class="col-md-5 offset-7 Enr-button" id="submit">Enregistrer</button>                
+                    <div class="col-md-5 offset-5 d-inline">
+                        <a class="btn btn-secondary py-2 px-5 mr-3" href="{{route('categories.index')}}">Annuler</a>
+                        <button class="Enr-button" id="submit">Suivant</button>
+                    </div>                   
                 </div>
             </div>
         </form>

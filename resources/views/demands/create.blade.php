@@ -72,7 +72,10 @@
                             </form>
                         </div>
                     </div>
-                    <button type="submit" id="submit" class="col-md-4 offset-8 Enr-button">Enregistrer</button>
+                    <div class="offset-md-7 col">
+                        <a class="btn btn-secondary py-2 px-5 mr-3" href="{{route('demands.index')}}">Annuler</a>
+                        <button type="submit" id="submit" class="Enr-button">Enregistrer</button>
+                    </div>
                 </div>
             </div>
         </form>

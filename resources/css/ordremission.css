@@ -356,3 +356,17 @@ width: 200px;
 background-color: white;
 float: right;
 }
+
+.add-catg {
+  max-height: 3rem;
+  padding: 0.75rem 1rem;
+  color: #989898;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+}
+.add-catg:hover {
+  text-decoration: none;
+  background-color: rgba(195, 201, 213, 0.5);
+  color: #5e6c84;
+}

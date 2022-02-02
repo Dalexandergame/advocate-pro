@@ -37,4 +37,16 @@ class Mission extends Model
     {
         return $this->belongsTo('App\Models\User' , 'user_id');
     }
+
+    public function paymentMission()
+    {
+        return $this->hasOne(MissionPayment::class);
+    }
+
+    public function cheque()
+    {
+        return $this->hasOne(Cheque::class);
+    }
+
+
 }

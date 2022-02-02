@@ -1,4 +1,4 @@
-<@extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -116,7 +116,11 @@
 				</div>
 				<div class="form-row type-move4">
 					<div class="col">
-						<input type="text" class="form-control" placeholder="Mode paiment" name="modepay">
+						<select class="form-control" name="modepay" required>
+							<option value="Forfait">Forfait</option>
+							<option value="En avence">En avence</option>
+							<option value="En fin">En fin</option>
+						</select>
 					</div>
 				</div>
 				<input type="submit" name="enregistrer" value="enregistrer" class="buttonw">
@@ -140,7 +144,7 @@
 			<div class="col-3 titre">Contre</div>
 			<div class="w-100"></div>
 			<div class="col-2.5 marg-c1 bold-description-kech">Marrakech le({{ $dossierjuridique->date_creation->format('d/m/Y') }})</div><div class="w-100"></div>
-			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossierjuridique->modepay }}</span></div>
+			<div class="col titre col3-marg">Mode de paiment<br><span class="gray-bold">{{ $dossierjuridique->payment_mode }}</span></div>
 			<div class="col marg"></div>
 			<div class="col marg-c2">{{ $dossierjuridique->type_dossier }}</div>
 			<div class="col-3 marg-c3"><div class=" bold-description1">{{ $dossierjuridique->for->nom_contact_principal }}</div><br><div class=" bold-description1">Tel </div> {{ $dossierjuridique->for->tel_contact_principal }}<br><div class=" bold-description1">Mail </div> {{ $dossierjuridique->for->mail_contact_principal }}
@@ -167,6 +171,9 @@
 
 <h4 style="color: red; font-weight: bold; margin-left: 45px; margin-bottom: -30px">Dossiers</h4>
 <div class="float-container">
+	<div>
+
+	</div>
 	<div class="float-child">
 		<div class="big-grid2">
 			<div class="row">
@@ -241,7 +248,7 @@
                     
                     <label class="f-label" for="modepay">Mode paiment</label>
 										<br>
-										<input class="f-input" type="text" name="modepay" value="{{ $dossierjuridique->modepay }}" placeholder="Enter mode de paiment" style="height: 28px;width: 180;">
+										<input class="f-input" type="text" name="modepay" value="{{ $dossierjuridique->payment_mode }}" placeholder="Enter mode de paiment" style="height: 28px;width: 180;">
 										<br><br>
 
 										<label class="f-label" for="date_creation">Date creation</label>
@@ -506,6 +513,7 @@
 </div>
 <br>
 <br>
+<a class="marg-circle-button"type="button" data-toggle="modal" data-target="#Modaladd" style="margin-top: -100px"><div class="circle">+</div><div class="gray-bold-rep2">Assigner une tâche</div></a>
 <div class="col-2.5">
 	<div style="margin-top: -430px; margin-left: -10px"><div class="loader">Loading...</div><div class="gray-cours-traitement">En cours de traitement</div> </div>
 
@@ -521,14 +529,26 @@
 
 	<div style="margin-left: 335px;margin-top: 190px"><a href="" class="a-afficher"><img src="{{-- {{ url('/img/attach.png')}} --}}" height="11px" width="11px" style="margin-left: 50px;"/>  <div class="colored-gray-joint">{{-- {{ $audiance->file }} --}}</div></a></div>
 </div>
-
+<div class="float-child mx-3">
+	<a href="{{ route('adddossierCost', $dossierjuridique->id)}}" class="ajouer-frais"><div><span class="text-danger mr-2">+</span><span class="text-danger">Ajouter frais</span></div></a>
+	<div class="mt-4">
+		<span class="mr-1 text-secondary font-weight-bold">Frais</span>
+		<span class="text-secondary font-weight-bolder">5000 Dhs</span>
+	</div>
+	@if ($frais)
+		@foreach ($frais as $frai)
+		<div class="pt-2">
+			<span>{{$frai->name}} ......................... </span>
+			<span>{{$frai->cost}}</span>
+		</div>
+		@endforeach
+	@endif
+</div>
+<div class="mt-3">
+	<span class="text-danger font-weight-bold pr-2">+</span><a href="{{ route('dossierpayment.create', $dossierjuridique->id ) }}" class="text-danger mt-3">Ajouter paiement</a>
+	<div class="mt-4 pl-2"><a href="" class="text-danger">Voire paiement</a></div>
+</div>
 <br><br>
-
-<a class="marg-circle-button"type="button" data-toggle="modal" data-target="#Modaladd" style="margin-top: -100px"><div class="circle">+</div><div class="gray-bold-rep2">Assigner une tâche</div></a>
-
-
-<div style="margin-top: -100px; margin-right:-185px;"><div class="frais-color">Frais</div><div class="frais-color-dh">200 Dhs</div></div>
-<a href="#" class="ajouer-frais" style="margin-top: -50px"><div><div class="style-plus">+</div><div class="style-ajouter-frais">Ajouter frais</div></div></a>
 
 <!-- Add Tache Modal -->
 <div class="modal fade" id="Modaladd" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="true" data-backdrop="static">

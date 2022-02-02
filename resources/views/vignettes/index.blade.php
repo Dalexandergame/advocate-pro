@@ -64,13 +64,14 @@
         </div>
         <div id="panel" class="mt-4 offset-4" style="background-color: #FAFAFA; display:none">
             <span class="float-right p-2" id="hide"><img src="{{url('img/hide.svg')}}"/><br></span>
-            <img src="/storage/{{$invoice->invoice_number }}" class="ml-5 mt-2"/><br>
+            <img src="/storage/{{$invoice->invoice_number ?? ''}}" class="ml-5 mt-2 {{isset($invoice->invoice_number) ? '' : 'collapse'}}"/><br>
             <button class="btn btn-secondary">Imprimer</button>
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col-md offset-8">
+        <div class="col-md offset-7">
             <div>
+                <a class="btn btn-secondary py-2 px-3 mr-3" href="{{ route('productstock.index') }}">Choisir autre produit</a>
                 <a href="{{ route('vignettes.create') }}" class="btn btn-dark px-4">
                     <img class="mr-1" src="{{ url('img/stock.svg') }}"/>
                     <span>Gestion du stock</span>
