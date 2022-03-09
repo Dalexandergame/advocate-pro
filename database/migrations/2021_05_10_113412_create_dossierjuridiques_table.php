@@ -22,13 +22,18 @@ class CreateDossierjuridiquesTable extends Migration
             $table->string('commentaire')->nullable();
             $table->string('payment_mode')->nullable();
 
-            $table->string('jugement')->nullable(); 
+            $table->string('jugement')->nullable();
 
-            $table->string('parent',20)->nullable();
+            $table->string('parent', 20)->nullable();
+
+            $table->timestamps();
+        });
+
+        Schema::table('dossierjuridiques', function (Blueprint $table) {
             $table->foreign('parent')
-                 ->references('file_number')
-                 ->on('dossierjuridiques')
-                 ->onDelete('cascade'); 
+                ->references('file_number')
+                ->on('dossierjuridiques')
+                ->onDelete('cascade');
 
             $table->ForeignId('user_id')
                 ->nullable()
@@ -59,8 +64,6 @@ class CreateDossierjuridiquesTable extends Migration
                 ->nullable()
                 ->constrained('clientcomptes')
                 ->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 
