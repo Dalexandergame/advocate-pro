@@ -1,0 +1,59 @@
+.container {
+    height: auto;
+    width: auto;
+}
+
+#menu {
+    height: 210px;
+}
+
+#logo {
+    /* background-image: url(img\Logo-Blanc-AdvocatPro.png); */
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    margin-top: 5px;
+    background-size: 50%;
+}
+
+#lang {
+    text-align: right;
+    margin-top: 10px;
+    margin-left: 150px;
+}
+
+#msg {
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 40px;
+    margin-left: 25%;
+}
+
+#login {
+    background: rgba(255, 255, 255, 0.5);
+    border-style: solid;
+    border-color: white;
+    color: black;
+    /* background-color: white; */
+    padding: 40px;
+    margin-left: 25%;
+}
+
+#rem {
+    margin-top: 15px;
+}
+
+#exampleCheck1 {
+    margin-top: 20px;
+}
+
+H1 {
+    font-family: "Times New Roman";
+}
+
+H4 {
+    margin-bottom: 10px;
+}
+

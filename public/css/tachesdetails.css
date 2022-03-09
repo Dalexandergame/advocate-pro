@@ -1,0 +1,156 @@
+#tmenu {
+    background-color: #FFFFFF;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 15px;
+    color: #333333;
+}
+
+#tnav {
+    background-color: #F5F5F5;
+}
+
+.button0 {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+    width: 116px;
+    height: 26px;
+    margin-left: 0px;
+    font-size: 11px;
+}
+
+.button4 {
+    background-color: #EC1E24;
+}
+
+/* Red */
+
+h6 {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 13px;
+    color: #989898;
+}
+
+h5 {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.tdate {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.tprof {
+    width: 28px;
+    height: 28px;
+}
+
+.desc {
+    display: inline-block;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 180.5%; /* or 18px */
+    color: #000000;
+    margin-left: 40px;
+    display: inline-block;
+}
+
+.block-vide {
+    height: 60px;
+    display: block;
+}
+
+.button {
+    width: 116px;
+    height: 34px;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+
+.button1 {
+    margin-left: 5px;
+    font-size: 13px;
+    background-color: #FF0000;
+}
+
+/* Red */
+
+.button2 {
+    margin-left: 5px;
+    background-color: none;
+    border: solid 2px;
+    font-size: 13px;
+    color: black;
+}
+
+/* Gray */
+
+.imgbtn {
+    width: 13px;
+    height: 13px;
+    margin-bottom: 5px;
+}
+
+.filej {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #989898;
+    margin-left: 50px;
+    margin-top: -10px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 12px;
+    font-weight: normal;
+    color: #827E7E;
+    background-color: #F5F5F5;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+    margin-left: 30px;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,99 @@
+.box {
+    box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-wrapper {
+    margin-left: 1.5rem;
+}
+
+.btn-wrapper button {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+.move-btn {
+    padding-left: 1.75rem;
+    padding-right: 3rem;
+    background-color: #C4C4C4;
+}
+
+.download-btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1.5px solid #000000;
+    box-sizing: border-box;
+}
+
+.download-btn:hover {
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.plus-btn {
+    padding-left: 2rem;
+    padding-right: 2.5rem;
+}
+
+.trash-btn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.detail {
+    font-size: small;
+    color: #737171;
+}
+
+.player {
+    background: #333333;
+    margin-bottom: 1.5rem;
+}
+
+.listall {
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.viewdoc {
+    background-color: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: auto;
+    border-style: solid;
+    border-color: silver;
+    border-radius: 20px;
+    box-shadow: 0 0 11px rgb(102, 102, 102);
+}
+
+h4 {
+    color: black;
+    margin-top: 20px;
+    margin-left: 80px;
+    font-style: oblique 50deg;
+    font-family: Trebuchet MS;
+    padding-top: 20px;
+}
+
+h5 {
+    color: black;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-family: Candara;
+    padding-bottom: 20px;
+}
+
+.doccontent {
+    margin: 30px;
+}
+
+.sorttab {
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-shadow: 0 5px 15px rgb(105, 105, 105);
+    border-radius: 10px;
+
+}

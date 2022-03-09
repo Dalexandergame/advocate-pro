@@ -1,0 +1,45 @@
+.temp {
+    gap: 1rem;
+}
+
+.container > div:nth-child(odd) {
+    background: #FAFAFA;
+}
+
+.container > div:nth-child(even) {
+    background: #F5F5F5;
+}
+
+.row1 > div {
+    font-weight: bold;
+    color: #827E7E;
+}
+
+.templates {
+    background-color: white;
+    box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Enr-button {
+    margin-top: 2rem;
+    padding: 0.28rem 4rem;
+    background-color: white;
+    font-size: medium;
+    box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Enr-button:hover {
+    background-color: #F5F5F5;
+}
+
+.vis-btn {
+    padding-top: 0.05rem;
+    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-bottom: 0.05rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(75%, 125%);
+}

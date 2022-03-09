@@ -1,0 +1,131 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+li {
+    float: left;
+    margin-left: 30px;
+}
+
+li a {
+    display: block;
+    color: #A9A9A9;
+    font-size: 18px;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: system-ui;
+}
+
+
+a:focus {
+    font-size: 20 xp;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+li a:link, a:active {
+    text-decoration: none;
+}
+
+.button {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+.button1 {
+    margin-left: 35px;
+    padding: 8px 57px;
+    font-size: 13px;
+    background-color: black;
+}
+
+/* Black */
+.button2 {
+    color: black;
+    margin-left: 35px;
+    padding: 7px 85px;
+    font-size: 13px;
+    border: solid 1px;
+    background-color: transparent;
+}
+
+/* gray */
+.button3 {
+    margin-left: 35px;
+    padding: 8px 40px;
+    font-size: 13px;
+    background-color: red;
+}
+
+/* red */
+
+.buttonx {
+
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+.button-vue {
+    padding: 5px 28px;
+    font-size: 12px;
+    background-color: black;
+}
+
+.button-editer {
+    color: black;
+    border: solid 1px black;
+    padding: 4.5px 25px;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+.button-supprimer {
+    padding: 5px 15px;
+    font-size: 12px;
+    background-color: red;
+}
+
+.shadowrow1 {
+    background-color: white;
+    box-shadow: 10px 7px 10px 1px #e0e0e0;
+    height: 90px;
+}
+
+.shadowrow2 {
+    background-color: white;
+    box-shadow: 10px 7px 10px 1px #e0e0e0;
+    height: 50px;
+    margin-top: -20px;
+}
+
+td, th {
+    text-align: center;
+}
+
+.text-right {
+    margin-left: 20px;
+    text-align: center;
+
+}

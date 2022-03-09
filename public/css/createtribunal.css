@@ -1,0 +1,517 @@
+
+.client-menu li a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: system-ui;
+}
+
+
+.acontact:focus {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+li .acontact:hover {
+    color: black;
+    text-decoration: none;
+}
+
+li .acontact:link, .acontact:active {
+    text-decoration: none;
+}
+
+.customSelect {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.customSelect select {
+    display: none;
+}
+
+.select-selected {
+    background-color: rgb(255, 255, 255);
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #b7b7b7 transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #b7b7b7 transparent;
+    top: 7px;
+}
+
+.select-items div, .select-selected {
+    color: #5f5f5f;
+    padding: 8px 16px;
+    border: 1px solid #cecece;
+    cursor: pointer;
+    user-select: none;
+    height: 37.4px;
+    border-radius: 5px;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #f8f9fa;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .sameSelected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+.button5 {
+    margin-left: 35px;
+    padding: 7px 85px;
+    font-size: 13px;
+    background-color: #000000;
+}
+
+/* Black */
+
+.big-grid {
+    background-color: white;
+    box-shadow: 10px 9px 10px 1px #e0e0e0;
+}
+
+#red-writing {
+    margin-left: 30px;
+    margin-top: 15px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titre {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.gray-bold1 {
+    font-weight: bold;
+    margin-top: 20px;
+    color: gray;
+    font-size: 13.5px;
+    text-align: right;
+}
+
+.gray-bold {
+    font-weight: bold;
+    margin-top: 20px;
+    color: gray;
+    font-size: 13.5px;
+
+}
+
+.marg-c1 {
+    margin-left: 30px;
+    font-size: 13.5px;
+    color: #757575;
+}
+
+.marg-c2 {
+    margin-right: 10px;
+    font-size: 13.5px;
+    text-align: right;
+    color: #757575;
+}
+
+.marg-c3 {
+    margin-left: 20px;
+    font-size: 13.5px;
+    color: #757575;
+}
+
+.marg-c4 {
+    margin-left: 20px;
+    font-size: 13.5px;
+    margin-right: 10px;
+    color: #757575;
+}
+
+.edit-paragraph {
+    width: 800px;
+    margin-left: 260px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.buttonx {
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    font-family: system-ui;
+    padding: 6px 34px;
+    padding-top: 3px;
+    padding-bottom: 7px;
+    font-size: 12px;
+    background-color: black;
+}
+
+.buttonw {
+    color: black;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: solid 1px black;
+    font-family: system-ui;
+    padding: 4px 32px;
+    padding-top: 2.5px;
+    padding-bottom: 5.5px;
+    font-size: 12px;
+    background-color: white;
+}
+
+.buttons-position {
+    margin-left: 770px;
+    margin-top: 20px;
+}
+
+.bold-description1 {
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.bold-description2 {
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.col3-marg {
+    text-align: center;
+}
+
+a.buttonAjouter {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+a.button5 {
+    margin-left: 35px;
+    padding: 7px 85px;
+    font-size: 13px;
+    background-color: #000000;
+}
+
+/* Black */
+
+.type-move {
+    position: relative;
+    margin-left: 300px;
+    margin-top: -110px;
+}
+
+.type-move2 {
+    position: absolute;
+    margin-left: 600px;
+    margin-top: -80px;
+}
+
+.type-move3 {
+    position: absolute;
+    margin-left: 600px;
+}
+
+.text-area-move {
+    position: relative;
+    margin-left: 250px;
+    margin-top: 100px;
+    margin-right: -500px;
+}
+
+.type-move4 {
+    position: relative;
+    margin-top: 35px;
+    margin-left: 245px;
+    margin-right: -50px;
+}
+
+a.button {
+    color: white;
+    margin-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+a.button3 {
+    margin-left: 870px;
+    padding: 5.3px 17px;
+    font-size: 13px;
+    background-color: red;
+    display: inline-table;
+    margin-top: 20px;
+}
+
+/* red */
+
+.type-move0 {
+    position: relative;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 70px;
+    width: 70px;
+    background-color: #dcdcdc99;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.nbrdossier {
+    color: red;
+    margin-left: 120px;
+    width: max-content;
+    font-size: 20;
+}
+
+.addressdeplacement {
+    margin-top: 60px;
+    margin-left: 120px;
+}
+
+.type-move21 {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -200px;
+}
+
+.span1 {
+    display: block;
+    overflow: hidden;
+    padding: 5px 1px 1px 1px;
+}
+
+.type-move22 {
+    position: absolute;
+    margin-left: 600px;
+    margin-top: -200px;
+}
+
+.type-move23 {
+    position: absolute;
+    margin-left: 800px;
+    margin-top: -200px;
+}
+
+.buttonsave {
+    color: black;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    border: solid 1px black;
+    font-family: system-ui;
+    padding: 4px 15px;
+    padding-top: 2.5px;
+    padding-bottom: 5.5px;
+    font-size: 13px;
+    background-color: #d6d6d6;
+    position: absolute;
+    margin-left: 1000px;
+}
+
+.button-supprimer1 {
+    padding: 6px 30px;
+    background-color: red;
+    margin-right: 40px;
+}
+
+.buttonx1 {
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border: none;
+    font-family: system-ui;
+}
+
+.buttona {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+.button55 {
+    margin-left: 35px;
+    padding: 6px 45px;
+    font-size: 12px;
+    background-color: #000000;
+}
+
+/* Black */
+
+
+.table tr {
+    cursor: pointer;
+}
+
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #eeeeee;
+    font-size: 13px;
+}
+
+.accordian-body span {
+    color: #a2a2a2 !important;
+}
+
+
+.movedown {
+    margin-top: 200px;
+}
+
+
+#map {
+    height: 100%;
+}
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+#target {
+    width: 345px;
+}
+
+a.buttona {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    font-family: system-ui;
+}
+
+a.button55 {
+    margin-left: 35px;
+    padding: 6px 45px;
+    font-size: 12px;
+    background-color: #000000;
+}
+
+/* Black */
