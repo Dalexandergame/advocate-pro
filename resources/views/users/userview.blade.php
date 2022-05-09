@@ -7,7 +7,7 @@
     <li><a href="{{ url('/users') }}">Utilisateurs</a></li>
 </ul>
 
-<a class="button button1" class="btn btn-default btn-lg" href="{{ url('/register') }}"><img src="/img/plus.png" height="12px" width="12px" style="margin-top: -5px"> Ajouter nouveau</a>
+<a class="button button1" class="btn btn-default btn-lg" href="{{ url('/new-register') }}"><img src="/img/plus.png" height="12px" width="12px" style="margin-top: -5px"> Ajouter nouveau</a>
 <button class="button button2" class="btn btn-default btn-lg"><img src="/img/edit.png" height="12px" width="12px" style="margin-top: -5px"> Editer</button>
 <button class="button button3" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
 
@@ -46,7 +46,7 @@
             <tr>
                 <td height="20" colspan="2"></td>
             </tr>
-        @endforeach 
+        @endforeach
         </tbody>
 
     </table>

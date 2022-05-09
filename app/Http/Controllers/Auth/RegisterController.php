@@ -69,7 +69,7 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {   
+    {
         $roles = Role::all();
 
         $user = User::create([
@@ -81,7 +81,7 @@ class RegisterController extends Controller
 
      $user->roles()->attach($data['role']);
      $user->save();
-        
+
         //$url = "http://127.0.0.1:8000/password/reset/".$data['_token'];
         //Mail::to('test@test.com')->send(new ContactFormMail($user,$url));
 

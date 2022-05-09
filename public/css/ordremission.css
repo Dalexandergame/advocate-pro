@@ -1,193 +1,174 @@
-.filordre {
-    width: 298px;
-    height: 35px;
-    top: 327px;
-    left: 322px;
-    border: 1px solid #989898;
-    box-sizing: border-box;
-    margin-left: 5px;
-    padding: 7px 45px;
-    margin-top: 20px;
-    background-color: none;
-}
+.filordre{
+  width :298px;
+  height:35px;
+  top:327px;
+  left:322px;
+  border: 1px solid #989898;
+  box-sizing: border-box;
+  margin-left: 5px;
+  padding: 7px 45px;
+  margin-top: 20px; 
+  background-color: none;}
 
 .block1 {
-    height: 50px;
-    display: block;
-}
+  height:50px;
+  display:block;}
 
-.titlem {
+.titlem{
     font-family: Gotham;
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
     line-height: 15px;
-    color: #000000;
-}
+    color: #000000;}
 
-th {
-    color: #989898;
-}
+th {color: #989898;}
 
 .infos {
-    font-family: Gotham;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
+ font-family: Gotham;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
 }
 
 .dmission {
-    font-family: Gotham;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12px;
-    letter-spacing: 0em;
-    text-align: left;
+font-family: Gotham;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 12px;
+letter-spacing: 0em;
+text-align: left;
 }
 
-.cout {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 13px;
-    color: #EC1E24;
+.cout{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 13px;
+color: #EC1E24;
 }
 
 .prix {
-    font-size: 30px;
-    line-height: 180.5%;
+font-size: 30px;
+line-height: 180.5%;
 }
 
 .pai {
-    font-family: Gotham;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 13px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #989898;
+font-family: Gotham;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: 13px;
+letter-spacing: 0em;
+text-align: left;
+color: #989898;	
 }
 
 a:hover {
-    text-decoration: none;
-    color: #989898;
+  text-decoration: none;
+  color: #989898;
 }
 
 .tmpMission {
-    font-family: Gotham;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12px;
-    letter-spacing: 0em;
-    text-align: left;
+font-family: Gotham;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 12px;
+letter-spacing: 0em;
+text-align: left;
 }
 
 .button {
-    width: 250px;
-    color: white;
-    margin-top: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border: none;
-    font-family: system-ui;
+  width: 250px;
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  font-family: system-ui;
 }
 
 .button1 {
-    margin-left: 5px;
-    padding: 7px 45px;
-    font-size: 13px;
-    background-color: #FF0000;
-}
-
-/* Red */
+  margin-left: 5px;
+  padding: 7px 45px;
+  font-size: 13px;
+  background-color: #FF0000;} /* Red */ 
 
 .button2 {
-    margin-left: 5px;
-    background-color: none;
-    border: solid 2px;
-    padding: 5.5px 85px;
-    font-size: 13px;
-    color: black;
-}
-
-/* Gray */
+  margin-left: 5px;
+  background-color: none;
+  border: solid 2px;
+  padding: 5.5px 85px;
+  font-size: 13px;
+  color: black;} /* Gray */ 
 
 .button3 {
-    margin-left: 5px;
-    padding: 7px 45px;
-    font-size: 13px;
-    background-color: #000000;
-}
-
-/* Black */
+  margin-left: 5px;
+  padding: 7px 45px;
+  font-size: 13px;
+  background-color: #000000;} /* Black */
 
 .button0 {
-    color: white;
-    margin-top: 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border: none;
-    font-family: system-ui;
+  color: white;
+  margin-top: 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  font-family: system-ui;
 }
 
 .button4 {
-    height: 43px;
-    width: 150px;
-    margin-left: 10px;
-    padding: 6px 55px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    vertical-align: center;
-    text-align: center;
-    background-color: #000000;
-}
+  height: 43px;
+  width: 150px;
+  margin-left: 10px;
+  padding: 6px 55px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;
+  background-color: #000000;}
 
 .button6 {
-    margin-left: 10px;
-    background-color: #E6E6E6;
-    color: black;
-    height: 43px;
-    width: 155px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    vertical-align: center;
-    text-align: center;
-}
+  margin-left: 10px;
+  background-color: #E6E6E6;
+  color: black;
+  height: 43px;
+  width: 155px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;}
 
 
 .button5 {
-    height: 43px;
-    width: 150px;
-    margin-left: 15px;
-    padding: 6px 40px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    vertical-align: center;
-    text-align: center;
-    background-color: #FF0000;
-}
-
-/* Red */
+  height: 43px;
+  width: 150px;
+  margin-left: 15px;
+  padding: 6px 40px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  vertical-align: center;
+  text-align: center;
+  background-color: #FF0000;} /* Red */ 
 
 body {
 
@@ -197,16 +178,14 @@ body {
     font-size: 13px;
 }
 
-.table-responsive {
-    margin: 30px 0;
-}
+.table-responsive {margin: 30px 0;}
 
 .table-wrapper {
     min-width: 1000px;
     background: #fff;
     padding: 20px 25px;
     border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 
 .table-title {
@@ -225,189 +204,169 @@ table.table tr th, table.table tr td {
 }
 
 table.table tr th:first-child {
-    width: 500px;
-}
+    width: 500px;}
 
 table.table tr th:last-child {
-    width: 160px;
-}
+    width: 160px;}
 
 table.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #fcfcfc;
-}
+    background-color: #fcfcfc;}
 
 table.table-striped.table-hover tbody tr:hover {
-    background: #f5f5f5;
+    background: #f5f5f5;}
+
+.buttone{
+  color: #827E7E;
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid 1px #827E7E;
+  font-family: system-ui;
+  padding: 4px 32px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  height: 34px;
+  width: 200px;
+  float: right;
 }
-
-.buttone {
-    color: #827E7E;
-    background-color: white;
-    margin-top: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border: solid 1px #827E7E;
-    font-family: system-ui;
-    padding: 4px 32px;
-    padding-top: 3px;
-    padding-bottom: 6px;
-    font-size: 12px;
-    height: 34px;
-    width: 200px;
-    float: right;
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 13px;
+line-height: 13px;
+color: #827E7E;
+margin-left: 30px;
+margin-top: 10px;
 }
-
-.f-label {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 13px;
-    color: #827E7E;
-    margin-left: 30px;
-    margin-top: 10px;
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+background-color:#F5F5F5;
+width: 380px;
+height: 45px;
+margin-left: 30px;
 }
-
-.f-input {
-    border: 0.5px solid #C4C4C4;
-    box-sizing: border-box;
-    background-color: #F5F5F5;
-    width: 380px;
-    height: 45px;
-    margin-left: 30px;
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
 }
-
-.user-infos {
-    float: left;
-    margin-left: 20px;
-    margin-top: 50px;
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
 }
-
-.user-infos h5 {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #000000;
+.add-form{
+float: right;
+margin-top: 50px;
 }
-
-.add-form {
-    float: right;
-    margin-top: 50px;
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 620px;
+ 
 }
-
-.form-back {
-    background-color: #F5F5F5;
-    width: 450px;
-    height: 620px;
-
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
 }
-
-.user-label {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 180.5%;
-    color: #827E7E;
+.user-label span{
+font-weight: normal;
 }
-
-.user-label span {
-    font-weight: normal;
-}
-
 input::placeholder {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 180.5%;
-    /* identical to box height, or 22px */
-    color: #827E7E;
-    opacity: 0.3;
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+/* identical to box height, or 22px */
+color: #827E7E;
+opacity: 0.3;
 }
-
 textarea::placeholder {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 180.5%;
-    /* identical to box height, or 22px */
-    color: #827E7E;
-    opacity: 0.3;
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
+/* identical to box height, or 22px */
+color: #827E7E;
+opacity: 0.3;
 }
-
 .box {
-    text-align: left;
+  text-align: left;
 }
-
 .same-row {
-    display: inline-block;
+  display: inline-block;
 }
 
-.single-edit {
-    float: right;
-    margin-left: 5px;
-    border: none;
-    height: 30px;
-    background-color: none;
+.single-edit{
+  float: right;
+  margin-left: 5px;
+  border: none;
+  height: 30px;
+  background-color: none;
+}
+.single-delete{
+  float: right;
+  margin-left: 5px;
+  border: none;
+  height: 30px;
+  background-color: #FF0000;
+}
+.username{
+  font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 15px;
+color: #827E7E;
+text-align: center;
+}
+.img-circle{
+width: 43px;
+height: 45px;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.single-delete {
-    float: right;
-    margin-left: 5px;
-    border: none;
-    height: 30px;
-    background-color: #FF0000;
-}
-
-.username {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 15px;
-    color: #827E7E;
-    text-align: center;
-}
-
-.img-circle {
-    width: 43px;
-    height: 45px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.buttonu {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #989898;
-    opacity: 0.3;
-    border: none;
-    border-color: transparent;
-    width: 200px;
-    background-color: white;
-    float: right;
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
 }
 
 .add-catg {
-    max-height: 3rem;
-    padding: 0.75rem 1rem;
-    color: #989898;
-    background-color: #FFFFFF;
-    font-weight: bold;
-    text-decoration: none;
+  max-height: 3rem;
+  padding: 0.75rem 1rem;
+  color: #989898;
+  background-color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
 }
-
 .add-catg:hover {
-    text-decoration: none;
-    background-color: rgba(195, 201, 213, 0.5);
-    color: #5e6c84;
+  text-decoration: none;
+  background-color: rgba(195, 201, 213, 0.5);
+  color: #5e6c84;
 }

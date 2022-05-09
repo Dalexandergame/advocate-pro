@@ -1,3 +1,3 @@
-function showMessage() {
-    alert("Pas encore configurer!!!");
-}
+ function showMessage() {
+                alert("Pas encore configurer!!!");
+            }

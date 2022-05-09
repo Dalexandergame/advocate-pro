@@ -1,39 +1,32 @@
-i > a {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 17px;
-    color: #000000;
+i> a {
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  color: #000000;
 }
-
-li > a {
-    width: 74px;
-    height: 74px;
+ li> a {
+ width: 74px;
+ height: 74px;
 }
-
 .btn {
-    background-color: #000000;
+  background-color:#000000;
 }
-
-nav > div {
-    display: inline-flex;
+nav> div{
+  display: inline-flex;
 }
-
 #search {
-    width: 400px;
+  width: 400px;
 }
-
-@media only screen and (max-width: 1036px) {
-    .container-fluid {
+ @media only screen and (max-width: 1036px) {
+    .container-fluid{
         display: block;
     }
-
-    #search {
-        width: 193px;
-    }
-
-    li > a {
+     #search {
+         width: 193px;
+     }
+    li> a {
         width: 60px;
     }
 

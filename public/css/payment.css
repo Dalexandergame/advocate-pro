@@ -8,16 +8,13 @@
     margin-left: 20px;
     margin-right: 20px;
 }
-
 .container > div {
     padding: 1em;
 }
-
 .filter {
     grid-column: 1;
     grid-row: 1;
 }
-
 .prof {
     grid-column: 1/2;
     grid-row: 2/6;
@@ -31,32 +28,27 @@
     border-style: solid;
     border-color: #d3d3d3;
 }
-
 .info {
     grid-column: 2/5;
     grid-row: 2/9;
     border-style: solid;
     border-color: #d3d3d3;
 }
-
 .comm {
     grid-column: 2/5;
     grid-row: 9/13;
     border-style: solid;
     border-color: #d3d3d3;
 }
-
 .ace {
     grid-column: 2/5;
     grid-row: 13/14;
     justify-self: end;
     margin-right: 50px;
 }
-
 #mt {
     margin: 20px;
 }
-
 #pt {
     margin-left: 30px;
 }
@@ -66,25 +58,20 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 .if {
     text-align: center;
     margin: 10px;
 }
-
 #or {
     color: red;
 }
-
 .tit {
     margin: 20px;
 }
-
 .lescom {
     margin-left: 15px;
     margin-right: 5px;
 }
-
 .lescom2 {
     margin-left: 30px;
     margin-right: 5px;
@@ -107,34 +94,27 @@
     color: green;
     margin-bottom: 30px;
 }
-
 #total {
     color: green;
     margin-top: 30px;
 }
-
 #etat {
     color: red;
 }
-
 .div3 {
     margin-left: 25px;
     margin-bottom: 40px;
 }
-
 .div4 {
     margin-right: 10px;
 }
-
 .div5 {
     margin-left: 25px;
 }
-
 .div7 {
     margin-left: 25px;
     margin-top: 100px;
 }
-
 #ac {
     color: gray;
 }

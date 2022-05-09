@@ -4,9 +4,29 @@
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    bottom: 0;
+    padding-bottom: 1rem;
     background-color: #000000;
-    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden ;
+}
+
+/* width */
+.side-menu::-webkit-scrollbar {
+    width: 8px
+}
+/* Track */
+.side-menu::-webkit-scrollbar-track {
+    background: #bababa;
+}
+/* Handle */
+.side-menu::-webkit-scrollbar-thumb {
+    background: #3e3e3e;
+    border-radius:3px;
+}
+/* Handle on hover */
+.side-menu::-webkit-scrollbar-thumb:hover {
+    background: #454545;
 }
 
 .logo-container {
@@ -21,49 +41,40 @@
     padding-bottom: 0;
     justify-items: center;
 }
-
 .list span {
     color: #C4C4C4;
     padding: 0 1rem;
     justify-self: center;
 }
-
 .list a {
     align-items: center;
     font-size: small;
 }
-
 .list:hover {
     background-color: rgba(77, 77, 77, 0.6);
 }
-
-.list a:active {
+.list a:active{
     color: white;
     font-weight: bold;
 }
-
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1080px){
     .list {
-        padding-left: 0.5rem;
+        padding-left:0.5rem ;
     }
 
 }
-
 @media only screen and (max-width: 900px) {
-    .list a {
+    .list a{
         font-size: xx-small;
     }
 }
-
 @media only screen and (max-width: 719px) {
     .logo-container {
         padding-bottom: 1rem;
     }
-
-    .list {
+    .list{
         padding-left: 25%;
     }
-
     .list span {
         display: none;
     }

@@ -4,10 +4,31 @@
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    bottom: 0;
+    padding-bottom: 1rem;
     background-color: #000000;
-    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden ;
 }
+
+/* width */
+.side-menu::-webkit-scrollbar {
+    width: 8px
+}
+/* Track */
+.side-menu::-webkit-scrollbar-track {
+    background: #bababa;
+}
+/* Handle */
+.side-menu::-webkit-scrollbar-thumb {
+    background: #3e3e3e;
+    border-radius:3px;
+}
+/* Handle on hover */
+.side-menu::-webkit-scrollbar-thumb:hover {
+    background: #454545;
+}
+
 .logo-container {
     padding-top: 3rem;
     padding-bottom: 2rem;

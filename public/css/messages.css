@@ -1,187 +1,171 @@
-.sbmail {
-    width: 388px;
-    height: 1155px;
+.sbmail{
+  width: 388px;
+  height: 1155px;
 }
 
 .button1 {
-    width: 388px;
-    height: 60px;
-    display: inline-block;
-    font-size: 16px;
+  width: 388px;
+  height: 60px;
+  display: inline-block;
+  font-size: 16px;
 }
-
 .button {
-    color: white;
-    background-color: #FF0000; /* Red */
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    font-family: system-ui;
+  color: white;
+  background-color: #FF0000; /* Red */ 
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  font-family: system-ui;
 }
-
 .button2 {
-    font-size: 14px;
-    width: 122px;
-    height: 32px;
+font-size: 14px;
+width: 122px;
+height: 32px;
 }
-
-
-.pg-contain {
-    width: 388px;
-    height: 89px;
-    background-color: #F5F5F5;
+  
+  
+.pg-contain{
+  width: 388px;
+  height: 89px;
+  background-color: #F5F5F5;
 }
-
-.sidebarOption {
-    width: 388px;
-    height: 165px;
-    left: 322px;
-    top: 404px;
-    background: #FFFFFF;
-    border: solid;
-    border-color: transparent #E6E6E6 #E6E6E6;
+.sidebarOption{
+width: 388px;
+height: 165px;
+left: 322px;
+top: 404px;
+background: #FFFFFF;
+border: solid ;
+border-color:  transparent  #E6E6E6  #E6E6E6;
 }
-
-.profinfos {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 13px;
-    display: inline-block;
-    color: #827E7E;
+.profinfos{
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 13px;
+display: inline-block;
+color: #827E7E;
 }
-
-.fullname {
-    font-weight: bold;
+.fullname{
+font-weight: bold;
 }
-
-.mtime {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 13px;
-    display: inline-block;
-    color: #827E7E;
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
+.mtime{
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 13px;
+display: inline-block;
+color: #827E7E;
+float: right;
+margin-right: 10px;
+margin-top: 10px;
 }
-
-.descmail {
-    display: inline-block;
-    width: 227px;
-    height: 44px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 180.5%; /* or 22px */
-    color: #827E7E;
-    margin-top: 30px;
-    margin-left: 66px;
+.descmail{
+display: inline-block;
+width: 227px;
+height: 44px;
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;/* or 22px */
+color: #827E7E;
+margin-top: 30px;
+margin-left: 66px;
 }
-
-.mailpin {
-    float: right;
-    margin-right: 10px;
-    margin-top: 30px;
+.mailpin{
+float: right;
+margin-right: 10px;
+margin-top: 30px;
 }
 
 .main__body {
-    display: flex;
-    height: 1139px;
-    background-color: white;
+  display: flex;
+  height: 1139px;
+  background-color: white;
 }
 
 .emailList {
-    flex: 1;
-    overflow: scroll;
+  flex: 1;
+  overflow: scroll;
 }
-
 .section {
-    display: flex;
-    align-items: center;
-    border-bottom-width: 2px;
-    padding: 15px;
-    min-width: 140px;
-    cursor: pointer;
-    color: grey;
-    border-width: 0;
-    height: 89px;
+  display: flex;
+  align-items: center;
+  border-bottom-width: 2px;
+  padding: 15px;
+  min-width: 140px;
+  cursor: pointer;
+  color: grey;
+  border-width: 0;
+  height: 89px;
 }
 
 .emailList__sections {
-    position: sticky;
-    top: 0;
-    display: flex;
-    background-color: #F5F5F5;
-    border-bottom: 1px solid whitesmoke;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  display: flex;
+  background-color: #F5F5F5;
+  border-bottom: 1px solid whitesmoke;
+  z-index: 999;
 }
 
 .section__selected {
-    background-color: red;
-    border-width: 3px;
-    color: white;
-    border-bottom: 3px solid red;
+  background-color: red;
+  border-width: 3px;
+  color: white;
+  border-bottom: 3px solid red;
 
 }
-
 .section h4 {
-    font-size: 12px;
-    margin-left: 15px;
-    margin-top: 10px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 180.5%;
-    color: #827E7E;
+  font-size: 12px;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 180.5%;
+  color: #827E7E;
 }
-
 .section img {
-    width: 20px;
-    height: 17px;
+  width: 20px;
+  height: 17px;
 }
-
 .section:hover {
-    background-color: #E6E6E6;
-    border-width: 3px;
+  background-color: #E6E6E6;
+  border-width: 3px;
 }
-
 .emailList__settings {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;
-    padding: 8px;
-    margin-left: 500px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+  padding: 8px;
+  margin-left: 500px;
 }
-
-.bodyinfos {
-    margin-top: 39px;
-    margin-left: 15px;
-    margin-right: 36px;
+.bodyinfos{
+margin-top: 39px;
+margin-left: 15px;
+margin-right: 36px;
 }
-
-.bodyinfos h2 {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 180.5%; /* or 32px */
-    color: #000000;
+.bodyinfos h2{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 180.5%;/* or 32px */
+color: #000000;
 }
-
-.mailtext {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 180.5%; /* or 25px */
-    color: #827E7E;
+.mailtext{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 180.5%;/* or 25px */
+color: #827E7E;
 }
 
 .answer {
@@ -189,44 +173,39 @@
     box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
 }
 
-.pdf-block {
-    width: 203px;
-    height: 83px;
-    background-color: #F5F5F5;
-    border-radius: 12px;
+.pdf-block{
+width: 203px;
+height: 83px;
+background-color: #F5F5F5;
+border-radius: 12px;
 }
-
-.nompdf {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px; /* identical to box height */
-    color: #000000;
-    margin-left: 10px;
+.nompdf{
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;/* identical to box height */
+color: #000000;
+margin-left: 10px;
 }
-
-.pdf-block img {
-    margin-left: 10px;
+.pdf-block img{
+margin-left: 10px;
 }
-
 .pdf-block p {
-    display: inline-block;
-    margin-top: 0px;
+display: inline-block;
+margin-top: 0px;
 }
-
-.sizepdf {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    color: #989898;
-    margin-left: 10px;
-    text-align: center;
-    margin-right: 10px;
+.sizepdf{
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+color: #989898;
+margin-left: 10px;
+text-align: center;
+margin-right: 10px;
 }
-
-.blockw {
-    width: 200px;
+.blockw{
+width: 200px;
 }

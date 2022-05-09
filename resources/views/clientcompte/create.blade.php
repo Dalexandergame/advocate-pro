@@ -10,7 +10,7 @@
 </div>
 <br>
 
-<form style="margin-left: 35px">
+<form>
 	<div class="form-row align-items-center">
 		<div class="col-3">
 			<label class="sr-only" for="inlineFormInput">tagwords</label>
@@ -58,16 +58,15 @@
 <div class="container">
 	<div class="big-grid" style="margin-right: -20px; height: 420px">
 		<div class="row" style="margin-top: 20px">
-			
+
 			<form action="{{ url('clientcomptes')}}" method="post">
 
 				{{ csrf_field()}}
 
 				<div class="form-column col-md-8 type-move0">
 					<div class="col">
-						<input type="checkbox" name="checkbox"/>
 						<div class="dot"><img src="/img/briefcase1.png" style="margin-top: 18px; margin-left: 15px; margin-bottom: 20px; "></div>
-						<input type="text" class="form-control" placeholder="Entreprise Nom" name="nom_entreprise" style="margin-top: -50px;margin-left: 120px; width: 250px"> 
+						<input type="text" class="form-control" placeholder="Entreprise Nom" name="nom_entreprise" style="margin-top: -50px;margin-left: 120px; width: 250px">
 						<div style="margin-top: 5px"></div>
 						<div class="nbrdossier"> Nombre de dossier </div>
 					</div><div style="margin-top: 5px"></div>
@@ -79,20 +78,20 @@
 						<input type="text" class="form-control" placeholder="tagwords" name="tagwords" style="margin-left: 120px; margin-top: 50px;width: 250px;">
 					</div>
 				</div>
-				
+
 				<div class="form-column type-move21">
 					<div class="col" >
 						<input type="text" class="form-control" placeholder="Nom de contact 01" name="nom_contact" style="border: none; border-color: transparent; outline: none; font-weight: bold;">
 					</div>
 					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Tél</label>
+						<label for="" style="font-weight: bold;padding-top: 12px;">Tél</label>
 						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
+
 					</div>
 					<div class="col">
-						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Mail</label>
+						<label for="" style="font-weight: bold;padding-top: 12px;">Mail</label>
 						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
+
 					</div>
 				</div>
 
@@ -103,12 +102,12 @@
 					<div class="col">
 						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Tél</label>
 						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact_principal" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
+
 					</div>
 					<div class="col">
 						<label for="" style="float: left; font-weight: bold;padding-top: 12px;">Mail</label>
 						<span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact_principal" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
-						
+
 					</div>
 				</div>
 
@@ -117,14 +116,14 @@
 						<input type="text" class="form-control" placeholder="Dossier lier" name="Nomdossier" style="border: none; border-color: transparent; outline: none; font-weight: bold;">
 					</div>
 					<div class="col">
-						<span class="span1"><input type="text" class="form-control" placeholder="numero du dossier" name="dossier_lier" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>	
+						<span class="span1"><input type="text" class="form-control" placeholder="numero du dossier" name="dossier_lier" style="border: none; border-color: transparent; outline: none;width: 160px;"></span>
 					</div>
 				</div>
                 <button type="submit" name="enregistrer" value="enregistrer" class="buttonsave"><img src="/img/save.png" height="13px" width="13px" style="margin-top: -5px;margin-right: 5px">enregitrer</button>
 				 <a class="button button3" href=""><img src="/img/trash.png" height="13px" width="13px" style="margin-top: -5px;margin-right: 5px">supprimer</a>
 			</form>
 
-			
+
 		</div>
 	</div>
 </div>

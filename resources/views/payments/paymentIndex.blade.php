@@ -6,7 +6,7 @@
         <select class="pl-2 py-2" onchange="window.location.href=this.options[this.selectedIndex].value;">
             <option value="{{route('payments.index')}}">index</option>
             <option value="{{ route('paymission') }}">ordres de missions</option>
-            <option value="{{ route('paydossier') }}">Paiements des dossiers</option> 
+            <option value="{{ route('paydossier') }}">Paiements des dossiers</option>
             <option value="{{ route('refund') }}">Remboursements</option>
         </select>
     </div>
@@ -15,14 +15,15 @@
         <div class="pi">
             <img src="/img/Profile.png" height="100px" width="100px" />
         </div>
-        <div class="if">
+        <div class="">
             <h3>{{ auth()->user()->name }}</h3>
             <p>{{ auth()->user()->phone }}</p>
             <p>{{ auth()->user()->email }}</p>
             <p>zone industrielle, sidi ghanem Numero 292, bureau 1 et 2 40000 marrakech</p>
-            <h4 id="or">{{ $userMissions }} Ordres de missions</h3>
+            <h3 id="or">{{ $userMissions }} Ordres de missions</h3>
         </div>
     </div>
+    @if(isset($userLastMission))
     <div class="info">
         <div class="nested">
             <div class="ord"><h3>{{$userLastMission->titre}}</h3></div>
@@ -50,6 +51,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 @endsection
 

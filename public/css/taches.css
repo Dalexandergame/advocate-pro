@@ -1,99 +1,74 @@
 .button {
-    width: 250px;
-    color: white;
-    margin-top: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border: none;
-    font-family: system-ui;
+  width: 250px;
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  font-family: system-ui;
 }
-
 .button0 {
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border: none;
-    font-family: system-ui;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  font-family: system-ui;
 
-    width: 116px;
-    height: 26px;
-    margin-left: 0px;
-    font-size: 11px;
-}
-
+  width: 116px;
+  height: 26px;
+  margin-left: 0px;
+  font-size: 11px;
+  }
 .button4 {
-    background-color: #EC1E24;
-}
-
-/* Red */
-.button5 {
-    background-color: #ED741C;
-}
-
-/* orange */
-.button6 {
-    background-color: #3AE341;
-}
-
-/* vert */
+  background-color: #EC1E24;} /* Red */
+.button5{
+  background-color: #ED741C;} /* orange */
+.button6{
+  background-color: #3AE341;} /* vert */
 .button7 {
-    background-color: #989898;
-}
-
-/* gris */
-
+  background-color: #989898;} /* gris */
+ 
 
 .button2 {
-    margin-left: 5px;
-    background-color: none;
-    border: solid 2px;
-    padding: 5.5px 85px;
-    font-size: 13px;
-    color: black;
-}
-
-/* Gray */
+  margin-left: 5px;
+  background-color: none;
+  border: solid 2px;
+  padding: 5.5px 85px;
+  font-size: 13px;
+  color: black;} /* Gray */ 
 
 .button3 {
-    margin-left: 5px;
-    padding: 7px 45px;
-    font-size: 13px;
-    background-color: #000000;
-}
-
-/* Black */
+  margin-left: 5px;
+  padding: 7px 45px;
+  font-size: 13px;
+  background-color: #000000;} /* Black */
 
 #tmenu {
-    background-color: #FFFFFF;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #333333;
+  background-color:#FFFFFF;
+  font-family: Gotham;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 15px;
+  color: #333333;
 }
-
-#tnav {
-    background-color: #F5F5F5;
-}
+#tnav{background-color:#F5F5F5;}
 
 .tl-container {
     margin-left: 25px;
-    margin-right: 2.5rem;
+    margin-right:2.5rem ;
     margin-bottom: 1rem;
     display: grid;
     grid-template-rows:3rem;
     gap: 1rem;
 }
-
-.tl-wrapper {
+.tl-wrapper{
     gap: 2rem;
 }
-
 .title {
     background-color: #F5F5F5;
     column-gap: 1rem;
@@ -103,217 +78,197 @@
     font-size: 14px;
     line-height: 15px;
     color: #333333;
-    height: 40px;
+    height:40px;
 }
-
-.task-container {
+.task-container{
     margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    margin-right:2.5rem ;
     display: grid;
     grid-template-rows:15rem 15rem 15rem;
     gap: 1rem;
 }
 
-.task-wrapper {
+.task-wrapper{
     gap: 1rem;
 }
-
-.tasks {
+.tasks{
     background: white;
     column-gap: 1rem;
     box-shadow: 0px 14px 30px 6px rgba(0, 0, 0, 0.1);
 
 }
-
-.tdate {
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 10px;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 12px;
+.tdate{
+display: inline-block;
+margin-top:20px;
+margin-left:10px;
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+}
+.tprof{
+  width: 45px;
+  height: 45px;
+  margin-left: 20px;
+}
+h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+margin-left: 20px;
+}
+.desc{
+font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 180.5%;/* or 18px */
+color: #000000;
+margin-left: 20px;
+margin-right: 20px;
 }
 
-.tprof {
-    width: 45px;
-    height: 45px;
-    margin-left: 20px;
+.buttone{
+ font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+color: #000000;
+background-color: white;
+width: 116px;
+height: 34px;
+border: 1.5px solid #000000;
+box-sizing: border-box;
+float: right;
+bottom: 0;
 }
+.f-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
+margin-left: 30px;
+margin-top: 10px;
+}
+.f-input{
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+width: 380px;
+height: 45px;
+margin-left: 30px;
+background-color:white;
+}
+ input::placeholder{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: #737171;
+opacity: 0.3;
+ }
 
-h5 {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #000000;
-    margin-left: 20px;
-}
-
-.desc {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 180.5%; /* or 18px */
-    color: #000000;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.buttone {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    color: #000000;
-    background-color: white;
-    width: 116px;
-    height: 34px;
-    border: 1.5px solid #000000;
-    box-sizing: border-box;
-    float: right;
-    bottom: 0;
-}
-
-.f-label {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #000000;
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-.f-input {
-    border: 0.5px solid #C4C4C4;
-    box-sizing: border-box;
-    width: 380px;
-    height: 45px;
-    margin-left: 30px;
-    background-color: white;
-}
-
-input::placeholder {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    color: #737171;
-    opacity: 0.3;
-}
-
-textarea::placeholder {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    color: #737171;
-    opacity: 0.3;
-    margin-top: 10px;
-}
+ textarea::placeholder{
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 14px;
+color: #737171;
+opacity: 0.3;
+margin-top: 10px;
+ }
 
 select:required:invalid {
-    color: #737171;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 180.5%;
+  color: #737171;
+  font-family: Gotham;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 180.5%;
 }
-
 option[value=""][disabled] {
-    display: none;
+  display: none;
 }
-
 option {
-    color: black;
+  color: black;
+}
+i>a:hover {
+color: black;
+text-decoration: none;
 }
 
-i > a:hover {
-    color: black;
-    text-decoration: none;
+.buttonu{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #989898;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+width: 200px;
+background-color: white;
+float: right;
 }
-
-.buttonu {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #989898;
-    opacity: 0.3;
-    border: none;
-    border-color: transparent;
-    width: 200px;
-    background-color: white;
-    float: right;
+.buttonu1{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 80px;
+line-height: 15px;
+opacity: 0.3;
+border: none;
+border-color: transparent;
+display: inline-block;
+background-color: white;
+float: right;
+position: relative;
+bottom: 20px;
 }
-
-.buttonu1 {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 80px;
-    line-height: 15px;
-    opacity: 0.3;
-    border: none;
-    border-color: transparent;
-    display: inline-block;
-    background-color: white;
-    float: right;
-    position: relative;
-    bottom: 20px;
+.user-infos{
+float: left; 
+margin-left: 20px;
+margin-top: 50px;
 }
-
-.user-infos {
-    float: left;
-    margin-left: 20px;
-    margin-top: 50px;
+.user-infos h5{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 15px;
+color: #000000;
 }
-
-.user-infos h5 {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 15px;
-    color: #000000;
+.add-form{
+float: right;
+margin-top: 50px;
 }
-
-.add-form {
-    float: right;
-    margin-top: 50px;
+.form-back{
+ background-color:#F5F5F5;
+ width: 450px;
+ height: 720px;
+ 
 }
-
-.form-back {
-    background-color: #F5F5F5;
-    width: 450px;
-    height: 720px;
-
+.user-label{
+font-family: Gotham;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 180.5%;
+color: #827E7E;
 }
-
-.user-label {
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 180.5%;
-    color: #827E7E;
+.user-label span{
+font-weight: normal;
 }
-
-.user-label span {
-    font-weight: normal;
-}
-
-.numberd {
+.numberd{
     border: none transparent;
     outline: none;
     font-family: Gotham;
@@ -322,4 +277,4 @@ i > a:hover {
     font-size: 20px;
     line-height: 22px;
     color: #EC1E24;
-}
+  }

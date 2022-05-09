@@ -24,11 +24,10 @@
 
 .sm-circle {
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width:1.5rem;
+    height:1.5rem;
     background-color: #2a9055;
 }
-
 .user-task {
     box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
     padding-bottom: 1.75rem;
@@ -37,12 +36,10 @@
 .dossjur {
     box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
 }
-
 .folder {
     box-shadow: 0 14px 30px 6px rgba(0, 0, 0, 0.1);
     border-left: #EC1E24 3px solid;
 }
-
 .info {
     font-size: x-small;
 }
