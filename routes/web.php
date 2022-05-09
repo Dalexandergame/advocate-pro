@@ -47,8 +47,8 @@ use App\Http\Controllers\DossierjuridiqueController;
 |
 */
 
-Route::get('/new-login', function () {
-    return view('auth/newLogin');
+Route::get('/login', function () {
+    return view('auth/login');
 });
 
 Route::get('/new-forget', function () {
@@ -59,35 +59,35 @@ Route::get('/new-register', function () {
     return view('users/newRegister');
 });
 Route::get('/', function () {
-    return view('auth/newLogin');
+    return view('auth/login');
 });
 
 
-Route::resource('/users', UsersController::class);
-Route::get('/users/delete/{id}', [UsersController::class, 'destroy']);
+Route::resource('/users', UsersController::class)->middleware('auth');
+Route::get('/users/delete/{id}', [UsersController::class, 'destroy'])->middleware('auth');
 Route::resource('/roles', RolesController::class);
-Route::get('/roles/delete/{id}', [RolesController::class, 'destroy']);
-Route::resource('/permissions', PermissionController::class);
-Route::get('/permissions/delete/{id}', [PermissionController::class, 'destroy']);
+Route::get('/roles/delete/{id}', [RolesController::class, 'destroy'])->middleware('auth');
+Route::resource('/permissions', PermissionController::class)->middleware('auth');
+Route::get('/permissions/delete/{id}', [PermissionController::class, 'destroy'])->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->middleware('auth');
 
 Route::get('/clients', function () {
     return view('clientview');
-});
+})->middleware('auth');
 
-Route::get('/profile', [ProfilController::class, 'show']);
-Route::put('/profile/update/{id}', [ProfilController::class, 'update']);
-Route::put('/profile/updatepass/{id}', [ProfilController::class, 'updatepass']);
+Route::get('/profile', [ProfilController::class, 'show'])->middleware('auth');
+Route::put('/profile/update/{id}', [ProfilController::class, 'update'])->middleware('auth');
+Route::put('/profile/updatepass/{id}', [ProfilController::class, 'updatepass'])->middleware('auth');
 
-Route::get('/ordre-de-missions', [MissionController::class, 'index']);
-Route::prefix('/ordre-de-mission')->group(function () {
+Route::get('/ordre-de-missions', [MissionController::class, 'index'])->middleware('auth');
+Route::group(['prefix'=>'/ordre-de-mission','middleware' => 'auth'],function () {
     Route::put('/update/{id}', [MissionController::class, 'update']);
     Route::get('/', [MissionController::class, 'show']);
     Route::post('/', [MissionController::class, 'store']);
@@ -100,7 +100,7 @@ Route::prefix('/ordre-de-mission')->group(function () {
     Route::get('/attente', [MissionController::class, 'attente']);
 });
 
-Route::prefix('/calendrier')->group(function () {
+Route::group(['prefix'=>'/calendrier','middleware' => 'auth'],function () {
     Route::get('/search',  [CalendrierController::class, 'search']);
     Route::get('/view/{id}',  [CalendrierController::class, 'view']);
     Route::get('/filteradmin',  [CalendrierController::class, 'filteradmin']);
@@ -108,13 +108,13 @@ Route::prefix('/calendrier')->group(function () {
     Route::put('/audiances/recap', [CalendrierController::class, 'recap']);
 });
 
-Route::get('/inventaire', [InventoryController::class, 'index']);
+Route::get('/inventaire', [InventoryController::class, 'index'])->middleware('auth');
 
 Route::get('/tribunal', function () {
     return view('tribunalcourts');
-});
+})->middleware('auth');
 
-Route::prefix('/lois-et-articles')->group(function () {
+Route::group(['prefix'=>'/lois-et-articles','middleware' => 'auth'],function () {
     Route::get('/', [ArticleController::class, 'show']);
     Route::get('/search', [ArticleController::class, 'search']);
     Route::post('/', [ArticleController::class, 'store']);
@@ -124,9 +124,9 @@ Route::prefix('/lois-et-articles')->group(function () {
 
 Route::get('/correspondence', function () {
     return view('correspondence');
-});
+})->middleware('auth');
 
-Route::prefix('/taches')->group(function () {
+Route::group(['prefix'=>'/taches','middleware' => 'auth'],function () {
     Route::post('/{etat}', [TacheController::class, 'etat']);
     Route::get('/', [TacheController::class, 'show']);
     Route::get('/rendez-vous', [TacheController::class, 'rendezvous']);
@@ -136,15 +136,15 @@ Route::prefix('/taches')->group(function () {
 });
 
 
-Route::get('/taches-details/{id}', [TacheController::class, 'viewtask']);
-Route::get('/audiance-details/{id}', [TacheController::class, 'viewaudiance']);
-Route::delete('/taches-details/delete/{id}', [TacheController::class, 'destroy']);
-Route::get('/taches-details/edit/{id}', [TacheController::class, 'edit']);
-Route::put('/taches-details/update/{id}', [TacheController::class, 'update']);
+Route::get('/taches-details/{id}', [TacheController::class, 'viewtask'])->middleware('auth');
+Route::get('/audiance-details/{id}', [TacheController::class, 'viewaudiance'])->middleware('auth');
+Route::delete('/taches-details/delete/{id}', [TacheController::class, 'destroy'])->middleware('auth');
+Route::get('/taches-details/edit/{id}', [TacheController::class, 'edit'])->middleware('auth');
+Route::put('/taches-details/update/{id}', [TacheController::class, 'update'])->middleware('auth');
 
-Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.add');
-Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
-Route::get('/comment/download/{file}', [CommentController::class, 'download']);
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.add')->middleware('auth');
+Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add')->middleware('auth');
+Route::get('/comment/download/{file}', [CommentController::class, 'download'])->middleware('auth');
 
 // Route::get('/taches-details', function () {
 //     return view('tachesdetails');
@@ -152,19 +152,19 @@ Route::get('/comment/download/{file}', [CommentController::class, 'download']);
 
 Route::get('/dossier-juridiques', function () {
     return view('dossierjuridique');
-});
+})->middleware('auth');
 Route::get('/payments', function () {
     $userMissions = Mission::where('user_id', auth()->user()->id)->count();
     $userLastMission = Mission::with('paymentMission')->where('user_id', auth()->user()->id)->latest('updated_at')->first();
     //dd($userLastMission);
     return view('payments.paymentIndex', compact('userMissions', 'userLastMission'));
-})->name('payments.index');
+})->name('payments.index')->middleware('auth');
 
 
 
 Route::get('/messages', function () {
     return view('messages');
-});
+})->middleware('auth');
 
 
 Route::get('add-product-to-stock', [ProductsStockController::class, 'index'])->name('productstock.index');
@@ -188,9 +188,9 @@ Route::get('/getProduct', [DropdownController::class, 'selectProduct']);
 
 Route::get('/documents', function () {
     return view('documents');
-});
+})->middleware('auth');
 
-Route::prefix('/documents')->group(function () {
+Route::group(['prefix'=>'/documents','middleware' => 'auth'],function () {
     Route::post('/uploaddocument', [DocumentController::class, 'store']);
     Route::get('/', [DocumentController::class, 'show']);
     Route::get('/download/{file}', [DocumentController::class, 'download']);
@@ -200,7 +200,7 @@ Route::prefix('/documents')->group(function () {
 });
 Route::delete('/selected-docs', [DocumentController::class, 'deleteCheckedStudents'])->name('doc.deleteSelected');
 
-Route::prefix('/dossier-juridiques')->group(function () {
+Route::group(['prefix'=>'/dossier-juridiques','middleware' => 'auth'],function () {
     Route::get('/', [DossierjuridiqueController::class, 'show']);
     Route::get('/mine', [DossierjuridiqueController::class, 'index']);
     Route::get('/vue/{id}', [DossierjuridiqueController::class, 'vue'])->name('dossier.vue');
@@ -227,28 +227,28 @@ Route::prefix('/dossier-juridiques')->group(function () {
     Route::get('/{id}/vue/payments/details', [PaymentController::class, 'dossier_payment_details'])->name('dossierpayment.details');
 });
 
-Route::prefix('/jurisprudence')->group(function () {
+Route::group(['prefix'=>'/jurisprudence','middleware' => 'auth'],function () {
     Route::get('/', [JurisprudenceController::class, 'show']);
     Route::post('/upload', [JurisprudenceController::class, 'store']);
     Route::get('/download/{file}', [JurisprudenceController::class, 'download']);
     Route::get('/jurisprudenceview/{id}', [JurisprudenceController::class, 'view']);
 });
-Route::delete('/selected-jurisprudence', [JurisprudenceController::class, 'deleteCheckedStudents'])->name('jurisprudence.deleteSelected');
+Route::delete('/selected-jurisprudence', [JurisprudenceController::class, 'deleteCheckedStudents'])->name('jurisprudence.deleteSelected')->middleware('auth');
 
 
-Route::resource('clientcomptes', ClientcompteController::class);
-Route::resource('clientcontacts', ClientcontactController::class);
-Route::resource('tribunals', TribunalController::class);
+Route::resource('clientcomptes', ClientcompteController::class)->middleware('auth');
+Route::resource('clientcontacts', ClientcontactController::class)->middleware('auth');
+Route::resource('tribunals', TribunalController::class)->middleware('auth');
 
 
 Route::get('/payments/paydossier', function () {
     return view('payments.paydossier');
-})->name('paydossier');
+})->name('paydossier')->middleware('auth');
 Route::get('/payments/refund', function () {
     return view('payments.refund');
-})->name('refund');
+})->name('refund')->middleware('auth');
 
-Route::prefix('/payments/paymission')->group(function () {
+Route::group(['prefix'=>'/payments/paymission','middleware' => 'auth'],function () {
     Route::get('/', function () {
         $missions = Mission::where('status', '=', 'Aprouver')->orderBy('updated_at', 'desc')->with('paymentMission', 'cheque')->get();
         //dd($missions);
