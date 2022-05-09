@@ -38,7 +38,7 @@
             <div id="login" class="col-md-6">
                 <h4>Authentification</h4>
                 <form method="POST" action="{{ route('login') }}">
-                        @csrf     
+                        @csrf
                     <div class="mb-4">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
                         <!-- @error('email')
@@ -47,7 +47,7 @@
                                     </span>
                         @enderror -->
                     </div>
-                    
+
                     <div class="mb-4">
                         <input id="password" type="password" class="form-control @error('email') is-invalid @enderror" name="password" placeholder="Mot de passe" required autocomplete="current-password">
                         <!-- @error('password')
@@ -55,7 +55,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror -->
-                    </div>  
+                    </div>
                     @if($errors->any())
                         @foreach($errors->all() as $error)
                         <div class="alert alert-danger" role="alert">
@@ -84,7 +84,7 @@
                                     {{ __('Se connecter') }}
                         </button>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
