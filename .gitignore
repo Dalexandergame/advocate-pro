@@ -19,8 +19,6 @@ Thumbs.db
 
 # Laravel artifact
 /public/hot
-/public/css
-/public/js
 /public/storage
 /public/mix-manifest.json
 /storage/*.key
@@ -33,4 +31,3 @@ Thumbs.db
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
-package-lock.json
