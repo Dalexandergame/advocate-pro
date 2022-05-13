@@ -9,7 +9,7 @@
 </div>
 <br>
 
-<form>
+<form id="">
 	<div class="row container" style="padding: 0 2.125rem">
 		<div class="col">
 			<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="#Recherche par tagwords">
@@ -34,14 +34,97 @@
 	</div>
 </form>
 <br>
-<a class="button button5" href="{{ url('/clientcomptes/create') }}"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
+<a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
 <button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
 
 <br><br><br>
-<div class="container">
+<!--Create client account form-->
+<form id="client_account_create" action="{{ route('clientcomptes.create') }}" style="display: none">
+    @csrf
+    <div class="container bg-white" style="width: 94%;border: 1px solid #80808042;">
+        <div class="row px-3 pt-3">
+            <div class="mr-3">
+                <input type="checkbox" name="checkbox"/>
+            </div>
+            <div class="col-1">
+                <div class="d-flex align-items-center justify-content-center" style="border-radius:50%;background:#dcdcdc; height: 5em;width: 5em">
+                    <img src="/img/briefcase1.png">
+                </div>
+            </div>
+            <div class="col-3 px-3 pt-3">
+                <input type="text" class="client-input p-2 font-weight-bold" placeholder="Entreprise Nom" name="nom_entreprise">
+            </div>
+        </div>
+        <div class="row pb-5" style="margin-left: 8rem">
+            <div class="col-md pl-1">
+                <span class="font-weight-bold text-danger">Nombre de dossier</span>
+            </div>
+            <div class="col-md-3 mr-4">
+                <img src="img/red-plus.svg" alt=""/>
+                <span class="text-danger">Ajouter accès</span>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 8rem">
+            <div class="col-md p-0">
+                <div class="" >
+                    <label class="addressdeplacement font-weight-bold">Adresse</label>
+                    <input type="text" class="client-input-nb pt-2" placeholder="tapez votre adresse ici..." name="adresse">
+                </div>
+            </div>
 
+            <div class="col-md p-0">
+                <div class="" >
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Nom de contact 01" name="nom_contact">
+                </div>
+                <div class="">
+                    <label for="" class="pt-3 font-weight-bold">Tél</label>
+                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez votre numero" name="tel_contact">
 
+                </div>
+                <div class="">
+                    <label for="" class="pt-2 font-weight-bold">Mail</label>
+                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez votre email" name="mail_contact">
 
+                </div>
+            </div>
+            <div class="col-md p-0">
+                <div class="" >
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Contact principal" name="nom_contact_principal">
+                </div>
+                <div class="">
+                    <label for="" class="pt-3 font-weight-bold">Tél</label>
+                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez votre numero" name="tel_contact_principal">
+
+                </div>
+                <div class="">
+                    <label for="" class="pt-2 font-weight-bold">Mail</label>
+                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez votre email" name="mail_contact_principal">
+
+                </div>
+            </div>
+            <div class="col-md p-0">
+                <div class="" >
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Dossier lier" name="Nomdossier">
+                </div>
+                <div class="">
+                    <input type="text" class="client-input-nb pt-3" placeholder="numero du dossier" name="dossier_lier">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 8rem">
+            <div class="col-3 p-0 mt-4">
+                <input type="text" class="client-input py-1 px-3 mb-2" id="inlineFormInput" placeholder="#tag words">
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-4 offset-8 d-flex justify-content-between">
+                <button type="submit" class="button-save"><img src="/img/save.png" height="13px" width="13px"/><span class="pl-2">Enregistrer</span></button>
+                <a class="button-supprimer1 slide_up"><img src="/img/trash.png" height="13px" width="13px"/><span class="pl-2">Supprimer</span></a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="container" style="width: 97%">
 	<table class="table table-borderless" style="border-collapse:collapse;">
 		<thead>
 			<tr>
@@ -80,79 +163,24 @@
 
 	</table>
 </div>
-<!--Create client account form-->
-<div class="container">
-    <div class="row p-3 bg-white" style="margin:2rem 0">
-        <div class="mr-3">
-            <input type="checkbox" name="checkbox"/>
-        </div>
-        <div class="col-1">
-            <div class="d-flex align-items-center justify-content-center" style="border-radius:50%;background:#dcdcdc; height: 5em;width: 5em">
-                <img src="/img/briefcase1.png">
-            </div>
-        </div>
-        <div class="col-3 p-3">
-            <input type="text" class="form-control" placeholder="Entreprise Nom" name="nom_entreprise">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="col" >
-                <label class="addressdeplacement">Adresse</label>
-                <input type="text" class="form-control" placeholder="tapez votre adresse ici..." name="adresse">
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="" >
-                <input type="text" class="form-control" placeholder="Nom de contact 01" name="nom_contact">
-            </div>
-            <div class="">
-                <label for="" style="font-weight: bold;padding-top: 12px;">Tél</label>
-                <span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact"></span>
-
-            </div>
-            <div class="">
-                <label for="" style="font-weight: bold;padding-top: 12px;">Mail</label>
-                <span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact"></span>
-
-            </div>
-        </div>
-        <div class="col">
-            <div class="col" >
-                <input type="text" class="form-control" placeholder="contact principal" name="nom_contact_principal">
-            </div>
-            <div class="col">
-                <label for="" style="font-weight: bold;padding-top: 12px;">Tél</label>
-                <span class="span1"><input type="text" class="form-control" placeholder="Tapez votre numero" name="tel_contact_principal"></span>
-
-            </div>
-            <div class="col">
-                <label for="" style="font-weight: bold;padding-top: 12px;">Mail</label>
-                <span class="span1"><input type="text" class="form-control" placeholder="Tapez votre email" name="mail_contact_principal"></span>
-
-            </div>
-        </div>
-        <div class="col">
-            <div class="" >
-                <input type="text" class="form-control" placeholder="Dossier lier" name="Nomdossier">
-            </div>
-            <div class="">
-                <span class="span1"><input type="text" class="form-control" placeholder="numero du dossier" name="dossier_lier"v></span>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <br>
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('../css/clientcompteview.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/clientcompte.css') }}">
 @endsection
 
 @section('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="{{ asset('../js/menuselector.js') }}"></script>
 <script src="{{ asset('../js/notyetconfig.js') }}"></script>
+<script>
+    $(".slide_down").click(function(){
+        $("#client_account_create").slideDown("slow");
+    });
+    $(".slide_up").click(function(){
+        $("#client_account_create").slideUp("slow");
+    });
+</script>
 @endsection

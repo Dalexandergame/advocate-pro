@@ -18,13 +18,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'gotham', sans-serif;
+
         }
     </style>
 
