@@ -51,4 +51,4 @@
             <a href="{{ url('centre-aide')}}" class="flex"><x-aide-icon></x-aide-icon><span>Centre d’aide</span></a>
         </div>
     </div>
-</body>
+
