@@ -72,7 +72,7 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/clientcompteview.css') }}">
+<link rel="stylesheet" href="{{ asset('css/clientcompte.css') }}">
 @endsection
 
 @section('scripts')

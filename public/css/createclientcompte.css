@@ -324,26 +324,19 @@ a.button3 {
   margin-left: 800px;
   margin-top: -200px;
 }
-.buttonsave {
+.button-save {
  color: black;
- margin-top: 20px;
- text-align: center;
  text-decoration: none;
- display: inline-block;
  border: solid 1px black;
- font-family: system-ui;
- padding: 4px 15px;
- padding-top: 2.5px;
- padding-bottom: 5.5px;
+ padding: 1rem 2rem;
  font-size: 13px;
  background-color: #d6d6d6;
-position: absolute;
-margin-left: 1000px;
 }
  .button-supprimer1 {
-  padding: 6px 30px;
+  color: white;
+  padding: 1rem 2rem;
   background-color: red;
-margin-right: 40px;}
+ }
 
 .buttonx1 {
     color: white;
