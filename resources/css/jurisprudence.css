@@ -8,19 +8,19 @@
 }
 
 .box1 {
-    width: 15%;
+    width: 20%;
     margin-left: 15px;
 }
 .box2 {
-    width: 15%;
+    width: 20%;
     margin-left: 15px;
 }
 .box3 {
-    width: 15%;
+    width: 20%;
     margin-left: 15px;
 }
 .box4 {
-    width: 15%;
+    width: 20%;
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -33,7 +33,7 @@
     font-size: 15px;
     border-radius: 1em;
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 15px;
     width: 300px;
 }
 

@@ -10,22 +10,22 @@
                         <div>Nombre de taches</div>
                         <div>Auôt 2020 (Date)</div>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 1</div>
+                    <div class="pt-2 pl-3 border-secondary">Nom d'utilisateur 1</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 2</div>
+                    <div class="pt-2 pl-3 border-secondary">Nom d'utilisateur 2</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 3</div>
+                    <div class="pt-2 pl-3 border-secondary">Nom d'utilisateur 3</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 4</div>
+                    <div class="pt-2 pl-3 border-secondary">Nom d'utilisateur 4</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>

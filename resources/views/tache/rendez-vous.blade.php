@@ -20,31 +20,31 @@
             <label  class="f-label" for="type">Type</label>
              <br>
             <select class="f-input" id="typetache" type="text" name="type" aria-label="Default select example" style="height: 28px;width: 159px;" required>
-                      <option value="" disabled selected>Type de tâche</option>
-                      <option id="tachesimple" value="tache bureau">tache bureau</option>
-                      <option id="rendezvous" value="rendez-vous">rendez-vous</option>
-                      <option id="audiance" value="audiance">audiance</option>
-                      </select>
+              <option value="" disabled selected>Type de tâche</option>
+              <option id="tachesimple" value="tache bureau">tache bureau</option>
+              <option id="rendezvous" value="rendez-vous">rendez-vous</option>
+              <option id="audiance" value="audiance">audiance</option>
+            </select>
 
             <br><br>
 
             <div id="tachesimple_input" style="display:none;">
-            <label class="f-label" for="dateecheance">Date & heur d’échéance</label>
-            <br>
-            <input class="f-input" type="text" name="dateecheance" placeholder="Date d’échéance de la tâche" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
+                <label class="f-label" for="dateecheance">Date & heur d’échéance</label>
+                <br>
+                <input class="f-input" type="text" name="dateecheance" placeholder="Date d’échéance de la tâche" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
             </div>
             <div id="audiance_input" style="display:none;">
-            <label class="f-label" for="dateecheance">Date & heur d’audiance</label>
-            <br>
-            <input class="f-input" type="text" name="dateaudiance" placeholder="Date de la prochaine audiance" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
-            <br><br>
-            <label class="f-label" for="file_number">Numero du dossier juridique</label>
-            <br>
-            <input class="f-input" type="text" name="file_number" placeholder="saisir le numero du dossier" style="height: 28px;width: 180;">
-            <br><br>
-            <label class="f-label" for="tribunal_number">Numero du tribunal</label>
-            <br>
-            <input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;">
+                <label class="f-label" for="dateecheance">Date & heur d’audiance</label>
+                <br>
+                <input class="f-input" type="text" name="dateaudiance" placeholder="Date de la prochaine audiance" onfocus="(this.type='datetime-local')" style="height: 28px;width: 180;">
+                <br><br>
+                <label class="f-label" for="file_number">Numero du dossier juridique</label>
+                <br>
+                <input class="f-input" type="text" name="file_number" placeholder="saisir le numero du dossier" style="height: 28px;width: 180;">
+                <br><br>
+                <label class="f-label" for="tribunal_number">Numero du tribunal</label>
+                <br>
+                <input class="f-input" type="text" name="tribunal_number" placeholder="saisir le numero du tribunal" style="height: 28px;width: 180;">
             </div>
 
             <br>

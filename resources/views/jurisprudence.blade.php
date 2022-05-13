@@ -5,9 +5,15 @@
         <div class="menu">
             <table style="width:50%">
                 <tr>
-                    <td><h2><a href="{{ url('/jurisprudence') }}">Interne</a></h2></td>
-                    <td><h2><a href="">Advocate Pro</a></h2></td>
-                    <td><h2><a href="">Externe</a></h2></td>
+                        <nav class="navbar navbar-expand-lg navbar-light" id="tnav">
+                            <div class="container-fluid p-0" id="tmenu">
+                                <div class="navbar-nav ">
+                                    <a class="nav-link px-md-4" href="{{ url('/jurisprudence') }}">Interne</a>
+                                    <a class="nav-link px-md-4 active" href="">Advocate Pro </a>
+                                    <a class="nav-link px-md-4" href="">Externe </a>
+                                </div>
+                            </div>
+                        </nav>
                 </tr>
             </table>
         </div>
@@ -32,7 +38,7 @@
         </div>
         <div class="form-group row">
             <div class="impo">
-                <span type="button" class="pl-2" id="impo" data-toggle="modal" data-target="#addjuris">Importer Jurisprudence</span>
+                <span type="button" class="pl-2" id="impo" data-toggle="modal" data-target="#addjuris"><img src="img/download.svg" alt="download">Importer Jurisprudence</span>
             </div>
             <div class="expo">
                 <button type="button" id="expo">Exporter la selection</button>
@@ -52,7 +58,7 @@
                         <th scope="col">Avocate en charge</th>
                         <th scope="col">Date</th>
                         <th scope="col">Résultat final</th>
-                        <th scope="col">Options</th>
+{{--                        <th scope="col">Options</th>--}}
                     </tr>
                 </thread>
                 <tbody>
@@ -96,47 +102,61 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="container">
       <form action="{{url('/jurisprudence/upload')}}" method="post" enctype="multipart/form-data">
       @csrf
-      <div class="form-group">
-        <label for="charge">Utilisateur en charge:</label>
-            <input type="hidden" name="userid" value="{{ $user->id }}">
-            <br>&nbsp&nbsp&nbsp Nom: {{ $user->name }} <br>&nbsp&nbsp&nbsp Tel: {{ $user->phone }} <br>&nbsp&nbsp&nbsp Mail: {{ $user->email }} <br><br>
+      <div class="row">
+          <div class="col">
+              <label class="font-weight-bold" for="cabinetname">Nom cabinet:</label>
+              <input type="text" name="cabinetname" placeholder="Nom du cabinet"><br>
+          </div>
 
-        <label for="cabinetname">Nom cabinet:</label>
-        <input type="text" name="cabinetname" placeholder="Nom du cabinet"><br>
+          <div class="col">
+              <label class="font-weight-bold" for="charge">Utilisateur en charge:</label>
+              <input type="hidden" name="userid" value="{{ $user->id }}">
+              <h6 class="text-sm-left">Nom: {{ $user->name }}</h6>
+              <h6 class="txt-small">Tel: {{ $user->phone }}</h6>
+              <h6 class="txt-small">Mail: {{ $user->email }}</h6>
+          </div>
 
-        <label for="Contencieux">Contencieux:</label>
-            <select name="Contencieux" id="Contencieux">
-            <option value="" disabled selected>type de contencieux</option>
-            <option value="type1">Type1</option>
-            <option value="type2">type2</option>
-            </select><br><br>
+          <div class="col">
+              <label class="font-weight-bold" for="Contencieux">Contencieux:</label>
+              <select name="Contencieux" id="Contencieux">
+                  <option value="" disabled selected>type de contencieux</option>
+                  <option value="type1">Type1</option>
+                  <option value="type2">type2</option>
+              </select>
+          </div>
+          <br><br>
+      </div>
+      <div class="row justify-content-end">
+          <div class="p-4 mr-5 vstack gap-3 bg-light text-dark">
+            <label class="font-weight-bold" for="date">Date:</label>
+            <input type="date" id="date" name="date"><br><br>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date"><br><br>
+            <label class="font-weight-bold" for="dossiername">Nom du dossier:</label>
+            <input type="text" name="dossiername" placeholder="Nom du dossier"><br><br>
 
-        <label for="dossiername">Nom du dossier:</label>
-        <input type="text" name="dossiername" placeholder="Nom du dossier"><br><br>
+            <label class="font-weight-bold" for="dossiernumero">Numero du dossier:</label>
+            <input type="number" name="dossiernumero" placeholder="Num du dossier"><br><br>
 
-        <label for="dossiernumero">Numero du dossier:</label>
-        <input type="number" name="dossiernumero" placeholder="Num du dossier"><br><br>
+            <label class="font-weight-bold" for="file">Le document à importer :</label>
+            <input type="file" name="file"><br><br>
 
-        <label for="file">Le document à importer :</label>
-        <input type="file" name="file"><br><br>
-
-        <label for="resultat">resultat final</label>
-            <select name="resultat" id="resultat">
-            <option value="" disabled selected>resultat</option>
-            <option value="gagner">Gagner</option>
-            <option value="perdu">Perdu</option>
-            </select><br><br>
-
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
+            <label class="font-weight-bold" for="resultat">resultat final</label>
+                <select name="resultat" id="resultat">
+                <option value="" disabled selected>resultat</option>
+                <option value="gagner">Gagner</option>
+                <option value="perdu">Perdu</option>
+                </select><br><br>
+          </div>
+      </div>
+      <div class="row justify-content-end">
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+      </div>
     </form>
       </div>
     </div>
