@@ -9,11 +9,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\CustomResetPassword;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRolesAndPermissions, Billable;
-    
+    use HasFactory, Notifiable, Billable, HasRoles;
+
     public function taches()
     {
         return $this->hasMany('App\Models\Tache');
@@ -33,7 +34,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cheque::class);
     }
-    
+
      public function dossiers()
     {
         return $this->hasMany('App\Models\dossierjuridiques');

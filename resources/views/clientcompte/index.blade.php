@@ -37,7 +37,7 @@
 <a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
 <button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
 
-<br><br><br>
+<br>
 <!--Create client account form-->
 <form id="client_account_create" action="{{ route('clientcomptes.create') }}" style="display: none">
     @csrf
@@ -67,7 +67,7 @@
         <div class="row" style="margin-left: 8rem">
             <div class="col-md p-0">
                 <div class="" >
-                    <label class="addressdeplacement font-weight-bold">Adresse</label>
+                    <label class="addressdeplacement font-weight-bold">Adresse</label> <br>
                     <input type="text" class="client-input-nb pt-2" placeholder="tapez votre adresse ici..." name="adresse">
                 </div>
             </div>
