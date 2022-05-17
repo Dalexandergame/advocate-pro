@@ -141,7 +141,7 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('../css/clientcontactview.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/clientcompte.css') }}">
 @endsection
 
 @section('scripts')
