@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Helpers\Roles;
+use App\Helpers\Sections;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -24,14 +24,14 @@ class RoleSeeder extends Seeder
         $lawyer = Role::create(['name' => Roles::LAWYER]);
         $client = Role::create(['name' => Roles::CLIENT]);
 
-        $lawyer->givePermissionTo('create a dossier');
-        $lawyer->givePermissionTo('view own dossier');
-        $lawyer->givePermissionTo('edit own dossier');
-        $lawyer->givePermissionTo('delete own dossier');
-        $lawyer->givePermissionTo('create own order de mission');
-        $lawyer->givePermissionTo('view own order de mission');
-        $lawyer->givePermissionTo('edit own order de mission');
+        foreach (Sections::SECTIONS as $item){
+            $lawyer->givePermissionTo('view '.$item);
+            $lawyer->givePermissionTo('edit '.$item);
+            $lawyer->givePermissionTo('delete '.$item);
+        }
 
-        $client->givePermissionTo('view own dossier');
+        foreach (Sections::CLIENT_SECTIONS as $item){
+            $client->givePermissionTo('view '.$item);
+        }
     }
 }
