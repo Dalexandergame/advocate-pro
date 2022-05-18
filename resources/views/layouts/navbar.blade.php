@@ -2,15 +2,16 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item me-3 me-lg-1">
-        <i class="nav-link">
-          <a href="" style="">Fr.</a>
-          <a href=""style="">Ar.</a>
-        </i>
-      </li>
+      <select class="p-2 rounded" data-width="fit">
+        <option data-content='<span class="flag-icon flag-icon-us"></span> French'>French</option>
+        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Arabic'>Arabic</option>
+      </select>
     </ul>
   </div>
 </nav>
+
+
+
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <div class="container-fluid justify-content-between px-2">

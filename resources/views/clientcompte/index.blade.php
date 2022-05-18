@@ -20,12 +20,12 @@
 
 		<div class="col customSelect">
 			<select>
-				<option value="0">Type du compte</option>
+				<option value="0">Type du Compte</option>
 				<option value="Particulier">Particulier</option>
 				<option value="societe">Société</option>
 				<option value="Famille">Famille</option>
-				<option value="OrganisationG">Organisation gouvernementale</option>
-				<option value="OrganisationNG">Organisation non gouvernementale</option>
+				<option value="OrganisationG">Organisation Gouvernementale</option>
+				<option value="OrganisationNG">Organisation Non Gouvernementale</option>
 			</select>
 		</div>
 		<div class="col">
@@ -34,12 +34,12 @@
 	</div>
 </form>
 <br>
-<a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
-<button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
+<a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter Nouveau</a>
+<button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la Selection</button>
 
-<br>
+<br><br><br>
 <!--Create client account form-->
-<form id="client_account_create" action="{{ route('clientcomptes.create') }}" style="display: none">
+<form id="client_account_create" action="{{ route('clientcomptes.store') }}" method="POST" style="display: none">
     @csrf
     <div class="container bg-white" style="width: 94%;border: 1px solid #80808042;">
         <div class="row px-3 pt-3">
@@ -57,63 +57,63 @@
         </div>
         <div class="row pb-5" style="margin-left: 8rem">
             <div class="col-md pl-1">
-                <span class="font-weight-bold text-danger">Nombre de dossier</span>
+                <span class="font-weight-bold text-danger">Nombre de Dossier</span>
             </div>
             <div class="col-md-3 mr-4">
                 <img src="img/red-plus.svg" alt=""/>
-                <span class="text-danger">Ajouter accès</span>
+                <span class="text-danger">Ajouter Accès</span>
             </div>
         </div>
         <div class="row" style="margin-left: 8rem">
             <div class="col-md p-0">
                 <div class="" >
-                    <label class="addressdeplacement font-weight-bold">Adresse</label> <br>
-                    <input type="text" class="client-input-nb pt-2" placeholder="tapez votre adresse ici..." name="adresse">
+                    <label class="addressdeplacement font-weight-bold">Adresse</label><br>
+                    <input type="text" class="client-input-nb pt-2" placeholder="Tapez Votre Adresse Ici..." name="adresse">
                 </div>
             </div>
 
             <div class="col-md p-0">
                 <div class="" >
-                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Nom de contact 01" name="nom_contact">
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Nom de Contact" name="nom_contact">
                 </div>
                 <div class="">
-                    <label for="" class="pt-3 font-weight-bold">Tél</label>
-                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez votre numero" name="tel_contact">
+                    <label for="" class="pt-3 font-weight-bold">Tél</label><br>
+                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez Votre Numero" name="tel_contact">
+
+                </div>
+                <div class="">
+                    <label for="" class="pt-2 font-weight-bold">Mail</label><br>
+                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez Votre Email" name="mail_contact">
+
+                </div>
+            </div>
+            <div class="col-md p-0">
+                <div class="" >
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Contact Principal" name="nom_contact_principal">
+                </div>
+                <div class="">
+                    <label for="" class="pt-3 font-weight-bold">Tél</label><br>
+                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez Votre Numero" name="tel_contact_principal">
 
                 </div>
                 <div class="">
                     <label for="" class="pt-2 font-weight-bold">Mail</label>
-                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez votre email" name="mail_contact">
+                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez Votre Email" name="mail_contact_principal">
 
                 </div>
             </div>
             <div class="col-md p-0">
                 <div class="" >
-                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Contact principal" name="nom_contact_principal">
+                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Dossier Lier" name="Nomdossier">
                 </div>
                 <div class="">
-                    <label for="" class="pt-3 font-weight-bold">Tél</label>
-                    <input type="text" class="client-input-nb pl-3" placeholder="Tapez votre numero" name="tel_contact_principal">
-
-                </div>
-                <div class="">
-                    <label for="" class="pt-2 font-weight-bold">Mail</label>
-                    <input type="text" class="client-input-nb pl-2" placeholder="Tapez votre email" name="mail_contact_principal">
-
-                </div>
-            </div>
-            <div class="col-md p-0">
-                <div class="" >
-                    <input type="text" class="client-input-nb font-weight-bold" placeholder="Dossier lier" name="Nomdossier">
-                </div>
-                <div class="">
-                    <input type="text" class="client-input-nb pt-3" placeholder="numero du dossier" name="dossier_lier">
+                    <input type="text" class="client-input-nb pt-3" placeholder="Numero du Dossier" name="dossier_lier">
                 </div>
             </div>
         </div>
         <div class="row" style="margin-left: 8rem">
             <div class="col-3 p-0 mt-4">
-                <input type="text" class="client-input py-1 px-3 mb-2" id="inlineFormInput" placeholder="#tag words">
+                <input type="text" class="client-input py-1 px-3 mb-2" id="inlineFormInput" placeholder="#Tag Words">
             </div>
         </div>
         <div class="row pb-3">
@@ -129,9 +129,9 @@
 		<thead>
 			<tr>
 				<th scope="col"></th>
-				<th scope="col">Nom du compte</th>
-				<th scope="col">Liste des contacts</th>
-				<th scope="col">Contact principal</th>
+				<th scope="col">Nom du Compte</th>
+				<th scope="col">Liste des Contacts</th>
+				<th scope="col">Contact Principal</th>
 				<th scope="col">Dossier</th>
 			</tr>
 		</thead>

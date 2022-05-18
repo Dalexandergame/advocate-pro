@@ -143,6 +143,8 @@ background-color: white;
 width: 116px;
 height: 34px;
 border: 1.5px solid #000000;
+border-radius: 5px;
+margin-right: 50px;
 box-sizing: border-box;
 float: right;
 bottom: 0;
@@ -159,6 +161,7 @@ margin-top: 10px;
 }
 .f-input{
 border: 0.5px solid #C4C4C4;
+border-radius: 5px;
 box-sizing: border-box;
 width: 380px;
 height: 45px;
@@ -210,12 +213,12 @@ font-family: Gotham;
 font-style: normal;
 font-weight: bold;
 font-size: 14px;
-line-height: 15px;
+line-height: 80px;
 color: #989898;
 opacity: 0.3;
 border: none;
 border-color: transparent;
-width: 200px;
+width: 300px;
 background-color: white;
 float: right;
 }
