@@ -10,6 +10,6 @@ class UserController extends Controller
     public function show()
     {
         $data=user::all();
-        return view('users/userview',compact('data'));
+        return view('users.users',compact('data'));
     }
 }
