@@ -20,8 +20,8 @@
         <div class="row pt-5">
             <div class="col-1"></div>
             <div class="col"></div>
-            <div class="col text-center font-weight-bold">Nom du produit</div>
-            <div class="col text-center font-weight-bold">Prix d’achat unitaire</div>
+            <div class="col text-center font-weight-bold">Nom du Produit</div>
+            <div class="col text-center font-weight-bold">Prix d’Achat Unitaire</div>
             <div class="col text-center font-weight-bold">Quantité</div>
             <div class="col-3 text-center font-weight-bold">Description</div>
 
@@ -41,8 +41,7 @@
             <div class="col-3 text-center">{{$stock->product->description}}.</div>
         </div>
         @endforeach
-        <a href="/inventaire" class="btn-danger float-lg-right p-2 px-5 mt-4 mb-3">liste des produits</a>
-    </div>
+        <a href="/inventaire" class="btn-danger float-lg-right p-2 px-5 mt-4 mb-3">Liste des Produits</a>
     </div>
 @endsection
 

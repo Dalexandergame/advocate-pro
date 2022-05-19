@@ -7,10 +7,12 @@
 }
 
 .licontact {
+    float: left;
     margin-left: 30px;
 }
 
 .licompte {
+    float: left;
     margin-left: 30px;
     font-weight: bold;
     color: black;
@@ -44,7 +46,6 @@ li .acontact:link, .acontact:active{
 .customSelect {
    position: relative;
    font-family: Arial, Helvetica, sans-serif;
-   padding: 0;
 }
 .customSelect select {
    display: none;
@@ -324,19 +325,26 @@ a.button3 {
   margin-left: 800px;
   margin-top: -200px;
 }
-.button-save {
+.buttonsave {
  color: black;
+ margin-top: 20px;
+ text-align: center;
  text-decoration: none;
+ display: inline-block;
  border: solid 1px black;
- padding: 1rem 2rem;
+ font-family: system-ui;
+ padding: 4px 15px;
+ padding-top: 2.5px;
+ padding-bottom: 5.5px;
  font-size: 13px;
  background-color: #d6d6d6;
+position: absolute;
+margin-left: 1000px;
 }
  .button-supprimer1 {
-  color: white;
-  padding: 1rem 2rem;
+  padding: 6px 30px;
   background-color: red;
- }
+margin-right: 40px;}
 
 .buttonx1 {
     color: white;

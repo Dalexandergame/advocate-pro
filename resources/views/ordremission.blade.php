@@ -2,9 +2,9 @@
 @section('content')
 <!-- add-edit-delete -->
 <div class="container-xl">
-    <button class="button button3" type="button" data-toggle="modal" data-target="#Modaladdmission"> <img src="img/plus.svg"> Ajouter nouveau</button>
+    <button class="button button3" type="button" data-toggle="modal" data-target="#Modaladdmission"> <img src="img/plus.svg"> Ajouter Nouveau</button>
 
-    <button class="button button1" id="deleteAllSelectedMissions"> <img src="img/trash.svg"> Supprimer en selection</button>
+    <button class="button button1" id="deleteAllSelectedMissions"> <img src="img/trash.svg"> Supprimer en Selection</button>
 
     <!-- Add Modal -->
     <div class="modal fade" id="Modaladdmission" tabindex="-1" role="dialog" aria-labelledby="addMissionLabel" aria-hidden="false" data-backdrop="static">
@@ -15,9 +15,9 @@
                <span aria-hidden="true"  style="font-size: 50px;">&times;</span>
            </button>
            <div class="user-infos">
-              <h5>Utilisateur en charge</h5>
+              <h5>Utilisateur en Charge</h5>
               <br>
-              <div class="user-label">Nom d'utilisateur: {{ auth()->user()->name }}</div>
+              <div class="user-label">Nom d'Utilisateur: {{ auth()->user()->name }}</div>
               <div class="user-label">Tel: <span> {{ auth()->user()->phone }}</span> </div>
               <div class="user-label">Mail: <span> {{ auth()->user()->email }}</span> </div>
               <br>
@@ -30,29 +30,29 @@
               <form action="{{ url('ordre-de-mission') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="form-back">
-                    <label class="f-label" for="titre">Titre de mission</label>
+                    <label class="f-label" for="titre">Titre de Mission</label>
                     <br>
-                    <input class="f-input" type="text" name="titre" placeholder="Titre ici ..." required>
+                    <input class="f-input pl-2" type="text" name="titre" placeholder="Titre ici ..." required>
                     <br><br>
-                    <label  class="f-label" for="description">Description de la mission</label>
+                    <label  class="f-label" for="description">Description de la Mission</label>
                     <br>
-                    <textarea class="f-input" type="text"  name="description" placeholder="Description ici ..." style="height: 95px;" required></textarea>
+                    <textarea class="f-input pl-2" type="text"  name="description" placeholder="Description ici ..." style="height: 95px;" required></textarea>
                     <br><br>
                     <label class="f-label" for="destination">Destination</label>
                     <br>
-                    <input class="f-input" type="text" name="destination" placeholder="Adresse ici ..."style="height: 65px;" required>
+                    <input class="f-input pl-2" type="text" name="destination" placeholder="Adresse ici ..."style="height: 65px;" required>
                     <br><br>
-                    <label  class="f-label" for="date creation">Date de création de la mission</label>
+                    <label  class="f-label" for="date creation">Date de Création de la Mission</label>
                     <br>
-                    <input class="f-input" type="text"  name="datecreation" placeholder="Date de création de la tâche" onfocus="(this.type='date')" style="height: 28px;width: 200px;" required>
+                    <input class="f-input pl-2" type="text"  name="datecreation" placeholder="Date de création de la tâche" onfocus="(this.type='date')" style="height: 28px;width: 200px;" required>
                     <br><br>
                     <label class="f-label" for="date echeance">Date d’échéance</label>
                     <br>
-                    <input class="f-input" type="text" name="dateecheance" placeholder="Date d’échéance" onfocus="(this.type='date')" style="height: 28px;width: 200px;" required>
+                    <input class="f-input pl-2" type="text" name="dateecheance" placeholder="Date d’échéance" onfocus="(this.type='date')" style="height: 28px;width: 200px;" required>
                     <br><br>
-                    <label  class="f-label" for="cout">Coût de mission</label>
+                    <label  class="f-label" for="cout">Coût de Mission</label>
                     <br>
-                    <input class="f-input" type="text" name="cout" placeholder="Somme en Dhs" style="height: 28px;width: 200px;" required>
+                    <input class="f-input pl-2" type="text" name="cout" placeholder="Somme en Dhs" style="height: 28px;width: 200px;" required>
                 </div>
                 <br><br>
                 <button class="buttone" class="btn btn-default btn-lg"> Enregister</button>
@@ -72,9 +72,9 @@
 <form action="{{ url('/ordre-de-missions') }}" method="GET">
       {{csrf_field()}}
 <select class="form-select filordre" aria-label="Default select example" type="search" name="select" onchange="this.form.submit()">
-  <option selected>Selection filtre</option>
-  <option value="show">Mes ordres de missions</option>
-  <option value="index">Voir tous</option>
+  <option selected>Selection Filtre</option>
+  <option value="show">Mes Ordres de Missions</option>
+  <option value="index">Voir Tous</option>
 </select>
 </form>
 
@@ -86,7 +86,7 @@
             <div class="navbar-nav sm-menu">
                 <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/approved')}}">Accepter</a>
                 <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/declined')}}">Refuser</a>
-                <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/attente')}}">En attente</a>
+                <a class="nav-link px-md-5" href="{{url('/ordre-de-mission/attente')}}">En Attente</a>
             </div>
         </div>
     </nav>
@@ -118,7 +118,7 @@
 
                     <th></th>
 
-                    <th>Utilisateur en charge</th>
+                    <th>Utilisateur en Charge</th>
                 </tr>
 
             </thead>
@@ -153,7 +153,7 @@
 
                          <td><div class="block1"></div><button class="button0 button4" type="submit" name="status" value="accepter" class="btn btn-default btn-lg">Accepter</button></td>
                          <td><div class="block1"></div><button class="button0 button5" type="submit" name="status" value="refuser">Refuser</button></td>
-                         <td><div class="block1"></div><button class="button0 button6" type="submit" name="status" value="enattente">Mettre en attente</button></td>
+                         <td><div class="block1"></div><button class="button0 button6" type="submit" name="status" value="enattente">Mettre en Attente</button></td>
 
                      </form>
                  </tr>

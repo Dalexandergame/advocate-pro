@@ -7,10 +7,12 @@
 }
 
 .licontact {
+    float: left;
     margin-left: 30px;
 }
 
 .licompte {
+    float: left;
     margin-left: 30px;
     font-weight: bold;
     color: black;
@@ -84,10 +86,6 @@ li .acontact:link, .acontact:active{
 }
 td, th {
     text-align: center;
-}
-
-.clinet-input {
-
 }
 
 

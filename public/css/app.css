@@ -3187,8 +3187,8 @@ a {
   background-color: transparent;
 }
 a:hover {
-  color: #1d68a7;
-  text-decoration: underline;
+  /*color: #1d68a7;*/
+  text-decoration: none !important;
 }
 
 a:not([href]):not([class]) {
@@ -8571,7 +8571,7 @@ a.close.disabled {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 875px !important;
+    max-width: 500px;
     margin: 1.75rem auto;
   }
 
