@@ -20,12 +20,12 @@
 
             <div class="col customSelect">
                 <select>
-                    <option value="0">Type du compte</option>
+                    <option value="0">Type du Compte</option>
                     <option value="Particulier">Particulier</option>
                     <option value="societe">Société</option>
                     <option value="Famille">Famille</option>
-                    <option value="OrganisationG">Organisation gouvernementale</option>
-                    <option value="OrganisationNG">Organisation non gouvernementale</option>
+                    <option value="OrganisationG">Organisation Gouvernementale</option>
+                    <option value="OrganisationNG">Organisation Non Gouvernementale</option>
                 </select>
             </div>
             <div class="col">
@@ -34,12 +34,12 @@
         </div>
     </form>
     <br>
-    <a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter nouveau</a>
-    <button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la selection</button>
+    <a class="button button5 slide_down"><img src="/img/plus.png" height="12px" width="12px"> Ajouter Nouveau</a>
+    <button class="buttonx1 button-supprimer1" class="btn btn-default btn-lg"><img src="/img/trash.png" height="12px" width="12px" style="margin-top: -5px"> Supprimer la Selection</button>
 
     <br><br><br>
     <!--Create client account form-->
-    <form id="client_account_create" action="{{ route('clientcontacts.create') }}">
+    <form id="client_account_create" action="{{ route('clientcontacts.store') }}" method="POST">
         @csrf
         <div class="container bg-white" style="width: 94%;border: 1px solid #80808042;">
             <div class="row px-3 pt-3">
@@ -57,38 +57,38 @@
             </div>
             <div class="row pb-5" style="margin-left: 8rem">
                 <div class="col-md pl-1">
-                    <span class="font-weight-bold text-danger">Nombre de dossier</span>
+                    <span class="font-weight-bold text-danger">Nombre de Dossier</span>
                 </div>
             </div>
             <div class="row pb-4" style="margin-left: 8rem">
                 <div class="col-md p-0">
                     <div class="" >
                         <label class="addressdeplacement font-weight-bold">Adresse</label><br/>
-                        <input type="text" class="client-input-nb" placeholder="tapez votre adresse ici..." name="adresse">
+                        <input type="text" class="client-input-nb" placeholder="Tapez Votre Adresse Ici..." name="adresse">
                     </div>
                 </div>
                 <div class="col-md p-0">
                     <div class="">
                         <label for="" class="font-weight-bold">E-mail</label><br/>
-                        <input type="text" class="client-input-nb" placeholder="Tapez votre email" name="mail_contact_principal">
+                        <input type="text" class="client-input-nb" placeholder="Tapez Votre Email" name="mail_contact_principal">
                     </div>
                 </div>
                 <div class="col-md p-0">
                     <div class="">
                         <label for="" class="font-weight-bold">Tél</label><br/>
-                        <input type="text" class="client-input-nb" placeholder="Tapez votre numero" name="tel_contact">
+                        <input type="text" class="client-input-nb" placeholder="Tapez Votre Numero" name="tel_contact">
                     </div>
                 </div>
                 <div class="col-md p-0">
                     <div class="">
-                        <label for="" class="font-weight-bold">Dossiers liés</label><br/>
-                        <input type="text" class="client-input-nb" placeholder="numero du dossier" name="dossier_lier">
+                        <label for="" class="font-weight-bold">Dossiers Liés</label><br/>
+                        <input type="text" class="client-input-nb" placeholder="Numero du Dossier" name="dossier_lier">
                     </div>
                 </div>
             </div>
             <div class="row pb-3" style="margin-left: 8rem">
                 <div class="col p-0 mt-4">
-                    <input type="text" class="client-input py-1 px-3 mb-2" id="inlineFormInput" placeholder="#tag words">
+                    <input type="text" class="client-input py-1 px-3 mb-2" id="inlineFormInput" placeholder="#Tag Words">
                 </div>
                 <div class="col d-flex justify-content-md-end p-3 mt-4">
                     <button type="submit" class="button-save mr-3"><img src="/img/save.png" height="13px" width="13px"/><span class="pl-2">Enregistrer</span></button>
@@ -107,7 +107,7 @@
 				<th scope="col">Ville</th>
 				<th scope="col">Tél</th>
 				<th scope="col">Mail</th>
-				<th scope="col">Nombre de dossier</th>
+				<th scope="col">Nombre de Dossier</th>
 			</tr>
 		</thead>
 		<tbody>

@@ -6,21 +6,21 @@
 
 @section('content')
     <div class="d-flex px-3">
-        <a href="#" class="text-dark text-decoration-none px-4 py-2">Mes documents</a>
-        <a href="#" class="text-dark text-decoration-none px-4 py-2">Doccuments interne</a>
+        <a href="#" class="text-dark text-decoration-none px-4 py-2">Mes Documents</a>
+        <a href="#" class="text-dark text-decoration-none px-4 py-2">Documents Interne</a>
     </div>
     <div class="btn-wrapper d-flex pt-3">
         <button class="download-btn">
             <img src="img/download.svg"/>
-            <span class="pl-2">Telecharger la selection</span>
+            <span class="pl-2">Telecharger la Selection</span>
         </button>
         <button class="plus-btn btn-dark">
             <img src="img/plus.svg"/>
-            <span class="pl-2" data-toggle="modal" data-target="#adddocument">Ajouter nouveau</span>
+            <span class="pl-2" data-toggle="modal" data-target="#adddocument">Ajouter Nouveau</span>
         </button>
         <button class="trash-btn btn-danger">
             <img src="img/trash.svg"/>
-            <span class="pl-2" id="deleteAllSelectedRecord">Supprimer la selection</span>
+            <span class="pl-2" id="deleteAllSelectedRecord">Supprimer la Selection</span>
         </button>
         
     </div>
@@ -29,10 +29,10 @@
       <thead>
         <tr>
           <th scope="col"><input type="checkbox" id="chkCheckAll"/></th>
-          <th scope="col">petit format de document</th>
+          <th scope="col">Petit Format de Document</th>
           <th scope="col">Titre</th>
-          <th scope="col">Date d'ajout</th>
-          <th scope="col">Date dernière modification</th>
+          <th scope="col">Date d'Ajout</th>
+          <th scope="col">Date Dernière Modification</th>
           <th scope="col">Options</th>
         </tr>
       </thead>
@@ -47,9 +47,9 @@
           <form action="{{url('documents/'.$data->id)}}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <td><a class="btn btn-info" href="{{url('/documents/documentview',$data->id)}}" role="button">Afficher details</a>
-                    <a class="btn btn-primary" href="{{url('/documents/download',$data->file)}}" role="button">telecharger</a>
-                    <button type="submit" class="btn btn-danger">supprimer</button></td>
+                    <td><a class="btn btn-info" href="{{url('/documents/documentview',$data->id)}}" role="button">Afficher Details</a>
+                    <a class="btn btn-primary" href="{{url('/documents/download',$data->file)}}" role="button">Telecharger</a>
+                    <button type="submit" class="btn btn-danger">Supprimer</button></td>
            </form> 
         </tr>  
       @endforeach       
@@ -62,7 +62,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Ajouter nouveau document</h5>
+        <h5 class="modal-title">Ajouter Nouveau Document</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -71,14 +71,14 @@
       <form action="{{url('/documents/uploaddocument')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
-        <label for="title">Titre du document :</label><br>
+        <label for="title">Titre du Document :</label><br>
         <input type="text" name="title"><br><br>
-        <label for="desc">Description du document :</label><br>
+        <label for="desc">Description du Document :</label><br>
         <input type="text" name="desc"><br><br>
-        <label for="file">Le document à ajouter :</label><br>
+        <label for="file">Le Document à Ajouter :</label><br>
         <input type="file" name="file"><br><br>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermé</button>
         <button type="submit" class="btn btn-primary">Ajouter</button>
         </div>
     </form>

@@ -19,10 +19,10 @@
         <div class="row pt-5">
             <div class="col-1"></div>
             <div class="col"></div>
-            <div class="col text-center font-weight-bold">Liste des produits</div>
+            <div class="col text-center font-weight-bold">Liste des Produits</div>
             <div class="col text-center font-weight-bold">Quantités</div>
             <div class="col text-center font-weight-bold">Personne</div>
-            <div class="col-3 text-center font-weight-bold">État de la demande</div>
+            <div class="col-3 text-center font-weight-bold">État de la Demande</div>
 
         </div>
         @foreach(\App\Models\Demand::all() as $demand )
@@ -47,13 +47,13 @@
                         @endforeach
                     @endif
                 </div>
-                <div class="col text-center">Nom de personne</div>
+                <div class="col text-center">Nom de Personne</div>
                 <div class="col-3 text-center font-weight-bold">{{$demand->state}}</div>
             </div>
             </a>
         @endforeach
-        <a href="/inventaire" class="btn-danger float-lg-right p-2 px-5 mt-4 ml-3">liste des produits</a>
-        <a href="{{route('demands.create')}}" class="btn-dark float-lg-right p-2 px-5 mt-4 mb-3">Nouvelle demande</a>
+        <a href="/inventaire" class="btn-danger float-lg-right p-2 px-5 mt-4 ml-3">Liste des Produits</a>
+        <a href="{{route('demands.create')}}" class="btn-dark float-lg-right p-2 px-5 mt-4 mb-3">Nouvelle Demande</a>
     </div>
 @endsection
 

@@ -7,25 +7,25 @@
                 <h5 class="pb-3 font-weight-bold">Utilisateurs</h5>
                 <div class="user-task bg-white">
                     <div class="d-flex justify-content-between px-4 pt-2 pb-4">
-                        <div>Nombre de taches</div>
+                        <div>Nombre de Taches</div>
                         <div>Auôt 2020 (Date)</div>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 1</div>
+                    <div class="pt-2 pl-4 border-secondary">Nom d'utilisateur 1</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 2</div>
+                    <div class="pt-2 pl-4 border-secondary">Nom d'utilisateur 2</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 3</div>
+                    <div class="pt-2 pl-4 border-secondary">Nom d'utilisateur 3</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
                     </div>
-                    <div class="p-2 border-secondary">Nom d'utilisateur 4</div>
+                    <div class="pt-2 pl-4 border-secondary">Nom d'utilisateur 4</div>
                     <div class="progress">
                         <div class="progress-bar bg-secondary" style="width:70%"></div>
                         <span class="pt-3 pl-5">21 Taches</span>
@@ -37,10 +37,10 @@
                 <div class=" dossjur row bg-white">
                     <div class="circle"></div>
                     <div class="index">
-                        <div class="d-flex align-items-center"> <div class="sm-circle bg-red"></div><span class="p-3">Dossier gagnier</span> </div>
-                        <div class="d-flex align-items-center"> <div class="sm-circle bg-dark"></div><span class="p-3">Dossier perdu</span> </div>
-                        <div class="d-flex align-items-center"> <div class="sm-circle bg-primary"></div><span class="p-3">Dossier fermer</span> </div>
-                        <div class="d-flex align-items-center"> <div class="sm-circle bg-red"></div><span class="p-3">Dossier ouvert</span> </div>
+                        <div class="d-flex align-items-center"> <div class="sm-circle bg-red"></div><span class="p-2">Dossier Gagné</span> </div>
+                        <div class="d-flex align-items-center"> <div class="sm-circle bg-dark"></div><span class="p-2">Dossier Perdu</span> </div>
+                        <div class="d-flex align-items-center"> <div class="sm-circle bg-primary"></div><span class="p-2">Dossier Fermé</span> </div>
+                        <div class="d-flex align-items-center"> <div class="sm-circle bg-red"></div><span class="p-2">Dossier Ouvert</span> </div>
                         <div></div>
                     </div>
                 </div>

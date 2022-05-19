@@ -6,20 +6,20 @@
 
   <div style="width:320px; display: inline-block;"><form action="{{ url('calendrier/filteradmin') }}" method="GET">
       {{csrf_field()}}
-<select  type="search" name="search" class="form-select filordre" aria-label="Default select example"  onchange="this.form.submit()">
-  <option disabled selected>Selection filtre cabinet</option>
+<select  type="search" name="search" class="form-select filordre pl-2 rounded" aria-label="Default select example"  onchange="this.form.submit()">
+  <option disabled selected>Selection Filtre Cabinet</option>
   <option value="admin">Utilisateur</option>
   <option value="all">Cabinet</option>
 </select>
    </form>
  </div>
 
-<select class="form-select filordre" aria-label="Default select example">
-  <option selected>Selection filtre</option>
+<select class="form-select filordre pl-2 rounded" aria-label="Default select example">
+  <option selected>Selection Filtre</option>
   <option value="1">Tâches</option>
-  <option value="2">Audiances</option>
-  <option value="2">Rendez vous</option>
-  <option value="2">Tous</option>
+  <option value="2">Audiences</option>
+  <option value="3">Rendez Vous</option>
+  <option value="4">Tous</option>
 </select>
 
    <div style="width:320px; display: inline-block;">
@@ -27,7 +27,7 @@
       {{csrf_field()}}
       <div class="input-group custom-search-form">
         <select type="search" name="search" class="form-control input-search" placeholder="Nom d’étulisateur"  onchange="this.form.submit()">
-          <option disabled selected>Selection filtre utilisateur</option>
+          <option disabled selected>Selection Filtre Utilisateur</option>
            @foreach($users as $user)
            <option value="{{ $user->name }}">{{ $user->name }}</option>
            @endforeach
