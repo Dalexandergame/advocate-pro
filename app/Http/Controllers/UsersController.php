@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Role;
+use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
@@ -16,8 +18,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $user=user::all();
-        return view('users/userview',compact('user'));
+        $roles_available = Role::whereNotIn('name',['Super Admin'])->get();
+        $users=user::all();
+        return view('users.users',compact('users','roles_available'));
     }
 
     /**
@@ -38,7 +41,31 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $password = Str::random(10);
+
+        //dd($request->all());
+
+        $data = $request->validate([
+            'name'  => ['required', 'string', 'max:255'],
+            'phone' => ['string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
+            'role'  =>  'required'
+        ]);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'phone' => $data['phone'],
+            'email' => $data['email'],
+            'password' => Hash::make($password),
+        ]);
+
+        $user->assignRole($data['role']);
+
+        if($request->input('action') == 'give_access')
+        {
+            //TODO create a mail to send access the the user
+        }
+        return redirect()->route('users.index');
     }
 
     /**

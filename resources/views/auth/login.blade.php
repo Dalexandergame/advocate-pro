@@ -70,7 +70,7 @@
                     <div class="mb-5">
                         @if (Route::has('password.request'))
                             <a class="text-decoration-none text-dark" href="{{ route('password.request') }}">
-                                {{ __('Mot de passe oublier ?') }}
+                                {{ __('Mot de passe oublié ?') }}
                             </a>
                         @endif
                     </div>

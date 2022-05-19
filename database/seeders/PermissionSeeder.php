@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Helpers\Sections;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -14,21 +15,14 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        foreach (Sections::SECTIONS as $item){
+            Permission::create(['name' => 'view all '.$item.'s']);
+            Permission::create(['name' => 'view '.$item]);
+            Permission::create(['name' => 'edit '.$item]);
+            Permission::create(['name' => 'delete '.$item]);
+        }
 
-        Permission::create(['name' => 'create a dossier']);
-        Permission::create(['name' => 'view own dossier']);
-        Permission::create(['name' => 'view all dossiers']);
-        Permission::create(['name' => 'edit own dossier']);
-        Permission::create(['name' => 'delete own dossier']);
-        Permission::create(['name' => 'create own order de mission']);
-        Permission::create(['name' => 'view own order de mission']);
-        Permission::create(['name' => 'view all orderes des missions']);
-        Permission::create(['name' => 'edit own order de mission']);
-        Permission::create(['name' => 'delete own order de mission']);
-        Permission::create(['name' => 'handle orderes des missions']);
-        Permission::create(['name' => 'assign tasks']);
-        Permission::create(['name' => 'access inventory']);
-        Permission::create(['name' => 'give access']);
+        Permission::create(['name' => 'view Dashboard']);
 
     }
 }

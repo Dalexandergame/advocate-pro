@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
-use App\Models\Permission;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class RolesController extends Controller
 {
@@ -17,18 +17,9 @@ class RolesController extends Controller
     {
         $roles = Role::orderBy('id', 'desc')->get();
 
-        return view('users.rolesview', ['roles' => $roles]);
+        return view('users.roles', ['roles' => $roles]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('users.rolescreate');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -39,26 +30,17 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role_name' => 'required|max:255',
-            'role_slug' => 'required|max:255'
+            'name' => 'required|max:255',
         ]);
 
-        $role = new Role();
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $role->name = $request->role_name;
-        $role->slug = $request->role_slug;
-        $role-> save();
-
-        $listOfPermissions = explode(',', $request->roles_permissions);//create array from separated/coma permissions
-
-        foreach ($listOfPermissions as $permission) {
-            $permissions = new Permission();
-            $permissions->name = $permission;
-            $permissions->slug = strtolower(str_replace(" ", "-", $permission));
-            $permissions->save();
-            $role->permissions()->attach($permissions->id);
-            $role->save();
-        }    
+        $role = Role::create(['name' => $request->name]);
+        $permissions = $request->except('name','_token');
+        foreach ($permissions as $permission)
+        {
+            $role->givePermissionTo($permissions);
+        }
 
         return redirect('/roles');
 
@@ -108,7 +90,7 @@ class RolesController extends Controller
         $role->permissions()->detach();
 
         $listOfPermissions = explode(',', $request->roles_permissions);//create array from separated/coma permissions
-        
+
         foreach ($listOfPermissions as $permission) {
             $permissions = new Permission();
             $permissions->name = $permission;
@@ -116,7 +98,7 @@ class RolesController extends Controller
             $permissions->save();
             $role->permissions()->attach($permissions->id);
             $role->save();
-        }    
+        }
 
         return redirect('/roles');
     }

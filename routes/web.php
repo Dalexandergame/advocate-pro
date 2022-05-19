@@ -55,9 +55,6 @@ Route::get('/new-forget', function () {
     return view('auth/newForget');
 });
 
-Route::get('/new-register', function () {
-    return view('users/newRegister');
-});
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -67,7 +64,7 @@ Route::resource('/users', UsersController::class)->middleware('auth');
 Route::get('/users/delete/{id}', [UsersController::class, 'destroy'])->middleware('auth');
 Route::resource('/roles', RolesController::class);
 Route::get('/roles/delete/{id}', [RolesController::class, 'destroy'])->middleware('auth');
-Route::resource('/permissions', PermissionController::class)->middleware('auth');
+Route::get('/permissions', [PermissionController::class, 'index'])->middleware('auth');
 Route::get('/permissions/delete/{id}', [PermissionController::class, 'destroy'])->middleware('auth');
 
 Auth::routes();

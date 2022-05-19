@@ -21,25 +21,18 @@
     <div class="card-header">
     <div class="card-body">
         <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered" id="dataTable" width="75%" cellspacing="0">
             <thead>
             <tr>
                 <th>Id</th>
                 <th>permission</th>
-                <th>date de creation</th>
-                <th>options</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($perms as $perms)
+                @foreach ($perms as $perm)
                     <tr>
-                        <td>{{ $perms['id'] }}</td>
-                        <td>{{ $perms['name'] }}</td>
-                        <td>{{ $perms['created_at'] }}</td>
-                        <td>
-                            <a href="/permissions/{{ $perms['id'] }}/edit">Editer - </i></a>
-                            <a href="/permissions/delete/{{ $perms['id'] }}"><i class="fas fa-trash-alt">Supprimer</i></a>
-                        </td>
+                        <td>{{ $perm['id'] }}</td>
+                        <td>{{ $perm['name'] }}</td>
                     </tr>
                 @endforeach
             </tbody>
