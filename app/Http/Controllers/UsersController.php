@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AccessMail;
 use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
@@ -63,7 +65,7 @@ class UsersController extends Controller
 
         if($request->input('action') == 'give_access')
         {
-            //TODO create a mail to send access the the user
+            Mail::to($user->email)->send(new AccessMail($user->email,$password));
         }
         return redirect()->route('users.index');
     }

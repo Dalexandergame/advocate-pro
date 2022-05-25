@@ -40,6 +40,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\dossierjuridiques');
     }
 
+    public function Jurisprudences()
+    {
+        return $this->hasMany(Jurisprudence::class);
+
+    }
+
     protected $table = 'users';
 
     /**
@@ -77,11 +83,6 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
-    public function Jurisprudences()
-    {
-        return $this->hasMany(Jurisprudence::class);
-
-    }
     /**
      * Send the password reset notification.
      *
