@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" style="{ margin: 0;padding-left: 2rem ;}">
-        <div class="row">
-            <div class="col-5">
+    <div class="grow">
+        <div class="flex flex-row gap-x-7">
+            <div class="basis-2/5">
                 <h5 class="pb-3 font-weight-bold">Utilisateurs</h5>
                 <div class="user-task bg-white">
                     <div class="d-flex justify-content-between px-4 pt-2 pb-4">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="basis-3/5">
                 <h5 class="pb-3 font-weight-bold">Dossiers Juridiques</h5>
                 <div class=" dossjur row bg-white">
                     <div class="circle"></div>
