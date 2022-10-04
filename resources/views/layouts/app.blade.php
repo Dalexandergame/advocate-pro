@@ -10,8 +10,7 @@
     <title>{{ config('app.name', 'AdvocatePRO') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,6 +25,7 @@
     <style>
         body {
             font-family: 'gotham', sans-serif;
+            background-color: #FAFAFA;
 
         }
     </style>
@@ -33,17 +33,38 @@
     @yield('styles')
 </head>
 <body>
-    <div class="sidebar">
+    <div >
         @include('layouts.sidebar')
+
+        <div class="flex flex-col md:pl-80">
+            @include('layouts.navbar')
+
+            <main class="grow">
+                <div class="py-6">
+                    {{--<div class="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+                        <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+                    </div>--}}
+                    <div class="mx-auto max-w-full px-4 sm:px-6 md:px-8">
+                        <!-- Replace with your content -->
+                        <div class="py-4">
+                            @yield('content')
+                        </div>
+                        <!-- /End replace -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
     </div>
-    <div class="navigation">
+    {{--<div class="navigation">
         <main class="py-4">
             @include('layouts.navbar')
         </main>
-    </div>
-    <div class="content">
+    </div>--}}
+    {{--<div class="content">
         @yield('content')
-    </div>
+    </div>--}}
 
     @yield('scripts')
     @yield('js_user_page')

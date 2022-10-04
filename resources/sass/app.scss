@@ -3,9 +3,12 @@
 @import '~font-awesome/scss/font-awesome.scss';
 
 // Variables
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 // Default styles
 @import 'default';
+@tailwind base;
+@tailwind components;
+@tailwind utilities
