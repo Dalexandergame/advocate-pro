@@ -36,6 +36,9 @@
 
 .list {
     padding: 0.5rem 0 0.5rem 2.7rem;
+    /*padding-right: ;
+    padding-left: 3rem;
+    padding-bottom: 0;*/
     justify-items: center;
 }
 .list span {

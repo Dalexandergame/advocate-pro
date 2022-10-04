@@ -10,8 +10,7 @@
     <title>{{ config('app.name', 'AdvocatePRO') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,6 +25,7 @@
     <style>
         body {
             font-family: 'gotham', sans-serif;
+            background-color: #FAFAFA;
 
         }
     </style>
