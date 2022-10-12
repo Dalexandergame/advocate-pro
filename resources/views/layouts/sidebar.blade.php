@@ -240,6 +240,11 @@
                     <x-logo></x-logo>
                 </a>
             </div>
+            <div class="flex justify-center">
+                <span class="text-white text-sm text-gray-700">
+                    {{config('app.version')}}
+                </span>
+            </div>
             <div class="flex flex-1 flex-col overflow-y-auto">
                 <nav class="flex-1 space-y-1 px-2 py-2">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
